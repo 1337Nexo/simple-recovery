@@ -5,6 +5,7 @@
 #include "fiber_pool.hpp"
 #include "natives.hpp"
 #include "gta_util.hpp"
+#include "ImGuiBitfield.h"
 
 namespace big
 {
@@ -28,6 +29,8 @@ namespace big
 			if (ImGui::SliderScalar("Double", ImGuiDataType_Double, g_settings.options["demo double"].get<double*>(), &min, &max)) //JSON does not describe rational numbers as integer/float/double/etc types, it is just "number". See: https://nlohmann.github.io/json/features/types/
 				g_settings.save();
 			if (ImGui::Combo("Combo", (PINT)g_settings.options["demo combo"].get<int64_t*>(), demo_combo, sizeof(demo_combo) / sizeof(*demo_combo)))
+				g_settings.save();
+			if (ImGui::Bitfield("Bitfield", g_settings.options["demo bitset"].get<int64_t*>()))
 				g_settings.save();
 			
 			if (ImGui::Button("Spawn an Adder"))

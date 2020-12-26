@@ -16,7 +16,8 @@ namespace big
 			"demo bool": false,
 			"demo int": 1,
 			"demo double": 1.0,
-			"demo combo": 0
+			"demo combo": 0,
+			"demo bitset": 62678480396171113
 		})"_json;
 
 		bool save()
