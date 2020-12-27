@@ -1,6 +1,7 @@
 #pragma once
 
 #include <imgui.h>
+#include <string.h>
 
 namespace ImGui
 {
@@ -10,19 +11,32 @@ namespace ImGui
 		bool ret_val = false;
 		ImGuiDataType type;
 		size_t size = sizeof(T);
-		if (size == 1LL)
+		std::string format;
+		if (size == 1)
+		{
 			type = ImGuiDataType_U8;
-		if (size == 2LL)
+			format = "%02X";
+		}
+		if (size == 2)
+		{
 			type = ImGuiDataType_U16;
-		if (size == 4LL)
+			format = "%04X";
+		}
+		if (size == 4)
+		{
 			type = ImGuiDataType_U32;
-		if (size == 8LL)
+			format = "%08X";
+		}
+		if (size == 8)
+		{
 			type = ImGuiDataType_U64;
+			format = "%p";
+		}
 		
-		if (ImGui::InputScalar(name, type, param, NULL, NULL, "%p", ImGuiInputTextFlags_CharsHexadecimal))
+		if (ImGui::InputScalar(name, type, param, NULL, NULL, format.c_str(), ImGuiInputTextFlags_CharsHexadecimal))
 			ret_val = true;
-		size_t bits = (size * 8LL) - 1LL;
-		for (size_t i = bits; i < 0xFFFFFFFFFFFF; i--)
+		size_t bits = (size * 8) - 1ULL;
+		for (size_t i = bits; i < SIZE_MAX; i--)
 		{
 			if (i % 4 == 0)
 				ImGui::BeginGroup();
@@ -30,7 +44,7 @@ namespace ImGui
 			{
 				ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32_BLACK_TRANS);
 				ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(41, 134, 204, 255));
-				if (ImGui::Button(fmt::format("1##{}{}", i, name).c_str()))
+				if (ImGui::Button(std::string("1##").append(std::to_string(i)).append(name).c_str(), ImVec2(25, 0)))
 				{
 					ret_val = true;
 					*param ^= (1ULL << i);
@@ -40,7 +54,7 @@ namespace ImGui
 			else
 			{
 				ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32_BLACK_TRANS);
-				if (ImGui::Button(fmt::format("0##{}{}", i, name).c_str()))
+				if (ImGui::Button(std::string("0##").append(std::to_string(i)).append(name).c_str(), ImVec2(25, 0)))
 				{
 					ret_val = true;
 					*param ^= (1ULL << i);
