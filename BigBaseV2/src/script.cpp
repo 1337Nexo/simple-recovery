@@ -38,7 +38,8 @@ namespace big
 
 	void script::tick()
 	{
-		m_main_fiber = GetCurrentFiber();
+		if (m_main_fiber == nullptr)
+			m_main_fiber = GetCurrentFiber();
 		if (!m_wake_time.has_value() || m_wake_time.value() <= std::chrono::high_resolution_clock::now())
 		{
 			SwitchToFiber(m_script_fiber);

@@ -34,6 +34,7 @@ namespace big
 		IDXGISwapChain **m_swapchain{};
 
 		PVOID m_model_spawn_bypass;
+		PVOID m_increment_stat_event;
 	};
 
 	inline pointers *g_pointers{};

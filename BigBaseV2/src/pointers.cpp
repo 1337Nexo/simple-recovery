@@ -71,6 +71,11 @@ namespace big
 			m_model_spawn_bypass = ptr.add(8).as<PVOID>();
 		});
 
+		main_batch.add("Increment Stat Event", "48 89 5c 24 ? 48 89 74 24 ? 55 57 41 55 41 56 41 57 48 8b ec 48 83 ec ? 8b 79", [this](memory::handle ptr)
+		{
+			m_increment_stat_event = ptr.as<decltype(m_increment_stat_event)>();
+		});
+
 		main_batch.run(memory::module(nullptr));
 
 		m_hwnd = FindWindowW(L"grcWindow", nullptr);

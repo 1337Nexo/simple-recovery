@@ -13,11 +13,11 @@ namespace big
 		nlohmann::json options;
 		nlohmann::json default_options =
 		R"({
+            "reset rig slot machines limit": false,
 			"demo bool": false,
 			"demo int": 1,
 			"demo double": 1.0,
-			"demo combo": 0,
-			"demo bitset": 62678480396171113
+			"demo combo": 0
 		})"_json;
 
 		bool save()

@@ -1,6 +1,12 @@
 #pragma once
 #include <cstdint>
 
+enum eCharacterIndex : std::uint32_t
+{
+	MP0 = 0,
+	MP1 = 1,
+};
+
 enum eGameState : std::uint32_t
 {
 	Playing = 0

@@ -37,8 +37,8 @@ namespace big
 		m_set_cursor_pos_hook("SetCursorPos", memory::module("user32.dll").get_export("SetCursorPos").as<void*>(), &hooks::set_cursor_pos),
 
 		m_run_script_threads_hook("Script hook", g_pointers->m_run_script_threads, &hooks::run_script_threads),
-		m_convert_thread_to_fiber_hook("ConvertThreadToFiber", memory::module("kernel32.dll").get_export("ConvertThreadToFiber").as<void*>(), &hooks::convert_thread_to_fiber)
-
+		m_convert_thread_to_fiber_hook("ConvertThreadToFiber", memory::module("kernel32.dll").get_export("ConvertThreadToFiber").as<void*>(), &hooks::convert_thread_to_fiber),
+		m_increment_stat_event_hook("Increment Stat Event", g_pointers->m_increment_stat_event, &hooks::increment_stat_event)
 	{
 		m_swapchain_hook.hook(hooks::swapchain_present_index, &hooks::swapchain_present);
 		m_swapchain_hook.hook(hooks::swapchain_resizebuffers_index, &hooks::swapchain_resizebuffers);
@@ -62,6 +62,7 @@ namespace big
 
 		m_run_script_threads_hook.enable();
 		m_convert_thread_to_fiber_hook.enable();
+		m_increment_stat_event_hook.enable();
 
 		m_enabled = true;
 	}
@@ -72,6 +73,7 @@ namespace big
 
 		m_convert_thread_to_fiber_hook.disable();
 		m_run_script_threads_hook.disable();
+		m_increment_stat_event_hook.disable();
 
 		m_set_cursor_pos_hook.disable();
 		SetWindowLongPtrW(g_pointers->m_hwnd, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(m_og_wndproc));
@@ -86,6 +88,24 @@ namespace big
 	minhook_keepalive::~minhook_keepalive()
 	{
 		MH_Uninitialize();
+	}
+
+	bool hooks::increment_stat_event(CNetworkIncrementStatEvent* event_struct, CNetGamePlayer* sender, int64_t a3)
+	{
+		auto stat = event_struct->m_hash;
+		//auto sender_name = sender->player_info->m_name;
+
+		//LOG(INFO) << fmt::format("Blocked report {} | {}", sender_name, stat);
+		LOG(INFO) << fmt::format("Blocked report {}", stat);
+
+		/*
+		if (event_helper::report_function(stat, sender_name))
+		{
+			return true;
+		}
+		*/
+
+		return true;
 	}
 
 	bool hooks::run_script_threads(std::uint32_t ops_to_execute)
