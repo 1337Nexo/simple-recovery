@@ -587,7 +587,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Packed Bools");
 			static int packed_bool{};
-			const char* const packed_bools[]{ "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGPSTAT_BOOL", "_NGPSTAT_BOOL", "_TUNERPSTAT_BOOL" };
+			const char* const packed_bools[]{ "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGPSTAT_BOOL", "_NGPSTAT_BOOL", "_TUNERPSTAT_BOOL", "_GANGOPSPSTAT_BOOL" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
 			ImGui::PopItemWidth();
@@ -806,6 +806,14 @@ namespace big
 						});
 					break;
 				}
+				case 18:
+				{
+					g_fiber_pool->queue_job([]
+						{
+							set_packed_bool(true, "_GANGOPSPSTAT_BOOL", 18098, 18162);
+						});
+					break;
+				}
 				}
 			}
 			ImGui::SameLine();
@@ -1020,6 +1028,14 @@ namespace big
 					g_fiber_pool->queue_job([]
 						{
 							set_packed_bool(false, "_TUNERPSTAT_BOOL", 31707, 32283);
+						});
+					break;
+				}
+				case 18:
+				{
+					g_fiber_pool->queue_job([]
+						{
+							set_packed_bool(true, "_GANGOPSPSTAT_BOOL", 18098, 18162);
 						});
 					break;
 				}
