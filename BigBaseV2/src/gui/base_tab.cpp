@@ -20,6 +20,31 @@ using namespace big;
 
 namespace big
 {
+	static void set_packed_bool(bool value, const char* section, int32_t min_i, int32_t max_i)
+	{
+		for (auto index = min_i; index <= max_i; index++)
+		{
+			auto hash = STATS::_GET_NGSTAT_BOOL_HASH((index - min_i), FALSE, TRUE, g_local_player.character_index, section);
+			auto mask = ((index - min_i) - STATS::_0xF4D8E7AC2A27758C((index - min_i)) * 64);
+			STATS::STAT_SET_BOOL_MASKED(hash, value, mask, TRUE);
+		}
+	}
+
+	// example: set_packed_bool(31736, true, "_TUNERPSTAT_BOOL", 31707)
+	/*
+	HUD::CLEAR_HELP(true);
+	func_799("BURIED_OUTHEL2", -1);
+	HUD::BEGIN_TEXT_COMMAND_THEFEED_POST("BURIED_OUTTIC");
+	HUD::END_TEXT_COMMAND_THEFEED_POST_UNLOCK_TU("CLOTHES_UNLOCK", 7, "BURIED_OUTHEL", 1);
+	func_19945(31736, 1, -1, 1);
+	*/
+	static void set_unique_packed_bool(int32_t index, bool value, const char* section, int32_t index_f)
+	{
+		auto hash = STATS::_GET_NGSTAT_BOOL_HASH((index - index_f), FALSE, TRUE, g_local_player.character_index, section);
+		auto mask = ((index - index_f) - STATS::_0xF4D8E7AC2A27758C((index - index_f)) * 64);
+		STATS::STAT_SET_BOOL_MASKED(hash, value, mask, TRUE);
+	}
+
 	static void unlock_everything_bool()
 	{
 		STATS::STAT_SET_BOOL(RAGE_JOAAT("MPPLY_MELEECHLENGECOMPLETED"), TRUE, TRUE);
@@ -485,14 +510,14 @@ namespace big
 
 	int get_rp_value(int value)
 	{
-		return *script_global(292402).at(value + 1).as<int*>();
+		return *script_global(293361).at(value + 1).as<int*>();
 	}
 
 	void base_tab::render_base_tab()
 	{
 		if (ImGui::BeginTabItem("Online"))
 		{
-			ImGui::Text("Ballistic Equipment");
+			ImGui::Text("Ballistic Equipment (maybe outdated)");
 			static int ballisticarmorvalue;
 			ImGui::InputInt("###ballisticarmorvalue", &ballisticarmorvalue);
 			ImGui::SameLine();
@@ -527,38 +552,10 @@ namespace big
 			{
 				QUEUE_JOB_BEGIN_CLAUSE()
 				{
-					*script_global(2409291).at(8).as<int*>() = 1;
+					// Global_2409299.f_8 = 0;
+					*script_global(2409299).at(8).as<int*>() = 1;
 				} QUEUE_JOB_END_CLAUSE
 			}
-			ImGui::Separator();
-			ImGui::Text("Diamond Casino (risky, maybe detected)");
-			if (ImGui::Button("Rig Slot Machines"))
-			{
-				QUEUE_JOB_BEGIN_CLAUSE()
-				{
-					if (auto slots_thread = gta_util::find_script_thread(rage::joaat("CASINO_SLOTS")))
-					{
-						for (int f = 0; f < 3; f++)
-						{
-							for (int i = 0; i < 63; i++)
-							{
-								auto slots = *script_local(slots_thread, 1356 + 1 + 1 + (f * 65) + 1 + i).as<int*>() = 6;
-							}
-						}
-					}
-				} QUEUE_JOB_END_CLAUSE
-
-			}
-			ImGui::SameLine();
-			if (ImGui::Button("Reset Rig Slot Machines Limit"))
-			{
-				QUEUE_JOB_BEGIN_CLAUSE()
-				{
-					STATS::STAT_SET_INT(RAGE_JOAAT("MPPLY_CASINO_CHIPS_WON_GD"), 0, true);
-				} QUEUE_JOB_END_CLAUSE
-			}
-			ImGui::SameLine();
-			ImGui::Checkbox("Reset Rig Slot Machines Limit##loop", g_settings.options["reset rig slot machines limit"].get<bool*>());
 			ImGui::Separator();
 			ImGui::Text("Level");
 			static int level{};
@@ -590,7 +587,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Packed Bools");
 			static int packed_bool{};
-			const char* const packed_bools[]{ "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGPSTAT_BOOL", "_NGPSTAT_BOOL" };
+			const char* const packed_bools[]{ "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGPSTAT_BOOL", "_NGPSTAT_BOOL", "_TUNERPSTAT_BOOL" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
 			ImGui::PopItemWidth();
@@ -798,6 +795,14 @@ namespace big
 								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 4335), 0, 1, g_local_player.character_index, "_NGPSTAT_BOOL"),
 									true, ((i - 4335) - STATS::_0xF4D8E7AC2A27758C((i - 4335)) * 64), 1);
 							}
+						});
+					break;
+				}
+				case 17:
+				{
+					g_fiber_pool->queue_job([]
+						{
+							set_packed_bool(true, "_TUNERPSTAT_BOOL", 31707, 32283);
 						});
 					break;
 				}
@@ -1010,10 +1015,18 @@ namespace big
 						});
 					break;
 				}
+				case 17:
+				{
+					g_fiber_pool->queue_job([]
+						{
+							set_packed_bool(false, "_TUNERPSTAT_BOOL", 31707, 32283);
+						});
+					break;
+				}
 				}
 			}
 
-			ImGui::Text("_SU20PSTAT_BOOL -> Summer Update.\n_CASINOPSTAT_BOOL -> Casino DLC.\n_CASINOHSTPSTAT_BOOL -> Casino Heist DLC (arcade stuff etc.).\n_DLCGUNPSTAT_BOOL -> Gun Running DLC (bunker research).\n_ARENAWARSPSTAT_BOOL -> Arena Wars DLC.\n_HISLANDPSTAT_BOOL -> Cayo Perico Heist DLC (golden gun etc.).\n_DLCBIKEPSTAT_BOOL -> Bikers DLC.");
+			ImGui::Text("_SU20PSTAT_BOOL -> Summer Update.\n_CASINOPSTAT_BOOL -> Casino DLC.\n_CASINOHSTPSTAT_BOOL -> Casino Heist DLC (arcade stuff etc.).\n_DLCGUNPSTAT_BOOL -> Gun Running DLC (bunker research).\n_ARENAWARSPSTAT_BOOL -> Arena Wars DLC.\n_HISLANDPSTAT_BOOL -> Cayo Perico Heist DLC (golden gun etc.).\n_DLCBIKEPSTAT_BOOL -> Bikers DLC.\n_TUNERPSTAT_BOOL -> Tuners DLC");
 
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
