@@ -1123,7 +1123,7 @@ namespace big
 			}
 
 			static int unlock{};
-			const char* const unlocks[]{ "All", "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research" };
+			const char* const unlocks[]{ "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research" };
 			ImGui::PushItemWidth(185.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
 			ImGui::SameLine();
