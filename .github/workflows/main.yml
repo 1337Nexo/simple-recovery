@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push: 
+    branches: 
+      - simple-recovery
+      
+jobs:
+  test:
+    runs-on: windows-2019
+    env:
+      VS_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\
+      MSBUILD_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\
+  
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
+    
+    - name: Setup premake
+      uses: abel0b/setup-premake@v1
+      
+    - name: Generate project files using Premake  
+      run: |
+        ls .premake
+        premake5 vs2019
+        
+    - name: Build BigBaseV2
+      shell: cmd
+      run: '"%MSBUILD_PATH%\MSBuild.exe" BigBaseV2/BigBaseV2.vcxproj /p:Platform=x64 /p:Configuration=Release'
+      
+    - name: Upload binaries to GitHub
+      uses: actions/upload-artifact@v1
+      with:
+        name: BigBaseV2
+        path: bin/Release/BigBaseV2.dll
