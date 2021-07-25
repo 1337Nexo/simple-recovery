@@ -587,7 +587,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Packed Bools");
 			static int packed_bool{};
-			const char* const packed_bools[]{ "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGPSTAT_BOOL", "_NGPSTAT_BOOL", "_TUNERPSTAT_BOOL", "_GANGOPSPSTAT_BOOL" };
+			const char* const packed_bools[]{ "_NGPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_GANGOPSPSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_TUNERPSTAT_BOOL" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
 			ImGui::PopItemWidth();
@@ -598,220 +598,89 @@ namespace big
 				{
 				case 0:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30227; i <= 30355; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30227), 0, 1, g_local_player.character_index, "_SU20PSTAT_BOOL"), true, ((i - 30227) - STATS::_0xF4D8E7AC2A27758C((i - 30227)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_NGPSTAT_BOOL", 4207, 4399);
 					break;
 				}
 				case 1:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30355; i <= 30483; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30355), 0, 1, g_local_player.character_index, "_SU20TATTOOSTAT_BOOL"),
-									true, ((i - 30355) - STATS::_0xF4D8E7AC2A27758C((i - 30355)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_NGTATPSTAT_BOOL", 6029, 6413);
 					break;
 				}
 				case 2:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15369; i <= 15561; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15369), 0, 1, g_local_player.character_index, "_DLCGUNPSTAT_BOOL"),
-									true, ((i - 15369) - STATS::_0xF4D8E7AC2A27758C((i - 15369)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_NGDLCPSTAT_BOOL", 7385, 7641);
 					break;
 				}
 				case 3:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15562; i <= 15946; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15562), 0, 1, g_local_player.character_index, "_GUNTATPSTAT_BOOL"),
-									true, ((i - 15562) - STATS::_0xF4D8E7AC2A27758C((i - 15562)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_DLCBIKEPSTAT_BOOL", 9361, 9553);
 					break;
 				}
 				case 4:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15946; i <= 16010; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15946), 0, 1, g_local_player.character_index, "_DLCSMUGCHARPSTAT_BOOL"),
-									true, ((i - 15946) - STATS::_0xF4D8E7AC2A27758C((i - 15946)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_DLCGUNPSTAT_BOOL", 15369, 15561);
 					break;
 				}
 				case 5:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 26810; i <= 27258; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 26810), 0, 1, g_local_player.character_index, "_CASINOPSTAT_BOOL"),
-									true, ((i - 26810) - STATS::_0xF4D8E7AC2A27758C((i - 26810)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_GUNTATPSTAT_BOOL", 15562, 15946);
+					break;
 				}
 				case 6:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 28098; i <= 28354; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28098), 0, 1, g_local_player.character_index, "_CASINOHSTPSTAT_BOOL"),
-									true, ((i - 28098) - STATS::_0xF4D8E7AC2A27758C((i - 28098)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_DLCSMUGCHARPSTAT_BOOL", 15946, 16010);
 					break;
 				}
 				case 7:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 28355; i <= 28483; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28355), 0, 1, g_local_player.character_index, "_HEIST3TATTOOSTAT_BOOL"),
-									true, ((i - 28355) - STATS::_0xF4D8E7AC2A27758C((i - 28355)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_GANGOPSPSTAT_BOOL", 18098, 18162);
 					break;
 				}
 				case 8:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 22066; i <= 22194; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 22066), 0, 1, g_local_player.character_index, "_BUSINESSBATPSTAT_BOOL"),
-									true, ((i - 22066) - STATS::_0xF4D8E7AC2A27758C((i - 22066)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_BUSINESSBATPSTAT_BOOL", 22066, 22194);
 					break;
 				}
 				case 9:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 24962; i <= 25538; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 24962), 0, 1, g_local_player.character_index, "_ARENAWARSPSTAT_BOOL"),
-									true, ((i - 24962) - STATS::_0xF4D8E7AC2A27758C((i - 24962)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_ARENAWARSPSTAT_BOOL", 24962, 25538);
 					break;
 				}
 				case 10:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30515; i <= 30707; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30515), 0, 1, g_local_player.character_index, "_HISLANDPSTAT_BOOL"),
-									true, ((i - 30515) - STATS::_0xF4D8E7AC2A27758C((i - 30515)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_CASINOPSTAT_BOOL", 26810, 27258);
 					break;
 				}
 				case 11:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 9361; i <= 9553; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 9361), 0, 1, g_local_player.character_index, "_DLCBIKEPSTAT_BOOL"),
-									true, ((i - 9361) - STATS::_0xF4D8E7AC2A27758C((i - 9361)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_CASINOHSTPSTAT_BOOL", 28098, 28354);
 					break;
 				}
 				case 12:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 7321; i <= 7385; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 7321), 0, 1, g_local_player.character_index, "_NGDLCPSTAT_BOOL"),
-									true, ((i - 7321) - STATS::_0xF4D8E7AC2A27758C((i - 7321)) * 64), 1);
-							}
-						});
+
+					set_packed_bool(true, "_HEIST3TATTOOSTAT_BOOL", 28355, 28483);
 					break;
 				}
 				case 13:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 7385; i <= 7641; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 7385), 0, 1, g_local_player.character_index, "_NGDLCPSTAT_BOOL"),
-									true, ((i - 7385) - STATS::_0xF4D8E7AC2A27758C((i - 7385)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_SU20PSTAT_BOOL", 30227, 30355);
 					break;
 				}
 				case 14:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 6029; i <= 6413; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 6029), 0, 1, g_local_player.character_index, "_NGTATPSTAT_BOOL"),
-									true, ((i - 6029) - STATS::_0xF4D8E7AC2A27758C((i - 6029)) * 64), 1);
-							}
-						});
+
+					set_packed_bool(true, "_SU20TATTOOSTAT_BOOL", 30355, 30483);
 					break;
 				}
 				case 15:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 4207; i <= 4335; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 4207), 0, 1, g_local_player.character_index, "_NGPSTAT_BOOL"),
-									true, ((i - 4207) - STATS::_0xF4D8E7AC2A27758C((i - 4207)) * 64), 1);
-							}
-						});
+					set_packed_bool(true, "_HISLANDPSTAT_BOOL", 30515, 30707);
 					break;
 				}
 				case 16:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 4335; i <= 4399; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 4335), 0, 1, g_local_player.character_index, "_NGPSTAT_BOOL"),
-									true, ((i - 4335) - STATS::_0xF4D8E7AC2A27758C((i - 4335)) * 64), 1);
-							}
-						});
-					break;
-				}
-				case 17:
-				{
-					g_fiber_pool->queue_job([]
-						{
-							set_packed_bool(true, "_TUNERPSTAT_BOOL", 31707, 32283);
-						});
-					break;
-				}
-				case 18:
-				{
-					g_fiber_pool->queue_job([]
-						{
-							set_packed_bool(true, "_GANGOPSPSTAT_BOOL", 18098, 18162);
-						});
+					set_packed_bool(true, "_TUNERPSTAT_BOOL", 31707, 32283);
 					break;
 				}
 				}
@@ -823,220 +692,89 @@ namespace big
 				{
 				case 0:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30227; i <= 30355; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30227), 0, 1, g_local_player.character_index, "_SU20PSTAT_BOOL"), false, ((i - 30227) - STATS::_0xF4D8E7AC2A27758C((i - 30227)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_NGPSTAT_BOOL", 4207, 4399);
 					break;
 				}
 				case 1:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30355; i <= 30483; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30355), 0, 1, g_local_player.character_index, "_SU20TATTOOSTAT_BOOL"),
-									false, ((i - 30355) - STATS::_0xF4D8E7AC2A27758C((i - 30355)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_NGTATPSTAT_BOOL", 6029, 6413);
 					break;
 				}
 				case 2:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15369; i <= 15561; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15369), 0, 1, g_local_player.character_index, "_DLCGUNPSTAT_BOOL"),
-									false, ((i - 15369) - STATS::_0xF4D8E7AC2A27758C((i - 15369)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_NGDLCPSTAT_BOOL", 7385, 7641);
 					break;
 				}
 				case 3:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15562; i <= 15946; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15562), 0, 1, g_local_player.character_index, "_GUNTATPSTAT_BOOL"),
-									false, ((i - 15562) - STATS::_0xF4D8E7AC2A27758C((i - 15562)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_DLCBIKEPSTAT_BOOL", 9361, 9553);
 					break;
 				}
 				case 4:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 15946; i <= 16010; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15946), 0, 1, g_local_player.character_index, "_DLCSMUGCHARPSTAT_BOOL"),
-									false, ((i - 15946) - STATS::_0xF4D8E7AC2A27758C((i - 15946)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_DLCGUNPSTAT_BOOL", 15369, 15561);
 					break;
 				}
 				case 5:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 26810; i <= 27258; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 26810), 0, 1, g_local_player.character_index, "_CASINOPSTAT_BOOL"),
-									false, ((i - 26810) - STATS::_0xF4D8E7AC2A27758C((i - 26810)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_GUNTATPSTAT_BOOL", 15562, 15946);
+					break;
 				}
 				case 6:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 28098; i <= 28354; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28098), 0, 1, g_local_player.character_index, "_CASINOHSTPSTAT_BOOL"),
-									false, ((i - 28098) - STATS::_0xF4D8E7AC2A27758C((i - 28098)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_DLCSMUGCHARPSTAT_BOOL", 15946, 16010);
 					break;
 				}
 				case 7:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 28355; i <= 28483; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28355), 0, 1, g_local_player.character_index, "_HEIST3TATTOOSTAT_BOOL"),
-									false, ((i - 28355) - STATS::_0xF4D8E7AC2A27758C((i - 28355)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_GANGOPSPSTAT_BOOL", 18098, 18162);
 					break;
 				}
 				case 8:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 22066; i <= 22194; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 22066), 0, 1, g_local_player.character_index, "_BUSINESSBATPSTAT_BOOL"),
-									false, ((i - 22066) - STATS::_0xF4D8E7AC2A27758C((i - 22066)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_BUSINESSBATPSTAT_BOOL", 22066, 22194);
 					break;
 				}
 				case 9:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 24962; i <= 25538; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 24962), 0, 1, g_local_player.character_index, "_ARENAWARSPSTAT_BOOL"),
-									false, ((i - 24962) - STATS::_0xF4D8E7AC2A27758C((i - 24962)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_ARENAWARSPSTAT_BOOL", 24962, 25538);
 					break;
 				}
 				case 10:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 30515; i <= 30707; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30515), 0, 1, g_local_player.character_index, "_HISLANDPSTAT_BOOL"),
-									false, ((i - 30515) - STATS::_0xF4D8E7AC2A27758C((i - 30515)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_CASINOPSTAT_BOOL", 26810, 27258);
 					break;
 				}
 				case 11:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 9361; i <= 9553; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 9361), 0, 1, g_local_player.character_index, "_DLCBIKEPSTAT_BOOL"),
-									false, ((i - 9361) - STATS::_0xF4D8E7AC2A27758C((i - 9361)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_CASINOHSTPSTAT_BOOL", 28098, 28354);
 					break;
 				}
 				case 12:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 7321; i <= 7385; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 7321), 0, 1, g_local_player.character_index, "_NGDLCPSTAT_BOOL"),
-									false, ((i - 7321) - STATS::_0xF4D8E7AC2A27758C((i - 7321)) * 64), 1);
-							}
-						});
+
+					set_packed_bool(false, "_HEIST3TATTOOSTAT_BOOL", 28355, 28483);
 					break;
 				}
 				case 13:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 7385; i <= 7641; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 7385), 0, 1, g_local_player.character_index, "_NGDLCPSTAT_BOOL"),
-									false, ((i - 7385) - STATS::_0xF4D8E7AC2A27758C((i - 7385)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_SU20PSTAT_BOOL", 30227, 30355);
 					break;
 				}
 				case 14:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 6029; i <= 6413; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 6029), 0, 1, g_local_player.character_index, "_NGTATPSTAT_BOOL"),
-									false, ((i - 6029) - STATS::_0xF4D8E7AC2A27758C((i - 6029)) * 64), 1);
-							}
-						});
+
+					set_packed_bool(false, "_SU20TATTOOSTAT_BOOL", 30355, 30483);
 					break;
 				}
 				case 15:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 4207; i <= 4335; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 4207), 0, 1, g_local_player.character_index, "_NGPSTAT_BOOL"),
-									false, ((i - 4207) - STATS::_0xF4D8E7AC2A27758C((i - 4207)) * 64), 1);
-							}
-						});
+					set_packed_bool(false, "_HISLANDPSTAT_BOOL", 30515, 30707);
 					break;
 				}
 				case 16:
 				{
-					g_fiber_pool->queue_job([]
-						{
-							for (int i = 4335; i <= 4399; i++)
-							{
-								STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 4335), 0, 1, g_local_player.character_index, "_NGPSTAT_BOOL"),
-									false, ((i - 4335) - STATS::_0xF4D8E7AC2A27758C((i - 4335)) * 64), 1);
-							}
-						});
-					break;
-				}
-				case 17:
-				{
-					g_fiber_pool->queue_job([]
-						{
-							set_packed_bool(false, "_TUNERPSTAT_BOOL", 31707, 32283);
-						});
-					break;
-				}
-				case 18:
-				{
-					g_fiber_pool->queue_job([]
-						{
-							set_packed_bool(true, "_GANGOPSPSTAT_BOOL", 18098, 18162);
-						});
+					set_packed_bool(false, "_TUNERPSTAT_BOOL", 31707, 32283);
 					break;
 				}
 				}
@@ -1046,66 +784,6 @@ namespace big
 
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
-			if (ImGui::Button("Unlock Everything"))
-			{
-				QUEUE_JOB_BEGIN_CLAUSE()
-				{
-					unlock_everything_bool();
-					unlock_everything_int();
-
-					for (int i = 30227; i <= 30355; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30227), 0, 1, g_local_player.character_index, "_SU20PSTAT_BOOL"),
-							true, ((i - 30227) - STATS::_0xF4D8E7AC2A27758C((i - 30227)) * 64), 1);
-					}
-					for (int i = 30355; i <= 30483; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30355), 0, 1, g_local_player.character_index, "_SU20TATTOOSTAT_BOOL"),
-							true, ((i - 30355) - STATS::_0xF4D8E7AC2A27758C((i - 30355)) * 64), 1);
-					}
-					for (int i = 15369; i <= 15561; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15369), 0, 1, g_local_player.character_index, "_DLCGUNPSTAT_BOOL"),
-							true, ((i - 15369) - STATS::_0xF4D8E7AC2A27758C((i - 15369)) * 64), 1);
-					}
-					for (int i = 15562; i <= 15946; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15562), 0, 1, g_local_player.character_index, "_GUNTATPSTAT_BOOL"),
-							true, ((i - 15562) - STATS::_0xF4D8E7AC2A27758C((i - 15562)) * 64), 1);
-					}
-					for (int i = 15946; i <= 16010; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15946), 0, 1, g_local_player.character_index, "_DLCSMUGCHARPSTAT_BOOL"),
-							true, ((i - 15946) - STATS::_0xF4D8E7AC2A27758C((i - 15946)) * 64), 1);
-					}
-					for (int i = 26810; i <= 27258; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 26810), 0, 1, g_local_player.character_index, "_CASINOPSTAT_BOOL"),
-							true, ((i - 26810) - STATS::_0xF4D8E7AC2A27758C((i - 26810)) * 64), 1);
-					}
-					for (int i = 28098; i <= 28354; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28098), 0, 1, g_local_player.character_index, "_CASINOHSTPSTAT_BOOL"),
-							true, ((i - 28098) - STATS::_0xF4D8E7AC2A27758C((i - 28098)) * 64), 1);
-					}
-					for (int i = 28355; i <= 28483; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 28355), 0, 1, g_local_player.character_index, "_HEIST3TATTOOSTAT_BOOL"),
-							true, ((i - 28355) - STATS::_0xF4D8E7AC2A27758C((i - 28355)) * 64), 1);
-					}
-					for (int i = 22066; i <= 22194; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 22066), 0, 1, g_local_player.character_index, "_BUSINESSBATPSTAT_BOOL"),
-							true, ((i - 22066) - STATS::_0xF4D8E7AC2A27758C((i - 22066)) * 64), 1);
-					}
-					for (int i = 30515; i <= 30707; i++)
-					{
-						STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 30515), 0, 1, g_local_player.character_index, "_HISLANDPSTAT_BOOL"),
-							true, ((i - 30515) - STATS::_0xF4D8E7AC2A27758C((i - 30515)) * 64), 1);
-					}
-				} QUEUE_JOB_END_CLAUSE
-			}
-			ImGui::SameLine();
 			if (ImGui::Button("Reset Mental State"))
 			{
 				QUEUE_JOB_BEGIN_CLAUSE()
@@ -1314,11 +992,57 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						for (int i = 15369; i <= 15561; i++)
-						{
-							STATS::STAT_SET_BOOL_MASKED(STATS::_GET_NGSTAT_BOOL_HASH((i - 15369), 0, 1, g_local_player.character_index, "_DLCGUNPSTAT_BOOL"),
-								true, ((i - 15369) - STATS::_0xF4D8E7AC2A27758C((i - 15369)) * 64), 1);
-						}
+						set_unique_packed_bool(15381, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15382, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15428, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15429, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15430, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15431, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15491, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15432, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15433, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15434, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15435, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15436, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15437, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15438, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15439, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15447, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15448, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15449, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15450, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15451, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15452, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15453, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15454, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15455, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15456, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15457, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15458, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15459, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15460, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15461, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15462, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15463, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15464, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15465, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15466, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15467, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15468, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15469, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15470, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15471, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15472, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15473, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15474, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15492, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15493, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15494, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15495, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15496, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15497, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15498, true, "_DLCGUNPSTAT_BOOL", 15369);
+						set_unique_packed_bool(15499, true, "_DLCGUNPSTAT_BOOL", 15369);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
