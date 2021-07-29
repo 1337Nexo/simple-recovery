@@ -18,7 +18,7 @@ To build BigBaseV2 you need:
 
 To set up the build environment, run the following commands in a terminal:
 ```dos
-git clone https://github.com/1337Nexo/bigbasev2-fix.git --recurse-submodules --branch simple-recovery
+git clone https://github.com/1337Nexo/simple-recovery.git --recurse-submodules
 cd BigBaseV2-fix
 GenerateProjects.bat
 ```
