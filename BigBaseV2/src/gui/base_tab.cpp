@@ -517,7 +517,7 @@ namespace big
 	{
 		if (ImGui::BeginTabItem("Online"))
 		{
-			ImGui::Text("Ballistic Equipment (maybe outdated)");
+			ImGui::Text("Ballistic Equipment");
 			static int ballisticarmorvalue;
 			ImGui::InputInt("###ballisticarmorvalue", &ballisticarmorvalue);
 			ImGui::SameLine();
@@ -525,7 +525,7 @@ namespace big
 			{
 				g_fiber_pool->queue_job([]
 					{
-						*script_global(262145).at(19824).as<int*>() = ballisticarmorvalue;
+						*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue;
 					});
 			}
 			ImGui::Separator();
