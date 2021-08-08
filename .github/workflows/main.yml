@@ -4,9 +4,12 @@ on:
   push: 
     branches: 
       - simple-recovery
+  pull_request:
+    branches:
+      - simple-recovery
       
 jobs:
-  test:
+  build:
     runs-on: windows-2019
     env:
       VS_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\
