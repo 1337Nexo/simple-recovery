@@ -4,6 +4,9 @@ on:
   push: 
     branches: 
       - simple-recovery
+  pull_request:
+    branches:
+      - simple-recovery
       
 jobs:
   build:
