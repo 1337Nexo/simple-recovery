@@ -207,7 +207,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
 			static int unlock{};
-			const char* const unlocks[]{ "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State" };
+			const char* const unlocks[]{ "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy"};
 			ImGui::PushItemWidth(185.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
 			ImGui::SameLine();
@@ -465,6 +465,14 @@ namespace big
 						{
 							STATS::STAT_SET_FLOAT(RAGE_JOAAT("MP1_PLAYER_MENTAL_STATE"), 0.f, true);
 						}
+					} QUEUE_JOB_END_CLAUSE
+						break;
+				}
+				case 9:
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_packed_int(22058, 20);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}

@@ -242,26 +242,44 @@ namespace big
 			if (ImGui::CollapsingHeader("Packed Bool Editor"))
 			{
 				ImGui::Text("a packed bool editor that probably no one will use it");
-				ImGui::Text("you need to find the index looking at gta scripts");
-				ImGui::Text("the functions that handles the packed bool stats is func_19945");
+				ImGui::Text("you need to find the index by looking at gta scripts");
+				ImGui::Text("the function that handles the packed bool stats is func_19945");
 				ImGui::Text("you can find it by looking at freemode.c or other scripts, ctrl+f will be useful");
 				ImGui::Text("the 1st parameter is the INDEX");
 				ImGui::Text("the 2nd parameter is the VALUE");
 				ImGui::Text("you can ignore the 3rd and the 4th parameter");
 				ImGui::Text("example:");
 				ImGui::Text("func_19945(31736, 1, -1, 1);");
-				ImGui::Text("this packed bool index is responsible to the The Frontier special outfit");
-				static int index = 31736;
+				ImGui::Text("this packed bool index is responsible to 'The Frontier' special outfit");
+				static int b_index = 31736;
 				static bool pbe_value = true;
 				ImGui::PushItemWidth(200);
-				ImGui::InputScalar("Index", ImGuiDataType_S32, &index);
+				ImGui::InputScalar("Index##1", ImGuiDataType_S32, &b_index);
 				ImGui::PopItemWidth();
 				ImGui::Checkbox("Value##pbevalue", &pbe_value);
 				if (ImGui::Button("Set Packed Bool Value"))
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						helper::set_packed_bool(index, pbe_value ? 1 : 0);
+						helper::set_packed_bool(b_index, pbe_value ? 1 : 0);
+					} QUEUE_JOB_END_CLAUSE
+				}
+			}
+
+			if (ImGui::CollapsingHeader("Packed Int Editor"))
+			{
+				ImGui::Text("too complex, no explanation");
+				static int i_index = 22058;
+				static int pie_value = 20;
+				ImGui::PushItemWidth(200);
+				ImGui::InputScalar("Index##2", ImGuiDataType_S32, &i_index);
+				ImGui::InputScalar("Value##pievalue", ImGuiDataType_S32, &pie_value);
+				ImGui::PopItemWidth();
+				if (ImGui::Button("Set Packed Int Value"))
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_packed_int(i_index, pie_value);
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
