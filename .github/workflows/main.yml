@@ -3,10 +3,7 @@ name: CI
 on:
   push: 
     branches: 
-      - simple-recovery
-  pull_request:
-    branches:
-      - simple-recovery
+      - main
       
 jobs:
   build:
