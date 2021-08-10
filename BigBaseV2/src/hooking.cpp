@@ -90,6 +90,8 @@ namespace big
 		MH_Uninitialize();
 	}
 
+	// this don't do too much, blocking REPORT_MYSELF_EVENT should do a better job.
+	// fucking arxan would do a better job too.
 	bool hooks::increment_stat_event(CNetworkIncrementStatEvent* event_struct, CNetGamePlayer* sender, int64_t a3)
 	{
 		auto stat = event_struct->m_hash;

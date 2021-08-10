@@ -32,7 +32,8 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 |  __  (| |/ _  |  __  ( / _  |/___)/ _  ) | | /_____/ 
 | |__)  ) ( ( | | |__)  | ( | |___ ( (/ / \ V /_______ 
 |______/|_|\_|| |______/ \_||_(___/ \____) \_/(_______)
-          (_____|)kek";
+          (_____|
+)kek";
 				auto pointers_instance = std::make_unique<pointers>();
 				LOG(INFO) << "Pointers initialized.";
 
@@ -46,7 +47,7 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 				LOG(INFO) << "Hooking initialized.";
 
 				g_settings.load();
-				LOG(INFO) << "Settings Loaded.";
+				LOG(INFO) << "Settings initialized.";
 
 				g_script_mgr.add_script(std::make_unique<script>(&features::script_func));
 				g_script_mgr.add_script(std::make_unique<script>(&gui::script_func));

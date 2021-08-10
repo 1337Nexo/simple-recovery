@@ -80,7 +80,8 @@ namespace big
 	{
 		TRY_CLAUSE
 		{
-			if (ImGui::Begin("BigBaseV2"))
+			ImGui::SetNextWindowSize(ImVec2(783, 729), ImGuiCond_FirstUseEver);
+			if (ImGui::Begin("simple-recovery"))
 			{
 				ImGui::BeginTabBar("tabbar");
 				base_tab::render_base_tab();

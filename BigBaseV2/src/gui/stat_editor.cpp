@@ -5,10 +5,11 @@
 #include "fiber_pool.hpp"
 #include "natives.hpp"
 #include "gta_util.hpp"
-#include <features.hpp>
-#include <gui.hpp>
+#include "features.hpp"
+#include "gui.hpp"
 #include "misc/cpp/imgui_stdlib.h"
-#include <imgui_internal.h>
+#include "imgui_internal.h"
+#include "helpers/helper.hpp"
 
 using namespace big;
 
@@ -143,14 +144,15 @@ namespace big
 
 		if (ImGui::BeginTabItem("Stat Editor"))
 		{
+			ImGui::Text("a classic stat editor");
+			ImGui::Text("you don't need to put $ at the start");
+			ImGui::Text("it doesn't recognize MPX, just MP0 (1st character) or MP1 (2nd character)");
 			static std::string stat_name{ "MPPLY_KILLS_PLAYERS" };
 			static int stat_type = 0;
-			static int64_t integer_value = 0;
+			static int integer_value = 0;
 			static float float_value = 0.00f;
 			static bool boolean_value = false;
 			static float increment_value = 0.00f;
-			static int read_int_value, read_bool_value{};
-			static float read_float_value{};
 			if (ImGui::InputText("###stat", &stat_name, ImGuiInputTextFlags_CharsUppercase))
 			{
 				const auto hash = rage::joaat(stat_name);
@@ -158,11 +160,11 @@ namespace big
 					{
 						if (stat_type == 0)
 						{
-							STATS::STAT_GET_INT(hash, &read_int_value, true);
+							STATS::STAT_GET_INT(hash, &integer_value, true);
 						}
 						else if (stat_type == 1)
 						{
-							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+							STATS::STAT_GET_BOOL(hash, &boolean_value, true);
 						}
 					});
 			}
@@ -172,7 +174,7 @@ namespace big
 			ImGui::RadioButton("INCREMENT", &stat_type, 3);
 			if (stat_type == 0)
 			{
-				ImGui::InputScalar("###int", ImGuiDataType_S64, &integer_value);
+				ImGui::InputScalar("###int", ImGuiDataType_S32, &integer_value);
 			}
 			else if (stat_type == 1)
 			{
@@ -186,79 +188,84 @@ namespace big
 			{
 				ImGui::InputFloat("###increment", &increment_value, 10.0f, 100.0f, "%.3f");
 			}
-			if (ImGui::Button("Apply"))
+			if (ImGui::Button("Apply Value"))
 			{
 				const auto hash = rage::joaat(stat_name);
 				g_fiber_pool->queue_job([hash]
 					{
 						if (stat_type == 0)
 						{
-							if (STATS::STAT_SET_INT(hash, static_cast<int64_t>(integer_value), TRUE))
-								STATS::STAT_GET_INT(hash, &read_int_value, TRUE);
+							if (STATS::STAT_SET_INT(hash, integer_value, TRUE))
+								STATS::STAT_GET_INT(hash, &integer_value, TRUE);
 						}
 						else if (stat_type == 1)
 						{
 							if (STATS::STAT_SET_BOOL(hash, boolean_value, TRUE))
-								STATS::STAT_GET_BOOL(hash, &read_bool_value, TRUE);
+								STATS::STAT_GET_BOOL(hash, &boolean_value, TRUE);
 						}
 						else if (stat_type == 2)
 						{
 							if (STATS::STAT_SET_FLOAT(hash, float_value, TRUE))
-								STATS::STAT_GET_FLOAT(hash, &read_float_value, TRUE);
+								STATS::STAT_GET_FLOAT(hash, &float_value, TRUE);
 						}
 						else if (stat_type == 3)
 						{
 							STATS::STAT_INCREMENT(hash, increment_value);
-							STATS::STAT_GET_FLOAT(hash, &read_float_value, TRUE);
+							STATS::STAT_GET_FLOAT(hash, &increment_value, TRUE);
 						}
 					});
 			}
-			ImGui::Separator();
-			ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
-			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
-			ImGui::InputText("###stat2", &stat_name, ImGuiInputTextFlags_CharsUppercase);
-			if (stat_type == 0)
-			{
-				ImGui::InputInt("###read_int_stat", &read_int_value);
-			}
-			else if (stat_type == 1)
-			{
-				bool int_to_bool = read_bool_value == 0 ? false : true;
-				ImGui::Checkbox("###read_bool_stat", &int_to_bool);
-			}
-			else if (stat_type == 2)
-			{
-				ImGui::InputFloat("###read_float_stat", &read_float_value);
-			}
-			else if (stat_type == 3)
-			{
-				ImGui::InputFloat("###read_float_stat", &read_float_value);
-			}
-			ImGui::PopItemFlag();
-			ImGui::PopStyleVar();
-			if (ImGui::Button("Update"))
+			ImGui::SameLine();
+			if (ImGui::Button("Get Value"))
 			{
 				const auto hash = rage::joaat(stat_name);
 				g_fiber_pool->queue_job([hash]
 					{
 						if (stat_type == 0)
 						{
-							STATS::STAT_GET_INT(hash, &read_int_value, true);
+							STATS::STAT_GET_INT(hash, &integer_value, true);
 						}
 						else if (stat_type == 1)
 						{
-							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+							STATS::STAT_GET_BOOL(hash, &boolean_value, true);
 						}
 						else if (stat_type == 2)
 						{
-							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+							STATS::STAT_GET_FLOAT(hash, &float_value, true);
 						}
 						else if (stat_type == 3)
 						{
-							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+							STATS::STAT_GET_FLOAT(hash, &increment_value, true);
 						}
 					});
 			}
+			if (ImGui::CollapsingHeader("Packed Bool Editor"))
+			{
+				ImGui::Text("a packed bool editor that probably no one will use it");
+				ImGui::Text("you need to find the index looking at gta scripts");
+				ImGui::Text("the functions that handles the packed bool stats is func_19945");
+				ImGui::Text("you can find it by looking at freemode.c or other scripts, ctrl+f will be useful");
+				ImGui::Text("the 1st parameter is the INDEX");
+				ImGui::Text("the 2nd parameter is the VALUE");
+				ImGui::Text("you can ignore the 3rd and the 4th parameter");
+				ImGui::Text("example:");
+				ImGui::Text("func_19945(31736, 1, -1, 1);");
+				ImGui::Text("this packed bool index is responsible to the The Frontier special outfit");
+				static int index = 31736;
+				static bool pbe_value = true;
+				ImGui::PushItemWidth(200);
+				ImGui::InputScalar("Index", ImGuiDataType_S32, &index);
+				ImGui::PopItemWidth();
+				ImGui::Checkbox("Value##pbevalue", &pbe_value);
+				if (ImGui::Button("Set Packed Bool Value"))
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_packed_bool(index, pbe_value ? 1 : 0);
+					} QUEUE_JOB_END_CLAUSE
+				}
+			}
+			ImGui::Separator();
 			ImGui::EndTabItem();
 		}
 	}
