@@ -363,13 +363,12 @@ namespace helper
 
 	static void set_mass_packed_bool(BOOL value, int32_t min_i, int32_t max_i)
 	{
-		QUEUE_JOB_BEGIN_CLAUSE(min_i, max_i, value)
+		LOG(INFO) << fmt::format("Started. {}, {}, {}", value, min_i, max_i);
+		for (auto index = min_i; index <= max_i; index++)
 		{
-			for (auto index = min_i; index <= max_i; index++)
-			{
-				set_packed_bool(index, value);
-			}
-		} QUEUE_JOB_END_CLAUSE
+			set_packed_bool(index, value);
+		}
+		LOG(INFO) << fmt::format("Done. {}, {}, {}\n", value, min_i, max_i);
 	}
 
 	static int get_rp_value(int value)
@@ -635,7 +634,6 @@ namespace helper
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_FORMULA"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_FORMULA2"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_JB7002"), TRUE, TRUE);
-			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_CHAR_TRANSFERED"), TRUE, TRUE);
 		}
 		else
 		{
@@ -870,7 +868,6 @@ namespace helper
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_FORMULA"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_FORMULA2"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_JB7002"), TRUE, TRUE);
-			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_CHAR_TRANSFERED"), TRUE, TRUE);
 		}
 	}
 

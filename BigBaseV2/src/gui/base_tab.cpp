@@ -33,7 +33,7 @@ namespace big
 			{
 				QUEUE_JOB_BEGIN_CLAUSE()
 				{
-					*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue;
+					*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue; // tuneables_processing
 				} QUEUE_JOB_END_CLAUSE
 			}
 			ImGui::Separator();
@@ -108,96 +108,143 @@ namespace big
 				{
 				case 0:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 0, 192);
-					helper::set_mass_packed_bool(packed_bool_value, 192, 384);
-					helper::set_mass_packed_bool(packed_bool_value, 513, 705);
-					helper::set_mass_packed_bool(packed_bool_value, 705, 1281);
-					helper::set_mass_packed_bool(packed_bool_value, 2919, 3111);
-					helper::set_mass_packed_bool(packed_bool_value, 3111, 3879);
-					helper::set_mass_packed_bool(packed_bool_value, 4207, 4399);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 0, 192);
+						helper::set_mass_packed_bool(packed_bool_value, 513, 705);
+						helper::set_mass_packed_bool(packed_bool_value, 2919, 3111);
+						helper::set_mass_packed_bool(packed_bool_value, 3111, 3879);
+						helper::set_mass_packed_bool(packed_bool_value, 4207, 4399);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 1:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 6029, 6413);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 6029, 6413);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 2:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 7385, 7641);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 7385, 7641);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 3:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 9361, 9553);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 9361, 9553);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 4:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 15369, 15561);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 15369, 15561);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 5:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 15562, 15946);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 15562, 15946);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 6:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 15946, 16010);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 15946, 16010);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 7:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 18098, 18162);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 18098, 18162);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 8:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 22066, 22194);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 22066, 22194);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 9:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 24962, 25538);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 24962, 25538);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 10:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 26810, 27258);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 26810, 27258);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 11:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 28098, 28354);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 28098, 28354);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 12:
 				{
-
-					helper::set_mass_packed_bool(packed_bool_value, 28355, 28483);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 28355, 28483);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 13:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 30227, 30355);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 30227, 30355);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 14:
 				{
-
-					helper::set_mass_packed_bool(packed_bool_value, 30355, 30483);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 30355, 30483);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 15:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 30515, 30707);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 30515, 30707);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				case 16:
 				{
-					helper::set_mass_packed_bool(packed_bool_value, 31707, 32283);
-					break;
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 31707, 32283);
+					} QUEUE_JOB_END_CLAUSE
+						break;
 				}
 				}
 			}

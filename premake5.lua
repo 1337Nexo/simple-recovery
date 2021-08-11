@@ -44,8 +44,9 @@ workspace "BigBaseV2"
     {
       "4100", -- C4100: unreferenced formal parameter
       "4201", -- C4201: nameless struct/union
-      "4307",  -- C4307: integral constant overflow
-      "4996"  -- C4996: deprecated in C++17
+      "4307", -- C4307: integral constant overflow
+      "4996", -- C4996: deprecated in C++17
+      "4244"
     }
   end
   
