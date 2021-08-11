@@ -94,7 +94,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Packed Bools");
 			static int packed_bool{};
-			static bool packed_bool_value{};
+			static bool packed_bool_value = true;
 			const char* const packed_bools[]{ "_NGPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_GANGOPSPSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_TUNERPSTAT_BOOL" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
@@ -255,7 +255,7 @@ namespace big
 			ImGui::Text("Unlocks");
 			static int unlock{};
 			const char* const unlocks[]{ "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy"};
-			ImGui::PushItemWidth(185.f);
+			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
 			ImGui::SameLine();
 			if (ImGui::Button("Unlock"))
