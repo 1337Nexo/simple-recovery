@@ -5,9 +5,9 @@
 
 namespace big
 {
-	class stat_editor
+	class online_tab
 	{
 	public:
 		static void render();
 	};
-};
+}

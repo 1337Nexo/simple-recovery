@@ -336,28 +336,28 @@ namespace big
 	void set_stat(Hash stat, int value)
 	{
 		g_fiber_pool->queue_job([stat, value]
-			{
-				STATS::STAT_SET_INT(stat, value, TRUE);
-			});
+		{
+			STATS::STAT_SET_INT(stat, value, TRUE);
+		});
 	}
 
 	void set_bitset(int value)
 	{
 		diamond_heist_info.bitset ^= value;
 		g_fiber_pool->queue_job([value]
-			{
-				auto stat = RAGE_JOAAT("MP0_H3OPT_BITSET0");
-				STATS::STAT_SET_INT(stat, diamond_heist_info.bitset, TRUE);
-			});
+		{
+			auto stat = RAGE_JOAAT("MP0_H3OPT_BITSET0");
+			STATS::STAT_SET_INT(stat, diamond_heist_info.bitset, TRUE);
+		});
 	}
 
 	void set_bitset_one(int value)
 	{
 		diamond_heist_info.bitsetone ^= value;
 		g_fiber_pool->queue_job([value]
-			{
-				auto stat = RAGE_JOAAT("MP0_H3OPT_BITSET1");
-				STATS::STAT_SET_INT(stat, diamond_heist_info.bitsetone, TRUE);
-			});
+		{
+			auto stat = RAGE_JOAAT("MP0_H3OPT_BITSET1");
+			STATS::STAT_SET_INT(stat, diamond_heist_info.bitsetone, TRUE);
+		});
 	}
 }

@@ -13,7 +13,6 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 	using namespace big;
 	if (reason == DLL_PROCESS_ATTACH)
 	{
-
 		DisableThreadLibraryCalls(hmod);
 
 		g_hmodule = hmod;
@@ -25,15 +24,6 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 			auto logger_instance = std::make_unique<logger>();
 			try
 			{
-				LOG(RAW_GREEN_TO_CONSOLE) << u8R"kek(
- ______  _       ______                        ______  
-(____  \(_)     (____  \                      (_____ \ 
- ____)  )_  ____ ____)  ) ____  ___  ____ _   _ ____) )
-|  __  (| |/ _  |  __  ( / _  |/___)/ _  ) | | /_____/ 
-| |__)  ) ( ( | | |__)  | ( | |___ ( (/ / \ V /_______ 
-|______/|_|\_|| |______/ \_||_(___/ \____) \_/(_______)
-          (_____|
-)kek";
 				auto pointers_instance = std::make_unique<pointers>();
 				LOG(INFO) << "Pointers initialized.";
 
@@ -81,7 +71,7 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 				pointers_instance.reset();
 				LOG(INFO) << "Pointers uninitialized.";
 			}
-			catch (std::exception const &ex)
+			catch (std::exception const& ex)
 			{
 				LOG(WARNING) << ex.what();
 				MessageBoxA(nullptr, ex.what(), nullptr, MB_OK | MB_ICONEXCLAMATION);

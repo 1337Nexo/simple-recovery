@@ -12,8 +12,7 @@ namespace big
 
 		nlohmann::json options;
 		nlohmann::json default_options =
-		R"({
-            "reset rig slot machines limit": false,
+			R"({
 			"demo bool": false,
 			"demo int": 1,
 			"demo double": 1.0,
@@ -54,7 +53,7 @@ namespace big
 					should_save = true;
 					options[e.key()] = e.value();
 				}
-					
+
 			}
 
 			if (should_save)

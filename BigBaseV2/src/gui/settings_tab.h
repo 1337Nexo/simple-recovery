@@ -5,9 +5,9 @@
 
 namespace big
 {
-	class stat_editor
+	class settings_tab
 	{
 	public:
 		static void render();
 	};
-};
+}
