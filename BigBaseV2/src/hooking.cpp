@@ -64,6 +64,7 @@ namespace big
 		m_run_script_threads_hook.enable();
 		m_convert_thread_to_fiber_hook.enable();
 		m_increment_stat_event_hook.enable();
+		m_is_dlc_present_hook.enable();
 
 		m_enabled = true;
 	}
@@ -75,6 +76,7 @@ namespace big
 		m_convert_thread_to_fiber_hook.disable();
 		m_run_script_threads_hook.disable();
 		m_increment_stat_event_hook.disable();
+		m_is_dlc_present_hook.disable();
 
 		m_set_cursor_pos_hook.disable();
 		SetWindowLongPtrW(g_pointers->m_hwnd, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(m_og_wndproc));
