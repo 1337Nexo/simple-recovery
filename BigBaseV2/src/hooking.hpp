@@ -10,15 +10,16 @@ namespace big
 	struct hooks
 	{
 		static bool run_script_threads(std::uint32_t ops_to_execute);
-		static void *convert_thread_to_fiber(void *param);
+		static void* convert_thread_to_fiber(void* param);
 
 		static constexpr auto swapchain_num_funcs = 19;
 		static constexpr auto swapchain_present_index = 8;
 		static constexpr auto swapchain_resizebuffers_index = 13;
-		static HRESULT swapchain_present(IDXGISwapChain *this_, UINT sync_interval, UINT flags);
-		static HRESULT swapchain_resizebuffers(IDXGISwapChain *this_, UINT buffer_count, UINT width, UINT height, DXGI_FORMAT new_format, UINT swapchain_flags);
+		static HRESULT swapchain_present(IDXGISwapChain* this_, UINT sync_interval, UINT flags);
+		static HRESULT swapchain_resizebuffers(IDXGISwapChain* this_, UINT buffer_count, UINT width, UINT height, DXGI_FORMAT new_format, UINT swapchain_flags);
 
 		static bool increment_stat_event(CNetworkIncrementStatEvent* event_struct, CNetGamePlayer* sender, int64_t a3);
+		static bool is_dlc_present(uint32_t a1);
 
 		static LRESULT wndproc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 		static BOOL set_cursor_pos(int x, int y);
@@ -52,7 +53,8 @@ namespace big
 		detour_hook m_convert_thread_to_fiber_hook;
 
 		detour_hook m_increment_stat_event_hook;
+		detour_hook m_is_dlc_present_hook;
 	};
 
-	inline hooking *g_hooking{};
+	inline hooking* g_hooking{};
 }
