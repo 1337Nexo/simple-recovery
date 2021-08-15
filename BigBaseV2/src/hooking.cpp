@@ -98,10 +98,9 @@ namespace big
 	bool hooks::increment_stat_event(CNetworkIncrementStatEvent* event_struct, CNetGamePlayer* sender, int64_t a3)
 	{
 		auto stat = event_struct->m_hash;
-		//auto sender_name = sender->player_info->m_name;
+		auto sender_name = sender->player_info->m_name;
 
-		//LOG(INFO) << fmt::format("Blocked report {} | {}", sender_name, stat);
-		LOG(INFO) << fmt::format("Blocked report {}", stat);
+		LOG_INFO("Blocked report from {} | 0x{:X}", sender_name, stat);
 
 		/*
 		if (event_helper::report_function(stat, sender_name))

@@ -71,7 +71,6 @@ namespace big
 				for (int i = 0; i < stat_obj.stats; i++)
 				{
 					const auto hash = rage::joaat(stat_obj.stat_name[i]);
-					LOG(INFO) << hash;
 					g_fiber_pool->queue_job([i, hash]
 					{
 						if (stat_obj.stat_type[i] == 0)

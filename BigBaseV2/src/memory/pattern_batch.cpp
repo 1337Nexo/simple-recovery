@@ -20,18 +20,18 @@ namespace memory
 				if (entry.m_callback)
 				{
 					std::invoke(std::move(entry.m_callback), result);
-					LOG(big::INFO_TO_FILE) << "Found '" << entry.m_name << "' GTA5.exe+" << HEX_TO_UPPER(result.as<DWORD64>() - region.begin().as<DWORD64>());
+					LOG_INFO("Found '{}' GTA5.exe+0x{:X}", entry.m_name, result.as<DWORD64>() - region.begin().as<DWORD64>());
 				}
 				else
 				{
 					all_found = false;
-					LOG(WARNING) << "Failed to find '" << entry.m_name << "'.";
+					LOG_ERROR("Failed to find '{}'.", entry.m_name);
 				}
 			}
 			else
 			{
 				all_found = false;
-				LOG(WARNING) << "Failed to find '" << entry.m_name << "'.";
+				LOG_ERROR("Failed to find '{}'.", entry.m_name);
 			}
 		}
 

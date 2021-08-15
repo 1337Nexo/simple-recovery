@@ -25,26 +25,26 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 			try
 			{
 				auto pointers_instance = std::make_unique<pointers>();
-				LOG(INFO) << "Pointers initialized.";
+				LOG_INFO("Pointers initialized.");
 
 				auto renderer_instance = std::make_unique<renderer>();
-				LOG(INFO) << "Renderer initialized.";
+				LOG_INFO("Renderer initialized.");
 
 				auto fiber_pool_instance = std::make_unique<fiber_pool>(10);
-				LOG(INFO) << "Fiber pool initialized.";
+				LOG_INFO("Fiber pool initialized.");
 
 				auto hooking_instance = std::make_unique<hooking>();
-				LOG(INFO) << "Hooking initialized.";
+				LOG_INFO("Hooking initialized.");
 
 				g_settings.load();
-				LOG(INFO) << "Settings initialized.";
+				LOG_INFO("Settings initialized.");
 
 				g_script_mgr.add_script(std::make_unique<script>(&features::script_func));
 				g_script_mgr.add_script(std::make_unique<script>(&gui::script_func));
-				LOG(INFO) << "Scripts registered.";
+				LOG_INFO("Scripts registered.");
 
 				g_hooking->enable();
-				LOG(INFO) << "Hooking enabled.";
+				LOG_INFO("Hooking enabled.");
 
 				while (g_running)
 				{
@@ -52,32 +52,32 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 				}
 
 				g_hooking->disable();
-				LOG(INFO) << "Hooking disabled.";
+				LOG_INFO("Hooking disabled.");
 
 				std::this_thread::sleep_for(1000ms);
 
 				g_script_mgr.remove_all_scripts();
-				LOG(INFO) << "Scripts unregistered.";
+				LOG_INFO("Scripts unregistered.");
 
 				hooking_instance.reset();
-				LOG(INFO) << "Hooking uninitialized.";
+				LOG_INFO("Hooking uninitialized.");
 
 				fiber_pool_instance.reset();
-				LOG(INFO) << "Fiber pool uninitialized.";
+				LOG_INFO("Fiber pool uninitialized.");
 
 				renderer_instance.reset();
-				LOG(INFO) << "Renderer uninitialized.";
+				LOG_INFO("Renderer uninitialized.");
 
 				pointers_instance.reset();
-				LOG(INFO) << "Pointers uninitialized.";
+				LOG_INFO("Pointers uninitialized.");
 			}
 			catch (std::exception const& ex)
 			{
-				LOG(WARNING) << ex.what();
+				LOG_ERROR("{}", ex.what());
 				MessageBoxA(nullptr, ex.what(), nullptr, MB_OK | MB_ICONEXCLAMATION);
 			}
 
-			LOG(INFO) << "Farewell!";
+			LOG_INFO("Farewell!");
 			logger_instance.reset();
 
 			CloseHandle(g_main_thread);

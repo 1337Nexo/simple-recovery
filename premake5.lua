@@ -17,7 +17,6 @@ workspace "BigBaseV2"
   IncludeDir["MinHook"] = "vendor/MinHook/include"
   IncludeDir["ImGui"] = "vendor/ImGui"
   IncludeDir["ImGuiImpl"] = "vendor/ImGui/examples"
-  IncludeDir["g3log"] = "vendor/g3log/src"
   
   CppVersion = "C++17"
   MsvcToolset = "v142"
@@ -27,7 +26,6 @@ workspace "BigBaseV2"
     filter "system:windows"
     staticruntime "Off"
 	floatingpoint "Fast"
-	vectorextensions "AVX2"
     systemversion (WindowsSdkVersion)
     toolset (MsvcToolset)
     cppdialect (CppVersion)
@@ -130,41 +128,6 @@ workspace "BigBaseV2"
 
     DeclareMSVCOptions()
     DeclareDebugOptions()
-	
-  project "g3log"
-    location "vendor/%{prj.name}"
-    kind "StaticLib"
-    language "C++"
-
-    targetdir ("bin/lib/" .. outputdir)
-    objdir ("bin/lib/int/" .. outputdir .. "/%{prj.name}")
-	
-	includedirs
-    {
-      "vendor/%{prj.name}/src"
-    }
-
-	if(file_exists("vendor\\g3log\\src\\g3log\\generated_definitions.hpp") == false) then
-		file = io.open("vendor\\g3log\\src\\g3log\\generated_definitions.hpp", "w")
-		if(file == nil) then
-			premake.error("Failed to locate vendor directories. Try doing git pull --recurse-submodules.")
-		end
-		file:write("// AUTO GENERATED MACRO DEFINITIONS FOR G3LOG\n\n\n/* ==========================================================================\n*2015 by KjellKod.cc. This is PUBLIC DOMAIN to use at your own risk and comes\n* with no warranties. This code is yours to share, use and modify with no\n\n*strings attached and no restrictions or obligations.\n* \n* For more information see g3log/LICENSE or refer refer to http://unlicense.org\n\n*============================================================================*/\n#pragma once\n\n\n// CMake induced definitions below. See g3log/Options.cmake for details.");
-	end
-	
-    files
-    {
-      "vendor/%{prj.name}/src/**.hpp",
-      "vendor/%{prj.name}/src/**.cpp"
-    }
-	
-	removefiles
-	{
-	  "vendor/%{prj.name}/src/crashhandler_unix.cpp"
-	}
-
-    DeclareMSVCOptions()
-    DeclareDebugOptions()
 
   project "BigBaseV2"
     location "BigBaseV2"
@@ -192,7 +155,6 @@ workspace "BigBaseV2"
       "%{IncludeDir.MinHook}",
       "%{IncludeDir.ImGui}",
       "%{IncludeDir.ImGuiImpl}",
-      "%{IncludeDir.g3log}",
       "%{prj.name}/src"
     }
 
@@ -205,8 +167,7 @@ workspace "BigBaseV2"
     {
       "fmtlib",
       "MinHook",
-      "ImGui",
-      "g3log"
+      "ImGui"
     }
 
     pchheader "%{PrecompiledHeaderInclude}"

@@ -58,7 +58,7 @@ namespace big
 
 			if (should_save)
 			{
-				LOG(INFO) << "Updating settings.";
+				LOG_INFO("Updating settings.");
 				save();
 			}
 

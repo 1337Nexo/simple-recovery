@@ -15,7 +15,7 @@ namespace big
 
 		if (auto status = MH_CreateHook(m_target, m_detour, &m_original); status == MH_OK)
 		{
-			LOG(INFO_TO_FILE) << "Created hook '" << m_name << "'.";
+			LOG_INFO("Created hook '{}'.", m_name);
 		}
 		else
 		{
@@ -30,14 +30,14 @@ namespace big
 			MH_RemoveHook(m_target);
 		}
 
-		LOG(INFO) << "Removed hook '" << m_name << "'.";
+		LOG_INFO("Removed hook '{}'.", m_name);
 	}
 
 	void detour_hook::enable()
 	{
 		if (auto status = MH_EnableHook(m_target); status == MH_OK)
 		{
-			LOG(INFO_TO_FILE) << "Enabled hook '" << m_name << "'.";
+			LOG_INFO("Enabled hook '{}'.", m_name);
 		}
 		else
 		{
@@ -49,11 +49,11 @@ namespace big
 	{
 		if (auto status = MH_DisableHook(m_target); status == MH_OK)
 		{
-			LOG(INFO_TO_FILE) << "Disabled hook '" << m_name << "'.";
+			LOG_INFO("Disabled hook '{}'.", m_name);
 		}
 		else
 		{
-			LOG(WARNING) << "Failed to disable hook '" << m_name << "'.";
+			LOG_ERROR("Failed to disable hook '{}'.", m_name);
 		}
 	}
 

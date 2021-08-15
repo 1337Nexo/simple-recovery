@@ -363,12 +363,10 @@ namespace helper
 
 	static void set_mass_packed_bool(BOOL value, int32_t min_i, int32_t max_i)
 	{
-		LOG(INFO) << fmt::format("Started. {}, {}, {}", value, min_i, max_i);
 		for (auto index = min_i; index <= max_i; index++)
 		{
 			set_packed_bool(index, value);
 		}
-		LOG(INFO) << fmt::format("Done. {}, {}, {}\n", value, min_i, max_i);
 	}
 
 	static int get_rp_value(int value)

@@ -1,7 +1,5 @@
 #pragma once
 #include "common.hpp"
-#include <g3log/g3log.hpp>
-#include <g3log/logworker.hpp>
 
 namespace big
 {
@@ -22,23 +20,6 @@ namespace big
 		intensify = FOREGROUND_INTENSITY
 	};
 
-	enum LOG_FLAGS
-	{
-		FLAG_NO_DISK = (1 << 0),
-		FLAG_NO_CONSOLE = (1 << 1)
-	};
-
-	static const int kEventValue = 400;
-	static const int kRawValue =  600;
-	inline constexpr auto max_padding_length = 26;
-	inline constexpr auto level_padding_length = 8;
-
-	const LEVELS INFO_TO_FILE{ INFO.value | FLAG_NO_CONSOLE, {"INFO"} },
-		HACKER{ INFO.value, {"HACKER"} },
-		EVENT{ kEventValue | FLAG_NO_CONSOLE, {"EVENT"} },
-		RAW_GREEN_TO_CONSOLE{ kRawValue | FLAG_NO_DISK, {"RAW_GREEN_TO_CONSOLE"} },
-		RAW_RED{ kRawValue, {"RAW_RED"} };
-
 	inline log_color operator|(log_color a, log_color b)
 	{
 		return static_cast<log_color>(static_cast<std::underlying_type_t<log_color>>(a) | static_cast<std::underlying_type_t<log_color>>(b));
@@ -51,9 +32,9 @@ namespace big
 	{
 	public:
 		explicit logger() :
-			m_file_path(std::getenv("appdata")),
-			m_worker(g3::LogWorker::createLogWorker())
+			m_file_path(std::getenv("appdata"))
 		{
+#ifdef _DEBUG
 			if ((m_did_console_exist = AttachConsole(GetCurrentProcessId())) == false)
 				AllocConsole();
 
@@ -64,6 +45,7 @@ namespace big
 
 				m_console_out.open("CONOUT$", std::ios_base::out | std::ios_base::app);
 			}
+#endif
 
 			m_file_path /= "BigBaseV2";
 			std::filesystem::path m_backup_path = m_file_path;
@@ -89,9 +71,7 @@ namespace big
 					std::filesystem::create_directory(m_backup_path);
 				}
 
-				m_event_file_path = m_file_path;
 				m_file_path /= "BigBaseV2.log";
-				m_event_file_path /= "GTAEvents.log";
 
 				if (std::filesystem::exists(m_file_path))
 				{
@@ -100,18 +80,11 @@ namespace big
 					auto local_time = std::localtime(&timet);
 
 					auto bigbase_timestamp = fmt::format("{:0>2}-{:0>2}-{}-{:0>2}-{:0>2}-{:0>2} BigBaseV2.log", local_time->tm_mon + 1, local_time->tm_mday, local_time->tm_year + 1900, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
-					auto gta_events_timestamp = fmt::format("{:0>2}-{:0>2}-{}-{:0>2}-{:0>2}-{:0>2} GTAEvents.log", local_time->tm_mon + 1, local_time->tm_mday, local_time->tm_year + 1900, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 
 					std::filesystem::copy_file(m_file_path, m_backup_path / bigbase_timestamp);
-					if (std::filesystem::exists(m_event_file_path) && !std::filesystem::is_empty(m_event_file_path))
-						std::filesystem::copy_file(m_event_file_path, m_backup_path / gta_events_timestamp);
 				}
 
 				m_file_out.open(m_file_path, std::ios_base::out | std::ios_base::trunc);
-				m_gta_event_file_out.open(m_event_file_path, std::ios_base::out | std::ios_base::trunc);
-
-				m_worker->addSink(std::make_unique<log_sink>(), &log_sink::callback);
-				g3::initializeLogging(m_worker.get());
 			}
 			catch (std::filesystem::filesystem_error const& error)
 			{
@@ -123,88 +96,146 @@ namespace big
 
 		~logger()
 		{
-			m_worker.reset();
 			if (!m_did_console_exist)
 				FreeConsole();
 
 			g_logger = nullptr;
 		}
 
-		struct log_sink
+		template <typename ...Args>
+		void raw(log_color color, Args const &...args)
 		{
-			std::map<std::string, log_color> log_colors = {
-				{INFO.text, log_color::blue | log_color::intensify},
-				{WARNING.text, log_color::red},
-				{HACKER.text, log_color::green | log_color::intensify},
-				{FATAL.text, log_color::red | log_color::intensify},
-				{G3LOG_DEBUG.text, log_color::blue},
-				{RAW_RED.text, log_color::red},
-				{RAW_GREEN_TO_CONSOLE.text, log_color::green | log_color::intensify}
-			};
-
-			void callback(g3::LogMessageMover log)
-			{
-				g3::LogMessage log_message = log.get();
-				int level_value = log_message._level.value;
-
-				bool is_raw = level_value == RAW_RED.value || level_value == RAW_GREEN_TO_CONSOLE.value;
-
-				if (!(level_value & FLAG_NO_CONSOLE))
-				{
-					SetConsoleTextAttribute(g_logger->m_console_handle, static_cast<std::uint16_t>(log_colors[log_message._level.text]));
-					g_logger->m_console_out << log_message.toString(is_raw ? format_raw : format_console) << std::flush;
-				}
-				
-				if (!(level_value & FLAG_NO_DISK))
-				{
-					if (level_value == EVENT.value)
-						g_logger->m_gta_event_file_out << log_message.toString(format_file) << std::flush;
-					else
-						g_logger->m_file_out << log_message.toString(is_raw ? format_raw : format_file) << std::flush;
-				}
-			}
-
-			static std::string format_file(const g3::LogMessage& msg)
-			{
-				std::string file_name_with_line = "[" + msg.file() + ":" + msg.line() + "]";
-				std::stringstream out;
-				out << "[" << msg.timestamp("%H:%M:%S") << "] [" << std::left << std::setw(level_padding_length) << msg.level().append("]") << std::setw(max_padding_length) << file_name_with_line;
-				return out.str();
-			}
-
-			static std::string format_console(const g3::LogMessage& msg)
-			{
-				std::stringstream out;
-				out << "[" << msg.timestamp("%H:%M:%S") << "] ";
-				return out.str();
-			}
-
-			static std::string format_raw(const g3::LogMessage& msg)
-			{
-				return "";
-			}
-		};
+			raw_to_console(color, args...);
+			raw_to_file(args...);
+		}
 
 		template <typename ...Args>
-		inline void log_now(std::string_view format, Args const& ...args)
+		void log(log_color color, std::string_view prefix, std::string_view format, Args const &...args)
 		{
 			auto message = fmt::format(format, args...);
-			if (m_file_out)
-				m_file_out << message << std::endl << std::flush;
+
+			auto time_since_epoch = std::time(nullptr);
+			auto local_time = std::localtime(&time_since_epoch);
+
+			auto console_timestamp = fmt::format("[{:0>2}:{:0>2}:{:0>2}]", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+			auto file_timestamp = fmt::format("[{}-{}-{} {:0>2}:{:0>2}:{:0>2}]", local_time->tm_year + 1900, local_time->tm_mon + 1, local_time->tm_mday, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+
+			raw_to_console(color, console_timestamp, " [", prefix, "] ", message, "\n");
+			raw_to_file(file_timestamp, " [", prefix, "] ", message, "\n");
 		}
-		
+	private:
+		template <typename ...Args>
+		void raw_to_console(log_color color, Args const &...args)
+		{
+			if (m_console_handle)
+			{
+				SetConsoleTextAttribute(m_console_handle, static_cast<std::uint16_t>(color));
+			}
+
+			if (m_console_out)
+			{
+				((m_console_out << args), ...);
+				m_console_out << std::flush;
+			}
+		}
+
+		template <typename ...Args>
+		void raw_to_file(Args const &...args)
+		{
+			if (m_file_out)
+			{
+				((m_file_out << args), ...);
+				m_file_out << std::flush;
+			}
+		}
 	private:
 		bool m_did_console_exist{};
 		HANDLE m_console_handle{};
 		std::ofstream m_console_out;
+
 		std::filesystem::path m_file_path;
-		std::filesystem::path m_event_file_path;
 		std::ofstream m_file_out;
-		std::ofstream m_gta_event_file_out;
-		std::unique_ptr<g3::LogWorker> m_worker;
 	};
 
+	template <typename ...Args>
+	inline void log_info(std::string_view format, Args const &...args)
+	{
+		if (g_logger)
+		{
+			g_logger->log(log_color::blue | log_color::intensify, "INFO", format, args...);
+		}
+		else
+		{
+			DebugBreak();
+		}
+	}
 
-#define LOG_NOW(format, ...) g_logger->log_now(format, __VA_ARGS__)
+	template <typename ...Args>
+	inline void log_warning(std::string_view format, Args const &...args)
+	{
+		if (g_logger)
+		{
+			g_logger->log(log_color::red, "WARNING", format, args...);
+		}
+		else
+		{
+			DebugBreak();
+		}
+	}
+
+	template <typename ...Args>
+	inline void log_error(std::string_view format, Args const &...args)
+	{
+		if (g_logger)
+		{
+			g_logger->log(log_color::red | log_color::intensify, "ERROR", format, args...);
+		}
+		else
+		{
+			DebugBreak();
+		}
+	}
+
+	template <typename ...Args>
+	inline void log_trace(std::string_view format, Args const &...args)
+	{
+		if (g_logger)
+		{
+			g_logger->log(log_color::green | log_color::intensify, "TRACE", format, args...);
+		}
+		else
+		{
+			DebugBreak();
+		}
+	}
+
+	template <typename ...Args>
+	inline void log_raw(log_color color, Args const &...args)
+	{
+		if (g_logger)
+		{
+			g_logger->raw(color, args...);
+		}
+		else
+		{
+			DebugBreak();
+		}
+	}
+
+#define LOG_INFO_IMPL(format, ...) (::big::log_info(format, __VA_ARGS__))
+#define LOG_INFO(format, ...) LOG_INFO_IMPL(format, __VA_ARGS__)
+
+#define LOG_WARNING_IMPL(format, ...) (::big::log_warning(format, __VA_ARGS__))
+#define LOG_WARNING(format, ...) LOG_ERROR_IMPL(format, __VA_ARGS__)
+
+#define LOG_ERROR_IMPL(format, ...) (::big::log_error(format, __VA_ARGS__))
+#define LOG_ERROR(format, ...) LOG_ERROR_IMPL(format, __VA_ARGS__)
+
+#define LOG_TRACE_IMPL(format, ...) (::big::log_trace(format, __VA_ARGS__))
+#define LOG_TRACE(format, ...) LOG_TRACE_IMPL(format, __VA_ARGS__)
+
+#define LOG_RAW_IMPL(color, ...) (::big::log_raw(color, __VA_ARGS__))
+#define LOG_RAW(color, ...) LOG_RAW_IMPL(color, __VA_ARGS__)
+
 #define HEX_TO_UPPER(value) "0x" << std::hex << std::uppercase << (DWORD64)value << std::dec << std::nouppercase
 }
