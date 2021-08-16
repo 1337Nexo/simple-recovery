@@ -4,7 +4,7 @@ on:
   push: 
     branches: 
       - main
-      - avx2
+      - no-g3log
       
 jobs:
   build:
