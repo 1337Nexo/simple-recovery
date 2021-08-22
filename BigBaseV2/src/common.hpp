@@ -45,6 +45,8 @@
 #include <optional>
 #include <variant>
 
+#include <regex>
+
 #include <fmt/format.h>
 #include <nlohmann/json.hpp>
 

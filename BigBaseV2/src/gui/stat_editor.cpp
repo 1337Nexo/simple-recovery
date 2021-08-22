@@ -20,8 +20,6 @@ namespace big
 		if (ImGui::BeginTabItem("Stat Editor"))
 		{
 			ImGui::Text("a classic stat editor");
-			ImGui::Text("you don't need to put $ at the start");
-			ImGui::Text("it doesn't recognize MPX, just MP0 (1st character) or MP1 (2nd character)");
 			static std::string stat_name{ "MPPLY_KILLS_PLAYERS" };
 			static int stat_type = 0;
 			static int integer_value = 0;
@@ -65,7 +63,15 @@ namespace big
 			}
 			if (ImGui::Button("Apply Value"))
 			{
+				std::string character_index = "MP" + std::to_string(g_local_player.character_index);
+				LOG_INFO("stat_name {}", stat_name);
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\MPx)"), character_index);
+				LOG_INFO("stat_name_after_regex {}", stat_name);
+
 				const auto hash = rage::joaat(stat_name);
+				LOG_INFO("hash {}\n", hash);
 				g_fiber_pool->queue_job([hash]
 				{
 					if (stat_type == 0)
@@ -93,7 +99,15 @@ namespace big
 			ImGui::SameLine();
 			if (ImGui::Button("Get Value"))
 			{
+				std::string character_index = "MP" + std::to_string(g_local_player.character_index);
+				LOG_INFO("stat_name {}", stat_name);
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
+				stat_name = std::regex_replace(stat_name, std::regex(R"(\MPx)"), character_index);
+				LOG_INFO("stat_name_after_regex {}", stat_name);
+
 				const auto hash = rage::joaat(stat_name);
+				LOG_INFO("hash {}\n", hash);
 				g_fiber_pool->queue_job([hash]
 				{
 					if (stat_type == 0)
