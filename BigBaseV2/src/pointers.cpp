@@ -9,24 +9,9 @@ namespace big
 	{
 		memory::pattern_batch main_batch;
 
-		main_batch.add("Game state", "48 85 C9 74 4B 83 3D", [this](memory::handle ptr)
-		{
-			m_game_state = ptr.add(7).rip().as<eGameState*>();
-		});
-
-		main_batch.add("Is session started", "40 38 35 ? ? ? ? 75 0E 4C 8B C3 49 8B D7 49 8B CE", [this](memory::handle ptr)
-		{
-			m_is_session_started = ptr.add(3).rip().as<bool*>();
-		});
-
 		main_batch.add("Ped factory", "48 8B 05 ? ? ? ? 48 8B 48 08 48 85 C9 74 52 8B 81", [this](memory::handle ptr)
 		{
 			m_ped_factory = ptr.add(3).rip().as<CPedFactory**>();
-		});
-
-		main_batch.add("Network player manager", "48 8B 0D ? ? ? ? 8A D3 48 8B 01 FF 50 ? 4C 8B 07 48 8B CF", [this](memory::handle ptr)
-		{
-			m_network_player_mgr = ptr.add(3).rip().as<CNetworkPlayerMgr**>();
 		});
 
 		main_batch.add("Native handlers", "48 8D 0D ? ? ? ? 48 8B 14 FA E8 ? ? ? ? 48 85 C0 75 0A", [this](memory::handle ptr)
@@ -56,19 +41,9 @@ namespace big
 			m_script_globals = ptr.add(3).rip().as<std::int64_t**>();
 		});
 
-		main_batch.add("CGameScriptHandlerMgr", "48 8B 0D ? ? ? ? 4C 8B CE E8 ? ? ? ? 48 85 C0 74 05 40 32 FF", [this](memory::handle ptr)
-		{
-			m_script_handler_mgr = ptr.add(3).rip().as<CGameScriptHandlerMgr**>();
-		});
-
 		main_batch.add("Swapchain", "48 8B 0D ? ? ? ? 48 8B 01 44 8D 43 01 33 D2 FF 50 40 8B C8", [this](memory::handle ptr)
 		{
 			m_swapchain = ptr.add(3).rip().as<IDXGISwapChain**>();
-		});
-
-		main_batch.add("Increment Stat Event", "48 89 5c 24 ? 48 89 74 24 ? 55 57 41 55 41 56 41 57 48 8b ec 48 83 ec ? 8b 79", [this](memory::handle ptr)
-		{
-			m_increment_stat_event = ptr.as<PVOID>();
 		});
 
 		main_batch.add("Is Dlc Present", "48 89 5c 24 ? 57 48 83 ec ? 81 f9", [this](memory::handle ptr)

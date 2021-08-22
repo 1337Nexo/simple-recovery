@@ -10,7 +10,6 @@
 #include "stat_editor.h"
 #include "online_tab.h"
 #include "script_global.hpp"
-#include "gta/VehicleValues.h"
 #include "misc/cpp/imgui_stdlib.h"
 #include "local_player.hpp"
 #include "imgui.cpp"
@@ -25,18 +24,6 @@ namespace big
 	{
 		if (ImGui::BeginTabItem("Online"))
 		{
-			ImGui::Text("Ballistic Equipment");
-			static int ballisticarmorvalue;
-			ImGui::InputInt("##bvalue", &ballisticarmorvalue);
-			ImGui::SameLine();
-			if (ImGui::Button("Set Ballistic Armor Value"))
-			{
-				QUEUE_JOB_BEGIN_CLAUSE()
-				{
-					*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue; // tuneables_processing
-				} QUEUE_JOB_END_CLAUSE
-			}
-			ImGui::Separator();
 			ImGui::Text("Helpful shit");
 			if (ImGui::Button("Clear Wanted Level"))
 			{
@@ -254,7 +241,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
 			static int unlock{};
-			const char* const unlocks[]{ "Bools", "Ints", "Stats", "Modded Run", "Shotaro", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
+			const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
 			ImGui::SameLine();
@@ -264,17 +251,14 @@ namespace big
 				{
 				case 0:
 				{
-					QUEUE_JOB_BEGIN_CLAUSE()
-					{
-						helper::bool_unlocks();
-					} QUEUE_JOB_END_CLAUSE
-						break;
+					helper::magic();
+					break;
 				}
 				case 1:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						helper::int_unlocks();
+						helper::bool_unlocks();
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
@@ -282,30 +266,7 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						if (g_local_player.character_index == MP0)
-						{
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_STAM"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_STRN"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_FLY"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_STL"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_LUNG"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_DRIV"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCRIPT_INCREASE_SHO"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CHAR_FM_HEALTH_1_UNLCK"), -1, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CHAR_FM_HEALTH_2_UNLCK"), -1, TRUE);
-						}
-						else
-						{
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_STAM"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_STRN"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_FLY"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_STL"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_LUNG"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_DRIV"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCRIPT_INCREASE_SHO"), 100, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CHAR_FM_HEALTH_1_UNLCK"), -1, TRUE);
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CHAR_FM_HEALTH_2_UNLCK"), -1, TRUE);
-						}
+						helper::int_unlocks();
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
@@ -335,21 +296,6 @@ namespace big
 						break;
 				}
 				case 4:
-				{
-					QUEUE_JOB_BEGIN_CLAUSE()
-					{
-						if (g_local_player.character_index == MP0)
-						{
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CRDEADLINE"), 5, TRUE);
-						}
-						else
-						{
-							STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CRDEADLINE"), 5, TRUE);
-						}
-					} QUEUE_JOB_END_CLAUSE
-						break;
-				}
-				case 5:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
@@ -420,7 +366,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
-				case 6:
+				case 5:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
@@ -441,7 +387,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
-				case 7:
+				case 6:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
@@ -499,7 +445,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
-				case 8:
+				case 7:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
@@ -515,7 +461,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
-				case 9:
+				case 8:
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
@@ -523,7 +469,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
-				case 10:
+				case 9:
 				{
 					//int func_2723(int iParam0)
 					QUEUE_JOB_BEGIN_CLAUSE()
@@ -628,6 +574,21 @@ namespace big
 				}
 			}
 			ImGui::PopItemWidth();
+
+			if (ImGui::CollapsingHeader("Ballistic Equipment Value"))
+			{
+				ImGui::Text("Ballistic Equipment");
+				static int ballisticarmorvalue;
+				ImGui::InputInt("##bvalue", &ballisticarmorvalue);
+				ImGui::SameLine();
+				if (ImGui::Button("Set Ballistic Armor Value"))
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue; // tuneables_processing
+					} QUEUE_JOB_END_CLAUSE
+				}
+			}
 
 			if (ImGui::CollapsingHeader("Diamond Casino Heist"))
 			{

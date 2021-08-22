@@ -38,7 +38,6 @@ namespace big
 
 		m_run_script_threads_hook("Script hook", g_pointers->m_run_script_threads, &hooks::run_script_threads),
 		m_convert_thread_to_fiber_hook("ConvertThreadToFiber", memory::module("kernel32.dll").get_export("ConvertThreadToFiber").as<void*>(), &hooks::convert_thread_to_fiber),
-		m_increment_stat_event_hook("Increment Stat Event", g_pointers->m_increment_stat_event, &hooks::increment_stat_event),
 		m_is_dlc_present_hook("Is Dlc Present", g_pointers->m_is_dlc_present, &hooks::is_dlc_present)
 	{
 		m_swapchain_hook.hook(hooks::swapchain_present_index, &hooks::swapchain_present);
@@ -63,7 +62,6 @@ namespace big
 
 		m_run_script_threads_hook.enable();
 		m_convert_thread_to_fiber_hook.enable();
-		m_increment_stat_event_hook.enable();
 		m_is_dlc_present_hook.enable();
 
 		m_enabled = true;
@@ -75,7 +73,6 @@ namespace big
 
 		m_convert_thread_to_fiber_hook.disable();
 		m_run_script_threads_hook.disable();
-		m_increment_stat_event_hook.disable();
 		m_is_dlc_present_hook.disable();
 
 		m_set_cursor_pos_hook.disable();
@@ -93,32 +90,13 @@ namespace big
 		MH_Uninitialize();
 	}
 
-	// this don't do too much, blocking REPORT_MYSELF_EVENT should do a better job.
-	// fucking arxan would do a better job too.
-	bool hooks::increment_stat_event(CNetworkIncrementStatEvent* event_struct, CNetGamePlayer* sender, int64_t a3)
-	{
-		auto stat = event_struct->m_hash;
-		auto sender_name = sender->player_info->m_name;
-
-		LOG_INFO("Blocked report from {} | 0x{:X}", sender_name, stat);
-
-		/*
-		if (event_helper::report_function(stat, sender_name))
-		{
-			return true;
-		}
-		*/
-
-		return true;
-	}
-
 	bool hooks::is_dlc_present(uint32_t a1)
 	{
 		switch (a1)
 		{
 		case 0x96F02EE6:
 		{
-			return 1;
+			return true;
 		}
 		}
 

@@ -50,7 +50,7 @@
 
 #include "logger.hpp"
 
-#include "settings.h"
+#include "settings.hpp"
 
 namespace big
 {

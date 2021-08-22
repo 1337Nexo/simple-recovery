@@ -14,11 +14,7 @@ namespace big
 	public:
 		HWND m_hwnd{};
 
-		eGameState* m_game_state{};
-		bool* m_is_session_started{};
-
 		CPedFactory** m_ped_factory{};
-		CNetworkPlayerMgr** m_network_player_mgr{};
 
 		rage::scrNativeRegistrationTable* m_native_registration_table{};
 		functions::get_native_handler_t m_get_native_handler{};
@@ -28,8 +24,6 @@ namespace big
 		rage::scrProgramTable* m_script_program_table{};
 		functions::run_script_threads_t m_run_script_threads{};
 		std::int64_t** m_script_globals{};
-
-		CGameScriptHandlerMgr** m_script_handler_mgr{};
 
 		IDXGISwapChain** m_swapchain{};
 

@@ -631,6 +631,10 @@ namespace helper
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_FORMULA"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_FORMULA2"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_HELP_JB7002"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_AWD_STRAIGHT_TO_VIDEO"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_AWD_MONKEY_C_MONKEY_DO"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_AWD_TRAINED_TO_KILL"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP0_AWD_DIRECTOR"), TRUE, TRUE);
 		}
 		else
 		{
@@ -864,6 +868,10 @@ namespace helper
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_FORMULA"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_FORMULA2"), TRUE, TRUE);
 			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_HELP_JB7002"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_AWD_STRAIGHT_TO_VIDEO"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_AWD_MONKEY_C_MONKEY_DO"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_AWD_TRAINED_TO_KILL"), TRUE, TRUE);
+			STATS::STAT_SET_BOOL(RAGE_JOAAT("MP1_AWD_DIRECTOR"), TRUE, TRUE);
 		}
 	}
 
@@ -1188,6 +1196,10 @@ namespace helper
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCGW_NUM_WINS_GANG_1"), 50, TRUE);
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCGW_NUM_WINS_GANG_2"), 50, TRUE);
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_SCGW_NUM_WINS_GANG_3"), 50, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_AWD_FACES_OF_DEATH"), 50, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CHAR_FM_HEALTH_1_UNLCK"), -1, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CHAR_FM_HEALTH_2_UNLCK"), -1, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP0_CRDEADLINE"), 5, TRUE);
 		}
 		else
 		{
@@ -1478,6 +1490,143 @@ namespace helper
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCGW_NUM_WINS_GANG_1"), 50, TRUE);
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCGW_NUM_WINS_GANG_2"), 50, TRUE);
 			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_SCGW_NUM_WINS_GANG_3"), 50, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_AWD_FACES_OF_DEATH"), 50, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CHAR_FM_HEALTH_1_UNLCK"), -1, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CHAR_FM_HEALTH_2_UNLCK"), -1, TRUE);
+			STATS::STAT_SET_INT(RAGE_JOAAT("MP1_CRDEADLINE"), 5, TRUE);
 		}
+	}
+
+	static void magic()
+	{
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			helper::bool_unlocks();
+			helper::int_unlocks();
+			helper::set_packed_int(22058, 20);
+		} QUEUE_JOB_END_CLAUSE
+
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			helper::set_mass_packed_bool(1, 0, 192);
+			helper::set_mass_packed_bool(1, 513, 705);
+			helper::set_mass_packed_bool(1, 2919, 3111);
+			helper::set_mass_packed_bool(1, 3111, 3879);
+			helper::set_mass_packed_bool(1, 4207, 4399);
+			helper::set_mass_packed_bool(1, 6029, 6413);
+			helper::set_mass_packed_bool(1, 7385, 7641);
+			helper::set_mass_packed_bool(1, 9361, 9553);
+			helper::set_mass_packed_bool(1, 15369, 15561);
+			helper::set_mass_packed_bool(1, 15562, 15946);
+			helper::set_mass_packed_bool(1, 15946, 16010);
+			helper::set_mass_packed_bool(1, 18098, 18162);
+			helper::set_mass_packed_bool(1, 22066, 22194);
+			helper::set_mass_packed_bool(1, 24962, 25538);
+			helper::set_mass_packed_bool(1, 26810, 27258);
+			helper::set_mass_packed_bool(1, 28098, 28354);
+			helper::set_mass_packed_bool(1, 28355, 28483);
+			helper::set_mass_packed_bool(1, 30227, 30355);
+			helper::set_mass_packed_bool(1, 30355, 30483);
+			helper::set_mass_packed_bool(1, 30515, 30707);
+			helper::set_mass_packed_bool(1, 31707, 32283);
+		} QUEUE_JOB_END_CLAUSE
+
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			helper::set_packed_bool(7387, 0);
+			helper::set_packed_bool(7388, 0);
+			helper::set_packed_bool(7389, 0);
+			helper::set_packed_bool(7390, 0);
+			helper::set_packed_bool(7391, 0);
+			helper::set_packed_bool(7392, 0);
+			helper::set_packed_bool(7393, 0);
+			helper::set_packed_bool(7394, 0);
+			helper::set_packed_bool(7395, 0);
+			helper::set_packed_bool(7396, 0);
+			helper::set_packed_bool(7397, 0);
+			helper::set_packed_bool(7398, 0);
+			helper::set_packed_bool(7399, 0);
+			helper::set_packed_bool(7400, 0);
+			helper::set_packed_bool(7401, 0);
+			helper::set_packed_bool(7402, 0);
+			helper::set_packed_bool(7403, 0);
+			helper::set_packed_bool(7404, 0);
+			helper::set_packed_bool(7405, 0);
+			helper::set_packed_bool(7406, 0);
+			helper::set_packed_bool(7407, 0);
+			helper::set_packed_bool(7408, 0);
+			helper::set_packed_bool(7409, 0);
+			helper::set_packed_bool(7410, 0);
+			helper::set_packed_bool(7411, 0);
+			helper::set_packed_bool(7412, 0);
+			helper::set_packed_bool(7413, 0);
+			helper::set_packed_bool(7414, 0);
+			helper::set_packed_bool(7415, 0);
+			helper::set_packed_bool(7416, 0);
+			helper::set_packed_bool(7417, 0);
+			helper::set_packed_bool(7418, 0);
+			helper::set_packed_bool(7419, 0);
+			helper::set_packed_bool(7420, 0);
+			helper::set_packed_bool(7421, 0);
+			helper::set_packed_bool(7422, 0);
+			helper::set_packed_bool(7423, 0);
+			helper::set_packed_bool(7424, 0);
+			helper::set_packed_bool(7425, 0);
+			helper::set_packed_bool(7426, 0);
+			helper::set_packed_bool(7427, 0);
+			helper::set_packed_bool(7428, 0);
+			helper::set_packed_bool(7429, 0);
+			helper::set_packed_bool(7430, 0);
+			helper::set_packed_bool(7431, 0);
+			helper::set_packed_bool(7432, 0);
+			helper::set_packed_bool(7433, 0);
+			helper::set_packed_bool(7434, 0);
+			helper::set_packed_bool(7435, 0);
+			helper::set_packed_bool(7436, 0);
+			helper::set_packed_bool(7437, 0);
+			helper::set_packed_bool(7438, 0);
+			helper::set_packed_bool(7439, 0);
+			helper::set_packed_bool(7440, 0);
+			helper::set_packed_bool(7441, 0);
+			helper::set_packed_bool(7442, 0);
+			helper::set_packed_bool(7443, 0);
+			helper::set_packed_bool(7444, 0);
+			helper::set_packed_bool(7445, 0);
+			helper::set_packed_bool(7446, 0);
+			helper::set_packed_bool(7447, 0);
+			helper::set_packed_bool(7448, 0);
+			helper::set_packed_bool(7449, 0);
+			helper::set_packed_bool(7466, 0);
+			helper::set_packed_bool(7621, 0);
+			helper::set_packed_bool(7622, 0);
+			helper::set_packed_bool(7623, 0);
+			helper::set_packed_bool(7624, 0);
+			helper::set_packed_bool(7625, 0);
+			helper::set_packed_bool(7626, 0);
+			helper::set_packed_bool(7627, 0);
+			helper::set_packed_bool(15441, 0);
+			helper::set_packed_bool(15442, 0);
+			helper::set_packed_bool(15443, 0);
+			helper::set_packed_bool(15444, 0);
+			helper::set_packed_bool(15445, 0);
+			helper::set_packed_bool(15446, 0);
+			helper::set_packed_bool(18100, 0);
+			helper::set_packed_bool(18101, 0);
+			helper::set_packed_bool(18102, 0);
+			helper::set_packed_bool(18103, 0);
+			helper::set_packed_bool(18104, 0);
+			helper::set_packed_bool(18105, 0);
+			helper::set_packed_bool(15995, 0);
+			helper::set_packed_bool(15548, 0);
+			helper::set_packed_bool(25241, 0);
+			helper::set_packed_bool(25242, 0);
+			helper::set_packed_bool(25243, 0);
+			helper::set_packed_bool(25518, 0);
+			helper::set_packed_bool(25519, 0);
+			helper::set_packed_bool(30321, 0);
+			helper::set_packed_bool(30322, 0);
+			helper::set_packed_bool(30323, 0);
+			helper::set_packed_bool(7386, 0);
+		} QUEUE_JOB_END_CLAUSE
 	}
 }
