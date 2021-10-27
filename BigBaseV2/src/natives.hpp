@@ -19,10 +19,10 @@ FORCEINLINE Ret invoke(rage::scrNativeHash hash, Args&& ...args)
 	}
 }
 
-// Generated Tue, 27 Jul 2021 23:05:11 GMT
-// https://alloc8or.re/gta5/nativedb/
-
 #define NATIVE_DECL __declspec(noinline) inline
+
+// Generated Sun, 24 Oct 2021 21:42:27 GMT
+// https://alloc8or.re/gta5/nativedb/
 
 namespace SYSTEM
 {
@@ -181,12 +181,12 @@ namespace AUDIO
 	NATIVE_DECL void _0xDD6BCF9E94425DF9() { invoke<Void>(0xDD6BCF9E94425DF9); } // 0xDD6BCF9E94425DF9 0xD70ECC80 b323
 	NATIVE_DECL void SET_RADIO_TO_STATION_NAME(const char* stationName) { invoke<Void>(0xC69EDA28699D5107, stationName); } // 0xC69EDA28699D5107 0x7B36E35E b323
 	NATIVE_DECL void SET_VEH_RADIO_STATION(Vehicle vehicle, const char* radioStation) { invoke<Void>(0x1B9C0099CB942AC6, vehicle, radioStation); } // 0x1B9C0099CB942AC6 0xE391F55F b323
-	NATIVE_DECL void _0x3E45765F3FBB582F(Any p0) { invoke<Void>(0x3E45765F3FBB582F, p0); } // 0x3E45765F3FBB582F b2372
-	NATIVE_DECL BOOL _0x0BE4BE946463F917(Vehicle vehicle) { return invoke<BOOL>(0x0BE4BE946463F917, vehicle); } // 0x0BE4BE946463F917 b505
+	NATIVE_DECL void _SET_VEH_HAS_RADIO_OVERRIDE(Vehicle vehicle) { invoke<Void>(0x3E45765F3FBB582F, vehicle); } // 0x3E45765F3FBB582F b2372
+	NATIVE_DECL BOOL _IS_VEHICLE_RADIO_ENABLED(Vehicle vehicle) { return invoke<BOOL>(0x0BE4BE946463F917, vehicle); } // 0x0BE4BE946463F917 b505
 	NATIVE_DECL void _0xC1805D05E6D4FE10(Vehicle vehicle) { invoke<Void>(0xC1805D05E6D4FE10, vehicle); } // 0xC1805D05E6D4FE10 0x7ABB89D2 b323
 	NATIVE_DECL void SET_EMITTER_RADIO_STATION(const char* emitterName, const char* radioStation) { invoke<Void>(0xACF57305B12AF907, emitterName, radioStation); } // 0xACF57305B12AF907 0x87431585 b323
-	NATIVE_DECL void SET_NATIVE_DECL_EMITTER_ENABLED(const char* emitterName, BOOL toggle) { invoke<Void>(0x399D2D3B33F1B8EB, emitterName, toggle); } // 0x399D2D3B33F1B8EB 0x91F72E92 b323
-	NATIVE_DECL void _LINK_NATIVE_DECL_EMITTER_TO_ENTITY(const char* emitterName, Entity entity) { invoke<Void>(0x651D3228960D08AF, emitterName, entity); } // 0x651D3228960D08AF b505
+	NATIVE_DECL void SET_STATIC_EMITTER_ENABLED(const char* emitterName, BOOL toggle) { invoke<Void>(0x399D2D3B33F1B8EB, emitterName, toggle); } // 0x399D2D3B33F1B8EB 0x91F72E92 b323
+	NATIVE_DECL void _LINK_STATIC_EMITTER_TO_ENTITY(const char* emitterName, Entity entity) { invoke<Void>(0x651D3228960D08AF, emitterName, entity); } // 0x651D3228960D08AF b505
 	NATIVE_DECL void SET_RADIO_TO_STATION_INDEX(int radioStation) { invoke<Void>(0xA619B168B8A8570F, radioStation); } // 0xA619B168B8A8570F 0x1D82766D b323
 	NATIVE_DECL void SET_FRONTEND_RADIO_ACTIVE(BOOL active) { invoke<Void>(0xF7F26C6E9CC9EBB8, active); } // 0xF7F26C6E9CC9EBB8 0xB1172075 b323
 	NATIVE_DECL void UNLOCK_MISSION_NEWS_STORY(int newsStory) { invoke<Void>(0xB165AB7C248B2DC1, newsStory); } // 0xB165AB7C248B2DC1 0xCCD9ABE4 b323
@@ -212,7 +212,7 @@ namespace AUDIO
 	NATIVE_DECL void SET_CUSTOM_RADIO_TRACK_LIST(const char* radioStation, const char* trackListName, BOOL p2) { invoke<Void>(0x4E404A9361F75BB2, radioStation, trackListName, p2); } // 0x4E404A9361F75BB2 0x128C3873 b323
 	NATIVE_DECL void CLEAR_CUSTOM_RADIO_TRACK_LIST(const char* radioStation) { invoke<Void>(0x1654F24A88A8E3FE, radioStation); } // 0x1654F24A88A8E3FE 0x1D766976 b323
 	NATIVE_DECL int GET_NUM_UNLOCKED_RADIO_STATIONS() { return invoke<int>(0xF1620ECB50E01DE7); } // 0xF1620ECB50E01DE7 0xCC91FCF5 b323
-	NATIVE_DECL int FIND_RADIO_STATION_INDEX(int station) { return invoke<int>(0x8D67489793FF428B, station); } // 0x8D67489793FF428B 0xECA1512F b323
+	NATIVE_DECL int FIND_RADIO_STATION_INDEX(Hash stationNameHash) { return invoke<int>(0x8D67489793FF428B, stationNameHash); } // 0x8D67489793FF428B 0xECA1512F b323
 	NATIVE_DECL void SET_RADIO_STATION_MUSIC_ONLY(const char* radioStation, BOOL toggle) { invoke<Void>(0x774BD811F656A122, radioStation, toggle); } // 0x774BD811F656A122 0xB1FF7137 b323
 	NATIVE_DECL void SET_RADIO_FRONTEND_FADE_TIME(float fadeTime) { invoke<Void>(0x2C96CDB04FCA358E, fadeTime); } // 0x2C96CDB04FCA358E 0xC8B514E2 b323
 	NATIVE_DECL void UNLOCK_RADIO_STATION_TRACK_LIST(const char* radioStation, const char* trackListName) { invoke<Void>(0x031ACB6ABA18C729, radioStation, trackListName); } // 0x031ACB6ABA18C729 0xBE998184 b323
@@ -221,7 +221,7 @@ namespace AUDIO
 	NATIVE_DECL void _LOCK_RADIO_STATION(const char* radioStationName, BOOL toggle) { invoke<Void>(0x477D9DB48F889591, radioStationName, toggle); } // 0x477D9DB48F889591 b1493
 	NATIVE_DECL void _SET_RADIO_STATION_IS_VISIBLE(const char* radioStation, BOOL toggle) { invoke<Void>(0x4CAFEBFA21EC188D, radioStation, toggle); } // 0x4CAFEBFA21EC188D b2372
 	NATIVE_DECL BOOL _0xC64A06D939F826F5(float* p0, float* p1, int* p2) { return invoke<BOOL>(0xC64A06D939F826F5, p0, p1, p2); } // 0xC64A06D939F826F5 b1493
-	NATIVE_DECL void _0x4E0AF9114608257C(Any p0, Any p1, Any p2) { invoke<Void>(0x4E0AF9114608257C, p0, p1, p2); } // 0x4E0AF9114608257C b2372
+	NATIVE_DECL void _FORCE_RADIO_TRACK_LIST_POSITION(const char* radioStation, const char* trackListName, int milliseconds) { invoke<Void>(0x4E0AF9114608257C, radioStation, trackListName, milliseconds); } // 0x4E0AF9114608257C b2372
 	NATIVE_DECL int _GET_CURRENT_RADIO_STATION_HASH(const char* radioStationName) { return invoke<int>(0x3E65CDE5215832C1, radioStationName); } // 0x3E65CDE5215832C1 b1493
 	NATIVE_DECL Hash _0x34D66BC058019CE0(const char* radioStationName) { return invoke<Hash>(0x34D66BC058019CE0, radioStationName); } // 0x34D66BC058019CE0 b1493
 	NATIVE_DECL void _0xF3365489E0DD50F9(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xF3365489E0DD50F9, vehicle, toggle); } // 0xF3365489E0DD50F9 0x8AFC488D b323
@@ -262,7 +262,7 @@ namespace AUDIO
 	NATIVE_DECL void _0xA8A7D434AFB4B97B(const char* p0, int p1) { invoke<Void>(0xA8A7D434AFB4B97B, p0, p1); } // 0xA8A7D434AFB4B97B b1493
 	NATIVE_DECL void _0x2ACABED337622DF2(const char* p0) { invoke<Void>(0x2ACABED337622DF2, p0); } // 0x2ACABED337622DF2 b1493
 	NATIVE_DECL void SET_SIREN_WITH_NO_DRIVER(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1FEF0683B96EBCF2, vehicle, toggle); } // 0x1FEF0683B96EBCF2 0x77182D58 b323
-	NATIVE_DECL void _0xF584CF8529B51434(Any p0, Any p1) { invoke<Void>(0xF584CF8529B51434, p0, p1); } // 0xF584CF8529B51434 b2372
+	NATIVE_DECL void _SET_SIREN_KEEP_ON(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xF584CF8529B51434, vehicle, toggle); } // 0xF584CF8529B51434 b2372
 	NATIVE_DECL void _TRIGGER_SIREN(Vehicle vehicle) { invoke<Void>(0x66C3FB05206041BA, vehicle); } // 0x66C3FB05206041BA b1290
 	NATIVE_DECL void _SOUND_VEHICLE_HORN_THIS_FRAME(Vehicle vehicle) { invoke<Void>(0x9C11908013EA4715, vehicle); } // 0x9C11908013EA4715 0xDE8BA3CD b323
 	NATIVE_DECL void SET_HORN_ENABLED(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x76D683C108594D0E, vehicle, toggle); } // 0x76D683C108594D0E 0x6EB92D05 b323
@@ -271,19 +271,19 @@ namespace AUDIO
 	NATIVE_DECL void USE_SIREN_AS_HORN(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xFA932DE350266EF8, vehicle, toggle); } // 0xFA932DE350266EF8 0xC6BC16F3 b323
 	NATIVE_DECL void _FORCE_VEHICLE_ENGINE_AUDIO(Vehicle vehicle, const char* audioName) { invoke<Void>(0x4F0C413926060B38, vehicle, audioName); } // 0x4F0C413926060B38 0x33B0B007 b323
 	NATIVE_DECL void _PRELOAD_VEHICLE_AUDIO(Hash vehicleModel) { invoke<Void>(0xCA4CEA6AE0000A7E, vehicleModel); } // 0xCA4CEA6AE0000A7E b1180
-	NATIVE_DECL void _0xF1F8157B8C3F171C(Vehicle vehicle, const char* p1, const char* p2) { invoke<Void>(0xF1F8157B8C3F171C, vehicle, p1, p2); } // 0xF1F8157B8C3F171C 0x1C0C5E4C b323
-	NATIVE_DECL void _0xD2DCCD8E16E20997(Any p0) { invoke<Void>(0xD2DCCD8E16E20997, p0); } // 0xD2DCCD8E16E20997 b323
+	NATIVE_DECL void SET_VEHICLE_STARTUP_REV_SOUND(Vehicle vehicle, const char* p1, const char* p2) { invoke<Void>(0xF1F8157B8C3F171C, vehicle, p1, p2); } // 0xF1F8157B8C3F171C 0x1C0C5E4C b323
+	NATIVE_DECL void _RESET_VEHICLE_STARTUP_REV_SOUND(Vehicle vehicle) { invoke<Void>(0xD2DCCD8E16E20997, vehicle); } // 0xD2DCCD8E16E20997 b323
 	NATIVE_DECL void _0x97FFB4ADEED08066(Any p0, Any p1) { invoke<Void>(0x97FFB4ADEED08066, p0, p1); } // 0x97FFB4ADEED08066 b2372
-	NATIVE_DECL BOOL _0x5DB8010EE71FDEF2(Vehicle vehicle) { return invoke<BOOL>(0x5DB8010EE71FDEF2, vehicle); } // 0x5DB8010EE71FDEF2 0x6E660D3F b323
+	NATIVE_DECL BOOL IS_VEHICLE_AUDIBLY_DAMAGED(Vehicle vehicle) { return invoke<BOOL>(0x5DB8010EE71FDEF2, vehicle); } // 0x5DB8010EE71FDEF2 0x6E660D3F b323
 	NATIVE_DECL void SET_VEHICLE_AUDIO_ENGINE_DAMAGE_FACTOR(Vehicle vehicle, float damageFactor) { invoke<Void>(0x59E7B488451F4D3A, vehicle, damageFactor); } // 0x59E7B488451F4D3A 0x23BE6432 b323
-	NATIVE_DECL void SET_VEHICLE_AUDIO_BODY_DAMAGE_FACTOR(Vehicle vehicle, float p1) { invoke<Void>(0x01BB4D577D38BD9E, vehicle, p1); } // 0x01BB4D577D38BD9E 0xE81FAC68 b323
-	NATIVE_DECL void _0x1C073274E065C6D2(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1C073274E065C6D2, vehicle, toggle); } // 0x1C073274E065C6D2 0x9365E042 b323
+	NATIVE_DECL void SET_VEHICLE_AUDIO_BODY_DAMAGE_FACTOR(Vehicle vehicle, float intensity) { invoke<Void>(0x01BB4D577D38BD9E, vehicle, intensity); } // 0x01BB4D577D38BD9E 0xE81FAC68 b323
+	NATIVE_DECL void ENABLE_VEHICLE_FANBELT_DAMAGE(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1C073274E065C6D2, vehicle, toggle); } // 0x1C073274E065C6D2 0x9365E042 b323
 	NATIVE_DECL void ENABLE_VEHICLE_EXHAUST_POPS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x2BE4BC731D039D5A, vehicle, toggle); } // 0x2BE4BC731D039D5A 0x2A60A90E b323
 	NATIVE_DECL void SET_VEHICLE_BOOST_ACTIVE(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x4A04DE7CAB2739A1, vehicle, toggle); } // 0x4A04DE7CAB2739A1 0x072F15F2 b323
 	NATIVE_DECL void _0x6FDDAD856E36988A(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x6FDDAD856E36988A, vehicle, toggle); } // 0x6FDDAD856E36988A 0x934BE749 b323
 	NATIVE_DECL void SET_SCRIPT_UPDATE_DOOR_AUDIO(Hash doorHash, BOOL toggle) { invoke<Void>(0x06C0023BED16DD6B, doorHash, toggle); } // 0x06C0023BED16DD6B 0xE61110A2 b323
-	NATIVE_DECL void PLAY_VEHICLE_DOOR_OPEN_SOUND(Vehicle vehicle, int doorIndex) { invoke<Void>(0x3A539D52857EA82D, vehicle, doorIndex); } // 0x3A539D52857EA82D 0x84930330 b323
-	NATIVE_DECL void PLAY_VEHICLE_DOOR_CLOSE_SOUND(Vehicle vehicle, int doorIndex) { invoke<Void>(0x62A456AA4769EF34, vehicle, doorIndex); } // 0x62A456AA4769EF34 0xBA2CF407 b323
+	NATIVE_DECL void PLAY_VEHICLE_DOOR_OPEN_SOUND(Vehicle vehicle, int doorId) { invoke<Void>(0x3A539D52857EA82D, vehicle, doorId); } // 0x3A539D52857EA82D 0x84930330 b323
+	NATIVE_DECL void PLAY_VEHICLE_DOOR_CLOSE_SOUND(Vehicle vehicle, int doorId) { invoke<Void>(0x62A456AA4769EF34, vehicle, doorId); } // 0x62A456AA4769EF34 0xBA2CF407 b323
 	NATIVE_DECL void ENABLE_STALL_WARNING_SOUNDS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xC15907D667F7CFB2, vehicle, toggle); } // 0xC15907D667F7CFB2 0x563B635D b323
 	NATIVE_DECL BOOL IS_GAME_IN_CONTROL_OF_MUSIC() { return invoke<BOOL>(0x6D28DC1671E334FD); } // 0x6D28DC1671E334FD 0x7643170D b323
 	NATIVE_DECL void SET_GPS_ACTIVE(BOOL active) { invoke<Void>(0x3BD3F52BA9B1E4E8, active); } // 0x3BD3F52BA9B1E4E8 0x0FC3379A b323
@@ -312,7 +312,7 @@ namespace AUDIO
 	NATIVE_DECL void _0x70B8EC8FC108A634(BOOL p0, Any p1) { invoke<Void>(0x70B8EC8FC108A634, p0, p1); } // 0x70B8EC8FC108A634 0x95050CAD b323
 	NATIVE_DECL void _0x149AEE66F0CB3A99(float p0, float p1) { invoke<Void>(0x149AEE66F0CB3A99, p0, p1); } // 0x149AEE66F0CB3A99 0xE64F97A0 b323
 	NATIVE_DECL void _0x8BF907833BE275DE(float p0, float p1) { invoke<Void>(0x8BF907833BE275DE, p0, p1); } // 0x8BF907833BE275DE b323
-	NATIVE_DECL void _0x062D5EAD4DA2FA6A() { invoke<Void>(0x062D5EAD4DA2FA6A); } // 0x062D5EAD4DA2FA6A 0xD87AF337 b323
+	NATIVE_DECL void FORCE_PED_PANIC_WALLA() { invoke<Void>(0x062D5EAD4DA2FA6A); } // 0x062D5EAD4DA2FA6A 0xD87AF337 b323
 	NATIVE_DECL BOOL PREPARE_ALARM(const char* alarmName) { return invoke<BOOL>(0x9D74AE343DB65533, alarmName); } // 0x9D74AE343DB65533 0x084932E8 b323
 	NATIVE_DECL void START_ALARM(const char* alarmName, BOOL p2) { invoke<Void>(0x0355EF116C4C97B2, alarmName, p2); } // 0x0355EF116C4C97B2 0x703F524B b323
 	NATIVE_DECL void STOP_ALARM(const char* alarmName, BOOL toggle) { invoke<Void>(0xA1CADDCD98415A41, alarmName, toggle); } // 0xA1CADDCD98415A41 0xF987BE8C b323
@@ -341,9 +341,9 @@ namespace AUDIO
 	NATIVE_DECL void SET_PORTAL_SETTINGS_OVERRIDE(const char* p0, const char* p1) { invoke<Void>(0x044DBAD7A7FA2BE5, p0, p1); } // 0x044DBAD7A7FA2BE5 0x8AD670EC b323
 	NATIVE_DECL void REMOVE_PORTAL_SETTINGS_OVERRIDE(const char* p0) { invoke<Void>(0xB4BBFD9CD8B3922B, p0); } // 0xB4BBFD9CD8B3922B 0xD24B4D0C b323
 	NATIVE_DECL void _0xE4E6DD5566D28C82() { invoke<Void>(0xE4E6DD5566D28C82); } // 0xE4E6DD5566D28C82 0x7262B5BA b323
-	NATIVE_DECL Any _0x3A48AB4445D499BE() { return invoke<Any>(0x3A48AB4445D499BE); } // 0x3A48AB4445D499BE 0x93A44A1F b323
-	NATIVE_DECL void _SET_PED_TALK(Ped ped) { invoke<Void>(0x4ADA3F19BE4A6047, ped); } // 0x4ADA3F19BE4A6047 0x13777A0B b323
-	NATIVE_DECL void _0x0150B6FF25A9E2E5() { invoke<Void>(0x0150B6FF25A9E2E5); } // 0x0150B6FF25A9E2E5 0x1134F68B b323
+	NATIVE_DECL int GET_MUSIC_VOL_SLIDER() { return invoke<int>(0x3A48AB4445D499BE); } // 0x3A48AB4445D499BE 0x93A44A1F b323
+	NATIVE_DECL void REQUEST_TENNIS_BANKS(Ped ped) { invoke<Void>(0x4ADA3F19BE4A6047, ped); } // 0x4ADA3F19BE4A6047 0x13777A0B b323
+	NATIVE_DECL void UNREQUEST_TENNIS_BANKS() { invoke<Void>(0x0150B6FF25A9E2E5); } // 0x0150B6FF25A9E2E5 0x1134F68B b323
 	NATIVE_DECL void _0xBEF34B1D9624D5DD(BOOL p0) { invoke<Void>(0xBEF34B1D9624D5DD, p0); } // 0xBEF34B1D9624D5DD 0xE0047BFD b323
 	NATIVE_DECL void STOP_CUTSCENE_AUDIO() { invoke<Void>(0x806058BBDC136E06); } // 0x806058BBDC136E06 0x55461BE6 b323
 	NATIVE_DECL BOOL _HAS_MULTIPLAYER_AUDIO_DATA_LOADED() { return invoke<BOOL>(0x544810ED9DB6BBE6); } // 0x544810ED9DB6BBE6 b323
@@ -363,13 +363,13 @@ namespace BRAIN
 	NATIVE_DECL void DISABLE_SCRIPT_BRAIN_SET(int brainSet) { invoke<Void>(0x14D8518E9760F08F, brainSet); } // 0x14D8518E9760F08F 0xFBD13FAD b323
 	NATIVE_DECL void _0x0B40ED49D7D6FF84() { invoke<Void>(0x0B40ED49D7D6FF84); } // 0x0B40ED49D7D6FF84 0x19B27825 b323
 	NATIVE_DECL void _0x4D953DF78EBF8158() { invoke<Void>(0x4D953DF78EBF8158); } // 0x4D953DF78EBF8158 0xF3A3AB08 b323
-	NATIVE_DECL void _0x6D6840CEE8845831(const char* action) { invoke<Void>(0x6D6840CEE8845831, action); } // 0x6D6840CEE8845831 0x949FE53E b323
-	NATIVE_DECL void _0x6E91B04E08773030(const char* action) { invoke<Void>(0x6E91B04E08773030, action); } // 0x6E91B04E08773030 0x29CE8BAA b323
+	NATIVE_DECL void _0x6D6840CEE8845831(const char* scriptName) { invoke<Void>(0x6D6840CEE8845831, scriptName); } // 0x6D6840CEE8845831 0x949FE53E b323
+	NATIVE_DECL void _0x6E91B04E08773030(const char* scriptName) { invoke<Void>(0x6E91B04E08773030, scriptName); } // 0x6E91B04E08773030 0x29CE8BAA b323
 }
 
 namespace CAM
 {
-	NATIVE_DECL void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4) { invoke<Void>(0x07E5B515DB0636FC, render, ease, easeTime, p3, p4); } // 0x07E5B515DB0636FC 0x74337969 b323
+	NATIVE_DECL void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4, Any p5) { invoke<Void>(0x07E5B515DB0636FC, render, ease, easeTime, p3, p4, p5); } // 0x07E5B515DB0636FC 0x74337969 b323
 	NATIVE_DECL void STOP_RENDERING_SCRIPT_CAMS_USING_CATCH_UP(BOOL render, float p1, int p2, Any p3) { invoke<Void>(0xC819F3CBB62BF692, render, p1, p2, p3); } // 0xC819F3CBB62BF692 0xD3C08183 b323
 	NATIVE_DECL Cam CREATE_CAM(const char* camName, BOOL p1) { return invoke<Cam>(0xC3981DCE61D9E13F, camName, p1); } // 0xC3981DCE61D9E13F 0xE9BF2A7D b323
 	NATIVE_DECL Cam CREATE_CAM_WITH_PARAMS(const char* camName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, int p9) { return invoke<Cam>(0xB51194800B257161, camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); } // 0xB51194800B257161 0x23B02F15 b323
@@ -425,8 +425,8 @@ namespace CAM
 	NATIVE_DECL void _0xA2767257A320FC82(Any p0, BOOL p1) { invoke<Void>(0xA2767257A320FC82, p0, p1); } // 0xA2767257A320FC82 b323
 	NATIVE_DECL void _0x271017B9BA825366(Any p0, BOOL p1) { invoke<Void>(0x271017B9BA825366, p0, p1); } // 0x271017B9BA825366 0x43220969 b323
 	NATIVE_DECL void SET_CAM_DEBUG_NAME(Cam camera, const char* name) { invoke<Void>(0x1B93E0107865DD40, camera, name); } // 0x1B93E0107865DD40 0x9B00DF3F b323
-	NATIVE_DECL Any _0x77C3CEC46BE286F6() { return invoke<Any>(0x77C3CEC46BE286F6); } // 0x77C3CEC46BE286F6 b2372
-	NATIVE_DECL void ADD_CAM_SPLINE_NODE(Cam camera, float x, float y, float z, float xRot, float yRot, float zRot, int length, int p8, int p9) { invoke<Void>(0x8609C75EC438FB3B, camera, x, y, z, xRot, yRot, zRot, length, p8, p9); } // 0x8609C75EC438FB3B 0xAD3C7EAA b323
+	NATIVE_DECL Cam _GET_DEBUG_CAMERA() { return invoke<Cam>(0x77C3CEC46BE286F6); } // 0x77C3CEC46BE286F6 b2372
+	NATIVE_DECL void ADD_CAM_SPLINE_NODE(Cam camera, float x, float y, float z, float xRot, float yRot, float zRot, int length, int smoothingStyle, int rotationOrder) { invoke<Void>(0x8609C75EC438FB3B, camera, x, y, z, xRot, yRot, zRot, length, smoothingStyle, rotationOrder); } // 0x8609C75EC438FB3B 0xAD3C7EAA b323
 	NATIVE_DECL void ADD_CAM_SPLINE_NODE_USING_CAMERA_FRAME(Cam cam, Cam cam2, int p2, int p3) { invoke<Void>(0x0A9F2A468B328E74, cam, cam2, p2, p3); } // 0x0A9F2A468B328E74 0x30510511 b323
 	NATIVE_DECL void ADD_CAM_SPLINE_NODE_USING_CAMERA(Cam cam, Cam cam2, int p2, int p3) { invoke<Void>(0x0FB82563989CF4FB, cam, cam2, p2, p3); } // 0x0FB82563989CF4FB 0xBA6C085B b323
 	NATIVE_DECL void ADD_CAM_SPLINE_NODE_USING_GAMEPLAY_FRAME(Cam cam, int p1, int p2) { invoke<Void>(0x609278246A29CA34, cam, p1, p2); } // 0x609278246A29CA34 0xB4737F03 b323
@@ -436,7 +436,7 @@ namespace CAM
 	NATIVE_DECL void SET_CAM_SPLINE_DURATION(Cam cam, int timeDuration) { invoke<Void>(0x1381539FEE034CDA, cam, timeDuration); } // 0x1381539FEE034CDA 0x3E91FC8A b323
 	NATIVE_DECL void SET_CAM_SPLINE_SMOOTHING_STYLE(Cam cam, int smoothingStyle) { invoke<Void>(0xD1B0F412F109EA5D, cam, smoothingStyle); } // 0xD1B0F412F109EA5D 0x15E141CE b323
 	NATIVE_DECL int GET_CAM_SPLINE_NODE_INDEX(Cam cam) { return invoke<int>(0xB22B17DF858716A6, cam); } // 0xB22B17DF858716A6 0xF8AEB6BD b323
-	NATIVE_DECL void SET_CAM_SPLINE_NODE_EASE(Cam cam, int p1, int p2, float p3) { invoke<Void>(0x83B8201ED82A9A2D, cam, p1, p2, p3); } // 0x83B8201ED82A9A2D 0x21D275DA b323
+	NATIVE_DECL void SET_CAM_SPLINE_NODE_EASE(Cam cam, int easingFunction, int p2, float p3) { invoke<Void>(0x83B8201ED82A9A2D, cam, easingFunction, p2, p3); } // 0x83B8201ED82A9A2D 0x21D275DA b323
 	NATIVE_DECL void SET_CAM_SPLINE_NODE_VELOCITY_SCALE(Cam cam, int p1, float scale) { invoke<Void>(0xA6385DEB180F319F, cam, p1, scale); } // 0xA6385DEB180F319F 0xA3BD9E94 b323
 	NATIVE_DECL void OVERRIDE_CAM_SPLINE_VELOCITY(Cam cam, int p1, float p2, float p3) { invoke<Void>(0x40B62FA033EB0346, cam, p1, p2, p3); } // 0x40B62FA033EB0346 0x326A17E2 b323
 	NATIVE_DECL void OVERRIDE_CAM_SPLINE_MOTION_BLUR(Cam cam, int p1, float p2, float p3) { invoke<Void>(0x7DCF7C708D292D55, cam, p1, p2, p3); } // 0x7DCF7C708D292D55 0x633179E6 b323
@@ -558,7 +558,7 @@ namespace CAM
 	NATIVE_DECL float GET_FINAL_RENDERED_CAM_FAR_DOF() { return invoke<float>(0x9780F32BCAF72431); } // 0x9780F32BCAF72431 0xF24777CA b323
 	NATIVE_DECL float GET_FINAL_RENDERED_CAM_MOTION_BLUR_STRENGTH() { return invoke<float>(0x162F9D995753DC19); } // 0x162F9D995753DC19 0x38992E83 b323
 	NATIVE_DECL void SET_GAMEPLAY_COORD_HINT(float x, float y, float z, int duration, int blendOutDuration, int blendInDuration, int unk) { invoke<Void>(0xD51ADCD2D8BC0FB3, x, y, z, duration, blendOutDuration, blendInDuration, unk); } // 0xD51ADCD2D8BC0FB3 0xF27483C9 b323
-	NATIVE_DECL void SET_GAMEPLAY_PED_HINT(Ped p0, float x1, float y1, float z1, BOOL p4, Any p5, Any p6, Any p7) { invoke<Void>(0x2B486269ACD548D3, p0, x1, y1, z1, p4, p5, p6, p7); } // 0x2B486269ACD548D3 0x7C27343E b323
+	NATIVE_DECL void SET_GAMEPLAY_PED_HINT(Ped p0, float x1, float y1, float z1, BOOL p4, int duration, int blendOutDuration, int blendInDuration) { invoke<Void>(0x2B486269ACD548D3, p0, x1, y1, z1, p4, duration, blendOutDuration, blendInDuration); } // 0x2B486269ACD548D3 0x7C27343E b323
 	NATIVE_DECL void SET_GAMEPLAY_VEHICLE_HINT(Vehicle vehicle, float offsetX, float offsetY, float offsetZ, BOOL p4, int time, int easeInTime, int easeOutTime) { invoke<Void>(0xA2297E18F3E71C2E, vehicle, offsetX, offsetY, offsetZ, p4, time, easeInTime, easeOutTime); } // 0xA2297E18F3E71C2E 0x2C9A11D8 b323
 	NATIVE_DECL void SET_GAMEPLAY_OBJECT_HINT(Any p0, float p1, float p2, float p3, BOOL p4, Any p5, Any p6, Any p7) { invoke<Void>(0x83E87508A2CA2AC6, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x83E87508A2CA2AC6 0x2ED5E2F8 b323
 	NATIVE_DECL void SET_GAMEPLAY_ENTITY_HINT(Entity entity, float xOffset, float yOffset, float zOffset, BOOL p4, int p5, int p6, int p7, Any p8) { invoke<Void>(0x189E955A8313E298, entity, xOffset, yOffset, zOffset, p4, p5, p6, p7, p8); } // 0x189E955A8313E298 0x66C32306 b323
@@ -856,7 +856,7 @@ namespace ENTITY
 	NATIVE_DECL void _0x694E00132F2823ED(Entity entity, BOOL toggle) { invoke<Void>(0x694E00132F2823ED, entity, toggle); } // 0x694E00132F2823ED 0x40C84A74 b323
 	NATIVE_DECL BOOL IS_ENTITY_ON_SCREEN(Entity entity) { return invoke<BOOL>(0xE659E47AF827484B, entity); } // 0xE659E47AF827484B 0xC1FEC5ED b323
 	NATIVE_DECL BOOL IS_ENTITY_PLAYING_ANIM(Entity entity, const char* animDict, const char* animName, int taskFlag) { return invoke<BOOL>(0x1F0B79228E461EC9, entity, animDict, animName, taskFlag); } // 0x1F0B79228E461EC9 0x0D130D34 b323
-	NATIVE_DECL BOOL IS_ENTITY_NATIVE_DECL(Entity entity) { return invoke<BOOL>(0x1218E6886D3D8327, entity); } // 0x1218E6886D3D8327 0x928E12E9 b323
+	NATIVE_DECL BOOL IS_ENTITY_STATIC(Entity entity) { return invoke<BOOL>(0x1218E6886D3D8327, entity); } // 0x1218E6886D3D8327 0x928E12E9 b323
 	NATIVE_DECL BOOL IS_ENTITY_TOUCHING_ENTITY(Entity entity, Entity targetEntity) { return invoke<BOOL>(0x17FFC1B2BA35A494, entity, targetEntity); } // 0x17FFC1B2BA35A494 0x6B931477 b323
 	NATIVE_DECL BOOL IS_ENTITY_TOUCHING_MODEL(Entity entity, Hash modelHash) { return invoke<BOOL>(0x0F42323798A58C8C, entity, modelHash); } // 0x0F42323798A58C8C 0x307E7611 b323
 	NATIVE_DECL BOOL IS_ENTITY_UPRIGHT(Entity entity, float angle) { return invoke<BOOL>(0x5333F526F6AB19AA, entity, angle); } // 0x5333F526F6AB19AA 0x3BCDF4E1 b323
@@ -907,7 +907,7 @@ namespace ENTITY
 	NATIVE_DECL void SET_ENTITY_COORDS_NO_OFFSET(Entity entity, float xPos, float yPos, float zPos, BOOL xAxis, BOOL yAxis, BOOL zAxis) { invoke<Void>(0x239A3351AC1DA385, entity, xPos, yPos, zPos, xAxis, yAxis, zAxis); } // 0x239A3351AC1DA385 0x4C83DE8D b323
 	NATIVE_DECL void SET_ENTITY_DYNAMIC(Entity entity, BOOL toggle) { invoke<Void>(0x1718DE8E3F2823CA, entity, toggle); } // 0x1718DE8E3F2823CA 0x236F525B b323
 	NATIVE_DECL void SET_ENTITY_HEADING(Entity entity, float heading) { invoke<Void>(0x8E2530AA8ADA980E, entity, heading); } // 0x8E2530AA8ADA980E 0xE0FF064D b323
-	NATIVE_DECL void SET_ENTITY_HEALTH(Entity entity, int health) { invoke<Void>(0x6B76DC1F3AE6E6A3, entity, health); } // 0x6B76DC1F3AE6E6A3 0xFBCD1831 b323
+	NATIVE_DECL void SET_ENTITY_HEALTH(Entity entity, int health, int p2) { invoke<Void>(0x6B76DC1F3AE6E6A3, entity, health, p2); } // 0x6B76DC1F3AE6E6A3 0xFBCD1831 b323
 	NATIVE_DECL void SET_ENTITY_INVINCIBLE(Entity entity, BOOL toggle) { invoke<Void>(0x3882114BDE571AD4, entity, toggle); } // 0x3882114BDE571AD4 0xC1213A21 b323
 	NATIVE_DECL void SET_ENTITY_IS_TARGET_PRIORITY(Entity entity, BOOL p1, float p2) { invoke<Void>(0xEA02E132F5C68722, entity, p1, p2); } // 0xEA02E132F5C68722 0x9729EE32 b323
 	NATIVE_DECL void SET_ENTITY_LIGHTS(Entity entity, BOOL toggle) { invoke<Void>(0x7CFBA6A80BDF3874, entity, toggle); } // 0x7CFBA6A80BDF3874 0xE8FC85AF b323
@@ -925,14 +925,14 @@ namespace ENTITY
 	NATIVE_DECL void _0xC34BC448DA29F5E9(Entity entity, BOOL toggle) { invoke<Void>(0xC34BC448DA29F5E9, entity, toggle); } // 0xC34BC448DA29F5E9 b573
 	NATIVE_DECL void _0xE66377CDDADA4810(Entity entity, BOOL p1) { invoke<Void>(0xE66377CDDADA4810, entity, p1); } // 0xE66377CDDADA4810 b1734
 	NATIVE_DECL void SET_ENTITY_VELOCITY(Entity entity, float x, float y, float z) { invoke<Void>(0x1C99BB7B6E96D16F, entity, x, y, z); } // 0x1C99BB7B6E96D16F 0xFF5A1988 b323
-	NATIVE_DECL void _0x8339643499D1222E(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x8339643499D1222E, p0, p1, p2, p3); } // 0x8339643499D1222E b2372
+	NATIVE_DECL void _SET_ENTITY_ANGULAR_VELOCITY(Entity entity, float x, float y, float z) { invoke<Void>(0x8339643499D1222E, entity, x, y, z); } // 0x8339643499D1222E b2372
 	NATIVE_DECL void SET_ENTITY_HAS_GRAVITY(Entity entity, BOOL toggle) { invoke<Void>(0x4A4722448F18EEF5, entity, toggle); } // 0x4A4722448F18EEF5 0xE2F262BF b323
 	NATIVE_DECL void SET_ENTITY_LOD_DIST(Entity entity, int value) { invoke<Void>(0x5927F96A78577363, entity, value); } // 0x5927F96A78577363 0xD7ACC7AD b323
 	NATIVE_DECL int GET_ENTITY_LOD_DIST(Entity entity) { return invoke<int>(0x4159C2762B5791D6, entity); } // 0x4159C2762B5791D6 0x4DA3D51F b323
 	NATIVE_DECL void SET_ENTITY_ALPHA(Entity entity, int alphaLevel, BOOL skin) { invoke<Void>(0x44A0870B7E92D7C0, entity, alphaLevel, skin); } // 0x44A0870B7E92D7C0 0xAE667CB0 b323
 	NATIVE_DECL int GET_ENTITY_ALPHA(Entity entity) { return invoke<int>(0x5A47B3B5E63E94C6, entity); } // 0x5A47B3B5E63E94C6 0x1560B017 b323
 	NATIVE_DECL void RESET_ENTITY_ALPHA(Entity entity) { invoke<Void>(0x9B1E824FFBB7027A, entity); } // 0x9B1E824FFBB7027A 0x8A30761C b323
-	NATIVE_DECL void _0x490861B88F4FD846(Any p0) { invoke<Void>(0x490861B88F4FD846, p0); } // 0x490861B88F4FD846 b944
+	NATIVE_DECL void _0x490861B88F4FD846(Entity entity) { invoke<Void>(0x490861B88F4FD846, entity); } // 0x490861B88F4FD846 b944
 	NATIVE_DECL void _0xCEA7C8E1B48FF68C(Any p0, Any p1) { invoke<Void>(0xCEA7C8E1B48FF68C, p0, p1); } // 0xCEA7C8E1B48FF68C b678
 	NATIVE_DECL void _0x5C3B791D580E0BC2(Entity entity, float p1) { invoke<Void>(0x5C3B791D580E0BC2, entity, p1); } // 0x5C3B791D580E0BC2 b323
 	NATIVE_DECL void SET_ENTITY_ALWAYS_PRERENDER(Entity entity, BOOL toggle) { invoke<Void>(0xACAD101E1FB66689, entity, toggle); } // 0xACAD101E1FB66689 0xD8FF798A b323
@@ -1121,8 +1121,8 @@ namespace GRAPHICS
 	NATIVE_DECL void _0xF51D36185993515D(int checkpoint, float posX, float posY, float posZ, float unkX, float unkY, float unkZ) { invoke<Void>(0xF51D36185993515D, checkpoint, posX, posY, posZ, unkX, unkY, unkZ); } // 0xF51D36185993515D 0x20EABD0F b323
 	NATIVE_DECL void _0xFCF6788FC4860CD4(int checkpoint) { invoke<Void>(0xFCF6788FC4860CD4, checkpoint); } // 0xFCF6788FC4860CD4 b1734
 	NATIVE_DECL void _0x615D3925E87A3B26(int checkpoint) { invoke<Void>(0x615D3925E87A3B26, checkpoint); } // 0x615D3925E87A3B26 0x1E3A3126 b323
-	NATIVE_DECL void _0xDB1EA9411C8911EC(Any p0) { invoke<Void>(0xDB1EA9411C8911EC, p0); } // 0xDB1EA9411C8911EC b1180
-	NATIVE_DECL void _0x3C788E7F6438754D(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x3C788E7F6438754D, p0, p1, p2, p3); } // 0x3C788E7F6438754D b1180
+	NATIVE_DECL void _0xDB1EA9411C8911EC(int checkpoint) { invoke<Void>(0xDB1EA9411C8911EC, checkpoint); } // 0xDB1EA9411C8911EC b1180
+	NATIVE_DECL void _0x3C788E7F6438754D(int checkpoint, float posX, float posY, float posZ) { invoke<Void>(0x3C788E7F6438754D, checkpoint, posX, posY, posZ); } // 0x3C788E7F6438754D b1180
 	NATIVE_DECL void DELETE_CHECKPOINT(int checkpoint) { invoke<Void>(0xF5ED37F54CD4D52E, checkpoint); } // 0xF5ED37F54CD4D52E 0xB66CF3CA b323
 	NATIVE_DECL void DONT_RENDER_IN_GAME_UI(BOOL p0) { invoke<Void>(0x22A249A53034450A, p0); } // 0x22A249A53034450A 0x932FDB81 b323
 	NATIVE_DECL void FORCE_RENDER_IN_GAME_UI(BOOL toggle) { invoke<Void>(0xDC459CFA0CCE245B, toggle); } // 0xDC459CFA0CCE245B 0x7E946E87 b323
@@ -1243,7 +1243,7 @@ namespace GRAPHICS
 	NATIVE_DECL void _0xB3C641F3630BF6DA(float p0) { invoke<Void>(0xB3C641F3630BF6DA, p0); } // 0xB3C641F3630BF6DA 0xF6B837F0 b323
 	NATIVE_DECL float _0xE59343E9E96529E7() { return invoke<float>(0xE59343E9E96529E7); } // 0xE59343E9E96529E7 0xD906A3A9 b323
 	NATIVE_DECL void _0x6A51F78772175A51(BOOL toggle) { invoke<Void>(0x6A51F78772175A51, toggle); } // 0x6A51F78772175A51 b1011
-	NATIVE_DECL void _0xE63D7C6EECECB66B(BOOL toggle) { invoke<Void>(0xE63D7C6EECECB66B, toggle); } // 0xE63D7C6EECECB66B 0xD34A6CBA b323
+	NATIVE_DECL void TOGGLE_PLAYER_DAMAGE_OVERLAY(BOOL toggle) { invoke<Void>(0xE63D7C6EECECB66B, toggle); } // 0xE63D7C6EECECB66B 0xD34A6CBA b323
 	NATIVE_DECL void _0xE3E2C1B4C59DBC77(int unk) { invoke<Void>(0xE3E2C1B4C59DBC77, unk); } // 0xE3E2C1B4C59DBC77 0xD8CC7221 b323
 	NATIVE_DECL BOOL TRIGGER_SCREENBLUR_FADE_IN(float transitionTime) { return invoke<BOOL>(0xA328A24AAA6B7FDC, transitionTime); } // 0xA328A24AAA6B7FDC 0x5604B890 b323
 	NATIVE_DECL BOOL TRIGGER_SCREENBLUR_FADE_OUT(float transitionTime) { return invoke<BOOL>(0xEFACC8AEF94430D5, transitionTime); } // 0xEFACC8AEF94430D5 0x46617502 b323
@@ -1412,7 +1412,7 @@ namespace GRAPHICS
 	NATIVE_DECL void _SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING_2(const char* string) { invoke<Void>(0x77FE3402004CD1B0, string); } // 0x77FE3402004CD1B0 b573
 	NATIVE_DECL void SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING(const char* string) { invoke<Void>(0xBA7148484BD90365, string); } // 0xBA7148484BD90365 0x4DAAD55B b323
 	NATIVE_DECL void SCALEFORM_MOVIE_METHOD_ADD_PARAM_PLAYER_NAME_STRING(const char* string) { invoke<Void>(0xE83A3E3557A56640, string); } // 0xE83A3E3557A56640 0xCCBF0334 b323
-	NATIVE_DECL BOOL _0x5E657EF1099EDD65(Any p0) { return invoke<BOOL>(0x5E657EF1099EDD65, p0); } // 0x5E657EF1099EDD65 0x91A081A1 b323
+	NATIVE_DECL BOOL DOES_LATEST_BRIEF_STRING_EXIST(int p0) { return invoke<BOOL>(0x5E657EF1099EDD65, p0); } // 0x5E657EF1099EDD65 0x91A081A1 b323
 	NATIVE_DECL void SCALEFORM_MOVIE_METHOD_ADD_PARAM_LATEST_BRIEF_STRING(int value) { invoke<Void>(0xEC52C631A1831C03, value); } // 0xEC52C631A1831C03 0x83A9811D b323
 	NATIVE_DECL void REQUEST_SCALEFORM_SCRIPT_HUD_MOVIE(int hudComponent) { invoke<Void>(0x9304881D6F6537EA, hudComponent); } // 0x9304881D6F6537EA 0x7AF85862 b323
 	NATIVE_DECL BOOL HAS_SCALEFORM_SCRIPT_HUD_MOVIE_LOADED(int hudComponent) { return invoke<BOOL>(0xDF6E5987D2B4D140, hudComponent); } // 0xDF6E5987D2B4D140 0x79B43255 b323
@@ -1586,7 +1586,7 @@ namespace HUD
 	NATIVE_DECL void SET_BLIP_ROUTE_COLOUR(Blip blip, int colour) { invoke<Void>(0x837155CD2F63DA09, blip, colour); } // 0x837155CD2F63DA09 0xDDE7C65C b323
 	NATIVE_DECL void _0x2790F4B17D098E26(BOOL toggle) { invoke<Void>(0x2790F4B17D098E26, toggle); } // 0x2790F4B17D098E26 b573
 	NATIVE_DECL void _0x6CDD58146A436083(Any p0) { invoke<Void>(0x6CDD58146A436083, p0); } // 0x6CDD58146A436083 b573
-	NATIVE_DECL void _0xD1942374085C8469(Any p0) { invoke<Void>(0xD1942374085C8469, p0); } // 0xD1942374085C8469 b505
+	NATIVE_DECL void _0xD1942374085C8469(BOOL disabled) { invoke<Void>(0xD1942374085C8469, disabled); } // 0xD1942374085C8469 b505
 	NATIVE_DECL void ADD_NEXT_MESSAGE_TO_PREVIOUS_BRIEFS(BOOL p0) { invoke<Void>(0x60296AF4BA14ABC5, p0); } // 0x60296AF4BA14ABC5 0xB58B25BD b323
 	NATIVE_DECL void _0x57D760D55F54E071(int p0) { invoke<Void>(0x57D760D55F54E071, p0); } // 0x57D760D55F54E071 0x9854485F b323
 	NATIVE_DECL void SET_RADAR_ZOOM_PRECISE(float zoom) { invoke<Void>(0xBD12C5EEE184C337, zoom); } // 0xBD12C5EEE184C337 0xDCA3F423 b323
@@ -1708,7 +1708,7 @@ namespace HUD
 	NATIVE_DECL void _SET_BLIP_DISPLAY_INDICATOR_ON_BLIP(Blip blip, BOOL toggle) { invoke<Void>(0xC4278F70131BAA6D, blip, toggle); } // 0xC4278F70131BAA6D 0x6AA6A1CC b323
 	NATIVE_DECL void _0x4B5B620C9B59ED34(Any p0, Any p1) { invoke<Void>(0x4B5B620C9B59ED34, p0, p1); } // 0x4B5B620C9B59ED34 b678
 	NATIVE_DECL void _0x2C9F302398E13141(Any p0, Any p1) { invoke<Void>(0x2C9F302398E13141, p0, p1); } // 0x2C9F302398E13141 b1103
-	NATIVE_DECL void _SET_BLIP_SHRINK(Blip blip, BOOL toggle) { invoke<Void>(0x2B6D467DAB714E8D, blip, toggle); } // 0x2B6D467DAB714E8D 0xC575F0BC b323
+	NATIVE_DECL void SET_BLIP_AS_MINIMAL_ON_EDGE(Blip blip, BOOL toggle) { invoke<Void>(0x2B6D467DAB714E8D, blip, toggle); } // 0x2B6D467DAB714E8D 0xC575F0BC b323
 	NATIVE_DECL void SET_RADIUS_BLIP_EDGE(Blip blip, BOOL toggle) { invoke<Void>(0x25615540D894B814, blip, toggle); } // 0x25615540D894B814 0x40E25DB8 b323
 	NATIVE_DECL BOOL DOES_BLIP_EXIST(Blip blip) { return invoke<BOOL>(0xA6DB27D19ECBB7DA, blip); } // 0xA6DB27D19ECBB7DA 0xAE92DD96 b323
 	NATIVE_DECL void SET_WAYPOINT_OFF() { invoke<Void>(0xA7E4E2D361C2627F); } // 0xA7E4E2D361C2627F 0xB3496E1B b323
@@ -1729,8 +1729,8 @@ namespace HUD
 	NATIVE_DECL void _0x41350B4FC28E3941(BOOL p0) { invoke<Void>(0x41350B4FC28E3941, p0); } // 0x41350B4FC28E3941 b323
 	NATIVE_DECL void HIDE_LOADING_ON_FADE_THIS_FRAME() { invoke<Void>(0x4B0311D3CDC4648F); } // 0x4B0311D3CDC4648F 0x35087963 b323
 	NATIVE_DECL void SET_RADAR_AS_INTERIOR_THIS_FRAME(Hash interior, float x, float y, int z, int zoom) { invoke<Void>(0x59E727A1C9D3E31A, interior, x, y, z, zoom); } // 0x59E727A1C9D3E31A 0x6F2626E1 b323
-	NATIVE_DECL void _0x504DFE62A1692296(BOOL toggle) { invoke<Void>(0x504DFE62A1692296, toggle); } // 0x504DFE62A1692296 b1493
-	NATIVE_DECL void _0x7EC8ABA5E74B3D7A(Any p0) { invoke<Void>(0x7EC8ABA5E74B3D7A, p0); } // 0x7EC8ABA5E74B3D7A b2372
+	NATIVE_DECL void _SET_INTERIOR_ZOOM_LEVEL_INCREASED(BOOL toggle) { invoke<Void>(0x504DFE62A1692296, toggle); } // 0x504DFE62A1692296 b1493
+	NATIVE_DECL void _SET_INTERIOR_ZOOM_LEVEL_DECREASED(BOOL toggle) { invoke<Void>(0x7EC8ABA5E74B3D7A, toggle); } // 0x7EC8ABA5E74B3D7A b2372
 	NATIVE_DECL void SET_RADAR_AS_EXTERIOR_THIS_FRAME() { invoke<Void>(0xE81B7D2A3DAB2D81); } // 0xE81B7D2A3DAB2D81 0x39ABB10E b323
 	NATIVE_DECL void _SET_PLAYER_BLIP_POSITION_THIS_FRAME(float x, float y) { invoke<Void>(0x77E2DD177910E1CF, x, y); } // 0x77E2DD177910E1CF 0x54E75C7D b323
 	NATIVE_DECL void _0xA17784FCA9548D15(Any p0, Any p1, Any p2) { invoke<Void>(0xA17784FCA9548D15, p0, p1, p2); } // 0xA17784FCA9548D15 b877
@@ -1852,9 +1852,9 @@ namespace HUD
 	NATIVE_DECL int GET_GLOBAL_ACTIONSCRIPT_FLAG(int flagIndex) { return invoke<int>(0xE3B05614DCE1D014, flagIndex); } // 0xE3B05614DCE1D014 0xD217EE7E b323
 	NATIVE_DECL void RESET_GLOBAL_ACTIONSCRIPT_FLAG(int flagIndex) { invoke<Void>(0xB99C4E4D9499DF29, flagIndex); } // 0xB99C4E4D9499DF29 0x4C4C10CF b323
 	NATIVE_DECL BOOL _IS_WARNING_MESSAGE_ACTIVE_2() { return invoke<BOOL>(0xAF42195A42C63BBA); } // 0xAF42195A42C63BBA b323
-	NATIVE_DECL void SET_WARNING_MESSAGE(const char* titleMsg, int flags, const char* promptMsg, BOOL p3, int p4, const char* p5, const char* p6, BOOL showBackground, Any p8) { invoke<Void>(0x7B1776B3B53F8D74, titleMsg, flags, promptMsg, p3, p4, p5, p6, showBackground, p8); } // 0x7B1776B3B53F8D74 0xBE699BDE b323
+	NATIVE_DECL void SET_WARNING_MESSAGE(const char* titleMsg, int flags, const char* promptMsg, BOOL p3, int p4, const char* p5, const char* p6, BOOL showBackground, int errorCode) { invoke<Void>(0x7B1776B3B53F8D74, titleMsg, flags, promptMsg, p3, p4, p5, p6, showBackground, errorCode); } // 0x7B1776B3B53F8D74 0xBE699BDE b323
 	NATIVE_DECL void SET_WARNING_MESSAGE_WITH_HEADER(const char* entryHeader, const char* entryLine1, int instructionalKey, const char* entryLine2, BOOL p4, Any p5, Any* showBackground, Any* p7, BOOL p8, Any p9) { invoke<Void>(0xDC38CC1E35B6A5D7, entryHeader, entryLine1, instructionalKey, entryLine2, p4, p5, showBackground, p7, p8, p9); } // 0xDC38CC1E35B6A5D7 0x2DB9EAB5 b323
-	NATIVE_DECL void SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS(const char* entryHeader, const char* entryLine1, Any instructionalKey, const char* entryLine2, BOOL p4, Any p5, Any p6, Any* p7, Any* p8, BOOL p9, Any p10) { invoke<Void>(0x701919482C74B5AB, entryHeader, entryLine1, instructionalKey, entryLine2, p4, p5, p6, p7, p8, p9, p10); } // 0x701919482C74B5AB 0x749929D3 b323
+	NATIVE_DECL void SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS(const char* entryHeader, const char* entryLine1, int instructionalKey, const char* entryLine2, BOOL p4, Any p5, Any additionalIntInfo, const char* additionalTextInfoLine1, const char* additionalTextInfoLine2, BOOL showBackground, int errorCode) { invoke<Void>(0x701919482C74B5AB, entryHeader, entryLine1, instructionalKey, entryLine2, p4, p5, additionalIntInfo, additionalTextInfoLine1, additionalTextInfoLine2, showBackground, errorCode); } // 0x701919482C74B5AB 0x749929D3 b323
 	NATIVE_DECL void _SET_WARNING_MESSAGE_WITH_HEADER_UNK(const char* entryHeader, const char* entryLine1, int flags, const char* entryLine2, BOOL p4, Any p5, Any* p6, Any* p7, BOOL showBg, Any p9, Any p10) { invoke<Void>(0x38B55259C2E078ED, entryHeader, entryLine1, flags, entryLine2, p4, p5, p6, p7, showBg, p9, p10); } // 0x38B55259C2E078ED b1493
 	NATIVE_DECL void _SET_WARNING_MESSAGE_WITH_ALERT(const char* labelTitle, const char* labelMessage, int p2, int p3, const char* labelMessage2, BOOL p5, int p6, int p7, const char* p8, const char* p9, BOOL background, int errorCode) { invoke<Void>(0x15803FEC3B9A872B, labelTitle, labelMessage, p2, p3, labelMessage2, p5, p6, p7, p8, p9, background, errorCode); } // 0x15803FEC3B9A872B b573
 	NATIVE_DECL Hash _GET_WARNING_MESSAGE_TITLE_HASH() { return invoke<Hash>(0x81DF9ABA6C83DFF9); } // 0x81DF9ABA6C83DFF9 b1290
@@ -1892,29 +1892,29 @@ namespace HUD
 	NATIVE_DECL void PAUSE_MENU_ACTIVATE_CONTEXT(Hash contextHash) { invoke<Void>(0xDD564BDD0472C936, contextHash); } // 0xDD564BDD0472C936 0x9FE8FD5E b323
 	NATIVE_DECL void PAUSE_MENU_DEACTIVATE_CONTEXT(Hash contextHash) { invoke<Void>(0x444D8CF241EC25C5, contextHash); } // 0x444D8CF241EC25C5 0x0029046E b323
 	NATIVE_DECL BOOL PAUSE_MENU_IS_CONTEXT_ACTIVE(Hash contextHash) { return invoke<BOOL>(0x84698AB38D0C6636, contextHash); } // 0x84698AB38D0C6636 0xC51BC42F b323
-	NATIVE_DECL Any PAUSE_MENU_IS_CONTEXT_MENU_ACTIVE() { return invoke<Any>(0x2A25ADC48F87841F); } // 0x2A25ADC48F87841F 0x016D7AF9 b323
-	NATIVE_DECL Any _0xDE03620F8703A9DF() { return invoke<Any>(0xDE03620F8703A9DF); } // 0xDE03620F8703A9DF b323
-	NATIVE_DECL Any _0x359AF31A4B52F5ED() { return invoke<Any>(0x359AF31A4B52F5ED); } // 0x359AF31A4B52F5ED b323
-	NATIVE_DECL Any _0x13C4B962653A5280() { return invoke<Any>(0x13C4B962653A5280); } // 0x13C4B962653A5280 b323
+	NATIVE_DECL BOOL PAUSE_MENU_IS_CONTEXT_MENU_ACTIVE() { return invoke<BOOL>(0x2A25ADC48F87841F); } // 0x2A25ADC48F87841F 0x016D7AF9 b323
+	NATIVE_DECL int _0xDE03620F8703A9DF() { return invoke<int>(0xDE03620F8703A9DF); } // 0xDE03620F8703A9DF b323
+	NATIVE_DECL int _0x359AF31A4B52F5ED() { return invoke<int>(0x359AF31A4B52F5ED); } // 0x359AF31A4B52F5ED b323
+	NATIVE_DECL int _0x13C4B962653A5280() { return invoke<int>(0x13C4B962653A5280); } // 0x13C4B962653A5280 b323
 	NATIVE_DECL BOOL _0xC8E1071177A23BE5(Any* p0, Any* p1, Any* p2) { return invoke<BOOL>(0xC8E1071177A23BE5, p0, p1, p2); } // 0xC8E1071177A23BE5 b323
 	NATIVE_DECL void _0x4895BDEA16E7C080(int p0) { invoke<Void>(0x4895BDEA16E7C080, p0); } // 0x4895BDEA16E7C080 0x15B24768 b323
-	NATIVE_DECL void PAUSE_MENU_SET_BUSY_SPINNER(BOOL p0, Any p1, Any p2) { invoke<Void>(0xC78E239AC5B2DDB9, p0, p1, p2); } // 0xC78E239AC5B2DDB9 0x6C67131A b323
+	NATIVE_DECL void PAUSE_MENU_SET_BUSY_SPINNER(BOOL p0, int position, int spinnerIndex) { invoke<Void>(0xC78E239AC5B2DDB9, p0, position, spinnerIndex); } // 0xC78E239AC5B2DDB9 0x6C67131A b323
 	NATIVE_DECL void _0xF06EBB91A81E09E3(BOOL p0) { invoke<Void>(0xF06EBB91A81E09E3, p0); } // 0xF06EBB91A81E09E3 0x11D09737 b323
 	NATIVE_DECL BOOL IS_FRONTEND_READY_FOR_CONTROL() { return invoke<BOOL>(0x3BAB9A4E4F2FF5C7); } // 0x3BAB9A4E4F2FF5C7 0xD3BF3ABD b323
 	NATIVE_DECL void TAKE_CONTROL_OF_FRONTEND() { invoke<Void>(0xEC9264727EEC0F28); } // 0xEC9264727EEC0F28 0xC06B763D b323
 	NATIVE_DECL void RELEASE_CONTROL_OF_FRONTEND() { invoke<Void>(0x14621BB1DF14E2B2); } // 0x14621BB1DF14E2B2 0xB9392CE7 b323
-	NATIVE_DECL Any _0x66E7CB63C97B7D20() { return invoke<Any>(0x66E7CB63C97B7D20); } // 0x66E7CB63C97B7D20 0x92DAFA78 b323
-	NATIVE_DECL Any _0x593FEAE1F73392D4() { return invoke<Any>(0x593FEAE1F73392D4); } // 0x593FEAE1F73392D4 0x22CA9F2A b323
-	NATIVE_DECL Any IS_NAVIGATING_MENU_CONTENT() { return invoke<Any>(0x4E3CD0EF8A489541); } // 0x4E3CD0EF8A489541 0xDA7951A2 b323
-	NATIVE_DECL Any _0xF284AC67940C6812() { return invoke<Any>(0xF284AC67940C6812); } // 0xF284AC67940C6812 0x7D95AFFF b323
+	NATIVE_DECL BOOL _0x66E7CB63C97B7D20() { return invoke<BOOL>(0x66E7CB63C97B7D20); } // 0x66E7CB63C97B7D20 0x92DAFA78 b323
+	NATIVE_DECL int _0x593FEAE1F73392D4() { return invoke<int>(0x593FEAE1F73392D4); } // 0x593FEAE1F73392D4 0x22CA9F2A b323
+	NATIVE_DECL BOOL IS_NAVIGATING_MENU_CONTENT() { return invoke<BOOL>(0x4E3CD0EF8A489541); } // 0x4E3CD0EF8A489541 0xDA7951A2 b323
+	NATIVE_DECL BOOL _0xF284AC67940C6812() { return invoke<BOOL>(0xF284AC67940C6812); } // 0xF284AC67940C6812 0x7D95AFFF b323
 	NATIVE_DECL BOOL _0x2E22FEFA0100275E() { return invoke<BOOL>(0x2E22FEFA0100275E); } // 0x2E22FEFA0100275E 0x96863460 b323
 	NATIVE_DECL void _0x0CF54F20DE43879C(Any p0) { invoke<Void>(0x0CF54F20DE43879C, p0); } // 0x0CF54F20DE43879C b323
 	NATIVE_DECL void _GET_PAUSE_MENU_SELECTION(int* lastItemMenuId, int* selectedItemUniqueId) { invoke<Void>(0x36C1451A88A09630, lastItemMenuId, selectedItemUniqueId); } // 0x36C1451A88A09630 0x8543AAC8 b323
 	NATIVE_DECL void _GET_PAUSE_MENU_SELECTION_DATA(int* lastItemMenuId, int* selectedItemMenuId, int* selectedItemUniqueId) { invoke<Void>(0x7E17BE53E1AAABAF, lastItemMenuId, selectedItemMenuId, selectedItemUniqueId); } // 0x7E17BE53E1AAABAF 0x6025AA2F b323
-	NATIVE_DECL BOOL _0xA238192F33110615(int* p0, int* p1, int* p2) { return invoke<BOOL>(0xA238192F33110615, p0, p1, p2); } // 0xA238192F33110615 0x46794EB2 b323
+	NATIVE_DECL BOOL _0xA238192F33110615(int* r, int* g, int* b) { return invoke<BOOL>(0xA238192F33110615, r, g, b); } // 0xA238192F33110615 0x46794EB2 b323
 	NATIVE_DECL BOOL GET_MENU_PED_INT_STAT(Any p0, Any* p1) { return invoke<BOOL>(0xEF4CED81CEBEDC6D, p0, p1); } // 0xEF4CED81CEBEDC6D 0x4370999E b323
 	NATIVE_DECL BOOL _0xCA6B2F7CE32AB653(Any p0, Any* p1, Any p2) { return invoke<BOOL>(0xCA6B2F7CE32AB653, p0, p1, p2); } // 0xCA6B2F7CE32AB653 b323
-	NATIVE_DECL BOOL GET_MENU_PED_MASKED_INT_STAT(Any p0, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0x90A6526CF0381030, p0, p1, p2, p3); } // 0x90A6526CF0381030 0xD6CC4766 b323
+	NATIVE_DECL BOOL GET_MENU_PED_MASKED_INT_STAT(Hash p0, Any* p1, Any p2, int p3) { return invoke<BOOL>(0x90A6526CF0381030, p0, p1, p2, p3); } // 0x90A6526CF0381030 0xD6CC4766 b323
 	NATIVE_DECL BOOL _0x24A49BEAF468DC90(Any p0, Any* p1, Any p2, Any p3, Any p4) { return invoke<BOOL>(0x24A49BEAF468DC90, p0, p1, p2, p3, p4); } // 0x24A49BEAF468DC90 b323
 	NATIVE_DECL BOOL GET_MENU_PED_FLOAT_STAT(Any p0, float* p1) { return invoke<BOOL>(0x5FBD7095FE7AE57F, p0, p1); } // 0x5FBD7095FE7AE57F 0x51972B04 b323
 	NATIVE_DECL BOOL _0x8F08017F9D7C47BD(Any p0, Any* p1, Any p2) { return invoke<BOOL>(0x8F08017F9D7C47BD, p0, p1, p2); } // 0x8F08017F9D7C47BD b323
@@ -2077,7 +2077,7 @@ namespace MISC
 	NATIVE_DECL void _GET_WEATHER_TYPE_TRANSITION(Hash* weatherType1, Hash* weatherType2, float* percentWeather2) { invoke<Void>(0xF3BBE884A14BB413, weatherType1, weatherType2, percentWeather2); } // 0xF3BBE884A14BB413 0x9A5C1D56 b323
 	NATIVE_DECL void _SET_WEATHER_TYPE_TRANSITION(Hash weatherType1, Hash weatherType2, float percentWeather2) { invoke<Void>(0x578C752848ECFA0C, weatherType1, weatherType2, percentWeather2); } // 0x578C752848ECFA0C 0x5CA74040 b323
 	NATIVE_DECL void SET_OVERRIDE_WEATHER(const char* weatherType) { invoke<Void>(0xA43D5C6FE51ADBEF, weatherType); } // 0xA43D5C6FE51ADBEF 0xD9082BB5 b323
-	NATIVE_DECL void _0x1178E104409FE58C(Any p0, Any p1) { invoke<Void>(0x1178E104409FE58C, p0, p1); } // 0x1178E104409FE58C b2189
+	NATIVE_DECL void _0x1178E104409FE58C(const char* weatherType, BOOL p1) { invoke<Void>(0x1178E104409FE58C, weatherType, p1); } // 0x1178E104409FE58C b2189
 	NATIVE_DECL void CLEAR_OVERRIDE_WEATHER() { invoke<Void>(0x338D2E3477711050); } // 0x338D2E3477711050 0x7740EA4E b323
 	NATIVE_DECL void WATER_OVERRIDE_SET_SHOREWAVEAMPLITUDE(float amplitude) { invoke<Void>(0xB8F87EAD7533B176, amplitude); } // 0xB8F87EAD7533B176 0x625181DC b323
 	NATIVE_DECL void WATER_OVERRIDE_SET_SHOREWAVEMINAMPLITUDE(float minAmplitude) { invoke<Void>(0xC3EAD29AB273ECE8, minAmplitude); } // 0xC3EAD29AB273ECE8 0xBEBBFDC8 b323
@@ -2175,13 +2175,13 @@ namespace MISC
 	NATIVE_DECL void DO_AUTO_SAVE() { invoke<Void>(0x50EEAAD86232EE55); } // 0x50EEAAD86232EE55 0x54C44B1A b323
 	NATIVE_DECL BOOL GET_IS_AUTO_SAVE_OFF() { return invoke<BOOL>(0x6E04F06094C87047); } // 0x6E04F06094C87047 0xA8546914 b323
 	NATIVE_DECL BOOL IS_AUTO_SAVE_IN_PROGRESS() { return invoke<BOOL>(0x69240733738C19A0); } // 0x69240733738C19A0 0x36F75399 b323
-	NATIVE_DECL BOOL _0x2107A3773771186D() { return invoke<BOOL>(0x2107A3773771186D); } // 0x2107A3773771186D 0x78350773 b323
-	NATIVE_DECL void _0x06462A961E94B67C() { invoke<Void>(0x06462A961E94B67C); } // 0x06462A961E94B67C 0x5A45B11A b323
+	NATIVE_DECL BOOL HAS_CODE_REQUESTED_AUTOSAVE() { return invoke<BOOL>(0x2107A3773771186D); } // 0x2107A3773771186D 0x78350773 b323
+	NATIVE_DECL void CLEAR_CODE_REQUESTED_AUTOSAVE() { invoke<Void>(0x06462A961E94B67C); } // 0x06462A961E94B67C 0x5A45B11A b323
 	NATIVE_DECL void BEGIN_REPLAY_STATS(Any p0, Any p1) { invoke<Void>(0xE0E500246FF73D66, p0, p1); } // 0xE0E500246FF73D66 0x17F4F44D b323
 	NATIVE_DECL void ADD_REPLAY_STAT_VALUE(Any value) { invoke<Void>(0x69FE6DC87BD2A5E9, value); } // 0x69FE6DC87BD2A5E9 0x81216EE0 b323
 	NATIVE_DECL void END_REPLAY_STATS() { invoke<Void>(0xA23E821FBDF8A5F2); } // 0xA23E821FBDF8A5F2 0xCB570185 b323
-	NATIVE_DECL Any _0xD642319C54AADEB6() { return invoke<Any>(0xD642319C54AADEB6); } // 0xD642319C54AADEB6 0xC58250F1 b323
-	NATIVE_DECL Any _0x5B1F2E327B6B6FE1() { return invoke<Any>(0x5B1F2E327B6B6FE1); } // 0x5B1F2E327B6B6FE1 0x50C39926 b323
+	NATIVE_DECL Any HAVE_REPLAY_STATS_BEEN_STORED() { return invoke<Any>(0xD642319C54AADEB6); } // 0xD642319C54AADEB6 0xC58250F1 b323
+	NATIVE_DECL Any GET_REPLAY_STAT_MISSION_ID() { return invoke<Any>(0x5B1F2E327B6B6FE1); } // 0x5B1F2E327B6B6FE1 0x50C39926 b323
 	NATIVE_DECL int GET_REPLAY_STAT_MISSION_TYPE() { return invoke<int>(0x2B626A0150E4D449); } // 0x2B626A0150E4D449 0x710E5D1E b323
 	NATIVE_DECL int GET_REPLAY_STAT_COUNT() { return invoke<int>(0xDC9274A7EF6B2867); } // 0xDC9274A7EF6B2867 0xC7BD1AF0 b323
 	NATIVE_DECL int GET_REPLAY_STAT_AT_INDEX(int index) { return invoke<int>(0x8098C8D6597AAE18, index); } // 0x8098C8D6597AAE18 0x22BE2423 b323
@@ -2399,8 +2399,8 @@ namespace MONEY
 	NATIVE_DECL void _NETWORK_MANUAL_DELETE_CHARACTER(int characterSlot) { invoke<Void>(0x821418C727FCACD7, characterSlot); } // 0x821418C727FCACD7 b791
 	NATIVE_DECL BOOL _NETWORK_GET_IS_HIGH_EARNER() { return invoke<BOOL>(0xFB2456B2040A6A67); } // 0xFB2456B2040A6A67 0x63F093A6 b323
 	NATIVE_DECL void NETWORK_CLEAR_CHARACTER_WALLET(int characterSlot) { invoke<Void>(0xA921DED15FDF28F5, characterSlot); } // 0xA921DED15FDF28F5 0x19F0C471 b323
-	NATIVE_DECL void NETWORK_GIVE_PLAYER_JOBSHARE_CASH(int amount, int* networkHandle) { invoke<Void>(0xFB18DF9CB95E0105, amount, networkHandle); } // 0xFB18DF9CB95E0105 0xC6047FDB b323
-	NATIVE_DECL void NETWORK_RECEIVE_PLAYER_JOBSHARE_CASH(int value, int* networkHandle) { invoke<Void>(0x56A3B51944C50598, value, networkHandle); } // 0x56A3B51944C50598 0x4ED71C1A b323
+	NATIVE_DECL void NETWORK_GIVE_PLAYER_JOBSHARE_CASH(int amount, Any* gamerHandle) { invoke<Void>(0xFB18DF9CB95E0105, amount, gamerHandle); } // 0xFB18DF9CB95E0105 0xC6047FDB b323
+	NATIVE_DECL void NETWORK_RECEIVE_PLAYER_JOBSHARE_CASH(int value, Any* gamerHandle) { invoke<Void>(0x56A3B51944C50598, value, gamerHandle); } // 0x56A3B51944C50598 0x4ED71C1A b323
 	NATIVE_DECL BOOL NETWORK_CAN_SHARE_JOB_CASH() { return invoke<BOOL>(0x1C2473301B1C66BA); } // 0x1C2473301B1C66BA 0xA27B9FE8 b323
 	NATIVE_DECL void NETWORK_REFUND_CASH(int index, const char* context, const char* reason, BOOL unk) { invoke<Void>(0xF9C812CD7C46E817, index, context, reason, unk); } // 0xF9C812CD7C46E817 0x07C92F21 b323
 	NATIVE_DECL void _NETWORK_DEDUCT_CASH(int amount, const char* p1, const char* p2, BOOL p3, BOOL p4, BOOL p5) { invoke<Void>(0x18B7AE224B087E26, amount, p1, p2, p3, p4, p5); } // 0x18B7AE224B087E26 b323
@@ -2426,7 +2426,7 @@ namespace MONEY
 	NATIVE_DECL void _NETWORK_EARN_FROM_PREMIUM_JOB(int amount, const char* p1) { invoke<Void>(0xC8407624CEF2354B, amount, p1); } // 0xC8407624CEF2354B b791
 	NATIVE_DECL void NETWORK_EARN_FROM_BEND_JOB(int amount, const char* heistHash) { invoke<Void>(0x61326EE6DF15B0CA, amount, heistHash); } // 0x61326EE6DF15B0CA 0xBB293400 b323
 	NATIVE_DECL void NETWORK_EARN_FROM_CHALLENGE_WIN(Any p0, Any* p1, BOOL p2) { invoke<Void>(0x2B171E6B2F64D8DF, p0, p1, p2); } // 0x2B171E6B2F64D8DF 0x2BEFB6C4 b323
-	NATIVE_DECL void NETWORK_EARN_FROM_BOUNTY(int amount, int* networkHandle, Any* p2, Any p3) { invoke<Void>(0x131BB5DA15453ACF, amount, networkHandle, p2, p3); } // 0x131BB5DA15453ACF 0x127F2DAE b323
+	NATIVE_DECL void NETWORK_EARN_FROM_BOUNTY(int amount, Any* gamerHandle, Any* p2, Any p3) { invoke<Void>(0x131BB5DA15453ACF, amount, gamerHandle, p2, p3); } // 0x131BB5DA15453ACF 0x127F2DAE b323
 	NATIVE_DECL void NETWORK_EARN_FROM_IMPORT_EXPORT(int amount, Hash modelHash) { invoke<Void>(0xF92A014A634442D6, amount, modelHash); } // 0xF92A014A634442D6 0xF11FC458 b323
 	NATIVE_DECL void NETWORK_EARN_FROM_HOLDUPS(int amount) { invoke<Void>(0x45B8154E077D9E4D, amount); } // 0x45B8154E077D9E4D 0xE6B90E9C b323
 	NATIVE_DECL void NETWORK_EARN_FROM_PROPERTY(int amount, Hash propertyName) { invoke<Void>(0x849648349D77F5C5, amount, propertyName); } // 0x849648349D77F5C5 0x9BE4F7E1 b323
@@ -2496,7 +2496,7 @@ namespace MONEY
 	NATIVE_DECL void NETWORK_SPENT_BANK_INTEREST(int p0, BOOL p1, BOOL p2) { invoke<Void>(0xCA230C9682556CF1, p0, p1, p2); } // 0xCA230C9682556CF1 0xF02E92D7 b323
 	NATIVE_DECL void NETWORK_SPENT_PROSTITUTES(Any p0, BOOL p1, BOOL p2) { invoke<Void>(0xB21B89501CFAC79E, p0, p1, p2); } // 0xB21B89501CFAC79E 0x78436D07 b323
 	NATIVE_DECL void NETWORK_SPENT_ARREST_BAIL(Any p0, BOOL p1, BOOL p2) { invoke<Void>(0x812F5488B1B2A299, p0, p1, p2); } // 0x812F5488B1B2A299 0x5AEE2FC1 b323
-	NATIVE_DECL void NETWORK_SPENT_PAY_VEHICLE_INSURANCE_PREMIUM(int amount, Hash vehicleModel, int* networkHandle, BOOL notBankrupt, BOOL hasTheMoney) { invoke<Void>(0x9FF28D88C766E3E8, amount, vehicleModel, networkHandle, notBankrupt, hasTheMoney); } // 0x9FF28D88C766E3E8 0x4E665BB2 b323
+	NATIVE_DECL void NETWORK_SPENT_PAY_VEHICLE_INSURANCE_PREMIUM(int amount, Hash vehicleModel, Any* gamerHandle, BOOL notBankrupt, BOOL hasTheMoney) { invoke<Void>(0x9FF28D88C766E3E8, amount, vehicleModel, gamerHandle, notBankrupt, hasTheMoney); } // 0x9FF28D88C766E3E8 0x4E665BB2 b323
 	NATIVE_DECL void NETWORK_SPENT_CALL_PLAYER(Any p0, Any* p1, BOOL p2, BOOL p3) { invoke<Void>(0xACDE7185B374177C, p0, p1, p2, p3); } // 0xACDE7185B374177C 0x1A89B5FC b323
 	NATIVE_DECL void NETWORK_SPENT_BOUNTY(Any p0, BOOL p1, BOOL p2) { invoke<Void>(0x29B260B84947DFCC, p0, p1, p2); } // 0x29B260B84947DFCC 0x3401FC96 b323
 	NATIVE_DECL void NETWORK_SPENT_FROM_ROCKSTAR(int p0, BOOL p1, BOOL p2) { invoke<Void>(0x6A445B64ED7ABEB5, p0, p1, p2); } // 0x6A445B64ED7ABEB5 0x54198922 b323
@@ -2643,28 +2643,28 @@ namespace MONEY
 	NATIVE_DECL void _NETWORK_SPENT_SUBMARINE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x6C8BC1488527AAAB, p0, p1, p2, p3, p4, p5); } // 0x6C8BC1488527AAAB b2189
 	NATIVE_DECL void _NETWORK_SPENT_CASINO_CLUB_GENERIC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xC991C255AA6D90B2, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xC991C255AA6D90B2 b2189
 	NATIVE_DECL void _0x90CD7C6871FBF1B4(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x90CD7C6871FBF1B4, p0, p1, p2, p3); } // 0x90CD7C6871FBF1B4 b2189
-	NATIVE_DECL void _0x89049A84065CE68E(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x89049A84065CE68E, p0, p1, p2, p3); } // 0x89049A84065CE68E b2189
+	NATIVE_DECL void _NETWORK_SPENT_UPGRADE_SUB(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x89049A84065CE68E, p0, p1, p2, p3); } // 0x89049A84065CE68E b2189
 	NATIVE_DECL void _NETWORK_SPENT_ISLAND_HEIST(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xE86689E5F82DE429, p0, p1, p2, p3); } // 0xE86689E5F82DE429 b2189
 	NATIVE_DECL void _NETWORK_EARN_ISLAND_HEIST(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xD21D111C46BA9F15, p0, p1, p2, p3, p4, p5); } // 0xD21D111C46BA9F15 b2189
 	NATIVE_DECL void _0xA51338E0DCCD4065(Any p0, Any p1, Any p2) { invoke<Void>(0xA51338E0DCCD4065, p0, p1, p2); } // 0xA51338E0DCCD4065 b2189
 	NATIVE_DECL void _0xE2BB399D90942091(Any p0, Any p1) { invoke<Void>(0xE2BB399D90942091, p0, p1); } // 0xE2BB399D90942091 b2189
-	NATIVE_DECL void _0xB40F96D6D252839B(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xB40F96D6D252839B, p0, p1, p2, p3); } // 0xB40F96D6D252839B b2372
-	NATIVE_DECL void _0x1464E17207CD36E2(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x1464E17207CD36E2, p0, p1, p2, p3, p4); } // 0x1464E17207CD36E2 b2372
-	NATIVE_DECL void _0x925227803A0EAA1B(Any p0, BOOL p1, BOOL p2, Any p3) { invoke<Void>(0x925227803A0EAA1B, p0, p1, p2, p3); } // 0x925227803A0EAA1B b2372
-	NATIVE_DECL void _0x9BEA350D7C48061B(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x9BEA350D7C48061B, p0, p1, p2, p3, p4); } // 0x9BEA350D7C48061B b2372
-	NATIVE_DECL void _0xD1E46824E6FB92B5(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xD1E46824E6FB92B5, p0, p1, p2, p3); } // 0xD1E46824E6FB92B5 b2372
-	NATIVE_DECL void _0xEEB7E5D1FEB20869(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEEB7E5D1FEB20869, p0, p1, p2, p3); } // 0xEEB7E5D1FEB20869 b2372
-	NATIVE_DECL void _0xDD829AA198FDC46C(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xDD829AA198FDC46C, p0, p1, p2, p3); } // 0xDD829AA198FDC46C b2372
-	NATIVE_DECL void _0x36A7FD5A7194B03E(Any p0, Any p1) { invoke<Void>(0x36A7FD5A7194B03E, p0, p1); } // 0x36A7FD5A7194B03E b2372
-	NATIVE_DECL void _0xC66D1CF99ED7FE25(Any p0) { invoke<Void>(0xC66D1CF99ED7FE25, p0); } // 0xC66D1CF99ED7FE25 b2372
-	NATIVE_DECL void _0xBC6227792A188E2E(Any p0) { invoke<Void>(0xBC6227792A188E2E, p0); } // 0xBC6227792A188E2E b2372
-	NATIVE_DECL void _0x533073E8A596008C(Any p0, Any p1) { invoke<Void>(0x533073E8A596008C, p0, p1); } // 0x533073E8A596008C b2372
-	NATIVE_DECL void _0xFE65AFE7308E32B2(Any p0) { invoke<Void>(0xFE65AFE7308E32B2, p0); } // 0xFE65AFE7308E32B2 b2372
-	NATIVE_DECL void _0xB846F547D3792DF6(Any p0, Any p1, Any p2) { invoke<Void>(0xB846F547D3792DF6, p0, p1, p2); } // 0xB846F547D3792DF6 b2372
-	NATIVE_DECL void _0xBCB266247193AC61(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xBCB266247193AC61, p0, p1, p2, p3, p4); } // 0xBCB266247193AC61 b2372
-	NATIVE_DECL void _0xC10322A8D3E061EE(Any p0, Any p1) { invoke<Void>(0xC10322A8D3E061EE, p0, p1); } // 0xC10322A8D3E061EE b2372
-	NATIVE_DECL void _0x93AA4165CB67E925(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x93AA4165CB67E925, p0, p1, p2, p3); } // 0x93AA4165CB67E925 b2372
-	NATIVE_DECL void _0xB9F7A469460E7A4A(Any p0, Any p1, Any p2, BOOL p3) { invoke<Void>(0xB9F7A469460E7A4A, p0, p1, p2, p3); } // 0xB9F7A469460E7A4A b2372
+	NATIVE_DECL void _NETWORK_SPENT_AUTOSHOP_PROPERTY_UTILITY_FEE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xB40F96D6D252839B, p0, p1, p2, p3); } // 0xB40F96D6D252839B b2372
+	NATIVE_DECL void _NETWORK_SPENT_CARCLUB_MEMBERSHIP(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x1464E17207CD36E2, p0, p1, p2, p3, p4); } // 0x1464E17207CD36E2 b2372
+	NATIVE_DECL void _NETWORK_SPENT_CARCLUB(Any p0, BOOL p1, BOOL p2, Any p3) { invoke<Void>(0x925227803A0EAA1B, p0, p1, p2, p3); } // 0x925227803A0EAA1B b2372
+	NATIVE_DECL void _NETWORK_SPENT_AUTOSHOP_MODIFICATIONS(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x9BEA350D7C48061B, p0, p1, p2, p3, p4); } // 0x9BEA350D7C48061B b2372
+	NATIVE_DECL void _NETWORK_SPENT_CARCLUB_TAKEOVER(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xD1E46824E6FB92B5, p0, p1, p2, p3); } // 0xD1E46824E6FB92B5 b2372
+	NATIVE_DECL void _NETWORK_SPENT_BUY_AUTOSHOP(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEEB7E5D1FEB20869, p0, p1, p2, p3); } // 0xEEB7E5D1FEB20869 b2372
+	NATIVE_DECL void _NETWORK_SPENT_UPGRADE_AUTOSHOP(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xDD829AA198FDC46C, p0, p1, p2, p3); } // 0xDD829AA198FDC46C b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_AUTOSHOP_BUSINESS(Any p0, Any p1) { invoke<Void>(0x36A7FD5A7194B03E, p0, p1); } // 0x36A7FD5A7194B03E b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_AUTOSHOP_INCOME(Any p0) { invoke<Void>(0xC66D1CF99ED7FE25, p0); } // 0xC66D1CF99ED7FE25 b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_CARCLUB_MEMBERSHIP(Any p0) { invoke<Void>(0xBC6227792A188E2E, p0); } // 0xBC6227792A188E2E b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_VEHICLE_AUTOSHOP(Any p0, Any p1) { invoke<Void>(0x533073E8A596008C, p0, p1); } // 0x533073E8A596008C b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_VEHICLE_AUTOSHOP_BONUS(Any p0) { invoke<Void>(0xFE65AFE7308E32B2, p0); } // 0xFE65AFE7308E32B2 b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_TUNER_AWARD(Any p0, Any p1, Any p2) { invoke<Void>(0xB846F547D3792DF6, p0, p1, p2); } // 0xB846F547D3792DF6 b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_TUNER_FINALE(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xBCB266247193AC61, p0, p1, p2, p3, p4); } // 0xBCB266247193AC61 b2372
+	NATIVE_DECL void _NETWORK_EARN_FROM_UPGRADE_AUTOSHOP_LOCATION(Any p0, Any p1) { invoke<Void>(0xC10322A8D3E061EE, p0, p1); } // 0xC10322A8D3E061EE b2372
+	NATIVE_DECL void _NETWORK_SPENT_IM_ABILITY(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x93AA4165CB67E925, p0, p1, p2, p3); } // 0x93AA4165CB67E925 b2372
+	NATIVE_DECL void _NETWORK_SPENT_FROM_BANK(Any p0, Any p1, Any p2, BOOL p3) { invoke<Void>(0xB9F7A469460E7A4A, p0, p1, p2, p3); } // 0xB9F7A469460E7A4A b2372
 	NATIVE_DECL int NETWORK_GET_VC_BANK_BALANCE() { return invoke<int>(0x76EF28DA05EA395A); } // 0x76EF28DA05EA395A 0x16184FB5 b323
 	NATIVE_DECL int NETWORK_GET_VC_WALLET_BALANCE(int characterSlot) { return invoke<int>(0xA40F9C2623F6A8B5, characterSlot); } // 0xA40F9C2623F6A8B5 0x4F5B781C b323
 	NATIVE_DECL int NETWORK_GET_VC_BALANCE() { return invoke<int>(0x5CBAD97E059E1B94); } // 0x5CBAD97E059E1B94 0xADF8F882 b323
@@ -2796,7 +2796,7 @@ namespace NETWORK
 	NATIVE_DECL void NETWORK_SESSION_SET_MATCHMAKING_GROUP(int matchmakingGroup) { invoke<Void>(0x49EC8030F5015F8B, matchmakingGroup); } // 0x49EC8030F5015F8B 0x3C3E2AB6 b323
 	NATIVE_DECL void NETWORK_SESSION_SET_MATCHMAKING_GROUP_MAX(int playerType, int playerCount) { invoke<Void>(0x8B6A4DD0AF9CE215, playerType, playerCount); } // 0x8B6A4DD0AF9CE215 0x5F29A7E0 b323
 	NATIVE_DECL int NETWORK_SESSION_GET_MATCHMAKING_GROUP_FREE(int p0) { return invoke<int>(0x56CE820830EF040B, p0); } // 0x56CE820830EF040B 0x36EAD960 b323
-	NATIVE_DECL void _0xCAE55F48D3D7875C(int p0) { invoke<Void>(0xCAE55F48D3D7875C, p0); } // 0xCAE55F48D3D7875C 0x5BE529F7 b323
+	NATIVE_DECL void NETWORK_SESSION_ADD_ACTIVE_MATCHMAKING_GROUP(int groupId) { invoke<Void>(0xCAE55F48D3D7875C, groupId); } // 0xCAE55F48D3D7875C 0x5BE529F7 b323
 	NATIVE_DECL void _0xF49ABC20D8552257(Any p0) { invoke<Void>(0xF49ABC20D8552257, p0); } // 0xF49ABC20D8552257 0x454C7B67 b323
 	NATIVE_DECL void _0x4811BBAC21C5FCD5(Any p0) { invoke<Void>(0x4811BBAC21C5FCD5, p0); } // 0x4811BBAC21C5FCD5 0xE5961511 b323
 	NATIVE_DECL void _0x5539C3EBF104A53A(BOOL p0) { invoke<Void>(0x5539C3EBF104A53A, p0); } // 0x5539C3EBF104A53A 0xAE396263 b323
@@ -2832,7 +2832,7 @@ namespace NETWORK
 	NATIVE_DECL BOOL _0xC42DD763159F3461() { return invoke<BOOL>(0xC42DD763159F3461); } // 0xC42DD763159F3461 0xFBBAC350 b323
 	NATIVE_DECL BOOL _NETWORK_ACCEPT_INVITE() { return invoke<BOOL>(0x62A0296C1BB1CEB3); } // 0x62A0296C1BB1CEB3 0x0907A6BF b323
 	NATIVE_DECL BOOL NETWORK_SESSION_WAS_INVITED() { return invoke<BOOL>(0x23DFB504655D0CE4); } // 0x23DFB504655D0CE4 0x6A0BEA60 b323
-	NATIVE_DECL void NETWORK_SESSION_GET_INVITER(int* networkHandle) { invoke<Void>(0xE57397B4A3429DD0, networkHandle); } // 0xE57397B4A3429DD0 0xE9C6B3FD b323
+	NATIVE_DECL void NETWORK_SESSION_GET_INVITER(Any* gamerHandle) { invoke<Void>(0xE57397B4A3429DD0, gamerHandle); } // 0xE57397B4A3429DD0 0xE9C6B3FD b323
 	NATIVE_DECL BOOL _0xD313DE83394AF134() { return invoke<BOOL>(0xD313DE83394AF134); } // 0xD313DE83394AF134 0x3EA9D44C b323
 	NATIVE_DECL BOOL _0xBDB6F89C729CF388() { return invoke<BOOL>(0xBDB6F89C729CF388); } // 0xBDB6F89C729CF388 0x9374523F b323
 	NATIVE_DECL void NETWORK_SUPPRESS_INVITE(BOOL toggle) { invoke<Void>(0xA0682D67EF1FBA3D, toggle); } // 0xA0682D67EF1FBA3D 0x323DC78C b323
@@ -2842,7 +2842,7 @@ namespace NETWORK
 	NATIVE_DECL void _NETWORK_BLOCK_KICKED_PLAYERS(BOOL p0) { invoke<Void>(0x6B07B9CE4D390375, p0); } // 0x6B07B9CE4D390375 0x0FCE995D b323
 	NATIVE_DECL void NETWORK_SET_SCRIPT_READY_FOR_EVENTS(BOOL toggle) { invoke<Void>(0x7AC752103856FB20, toggle); } // 0x7AC752103856FB20 0xA639DCA2 b323
 	NATIVE_DECL BOOL NETWORK_IS_OFFLINE_INVITE_PENDING() { return invoke<BOOL>(0x74698374C45701D2); } // 0x74698374C45701D2 0x70ED476A b323
-	NATIVE_DECL void _0x140E6A44870A11CE() { invoke<Void>(0x140E6A44870A11CE); } // 0x140E6A44870A11CE 0x50507BED b323
+	NATIVE_DECL void NETWORK_CLEAR_OFFLINE_INVITE_PENDING() { invoke<Void>(0x140E6A44870A11CE); } // 0x140E6A44870A11CE 0x50507BED b323
 	NATIVE_DECL void NETWORK_SESSION_HOST_SINGLE_PLAYER(int p0) { invoke<Void>(0xC74C33FCA52856D5, p0); } // 0xC74C33FCA52856D5 0xF3B1CA85 b323
 	NATIVE_DECL void NETWORK_SESSION_LEAVE_SINGLE_PLAYER() { invoke<Void>(0x3442775428FD2DAA); } // 0x3442775428FD2DAA 0xC692F86A b323
 	NATIVE_DECL BOOL NETWORK_IS_GAME_IN_PROGRESS() { return invoke<BOOL>(0x10FAB35428CCC9D7); } // 0x10FAB35428CCC9D7 0x09B88E3E b323
@@ -2865,13 +2865,13 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_SESSION_IS_IN_VOICE_SESSION() { return invoke<BOOL>(0x855BC38818F6F684); } // 0x855BC38818F6F684 0x60AA4AA1 b323
 	NATIVE_DECL Any _0xB5D3453C98456528() { return invoke<Any>(0xB5D3453C98456528); } // 0xB5D3453C98456528 b323
 	NATIVE_DECL BOOL NETWORK_SESSION_IS_VOICE_SESSION_BUSY() { return invoke<BOOL>(0xEF0912DDF7C4CB4B); } // 0xEF0912DDF7C4CB4B 0x132CA01E b323
-	NATIVE_DECL BOOL NETWORK_SEND_TEXT_MESSAGE(const char* message, int* networkHandle) { return invoke<BOOL>(0x3A214F2EC889B100, message, networkHandle); } // 0x3A214F2EC889B100 0xAFFEA720 b323
+	NATIVE_DECL BOOL NETWORK_SEND_TEXT_MESSAGE(const char* message, Any* gamerHandle) { return invoke<BOOL>(0x3A214F2EC889B100, message, gamerHandle); } // 0x3A214F2EC889B100 0xAFFEA720 b323
 	NATIVE_DECL void NETWORK_SET_ACTIVITY_SPECTATOR(BOOL toggle) { invoke<Void>(0x75138790B4359A74, toggle); } // 0x75138790B4359A74 0xFC9AD060 b323
 	NATIVE_DECL BOOL NETWORK_IS_ACTIVITY_SPECTATOR() { return invoke<BOOL>(0x12103B9E0C9F92FB); } // 0x12103B9E0C9F92FB 0xAF329720 b323
 	NATIVE_DECL void _0x0E4F77F7B9D74D84(Any p0) { invoke<Void>(0x0E4F77F7B9D74D84, p0); } // 0x0E4F77F7B9D74D84 b573
 	NATIVE_DECL void NETWORK_SET_ACTIVITY_SPECTATOR_MAX(int maxSpectators) { invoke<Void>(0x9D277B76D1D12222, maxSpectators); } // 0x9D277B76D1D12222 0x74E0BC0A b323
 	NATIVE_DECL int NETWORK_GET_ACTIVITY_PLAYER_NUM(BOOL p0) { return invoke<int>(0x73E2B500410DA5A2, p0); } // 0x73E2B500410DA5A2 0x31F951FD b323
-	NATIVE_DECL BOOL NETWORK_IS_ACTIVITY_SPECTATOR_FROM_HANDLE(int* networkHandle) { return invoke<BOOL>(0x2763BBAA72A7BCB9, networkHandle); } // 0x2763BBAA72A7BCB9 0x58F1DF7D b323
+	NATIVE_DECL BOOL NETWORK_IS_ACTIVITY_SPECTATOR_FROM_HANDLE(Any* gamerHandle) { return invoke<BOOL>(0x2763BBAA72A7BCB9, gamerHandle); } // 0x2763BBAA72A7BCB9 0x58F1DF7D b323
 	NATIVE_DECL BOOL NETWORK_HOST_TRANSITION(int p0, int p1, int p2, int p3, Any p4, BOOL p5, BOOL p6, int p7, Any p8, int p9) { return invoke<BOOL>(0xA60BB5CE242BB254, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xA60BB5CE242BB254 0x146764FB b323
 	NATIVE_DECL BOOL NETWORK_DO_TRANSITION_QUICKMATCH(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<BOOL>(0x71FB0EBCD4915D56, p0, p1, p2, p3, p4, p5); } // 0x71FB0EBCD4915D56 0x2FF65C0B b323
 	NATIVE_DECL BOOL NETWORK_DO_TRANSITION_QUICKMATCH_ASYNC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<BOOL>(0xA091A5E44F0072E5, p0, p1, p2, p3, p4, p5); } // 0xA091A5E44F0072E5 0x47D61C99 b323
@@ -2890,7 +2890,7 @@ namespace NETWORK
 	NATIVE_DECL void NETWORK_SET_TRANSITION_CREATOR_HANDLE(Any* p0) { invoke<Void>(0xEF26739BCD9907D5, p0); } // 0xEF26739BCD9907D5 0x1DD01FE7 b323
 	NATIVE_DECL void NETWORK_CLEAR_TRANSITION_CREATOR_HANDLE() { invoke<Void>(0xFB3272229A82C759); } // 0xFB3272229A82C759 0x8BB336F7 b323
 	NATIVE_DECL BOOL NETWORK_INVITE_GAMERS_TO_TRANSITION(Any* p0, Any p1) { return invoke<BOOL>(0x4A595C32F77DFF76, p0, p1); } // 0x4A595C32F77DFF76 0x5332E645 b323
-	NATIVE_DECL void NETWORK_SET_GAMER_INVITED_TO_TRANSITION(int* networkHandle) { invoke<Void>(0xCA2C8073411ECDB6, networkHandle); } // 0xCA2C8073411ECDB6 0x17F1C69D b323
+	NATIVE_DECL void NETWORK_SET_GAMER_INVITED_TO_TRANSITION(Any* gamerHandle) { invoke<Void>(0xCA2C8073411ECDB6, gamerHandle); } // 0xCA2C8073411ECDB6 0x17F1C69D b323
 	NATIVE_DECL BOOL NETWORK_LEAVE_TRANSITION() { return invoke<BOOL>(0xD23A1A815D21DB19); } // 0xD23A1A815D21DB19 0x3A3599B7 b323
 	NATIVE_DECL BOOL NETWORK_LAUNCH_TRANSITION() { return invoke<BOOL>(0x2DCF46CB1A4F0884); } // 0x2DCF46CB1A4F0884 0xE3570BA2 b323
 	NATIVE_DECL void _0xA2E9C1AB8A92E8CD(BOOL toggle) { invoke<Void>(0xA2E9C1AB8A92E8CD, toggle); } // 0xA2E9C1AB8A92E8CD 0x8D014B23 b323
@@ -2903,11 +2903,11 @@ namespace NETWORK
 	NATIVE_DECL int NETWORK_GET_TRANSITION_MEMBERS(Any* data, int dataCount) { return invoke<int>(0x73B000F7FBC55829, data, dataCount); } // 0x73B000F7FBC55829 0x31F19263 b323
 	NATIVE_DECL void NETWORK_APPLY_TRANSITION_PARAMETER(int p0, int p1) { invoke<Void>(0x521638ADA1BA0D18, p0, p1); } // 0x521638ADA1BA0D18 0xCEE79711 b323
 	NATIVE_DECL void NETWORK_APPLY_TRANSITION_PARAMETER_STRING(int p0, const char* string, BOOL p2) { invoke<Void>(0xEBEFC2E77084F599, p0, string, p2); } // 0xEBEFC2E77084F599 0xE0C28DB5 b323
-	NATIVE_DECL BOOL NETWORK_SEND_TRANSITION_GAMER_INSTRUCTION(int* networkHandle, const char* p1, int p2, int p3, BOOL p4) { return invoke<BOOL>(0x31D1D2B858D25E6B, networkHandle, p1, p2, p3, p4); } // 0x31D1D2B858D25E6B 0x468B0884 b323
+	NATIVE_DECL BOOL NETWORK_SEND_TRANSITION_GAMER_INSTRUCTION(Any* gamerHandle, const char* p1, int p2, int p3, BOOL p4) { return invoke<BOOL>(0x31D1D2B858D25E6B, gamerHandle, p1, p2, p3, p4); } // 0x31D1D2B858D25E6B 0x468B0884 b323
 	NATIVE_DECL BOOL NETWORK_MARK_TRANSITION_GAMER_AS_FULLY_JOINED(Any* p0) { return invoke<BOOL>(0x5728BB6D63E3FF1D, p0); } // 0x5728BB6D63E3FF1D 0x03383F57 b323
 	NATIVE_DECL BOOL NETWORK_IS_TRANSITION_HOST() { return invoke<BOOL>(0x0B824797C9BF2159); } // 0x0B824797C9BF2159 0x0C0900BC b323
-	NATIVE_DECL BOOL NETWORK_IS_TRANSITION_HOST_FROM_HANDLE(int* networkHandle) { return invoke<BOOL>(0x6B5C83BA3EFE6A10, networkHandle); } // 0x6B5C83BA3EFE6A10 0x0E2854C4 b323
-	NATIVE_DECL BOOL NETWORK_GET_TRANSITION_HOST(int* networkHandle) { return invoke<BOOL>(0x65042B9774C4435E, networkHandle); } // 0x65042B9774C4435E 0x73098D40 b323
+	NATIVE_DECL BOOL NETWORK_IS_TRANSITION_HOST_FROM_HANDLE(Any* gamerHandle) { return invoke<BOOL>(0x6B5C83BA3EFE6A10, gamerHandle); } // 0x6B5C83BA3EFE6A10 0x0E2854C4 b323
+	NATIVE_DECL BOOL NETWORK_GET_TRANSITION_HOST(Any* gamerHandle) { return invoke<BOOL>(0x65042B9774C4435E, gamerHandle); } // 0x65042B9774C4435E 0x73098D40 b323
 	NATIVE_DECL BOOL NETWORK_IS_IN_TRANSITION() { return invoke<BOOL>(0x68049AEFF83D8F0A); } // 0x68049AEFF83D8F0A 0xC3CDB626 b323
 	NATIVE_DECL BOOL NETWORK_IS_TRANSITION_STARTED() { return invoke<BOOL>(0x53FA83401D9C07FE); } // 0x53FA83401D9C07FE 0x7917E111 b323
 	NATIVE_DECL BOOL NETWORK_IS_TRANSITION_BUSY() { return invoke<BOOL>(0x520F3282A53D26B7); } // 0x520F3282A53D26B7 0xA357A2C6 b323
@@ -2931,7 +2931,7 @@ namespace NETWORK
 	NATIVE_DECL BOOL _0x3F9990BF5F22759C(Any* p0) { return invoke<BOOL>(0x3F9990BF5F22759C, p0); } // 0x3F9990BF5F22759C 0x00F26CDC b323
 	NATIVE_DECL BOOL NETWORK_IS_ACTIVITY_SESSION() { return invoke<BOOL>(0x05095437424397FA); } // 0x05095437424397FA 0x577DAA8A b323
 	NATIVE_DECL void _0x4A9FDE3A5A6D0437(BOOL toggle) { invoke<Void>(0x4A9FDE3A5A6D0437, toggle); } // 0x4A9FDE3A5A6D0437 0x18F03AFD b323
-	NATIVE_DECL BOOL NETWORK_SEND_INVITE_VIA_PRESENCE(int* networkHandle, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0xC3C7A6AFDB244624, networkHandle, p1, p2, p3); } // 0xC3C7A6AFDB244624 0x8B99B72B b323
+	NATIVE_DECL BOOL NETWORK_SEND_INVITE_VIA_PRESENCE(Any* gamerHandle, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0xC3C7A6AFDB244624, gamerHandle, p1, p2, p3); } // 0xC3C7A6AFDB244624 0x8B99B72B b323
 	NATIVE_DECL BOOL _NETWORK_SEND_PRESENCE_TRANSITION_INVITE(Any* p0, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0xC116FF9B4D488291, p0, p1, p2, p3); } // 0xC116FF9B4D488291 0x877C0E1C b323
 	NATIVE_DECL BOOL _0x1171A97A3D3981B6(Any* p0, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0x1171A97A3D3981B6, p0, p1, p2, p3); } // 0x1171A97A3D3981B6 b323
 	NATIVE_DECL Any _0x742B58F723233ED9(Any p0) { return invoke<Any>(0x742B58F723233ED9, p0); } // 0x742B58F723233ED9 0x5E832444 b323
@@ -2956,7 +2956,7 @@ namespace NETWORK
 	NATIVE_DECL void _0xF083835B70BA9BFE() { invoke<Void>(0xF083835B70BA9BFE); } // 0xF083835B70BA9BFE 0xC47352E7 b323
 	NATIVE_DECL BOOL NETWORK_INVITE_GAMERS(Any* p0, Any p1, Any* p2, Any* p3) { return invoke<BOOL>(0x9D80CD1D0E6327DE, p0, p1, p2, p3); } // 0x9D80CD1D0E6327DE 0x52FB8074 b323
 	NATIVE_DECL BOOL NETWORK_HAS_INVITED_GAMER(Any* p0) { return invoke<BOOL>(0x4D86CD31E8976ECE, p0); } // 0x4D86CD31E8976ECE 0xEC651BC0 b323
-	NATIVE_DECL BOOL _0x71DC455F5CD1C2B1(Any* networkHandle) { return invoke<BOOL>(0x71DC455F5CD1C2B1, networkHandle); } // 0x71DC455F5CD1C2B1 b505
+	NATIVE_DECL BOOL _0x71DC455F5CD1C2B1(Any* gamerHandle) { return invoke<BOOL>(0x71DC455F5CD1C2B1, gamerHandle); } // 0x71DC455F5CD1C2B1 b505
 	NATIVE_DECL Any _0x3855FB5EB2C5E8B2(Any p0) { return invoke<Any>(0x3855FB5EB2C5E8B2, p0); } // 0x3855FB5EB2C5E8B2 b505
 	NATIVE_DECL BOOL NETWORK_GET_CURRENTLY_SELECTED_GAMER_HANDLE_FROM_INVITE_MENU(Any* p0) { return invoke<BOOL>(0x74881E6BCAE2327C, p0); } // 0x74881E6BCAE2327C 0x72BA00CE b323
 	NATIVE_DECL BOOL NETWORK_SET_CURRENTLY_SELECTED_GAMER_HANDLE_FROM_INVITE_MENU(Any* p0) { return invoke<BOOL>(0x7206F674F2A3B1BB, p0); } // 0x7206F674F2A3B1BB 0xFD95899E b323
@@ -2964,7 +2964,7 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_CHECK_DATA_MANAGER_SUCCEEDED_FOR_HANDLE(Any p0, Any* p1) { return invoke<BOOL>(0x44B37CDCAE765AAE, p0, p1); } // 0x44B37CDCAE765AAE b323
 	NATIVE_DECL Any _0x4AD490AE1536933B(Any p0, Any p1) { return invoke<Any>(0x4AD490AE1536933B, p0, p1); } // 0x4AD490AE1536933B b372
 	NATIVE_DECL void _0x0D77A82DC2D0DA59(Any* p0, Any* p1) { invoke<Void>(0x0D77A82DC2D0DA59, p0, p1); } // 0x0D77A82DC2D0DA59 0x0808D4CC b323
-	NATIVE_DECL BOOL FILLOUT_PM_PLAYER_LIST(int* networkHandle, Any p1, Any p2) { return invoke<BOOL>(0xCBBD7C4991B64809, networkHandle, p1, p2); } // 0xCBBD7C4991B64809 0xCE40F423 b323
+	NATIVE_DECL BOOL FILLOUT_PM_PLAYER_LIST(Any* gamerHandle, Any p1, Any p2) { return invoke<BOOL>(0xCBBD7C4991B64809, gamerHandle, p1, p2); } // 0xCBBD7C4991B64809 0xCE40F423 b323
 	NATIVE_DECL BOOL FILLOUT_PM_PLAYER_LIST_WITH_NAMES(Any* p0, Any* p1, Any p2, Any p3) { return invoke<BOOL>(0x716B6DB9D1886106, p0, p1, p2, p3); } // 0x716B6DB9D1886106 0xB8DF604E b323
 	NATIVE_DECL BOOL REFRESH_PLAYER_LIST_STATS(int p0) { return invoke<BOOL>(0xE26CCFF8094D8C74, p0); } // 0xE26CCFF8094D8C74 0xF49C1533 b323
 	NATIVE_DECL BOOL NETWORK_SET_CURRENT_DATA_MANAGER_HANDLE(Any* p0) { return invoke<BOOL>(0x796A87B3B68D1F3D, p0); } // 0x796A87B3B68D1F3D b323
@@ -2972,7 +2972,7 @@ namespace NETWORK
 	NATIVE_DECL int _NETWORK_GET_PLATFORM_PARTY_UNK() { return invoke<int>(0x01ABCE5E7CBDA196); } // 0x01ABCE5E7CBDA196 b323
 	NATIVE_DECL int NETWORK_GET_PLATFORM_PARTY_MEMBERS(Any* data, int dataSize) { return invoke<int>(0x120364DE2845DAF8, data, dataSize); } // 0x120364DE2845DAF8 0xF30E5814 b323
 	NATIVE_DECL BOOL NETWORK_IS_IN_PLATFORM_PARTY_CHAT() { return invoke<BOOL>(0xFD8B834A8BA05048); } // 0xFD8B834A8BA05048 0xC6609191 b323
-	NATIVE_DECL BOOL NETWORK_IS_CHATTING_IN_PLATFORM_PARTY(int* networkHandle) { return invoke<BOOL>(0x8DE9945BCC9AEC52, networkHandle); } // 0x8DE9945BCC9AEC52 0x51367B34 b323
+	NATIVE_DECL BOOL NETWORK_IS_CHATTING_IN_PLATFORM_PARTY(Any* gamerHandle) { return invoke<BOOL>(0x8DE9945BCC9AEC52, gamerHandle); } // 0x8DE9945BCC9AEC52 0x51367B34 b323
 	NATIVE_DECL Any _0x2BF66D2E7414F686() { return invoke<Any>(0x2BF66D2E7414F686); } // 0x2BF66D2E7414F686 0x9156EFC0 b323
 	NATIVE_DECL BOOL _0x14922ED3E38761F0() { return invoke<BOOL>(0x14922ED3E38761F0); } // 0x14922ED3E38761F0 0x8FA6EE0E b323
 	NATIVE_DECL void _0x6CE50E47F5543D0C() { invoke<Void>(0x6CE50E47F5543D0C); } // 0x6CE50E47F5543D0C b573
@@ -2988,7 +2988,7 @@ namespace NETWORK
 	NATIVE_DECL Any _0xA12D3A5A3753CC23() { return invoke<Any>(0xA12D3A5A3753CC23); } // 0xA12D3A5A3753CC23 b1103
 	NATIVE_DECL Any _0xF287F506767CC8A9() { return invoke<Any>(0xF287F506767CC8A9); } // 0xF287F506767CC8A9 b1103
 	NATIVE_DECL BOOL _REMOTE_CHEAT_DETECTED(Player player, int a, int b) { return invoke<BOOL>(0x472841A026D26D8B, player, a, b); } // 0x472841A026D26D8B b1103
-	NATIVE_DECL BOOL BAD_SPORT_PLAYER_LEFT_DETECTED(int* networkHandle, int event, int amountReceived) { return invoke<BOOL>(0xEC5E3AF5289DCA81, networkHandle, event, amountReceived); } // 0xEC5E3AF5289DCA81 0x4C2C6B6A b323
+	NATIVE_DECL BOOL BAD_SPORT_PLAYER_LEFT_DETECTED(Any* gamerHandle, int event, int amountReceived) { return invoke<BOOL>(0xEC5E3AF5289DCA81, gamerHandle, event, amountReceived); } // 0xEC5E3AF5289DCA81 0x4C2C6B6A b323
 	NATIVE_DECL void NETWORK_APPLY_PED_SCAR_DATA(Ped ped, int p1) { invoke<Void>(0xE66C690248F11150, ped, p1); } // 0xE66C690248F11150 0x4818ACD0 b323
 	NATIVE_DECL void NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT(int maxNumMissionParticipants, BOOL p1, int instanceId) { invoke<Void>(0x1CA59E306ECB80A5, maxNumMissionParticipants, p1, instanceId); } // 0x1CA59E306ECB80A5 0x470810ED b323
 	NATIVE_DECL BOOL _NETWORK_IS_THIS_SCRIPT_MARKED(Any p0, BOOL p1, Any p2) { return invoke<BOOL>(0xD1110739EEADB592, p0, p1, p2); } // 0xD1110739EEADB592 b323
@@ -3020,7 +3020,7 @@ namespace NETWORK
 	NATIVE_DECL Any _0x560B423D73015E77(Any p0) { return invoke<Any>(0x560B423D73015E77, p0); } // 0x560B423D73015E77 b1604
 	NATIVE_DECL int NETWORK_GET_NUM_SCRIPT_PARTICIPANTS(Any* p0, Any p1, Any p2) { return invoke<int>(0x3658E8CD94FC121A, p0, p1, p2); } // 0x3658E8CD94FC121A 0x8F7D9F46 b323
 	NATIVE_DECL int NETWORK_GET_INSTANCE_ID_OF_THIS_SCRIPT() { return invoke<int>(0x638A3A81733086DB); } // 0x638A3A81733086DB 0xDB8B5D71 b323
-	NATIVE_DECL Any _0x257ED0FADF750BCF() { return invoke<Any>(0x257ED0FADF750BCF); } // 0x257ED0FADF750BCF b2372
+	NATIVE_DECL Hash _NETWORK_GET_POSITION_HASH_OF_THIS_SCRIPT() { return invoke<Hash>(0x257ED0FADF750BCF); } // 0x257ED0FADF750BCF b2372
 	NATIVE_DECL BOOL NETWORK_IS_PLAYER_A_PARTICIPANT_ON_SCRIPT(Player player1, const char* script, Player player2) { return invoke<BOOL>(0x1AD5B71586B94820, player1, script, player2); } // 0x1AD5B71586B94820 0xCEA55F4C b323
 	NATIVE_DECL void _0x2302C0264EA58D31() { invoke<Void>(0x2302C0264EA58D31); } // 0x2302C0264EA58D31 0x8DCFE77D b323
 	NATIVE_DECL void _0x741A3D8380319A81() { invoke<Void>(0x741A3D8380319A81); } // 0x741A3D8380319A81 0x331D9A27 b323
@@ -3036,7 +3036,7 @@ namespace NETWORK
 	NATIVE_DECL void NETWORK_SET_LOCAL_PLAYER_INVINCIBLE_TIME(int time) { invoke<Void>(0x2D95C7E2D7E07307, time); } // 0x2D95C7E2D7E07307 0xFEA9B85C b323
 	NATIVE_DECL BOOL NETWORK_IS_LOCAL_PLAYER_INVINCIBLE() { return invoke<BOOL>(0x8A8694B48715B000); } // 0x8A8694B48715B000 0x8DE13B36 b323
 	NATIVE_DECL void NETWORK_DISABLE_INVINCIBLE_FLASHING(Player player, BOOL toggle) { invoke<Void>(0x9DD368BF06983221, player, toggle); } // 0x9DD368BF06983221 0x8D27280E b323
-	NATIVE_DECL void _0xF0BC9BCD24A511D5(Any p0) { invoke<Void>(0xF0BC9BCD24A511D5, p0); } // 0xF0BC9BCD24A511D5 b2372
+	NATIVE_DECL void _NETWORK_PED_FORCE_GAME_STATE_UPDATE(Ped ped) { invoke<Void>(0xF0BC9BCD24A511D5, ped); } // 0xF0BC9BCD24A511D5 b2372
 	NATIVE_DECL void NETWORK_SET_LOCAL_PLAYER_SYNC_LOOK_AT(BOOL toggle) { invoke<Void>(0x524FF0AEFF9C3973, toggle); } // 0x524FF0AEFF9C3973 0xB72F086D b323
 	NATIVE_DECL BOOL NETWORK_HAS_ENTITY_BEEN_REGISTERED_WITH_THIS_THREAD(Entity entity) { return invoke<BOOL>(0xB07D3185E11657A5, entity); } // 0xB07D3185E11657A5 0xEDA68956 b323
 	NATIVE_DECL int NETWORK_GET_NETWORK_ID_FROM_ENTITY(Entity entity) { return invoke<int>(0xA11700682F3AD45C, entity); } // 0xA11700682F3AD45C 0x9E35DAB6 b323
@@ -3049,7 +3049,7 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_DOES_ENTITY_EXIST_WITH_NETWORK_ID(int netId) { return invoke<BOOL>(0x18A47D074708FD68, netId); } // 0x18A47D074708FD68 0x1E2E3177 b323
 	NATIVE_DECL BOOL NETWORK_REQUEST_CONTROL_OF_NETWORK_ID(int netId) { return invoke<BOOL>(0xA670B3662FAFFBD0, netId); } // 0xA670B3662FAFFBD0 0x9262A60A b323
 	NATIVE_DECL BOOL NETWORK_HAS_CONTROL_OF_NETWORK_ID(int netId) { return invoke<BOOL>(0x4D36070FE0215186, netId); } // 0x4D36070FE0215186 0x92E77D21 b323
-	NATIVE_DECL BOOL _0x7242F8B741CE1086(int netId) { return invoke<BOOL>(0x7242F8B741CE1086, netId); } // 0x7242F8B741CE1086 b678
+	NATIVE_DECL BOOL _NETWORK_IS_NETWORK_ID_A_CLONE(int netId) { return invoke<BOOL>(0x7242F8B741CE1086, netId); } // 0x7242F8B741CE1086 b678
 	NATIVE_DECL BOOL NETWORK_REQUEST_CONTROL_OF_ENTITY(Entity entity) { return invoke<BOOL>(0xB69317BF5E782347, entity); } // 0xB69317BF5E782347 0xA05FEBD7 b323
 	NATIVE_DECL BOOL NETWORK_REQUEST_CONTROL_OF_DOOR(int doorID) { return invoke<BOOL>(0x870DDFD5A4A796E4, doorID); } // 0x870DDFD5A4A796E4 0xF60DAAF6 b323
 	NATIVE_DECL BOOL NETWORK_HAS_CONTROL_OF_ENTITY(Entity entity) { return invoke<BOOL>(0x01BF60A500E28887, entity); } // 0x01BF60A500E28887 0x005FD797 b323
@@ -3063,25 +3063,25 @@ namespace NETWORK
 	NATIVE_DECL Ped NET_TO_PED(int netHandle) { return invoke<Ped>(0xBDCD95FC216A8B3E, netHandle); } // 0xBDCD95FC216A8B3E 0x87717DD4 b323
 	NATIVE_DECL Object NET_TO_OBJ(int netHandle) { return invoke<Object>(0xD8515F5FEA14CB3F, netHandle); } // 0xD8515F5FEA14CB3F 0x27AA14D8 b323
 	NATIVE_DECL Entity NET_TO_ENT(int netHandle) { return invoke<Entity>(0xBFFEAB45A9A9094A, netHandle); } // 0xBFFEAB45A9A9094A 0x5E149683 b323
-	NATIVE_DECL void NETWORK_GET_LOCAL_HANDLE(int* networkHandle, int bufferSize) { invoke<Void>(0xE86051786B66CD8E, networkHandle, bufferSize); } // 0xE86051786B66CD8E 0x08023B16 b323
-	NATIVE_DECL void NETWORK_HANDLE_FROM_USER_ID(const char* userId, int* networkHandle, int bufferSize) { invoke<Void>(0xDCD51DD8F87AEC5C, userId, networkHandle, bufferSize); } // 0xDCD51DD8F87AEC5C 0x74C2C1B7 b323
-	NATIVE_DECL void NETWORK_HANDLE_FROM_MEMBER_ID(const char* memberId, int* networkHandle, int bufferSize) { invoke<Void>(0xA0FD21BED61E5C4C, memberId, networkHandle, bufferSize); } // 0xA0FD21BED61E5C4C 0x9BFC9FE2 b323
-	NATIVE_DECL void NETWORK_HANDLE_FROM_PLAYER(Player player, int* networkHandle, int bufferSize) { invoke<Void>(0x388EB2B86C73B6B3, player, networkHandle, bufferSize); } // 0x388EB2B86C73B6B3 0xD3498917 b323
+	NATIVE_DECL void NETWORK_GET_LOCAL_HANDLE(Any* gamerHandle, int gamerHandleSize) { invoke<Void>(0xE86051786B66CD8E, gamerHandle, gamerHandleSize); } // 0xE86051786B66CD8E 0x08023B16 b323
+	NATIVE_DECL void NETWORK_HANDLE_FROM_USER_ID(const char* userId, Any* gamerHandle, int gamerHandleSize) { invoke<Void>(0xDCD51DD8F87AEC5C, userId, gamerHandle, gamerHandleSize); } // 0xDCD51DD8F87AEC5C 0x74C2C1B7 b323
+	NATIVE_DECL void NETWORK_HANDLE_FROM_MEMBER_ID(const char* memberId, Any* gamerHandle, int gamerHandleSize) { invoke<Void>(0xA0FD21BED61E5C4C, memberId, gamerHandle, gamerHandleSize); } // 0xA0FD21BED61E5C4C 0x9BFC9FE2 b323
+	NATIVE_DECL void NETWORK_HANDLE_FROM_PLAYER(Player player, Any* gamerHandle, int gamerHandleSize) { invoke<Void>(0x388EB2B86C73B6B3, player, gamerHandle, gamerHandleSize); } // 0x388EB2B86C73B6B3 0xD3498917 b323
 	NATIVE_DECL Hash NETWORK_HASH_FROM_PLAYER_HANDLE(Player player) { return invoke<Hash>(0xBC1D768F2F5D6C05, player); } // 0xBC1D768F2F5D6C05 0xF8D7AF3B b323
-	NATIVE_DECL Hash NETWORK_HASH_FROM_GAMER_HANDLE(int* networkHandle) { return invoke<Hash>(0x58575AC3CF2CA8EC, networkHandle); } // 0x58575AC3CF2CA8EC 0x5AC9F04D b323
-	NATIVE_DECL void NETWORK_HANDLE_FROM_FRIEND(int friendIndex, int* networkHandle, int bufferSize) { invoke<Void>(0xD45CB817D7E177D2, friendIndex, networkHandle, bufferSize); } // 0xD45CB817D7E177D2 0x3B0BB3A3 b323
-	NATIVE_DECL BOOL NETWORK_GAMERTAG_FROM_HANDLE_START(int* networkHandle) { return invoke<BOOL>(0x9F0C0A981D73FA56, networkHandle); } // 0x9F0C0A981D73FA56 0xEBA00C2A b323
+	NATIVE_DECL Hash NETWORK_HASH_FROM_GAMER_HANDLE(Any* gamerHandle) { return invoke<Hash>(0x58575AC3CF2CA8EC, gamerHandle); } // 0x58575AC3CF2CA8EC 0x5AC9F04D b323
+	NATIVE_DECL void NETWORK_HANDLE_FROM_FRIEND(int friendIndex, Any* gamerHandle, int gamerHandleSize) { invoke<Void>(0xD45CB817D7E177D2, friendIndex, gamerHandle, gamerHandleSize); } // 0xD45CB817D7E177D2 0x3B0BB3A3 b323
+	NATIVE_DECL BOOL NETWORK_GAMERTAG_FROM_HANDLE_START(Any* gamerHandle) { return invoke<BOOL>(0x9F0C0A981D73FA56, gamerHandle); } // 0x9F0C0A981D73FA56 0xEBA00C2A b323
 	NATIVE_DECL BOOL NETWORK_GAMERTAG_FROM_HANDLE_PENDING() { return invoke<BOOL>(0xB071E27958EF4CF0); } // 0xB071E27958EF4CF0 0xF000828E b323
 	NATIVE_DECL BOOL NETWORK_GAMERTAG_FROM_HANDLE_SUCCEEDED() { return invoke<BOOL>(0xFD00798DBA7523DD); } // 0xFD00798DBA7523DD 0x89C2B5EA b323
-	NATIVE_DECL const char* NETWORK_GET_GAMERTAG_FROM_HANDLE(int* networkHandle) { return invoke<const char*>(0x426141162EBE5CDB, networkHandle); } // 0x426141162EBE5CDB 0xA18A1B26 b323
+	NATIVE_DECL const char* NETWORK_GET_GAMERTAG_FROM_HANDLE(Any* gamerHandle) { return invoke<const char*>(0x426141162EBE5CDB, gamerHandle); } // 0x426141162EBE5CDB 0xA18A1B26 b323
 	NATIVE_DECL int NETWORK_DISPLAYNAMES_FROM_HANDLES_START(Any* p0, Any p1) { return invoke<int>(0xD66C9E72B3CC4982, p0, p1); } // 0xD66C9E72B3CC4982 b323
 	NATIVE_DECL int NETWORK_GET_DISPLAYNAMES_FROM_HANDLES(Any p0, Any p1, Any p2) { return invoke<int>(0x58CC181719256197, p0, p1, p2); } // 0x58CC181719256197 b323
-	NATIVE_DECL BOOL NETWORK_ARE_HANDLES_THE_SAME(int* netHandle1, int* netHandle2) { return invoke<BOOL>(0x57DBA049E110F217, netHandle1, netHandle2); } // 0x57DBA049E110F217 0x45975AE3 b323
-	NATIVE_DECL BOOL NETWORK_IS_HANDLE_VALID(int* networkHandle, int bufferSize) { return invoke<BOOL>(0x6F79B93B0A8E4133, networkHandle, bufferSize); } // 0x6F79B93B0A8E4133 0xF0996C6E b323
-	NATIVE_DECL Player NETWORK_GET_PLAYER_FROM_GAMER_HANDLE(int* networkHandle) { return invoke<Player>(0xCE5F689CF5A0A49D, networkHandle); } // 0xCE5F689CF5A0A49D 0x2E96EF1E b323
-	NATIVE_DECL const char* NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(int* networkHandle) { return invoke<const char*>(0xC82630132081BB6F, networkHandle); } // 0xC82630132081BB6F 0x62EF0A63 b323
-	NATIVE_DECL BOOL NETWORK_IS_GAMER_IN_MY_SESSION(int* networkHandle) { return invoke<BOOL>(0x0F10B05DDF8D16E9, networkHandle); } // 0x0F10B05DDF8D16E9 0x59127716 b323
-	NATIVE_DECL void NETWORK_SHOW_PROFILE_UI(int* networkHandle) { invoke<Void>(0x859ED1CEA343FCA8, networkHandle); } // 0x859ED1CEA343FCA8 0xF00A20B0 b323
+	NATIVE_DECL BOOL NETWORK_ARE_HANDLES_THE_SAME(Any* gamerHandle1, Any* gamerHandle2) { return invoke<BOOL>(0x57DBA049E110F217, gamerHandle1, gamerHandle2); } // 0x57DBA049E110F217 0x45975AE3 b323
+	NATIVE_DECL BOOL NETWORK_IS_HANDLE_VALID(Any* gamerHandle, int gamerHandleSize) { return invoke<BOOL>(0x6F79B93B0A8E4133, gamerHandle, gamerHandleSize); } // 0x6F79B93B0A8E4133 0xF0996C6E b323
+	NATIVE_DECL Player NETWORK_GET_PLAYER_FROM_GAMER_HANDLE(Any* gamerHandle) { return invoke<Player>(0xCE5F689CF5A0A49D, gamerHandle); } // 0xCE5F689CF5A0A49D 0x2E96EF1E b323
+	NATIVE_DECL const char* NETWORK_MEMBER_ID_FROM_GAMER_HANDLE(Any* gamerHandle) { return invoke<const char*>(0xC82630132081BB6F, gamerHandle); } // 0xC82630132081BB6F 0x62EF0A63 b323
+	NATIVE_DECL BOOL NETWORK_IS_GAMER_IN_MY_SESSION(Any* gamerHandle) { return invoke<BOOL>(0x0F10B05DDF8D16E9, gamerHandle); } // 0x0F10B05DDF8D16E9 0x59127716 b323
+	NATIVE_DECL void NETWORK_SHOW_PROFILE_UI(Any* gamerHandle) { invoke<Void>(0x859ED1CEA343FCA8, gamerHandle); } // 0x859ED1CEA343FCA8 0xF00A20B0 b323
 	NATIVE_DECL const char* NETWORK_PLAYER_GET_NAME(Player player) { return invoke<const char*>(0x7718D2E2060837D2, player); } // 0x7718D2E2060837D2 0xCE48F260 b323
 	NATIVE_DECL const char* NETWORK_PLAYER_GET_USERID(Player player, int* userID) { return invoke<const char*>(0x4927FC39CD0869A0, player, userID); } // 0x4927FC39CD0869A0 0x4EC0D983 b323
 	NATIVE_DECL BOOL NETWORK_PLAYER_IS_ROCKSTAR_DEV(Player player) { return invoke<BOOL>(0x544ABDDA3B409B6D, player); } // 0x544ABDDA3B409B6D 0xF6659045 b323
@@ -3094,13 +3094,13 @@ namespace NETWORK
 	NATIVE_DECL const char* NETWORK_GET_FRIEND_NAME(int friendIndex) { return invoke<const char*>(0xE11EBBB2A783FE8B, friendIndex); } // 0xE11EBBB2A783FE8B 0x97420B6D b323
 	NATIVE_DECL const char* _NETWORK_GET_FRIEND_NAME_FROM_INDEX(int friendIndex) { return invoke<const char*>(0x4164F227D052E293, friendIndex); } // 0x4164F227D052E293 b323
 	NATIVE_DECL BOOL NETWORK_IS_FRIEND_ONLINE(const char* name) { return invoke<BOOL>(0x425A44533437B64D, name); } // 0x425A44533437B64D 0xE0A42430 b323
-	NATIVE_DECL BOOL NETWORK_IS_FRIEND_HANDLE_ONLINE(int* networkHandle) { return invoke<BOOL>(0x87EB7A3FFCB314DB, networkHandle); } // 0x87EB7A3FFCB314DB b323
+	NATIVE_DECL BOOL NETWORK_IS_FRIEND_HANDLE_ONLINE(Any* gamerHandle) { return invoke<BOOL>(0x87EB7A3FFCB314DB, gamerHandle); } // 0x87EB7A3FFCB314DB b323
 	NATIVE_DECL BOOL NETWORK_IS_FRIEND_IN_SAME_TITLE(const char* friendName) { return invoke<BOOL>(0x2EA9A3BEDF3F17B8, friendName); } // 0x2EA9A3BEDF3F17B8 0xC54365C2 b323
 	NATIVE_DECL BOOL NETWORK_IS_FRIEND_IN_MULTIPLAYER(const char* friendName) { return invoke<BOOL>(0x57005C18827F3A28, friendName); } // 0x57005C18827F3A28 0x400BDDD9 b323
-	NATIVE_DECL BOOL NETWORK_IS_FRIEND(int* networkHandle) { return invoke<BOOL>(0x1A24A179F9B31654, networkHandle); } // 0x1A24A179F9B31654 0x2DA4C282 b323
+	NATIVE_DECL BOOL NETWORK_IS_FRIEND(Any* gamerHandle) { return invoke<BOOL>(0x1A24A179F9B31654, gamerHandle); } // 0x1A24A179F9B31654 0x2DA4C282 b323
 	NATIVE_DECL Any NETWORK_IS_PENDING_FRIEND(Any p0) { return invoke<Any>(0x0BE73DA6984A6E33, p0); } // 0x0BE73DA6984A6E33 0x5C85FF81 b323
 	NATIVE_DECL Any NETWORK_IS_ADDING_FRIEND() { return invoke<Any>(0x6EA101606F6E4D81); } // 0x6EA101606F6E4D81 0xBB7EC8C4 b323
-	NATIVE_DECL BOOL NETWORK_ADD_FRIEND(int* networkHandle, const char* message) { return invoke<BOOL>(0x8E02D73914064223, networkHandle, message); } // 0x8E02D73914064223 0x20E5B3EE b323
+	NATIVE_DECL BOOL NETWORK_ADD_FRIEND(Any* gamerHandle, const char* message) { return invoke<BOOL>(0x8E02D73914064223, gamerHandle, message); } // 0x8E02D73914064223 0x20E5B3EE b323
 	NATIVE_DECL BOOL NETWORK_IS_FRIEND_INDEX_ONLINE(int friendIndex) { return invoke<BOOL>(0xBAD8F2A42B844821, friendIndex); } // 0xBAD8F2A42B844821 0x94AE7172 b323
 	NATIVE_DECL void NETWORK_SET_PLAYER_IS_PASSIVE(BOOL toggle) { invoke<Void>(0x1B857666604B1A74, toggle); } // 0x1B857666604B1A74 0x76A9FEB6 b323
 	NATIVE_DECL BOOL NETWORK_GET_PLAYER_OWNS_WAYPOINT(Player player) { return invoke<BOOL>(0x82377B65E943F72D, player); } // 0x82377B65E943F72D 0xB802B671 b323
@@ -3111,18 +3111,18 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_HAS_HEADSET() { return invoke<BOOL>(0xE870F9F1F7B4F1FA); } // 0xE870F9F1F7B4F1FA 0xA7DC5657 b323
 	NATIVE_DECL void _0x7D395EA61622E116(BOOL p0) { invoke<Void>(0x7D395EA61622E116, p0); } // 0x7D395EA61622E116 0x5C05B7E1 b323
 	NATIVE_DECL BOOL NETWORK_IS_LOCAL_TALKING() { return invoke<BOOL>(0xC0D2AF00BCC234CA); } // 0xC0D2AF00BCC234CA 0xAC00A5BE b323
-	NATIVE_DECL BOOL NETWORK_GAMER_HAS_HEADSET(Any* networkHandle) { return invoke<BOOL>(0xF2FD55CB574BCC55, networkHandle); } // 0xF2FD55CB574BCC55 0xD036DA4A b323
-	NATIVE_DECL BOOL NETWORK_IS_GAMER_TALKING(Any* networkHandle) { return invoke<BOOL>(0x71C33B22606CD88A, networkHandle); } // 0x71C33B22606CD88A 0x99B58DBC b323
-	NATIVE_DECL BOOL _NETWORK_CAN_COMMUNICATE_WITH_GAMER_2(Any* networkHandle) { return invoke<BOOL>(0x8F5D1AD832AEB06C, networkHandle); } // 0x8F5D1AD832AEB06C b944
-	NATIVE_DECL BOOL NETWORK_CAN_COMMUNICATE_WITH_GAMER(Any* networkHandle) { return invoke<BOOL>(0xA150A4F065806B1F, networkHandle); } // 0xA150A4F065806B1F 0xD05EB7F6 b323
-	NATIVE_DECL BOOL NETWORK_IS_GAMER_MUTED_BY_ME(Any* networkHandle) { return invoke<BOOL>(0xCE60DE011B6C7978, networkHandle); } // 0xCE60DE011B6C7978 0x001B4046 b323
-	NATIVE_DECL BOOL NETWORK_AM_I_MUTED_BY_GAMER(Any* networkHandle) { return invoke<BOOL>(0xDF02A2C93F1F26DA, networkHandle); } // 0xDF02A2C93F1F26DA 0x7685B333 b323
-	NATIVE_DECL BOOL NETWORK_IS_GAMER_BLOCKED_BY_ME(Any* networkHandle) { return invoke<BOOL>(0xE944C4F5AF1B5883, networkHandle); } // 0xE944C4F5AF1B5883 0x3FDCC8D7 b323
-	NATIVE_DECL BOOL NETWORK_AM_I_BLOCKED_BY_GAMER(Any* networkHandle) { return invoke<BOOL>(0x15337C7C268A27B2, networkHandle); } // 0x15337C7C268A27B2 0xD19B312C b323
-	NATIVE_DECL BOOL NETWORK_CAN_VIEW_GAMER_USER_CONTENT(Any* networkHandle) { return invoke<BOOL>(0xB57A49545BA53CE7, networkHandle); } // 0xB57A49545BA53CE7 b323
-	NATIVE_DECL BOOL NETWORK_HAS_VIEW_GAMER_USER_CONTENT_RESULT(Any* networkHandle) { return invoke<BOOL>(0xCCA4318E1AB03F1F, networkHandle); } // 0xCCA4318E1AB03F1F b323
-	NATIVE_DECL BOOL NETWORK_CAN_PLAY_MULTIPLAYER_WITH_GAMER(Any* networkHandle) { return invoke<BOOL>(0x07DD29D5E22763F1, networkHandle); } // 0x07DD29D5E22763F1 b323
-	NATIVE_DECL BOOL NETWORK_CAN_GAMER_PLAY_MULTIPLAYER_WITH_ME(Any* networkHandle) { return invoke<BOOL>(0x135F9B7B7ADD2185, networkHandle); } // 0x135F9B7B7ADD2185 b323
+	NATIVE_DECL BOOL NETWORK_GAMER_HAS_HEADSET(Any* gamerHandle) { return invoke<BOOL>(0xF2FD55CB574BCC55, gamerHandle); } // 0xF2FD55CB574BCC55 0xD036DA4A b323
+	NATIVE_DECL BOOL NETWORK_IS_GAMER_TALKING(Any* gamerHandle) { return invoke<BOOL>(0x71C33B22606CD88A, gamerHandle); } // 0x71C33B22606CD88A 0x99B58DBC b323
+	NATIVE_DECL BOOL _NETWORK_CAN_COMMUNICATE_WITH_GAMER_2(Any* gamerHandle) { return invoke<BOOL>(0x8F5D1AD832AEB06C, gamerHandle); } // 0x8F5D1AD832AEB06C b944
+	NATIVE_DECL BOOL NETWORK_CAN_COMMUNICATE_WITH_GAMER(Any* gamerHandle) { return invoke<BOOL>(0xA150A4F065806B1F, gamerHandle); } // 0xA150A4F065806B1F 0xD05EB7F6 b323
+	NATIVE_DECL BOOL NETWORK_IS_GAMER_MUTED_BY_ME(Any* gamerHandle) { return invoke<BOOL>(0xCE60DE011B6C7978, gamerHandle); } // 0xCE60DE011B6C7978 0x001B4046 b323
+	NATIVE_DECL BOOL NETWORK_AM_I_MUTED_BY_GAMER(Any* gamerHandle) { return invoke<BOOL>(0xDF02A2C93F1F26DA, gamerHandle); } // 0xDF02A2C93F1F26DA 0x7685B333 b323
+	NATIVE_DECL BOOL NETWORK_IS_GAMER_BLOCKED_BY_ME(Any* gamerHandle) { return invoke<BOOL>(0xE944C4F5AF1B5883, gamerHandle); } // 0xE944C4F5AF1B5883 0x3FDCC8D7 b323
+	NATIVE_DECL BOOL NETWORK_AM_I_BLOCKED_BY_GAMER(Any* gamerHandle) { return invoke<BOOL>(0x15337C7C268A27B2, gamerHandle); } // 0x15337C7C268A27B2 0xD19B312C b323
+	NATIVE_DECL BOOL NETWORK_CAN_VIEW_GAMER_USER_CONTENT(Any* gamerHandle) { return invoke<BOOL>(0xB57A49545BA53CE7, gamerHandle); } // 0xB57A49545BA53CE7 b323
+	NATIVE_DECL BOOL NETWORK_HAS_VIEW_GAMER_USER_CONTENT_RESULT(Any* gamerHandle) { return invoke<BOOL>(0xCCA4318E1AB03F1F, gamerHandle); } // 0xCCA4318E1AB03F1F b323
+	NATIVE_DECL BOOL NETWORK_CAN_PLAY_MULTIPLAYER_WITH_GAMER(Any* gamerHandle) { return invoke<BOOL>(0x07DD29D5E22763F1, gamerHandle); } // 0x07DD29D5E22763F1 b323
+	NATIVE_DECL BOOL NETWORK_CAN_GAMER_PLAY_MULTIPLAYER_WITH_ME(Any* gamerHandle) { return invoke<BOOL>(0x135F9B7B7ADD2185, gamerHandle); } // 0x135F9B7B7ADD2185 b323
 	NATIVE_DECL BOOL NETWORK_IS_PLAYER_TALKING(Player player) { return invoke<BOOL>(0x031E11F3D447647E, player); } // 0x031E11F3D447647E 0xDA9FD9DB b323
 	NATIVE_DECL BOOL NETWORK_PLAYER_HAS_HEADSET(Player player) { return invoke<BOOL>(0x3FB99A8B08D18FD6, player); } // 0x3FB99A8B08D18FD6 0x451FB6B6 b323
 	NATIVE_DECL BOOL NETWORK_IS_PLAYER_MUTED_BY_ME(Player player) { return invoke<BOOL>(0x8C71288AE68EDE39, player); } // 0x8C71288AE68EDE39 0x7A21050E b323
@@ -3164,25 +3164,25 @@ namespace NETWORK
 	NATIVE_DECL void NETWORK_SET_RICH_PRESENCE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x1DCCACDCFC569362, p0, p1, p2, p3); } // 0x1DCCACDCFC569362 0x932A6CED b323
 	NATIVE_DECL void NETWORK_SET_RICH_PRESENCE_STRING(int p0, const char* textLabel) { invoke<Void>(0x3E200C2BCF4164EB, p0, textLabel); } // 0x3E200C2BCF4164EB 0x017E6777 b323
 	NATIVE_DECL int NETWORK_GET_TIMEOUT_TIME() { return invoke<int>(0x5ED0356A0CE3A34F); } // 0x5ED0356A0CE3A34F 0xE1F86C6A b323
-	NATIVE_DECL void _NETWORK_RESPAWN_COORDS(Player player, float x, float y, float z, BOOL p4, BOOL p5) { invoke<Void>(0x9769F811D1785B03, player, x, y, z, p4, p5); } // 0x9769F811D1785B03 0xBE6A30C3 b323
-	NATIVE_DECL void _0xBF22E0F32968E967(Player player, BOOL p1) { invoke<Void>(0xBF22E0F32968E967, player, p1); } // 0xBF22E0F32968E967 0x22E03AD0 b323
+	NATIVE_DECL void NETWORK_LEAVE_PED_BEHIND_BEFORE_WARP(Player player, float x, float y, float z, BOOL p4, BOOL p5) { invoke<Void>(0x9769F811D1785B03, player, x, y, z, p4, p5); } // 0x9769F811D1785B03 0xBE6A30C3 b323
+	NATIVE_DECL void NETWORK_LEAVE_PED_BEHIND_BEFORE_CUTSCENE(Player player, BOOL p1) { invoke<Void>(0xBF22E0F32968E967, player, p1); } // 0xBF22E0F32968E967 0x22E03AD0 b323
 	NATIVE_DECL void REMOVE_ALL_STICKY_BOMBS_FROM_ENTITY(Entity entity, Ped ped) { invoke<Void>(0x715135F4B82AC90D, entity, ped); } // 0x715135F4B82AC90D 0xCEAE5AFC b323
 	NATIVE_DECL void _0x17C9E241111A674D(Any p0, Any p1) { invoke<Void>(0x17C9E241111A674D, p0, p1); } // 0x17C9E241111A674D b2060
 	NATIVE_DECL Any _0x2E4C123D1C8A710E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0x2E4C123D1C8A710E, p0, p1, p2, p3, p4, p5, p6); } // 0x2E4C123D1C8A710E b505
 	NATIVE_DECL BOOL NETWORK_CLAN_SERVICE_IS_VALID() { return invoke<BOOL>(0x579CCED0265D4896); } // 0x579CCED0265D4896 0xF5F4BD95 b323
-	NATIVE_DECL BOOL NETWORK_CLAN_PLAYER_IS_ACTIVE(int* networkHandle) { return invoke<BOOL>(0xB124B57F571D8F18, networkHandle); } // 0xB124B57F571D8F18 0xAB8319A3 b323
-	NATIVE_DECL BOOL NETWORK_CLAN_PLAYER_GET_DESC(int* clanDesc, int bufferSize, int* networkHandle) { return invoke<BOOL>(0xEEE6EACBE8874FBA, clanDesc, bufferSize, networkHandle); } // 0xEEE6EACBE8874FBA 0x6EE4A282 b323
+	NATIVE_DECL BOOL NETWORK_CLAN_PLAYER_IS_ACTIVE(Any* gamerHandle) { return invoke<BOOL>(0xB124B57F571D8F18, gamerHandle); } // 0xB124B57F571D8F18 0xAB8319A3 b323
+	NATIVE_DECL BOOL NETWORK_CLAN_PLAYER_GET_DESC(Any* clanDesc, int bufferSize, Any* gamerHandle) { return invoke<BOOL>(0xEEE6EACBE8874FBA, clanDesc, bufferSize, gamerHandle); } // 0xEEE6EACBE8874FBA 0x6EE4A282 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_IS_ROCKSTAR_CLAN(int* clanDesc, int bufferSize) { return invoke<BOOL>(0x7543BB439F63792B, clanDesc, bufferSize); } // 0x7543BB439F63792B 0x54E79E9C b323
 	NATIVE_DECL void NETWORK_CLAN_GET_UI_FORMATTED_TAG(int* clanDesc, int bufferSize, char* formattedTag) { invoke<Void>(0xF45352426FF3A4F0, clanDesc, bufferSize, formattedTag); } // 0xF45352426FF3A4F0 0xF633805A b323
 	NATIVE_DECL int NETWORK_CLAN_GET_LOCAL_MEMBERSHIPS_COUNT() { return invoke<int>(0x1F471B79ACC90BEF); } // 0x1F471B79ACC90BEF 0x807B3450 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_GET_MEMBERSHIP_DESC(int* memberDesc, int p1) { return invoke<BOOL>(0x48DE78AF2C8885B8, memberDesc, p1); } // 0x48DE78AF2C8885B8 0x3369DD1F b323
-	NATIVE_DECL BOOL NETWORK_CLAN_DOWNLOAD_MEMBERSHIP(int* networkHandle) { return invoke<BOOL>(0xA989044E70010ABE, networkHandle); } // 0xA989044E70010ABE 0x8E8CB520 b323
+	NATIVE_DECL BOOL NETWORK_CLAN_DOWNLOAD_MEMBERSHIP(Any* gamerHandle) { return invoke<BOOL>(0xA989044E70010ABE, gamerHandle); } // 0xA989044E70010ABE 0x8E8CB520 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_DOWNLOAD_MEMBERSHIP_PENDING(Any* p0) { return invoke<BOOL>(0x5B9E023DC6EBEDC0, p0); } // 0x5B9E023DC6EBEDC0 0x1FDB590F b323
-	NATIVE_DECL BOOL _NETWORK_IS_CLAN_MEMBERSHIP_FINISHED_DOWNLOADING() { return invoke<BOOL>(0xB3F64A6A91432477); } // 0xB3F64A6A91432477 0x83ED8E08 b323
+	NATIVE_DECL BOOL NETWORK_CLAN_ANY_DOWNLOAD_MEMBERSHIP_PENDING() { return invoke<BOOL>(0xB3F64A6A91432477); } // 0xB3F64A6A91432477 0x83ED8E08 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_REMOTE_MEMBERSHIPS_ARE_IN_CACHE(int* p0) { return invoke<BOOL>(0xBB6E6FEE99D866B2, p0); } // 0xBB6E6FEE99D866B2 0x40202867 b323
 	NATIVE_DECL int NETWORK_CLAN_GET_MEMBERSHIP_COUNT(int* p0) { return invoke<int>(0xAAB11F6C4ADBC2C1, p0); } // 0xAAB11F6C4ADBC2C1 0x25924010 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_GET_MEMBERSHIP_VALID(int* p0, Any p1) { return invoke<BOOL>(0x48A59CF88D43DF0E, p0, p1); } // 0x48A59CF88D43DF0E 0x48914F6A b323
-	NATIVE_DECL BOOL NETWORK_CLAN_GET_MEMBERSHIP(int* p0, int* clanMembership, int p2) { return invoke<BOOL>(0xC8BC2011F67B3411, p0, clanMembership, p2); } // 0xC8BC2011F67B3411 0xCDC4A590 b323
+	NATIVE_DECL BOOL NETWORK_CLAN_GET_MEMBERSHIP(int* p0, Any* clanMembership, int p2) { return invoke<BOOL>(0xC8BC2011F67B3411, p0, clanMembership, p2); } // 0xC8BC2011F67B3411 0xCDC4A590 b323
 	NATIVE_DECL BOOL NETWORK_CLAN_JOIN(int clanDesc) { return invoke<BOOL>(0x9FAAA4F4FC71F87F, clanDesc); } // 0x9FAAA4F4FC71F87F 0x79C916C5 b323
 	NATIVE_DECL BOOL _NETWORK_CLAN_ANIMATION(const char* animDict, const char* animName) { return invoke<BOOL>(0x729E3401F0430686, animDict, animName); } // 0x729E3401F0430686 0xBDA90BAC b323
 	NATIVE_DECL BOOL _0x2B51EDBEFC301339(int p0, const char* p1) { return invoke<BOOL>(0x2B51EDBEFC301339, p0, p1); } // 0x2B51EDBEFC301339 0x8E952B12 b323
@@ -3278,8 +3278,8 @@ namespace NETWORK
 	NATIVE_DECL void _0xFAC18E7356BD3210() { invoke<Void>(0xFAC18E7356BD3210); } // 0xFAC18E7356BD3210 b1180
 	NATIVE_DECL void SET_NETWORK_VEHICLE_RESPOT_TIMER(int netId, int time, Any p2, Any p3) { invoke<Void>(0xEC51713AB6EC36E8, netId, time, p2, p3); } // 0xEC51713AB6EC36E8 0x2C30912D b323
 	NATIVE_DECL void SET_NETWORK_VEHICLE_AS_GHOST(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x6274C4712850841E, vehicle, toggle); } // 0x6274C4712850841E 0xEA235081 b323
-	NATIVE_DECL void _0xA2A707979FE754DC(Any p0, Any p1) { invoke<Void>(0xA2A707979FE754DC, p0, p1); } // 0xA2A707979FE754DC b877
-	NATIVE_DECL void _0x838DA0936A24ED4D(Any p0, Any p1) { invoke<Void>(0x838DA0936A24ED4D, p0, p1); } // 0x838DA0936A24ED4D b944
+	NATIVE_DECL void _SET_NETWORK_VEHICLE_POSITION_UPDATE_MULTIPLIER(Vehicle vehicle, float multiplier) { invoke<Void>(0xA2A707979FE754DC, vehicle, multiplier); } // 0xA2A707979FE754DC b877
+	NATIVE_DECL void _SET_NETWORK_ENABLE_VEHICLE_POSITION_CORRECTION(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x838DA0936A24ED4D, vehicle, toggle); } // 0x838DA0936A24ED4D b944
 	NATIVE_DECL void _SET_LOCAL_PLAYER_AS_GHOST(BOOL toggle, BOOL p1) { invoke<Void>(0x5FFE9B4144F9712F, toggle, p1); } // 0x5FFE9B4144F9712F b323
 	NATIVE_DECL BOOL _IS_ENTITY_GHOSTED_TO_LOCAL_PLAYER(Entity entity) { return invoke<BOOL>(0x21D04D7BC538C146, entity); } // 0x21D04D7BC538C146 b323
 	NATIVE_DECL void _0x13F1FCB111B820B0(BOOL p0) { invoke<Void>(0x13F1FCB111B820B0, p0); } // 0x13F1FCB111B820B0 b877
@@ -3295,11 +3295,11 @@ namespace NETWORK
 	NATIVE_DECL void _0xA5EAFE473E45C442(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0xA5EAFE473E45C442, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xA5EAFE473E45C442 b1290
 	NATIVE_DECL void NETWORK_ADD_ENTITY_TO_SYNCHRONISED_SCENE(Entity entity, int netScene, const char* animDict, const char* animName, float speed, float speedMulitiplier, int flag) { invoke<Void>(0xF2404D68CBC855FA, entity, netScene, animDict, animName, speed, speedMulitiplier, flag); } // 0xF2404D68CBC855FA 0x10DD636C b323
 	NATIVE_DECL void _0x45F35C0EDC33B03B(int netScene, Hash modelHash, float x, float y, float z, float p5, const char* p6, float p7, float p8, int flags) { invoke<Void>(0x45F35C0EDC33B03B, netScene, modelHash, x, y, z, p5, p6, p7, p8, flags); } // 0x45F35C0EDC33B03B b1734
-	NATIVE_DECL void _NETWORK_FORCE_LOCAL_USE_OF_SYNCED_SCENE_CAMERA(int netScene, const char* animDict, const char* animName) { invoke<Void>(0xCF8BD3B0BD6D42D7, netScene, animDict, animName); } // 0xCF8BD3B0BD6D42D7 0xBFFE8B5C b323
+	NATIVE_DECL void NETWORK_ADD_SYNCHRONISED_SCENE_CAMERA(int netScene, const char* animDict, const char* animName) { invoke<Void>(0xCF8BD3B0BD6D42D7, netScene, animDict, animName); } // 0xCF8BD3B0BD6D42D7 0xBFFE8B5C b323
 	NATIVE_DECL void NETWORK_ATTACH_SYNCHRONISED_SCENE_TO_ENTITY(int netScene, Entity entity, int bone) { invoke<Void>(0x478DCBD2A98B705A, netScene, entity, bone); } // 0x478DCBD2A98B705A 0x3FE5B222 b323
 	NATIVE_DECL void NETWORK_START_SYNCHRONISED_SCENE(int netScene) { invoke<Void>(0x9A1B3FCDB36C8697, netScene); } // 0x9A1B3FCDB36C8697 0xA9DFDC40 b323
 	NATIVE_DECL void NETWORK_STOP_SYNCHRONISED_SCENE(int netScene) { invoke<Void>(0xC254481A4574CB2F, netScene); } // 0xC254481A4574CB2F 0x97B1CDF6 b323
-	NATIVE_DECL int _NETWORK_CONVERT_SYNCHRONISED_SCENE_TO_SYNCHRONIZED_SCENE(int netScene) { return invoke<int>(0x02C40BF885C567B6, netScene); } // 0x02C40BF885C567B6 0x16AED87B b323
+	NATIVE_DECL int NETWORK_GET_LOCAL_SCENE_FROM_NETWORK_ID(int netId) { return invoke<int>(0x02C40BF885C567B6, netId); } // 0x02C40BF885C567B6 0x16AED87B b323
 	NATIVE_DECL void _0xC9B43A33D09CADA7(Any p0) { invoke<Void>(0xC9B43A33D09CADA7, p0); } // 0xC9B43A33D09CADA7 b323
 	NATIVE_DECL void _0x144DA052257AE7D8(Any p0) { invoke<Void>(0x144DA052257AE7D8, p0); } // 0x144DA052257AE7D8 b1103
 	NATIVE_DECL Any _0xFB1F9381E80FA13F(int p0, Any p1) { return invoke<Any>(0xFB1F9381E80FA13F, p0, p1); } // 0xFB1F9381E80FA13F 0x0679CE71 b323
@@ -3308,9 +3308,9 @@ namespace NETWORK
 	NATIVE_DECL Any NETWORK_QUERY_RESPAWN_RESULTS(Any* p0) { return invoke<Any>(0x3C891A251567DFCE, p0); } // 0x3C891A251567DFCE 0x90700C7D b323
 	NATIVE_DECL void NETWORK_CANCEL_RESPAWN_SEARCH() { invoke<Void>(0xFB8F2A6F3DF08CBE); } // 0xFB8F2A6F3DF08CBE 0x44BFB619 b323
 	NATIVE_DECL void NETWORK_GET_RESPAWN_RESULT(int randomInt, Vector3* coordinates, float* heading) { invoke<Void>(0x371EA43692861CF1, randomInt, coordinates, heading); } // 0x371EA43692861CF1 0xDDFE9FBC b323
-	NATIVE_DECL Any NETWORK_GET_RESPAWN_RESULT_FLAGS(Any p0) { return invoke<Any>(0x6C34F1208B8923FD, p0); } // 0x6C34F1208B8923FD 0x03287FD2 b323
+	NATIVE_DECL int NETWORK_GET_RESPAWN_RESULT_FLAGS(int p0) { return invoke<int>(0x6C34F1208B8923FD, p0); } // 0x6C34F1208B8923FD 0x03287FD2 b323
 	NATIVE_DECL void NETWORK_START_SOLO_TUTORIAL_SESSION() { invoke<Void>(0x17E0198B3882C2CB); } // 0x17E0198B3882C2CB 0x408A9436 b323
-	NATIVE_DECL void _0xFB680D403909DC70(Any p0, Any p1) { invoke<Void>(0xFB680D403909DC70, p0, p1); } // 0xFB680D403909DC70 0xFFB2ADA1 b323
+	NATIVE_DECL void _0xFB680D403909DC70(int teamId, int instanceId) { invoke<Void>(0xFB680D403909DC70, teamId, instanceId); } // 0xFB680D403909DC70 0xFFB2ADA1 b323
 	NATIVE_DECL void NETWORK_END_TUTORIAL_SESSION() { invoke<Void>(0xD0AFAFF5A51D72F7); } // 0xD0AFAFF5A51D72F7 0xBA57E53E b323
 	NATIVE_DECL BOOL NETWORK_IS_IN_TUTORIAL_SESSION() { return invoke<BOOL>(0xADA24309FE08DACF); } // 0xADA24309FE08DACF 0x34DD7B28 b323
 	NATIVE_DECL BOOL _0xB37E4E6A2388CA7B() { return invoke<BOOL>(0xB37E4E6A2388CA7B); } // 0xB37E4E6A2388CA7B 0x755A2B3E b323
@@ -3365,7 +3365,7 @@ namespace NETWORK
 	NATIVE_DECL void _0x3FC795691834481D(Any p0, Any p1) { invoke<Void>(0x3FC795691834481D, p0, p1); } // 0x3FC795691834481D b1868
 	NATIVE_DECL void NETWORK_EXPLODE_VEHICLE(Vehicle vehicle, BOOL isAudible, BOOL isInvisible, BOOL p3) { invoke<Void>(0x301A42153C9AD707, vehicle, isAudible, isInvisible, p3); } // 0x301A42153C9AD707 0x0E1B38AE b323
 	NATIVE_DECL void _0x2A5E0621DD815A9A(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x2A5E0621DD815A9A, p0, p1, p2, p3); } // 0x2A5E0621DD815A9A b463
-	NATIVE_DECL void _0xCD71A4ECAB22709E(Entity entity) { invoke<Void>(0xCD71A4ECAB22709E, entity); } // 0xCD71A4ECAB22709E 0xBC54371B b323
+	NATIVE_DECL void NETWORK_USE_LOGARITHMIC_BLENDING_THIS_FRAME(Entity entity) { invoke<Void>(0xCD71A4ECAB22709E, entity); } // 0xCD71A4ECAB22709E 0xBC54371B b323
 	NATIVE_DECL void NETWORK_OVERRIDE_COORDS_AND_HEADING(Entity entity, float x, float y, float z, float heading) { invoke<Void>(0xA7E30DE9272B6D49, entity, x, y, z, heading); } // 0xA7E30DE9272B6D49 0x644141C5 b323
 	NATIVE_DECL void _0xE6717E652B8C8D8A(Any p0, Any p1) { invoke<Void>(0xE6717E652B8C8D8A, p0, p1); } // 0xE6717E652B8C8D8A b617
 	NATIVE_DECL void NETWORK_DISABLE_PROXIMITY_MIGRATION(int netID) { invoke<Void>(0x407091CF6037118E, netID); } // 0x407091CF6037118E 0x9F82917F b323
@@ -3411,20 +3411,20 @@ namespace NETWORK
 	NATIVE_DECL BOOL UGC_COPY_CONTENT(Any* p0, Any* p1) { return invoke<BOOL>(0x152D90E4C1B4738A, p0, p1); } // 0x152D90E4C1B4738A 0x08243B79 b323
 	NATIVE_DECL Any _0x9FEDF86898F100E9() { return invoke<Any>(0x9FEDF86898F100E9); } // 0x9FEDF86898F100E9 0x798D6C27 b323
 	NATIVE_DECL BOOL UGC_HAS_CREATE_FINISHED() { return invoke<BOOL>(0x5E24341A7F92A74B); } // 0x5E24341A7F92A74B 0xE69E8D0D b323
-	NATIVE_DECL Any _0x24E4E51FC16305F9() { return invoke<Any>(0x24E4E51FC16305F9); } // 0x24E4E51FC16305F9 0x742075FE b323
+	NATIVE_DECL Any UGC_DID_CREATE_SUCCEED() { return invoke<Any>(0x24E4E51FC16305F9); } // 0x24E4E51FC16305F9 0x742075FE b323
 	NATIVE_DECL Any UGC_GET_CREATE_RESULT() { return invoke<Any>(0xFBC5E768C7A77A6A); } // 0xFBC5E768C7A77A6A 0xCE569932 b323
 	NATIVE_DECL Any UGC_GET_CREATE_CONTENT_ID() { return invoke<Any>(0xC55A0B40FFB1ED23); } // 0xC55A0B40FFB1ED23 0x82146BE9 b323
 	NATIVE_DECL void UGC_CLEAR_CREATE_RESULT() { invoke<Void>(0x17440AA15D1D3739); } // 0x17440AA15D1D3739 0x133FF2D5 b323
 	NATIVE_DECL BOOL UGC_QUERY_MY_CONTENT(Any p0, Any p1, Any* p2, Any p3, Any p4, Any p5) { return invoke<BOOL>(0x9BF438815F5D96EA, p0, p1, p2, p3, p4, p5); } // 0x9BF438815F5D96EA 0xCBA7242F b323
-	NATIVE_DECL BOOL _0x692D58DF40657E8C(Any p0, Any p1, Any p2, Any* p3, Any p4, BOOL p5) { return invoke<BOOL>(0x692D58DF40657E8C, p0, p1, p2, p3, p4, p5); } // 0x692D58DF40657E8C b323
+	NATIVE_DECL BOOL _0x692D58DF40657E8C(Any p0, Any p1, Any p2, const char* p3, Any p4, BOOL p5) { return invoke<BOOL>(0x692D58DF40657E8C, p0, p1, p2, p3, p4, p5); } // 0x692D58DF40657E8C b323
 	NATIVE_DECL BOOL UGC_QUERY_BY_CONTENT_ID(const char* contentId, BOOL latestVersion, const char* contentTypeName) { return invoke<BOOL>(0x158EC424F35EC469, contentId, latestVersion, contentTypeName); } // 0x158EC424F35EC469 0xDED82A6E b323
 	NATIVE_DECL BOOL UGC_QUERY_BY_CONTENT_IDS(Any* data, int count, BOOL latestVersion, const char* contentTypeName) { return invoke<BOOL>(0xC7397A83F7A2A462, data, count, latestVersion, contentTypeName); } // 0xC7397A83F7A2A462 0x47B3C35E b323
 	NATIVE_DECL BOOL _UGC_QUERY_RECENTLY_CREATED_CONTENT(int offset, int count, const char* contentTypeName, int p3) { return invoke<BOOL>(0x6D4CB481FAC835E8, offset, count, contentTypeName, p3); } // 0x6D4CB481FAC835E8 0x40CF0783 b323
-	NATIVE_DECL BOOL UGC_GET_BOOKMARKED_CONTENT(Any p0, Any p1, Any* p2, Any* p3) { return invoke<BOOL>(0xD5A4B59980401588, p0, p1, p2, p3); } // 0xD5A4B59980401588 0x4609D596 b323
-	NATIVE_DECL BOOL UGC_GET_MY_CONTENT(Any p0, Any p1, Any* p2, Any* p3) { return invoke<BOOL>(0x3195F8DD0D531052, p0, p1, p2, p3); } // 0x3195F8DD0D531052 0x4C2C0D1F b323
-	NATIVE_DECL BOOL UGC_GET_FRIEND_CONTENT(Any p0, Any p1, Any* p2, Any* p3) { return invoke<BOOL>(0xF9E1CCAE8BA4C281, p0, p1, p2, p3); } // 0xF9E1CCAE8BA4C281 0x9EFBD5D1 b323
-	NATIVE_DECL BOOL UGC_GET_CREW_CONTENT(Any p0, Any p1, Any p2, Any* p3, Any* p4) { return invoke<BOOL>(0x9F6E2821885CAEE2, p0, p1, p2, p3, p4); } // 0x9F6E2821885CAEE2 0xA6D8B798 b323
-	NATIVE_DECL BOOL UGC_GET_GET_BY_CATEGORY(Any p0, Any p1, Any p2, Any* p3, Any* p4) { return invoke<BOOL>(0x678BB03C1A3BD51E, p0, p1, p2, p3, p4); } // 0x678BB03C1A3BD51E 0x67E74842 b323
+	NATIVE_DECL BOOL UGC_GET_BOOKMARKED_CONTENT(Any p0, Any p1, const char* p2, Any* p3) { return invoke<BOOL>(0xD5A4B59980401588, p0, p1, p2, p3); } // 0xD5A4B59980401588 0x4609D596 b323
+	NATIVE_DECL BOOL UGC_GET_MY_CONTENT(Any p0, Any p1, const char* p2, Any* p3) { return invoke<BOOL>(0x3195F8DD0D531052, p0, p1, p2, p3); } // 0x3195F8DD0D531052 0x4C2C0D1F b323
+	NATIVE_DECL BOOL UGC_GET_FRIEND_CONTENT(Any p0, Any p1, const char* p2, Any* p3) { return invoke<BOOL>(0xF9E1CCAE8BA4C281, p0, p1, p2, p3); } // 0xF9E1CCAE8BA4C281 0x9EFBD5D1 b323
+	NATIVE_DECL BOOL UGC_GET_CREW_CONTENT(Any p0, Any p1, Any p2, const char* p3, Any* p4) { return invoke<BOOL>(0x9F6E2821885CAEE2, p0, p1, p2, p3, p4); } // 0x9F6E2821885CAEE2 0xA6D8B798 b323
+	NATIVE_DECL BOOL UGC_GET_GET_BY_CATEGORY(Any p0, Any p1, Any p2, const char* p3, Any* p4) { return invoke<BOOL>(0x678BB03C1A3BD51E, p0, p1, p2, p3, p4); } // 0x678BB03C1A3BD51E 0x67E74842 b323
 	NATIVE_DECL BOOL SET_BALANCE_ADD_MACHINE(const char* contentId, const char* contentTypeName) { return invoke<BOOL>(0x815E5E3073DA1D67, contentId, contentTypeName); } // 0x815E5E3073DA1D67 0xE123C7AC b323
 	NATIVE_DECL BOOL SET_BALANCE_ADD_MACHINES(Any* data, int dataCount, const char* contentTypeName) { return invoke<BOOL>(0xB8322EEB38BE7C26, data, dataCount, contentTypeName); } // 0xB8322EEB38BE7C26 0x22C33603 b323
 	NATIVE_DECL BOOL _0xA7862BC5ED1DFD7E(Any p0, Any p1, Any* p2, Any* p3) { return invoke<BOOL>(0xA7862BC5ED1DFD7E, p0, p1, p2, p3); } // 0xA7862BC5ED1DFD7E 0x37F5BD93 b323
@@ -3441,7 +3441,7 @@ namespace NETWORK
 	NATIVE_DECL Hash UGC_GET_CONTENT_HASH() { return invoke<Hash>(0x3A17A27D75C74887); } // 0x3A17A27D75C74887 0x8E1D8F78 b323
 	NATIVE_DECL void UGC_CLEAR_QUERY_RESULTS() { invoke<Void>(0xBA96394A0EECFA65); } // 0xBA96394A0EECFA65 0x0D35DD93 b323
 	NATIVE_DECL const char* UGC_GET_CONTENT_USER_ID(int p0) { return invoke<const char*>(0xCD67AD041A394C9C, p0); } // 0xCD67AD041A394C9C 0x8F3137E6 b323
-	NATIVE_DECL BOOL _0x584770794D758C18(Any p0, Any* p1) { return invoke<BOOL>(0x584770794D758C18, p0, p1); } // 0x584770794D758C18 b323
+	NATIVE_DECL BOOL _0x584770794D758C18(int p0, Any* p1) { return invoke<BOOL>(0x584770794D758C18, p0, p1); } // 0x584770794D758C18 b323
 	NATIVE_DECL BOOL _0x8C8D2739BA44AF0F(Any p0) { return invoke<BOOL>(0x8C8D2739BA44AF0F, p0); } // 0x8C8D2739BA44AF0F b323
 	NATIVE_DECL Any UGC_GET_CONTENT_USER_NAME(Any p0) { return invoke<Any>(0x703F12425ECA8BF5, p0); } // 0x703F12425ECA8BF5 0xB9137BA7 b323
 	NATIVE_DECL BOOL _0xAEAB987727C5A8A4(Any p0) { return invoke<BOOL>(0xAEAB987727C5A8A4, p0); } // 0xAEAB987727C5A8A4 0x9FEEAA9C b323
@@ -3475,7 +3475,7 @@ namespace NETWORK
 	NATIVE_DECL void _0x68103E2247887242() { invoke<Void>(0x68103E2247887242); } // 0x68103E2247887242 0x0095DB71 b323
 	NATIVE_DECL BOOL UGC_PUBLISH(const char* contentId, const char* baseContentId, const char* contentTypeName) { return invoke<BOOL>(0x1DE0F5F50D723CAA, contentId, baseContentId, contentTypeName); } // 0x1DE0F5F50D723CAA 0xAD334B40 b323
 	NATIVE_DECL BOOL UGC_SET_BOOKMARKED(const char* contentId, BOOL bookmarked, const char* contentTypeName) { return invoke<BOOL>(0x274A1519DFC1094F, contentId, bookmarked, contentTypeName); } // 0x274A1519DFC1094F 0x980D45D7 b323
-	NATIVE_DECL BOOL UGC_SET_DELETED(Any* p0, BOOL p1, Any* p2) { return invoke<BOOL>(0xD05D1A6C74DA3498, p0, p1, p2); } // 0xD05D1A6C74DA3498 0x48CCC328 b323
+	NATIVE_DECL BOOL UGC_SET_DELETED(Any* p0, BOOL p1, const char* p2) { return invoke<BOOL>(0xD05D1A6C74DA3498, p0, p1, p2); } // 0xD05D1A6C74DA3498 0x48CCC328 b323
 	NATIVE_DECL Any _0x45E816772E93A9DB() { return invoke<Any>(0x45E816772E93A9DB); } // 0x45E816772E93A9DB 0x8E664EFD b323
 	NATIVE_DECL BOOL UGC_HAS_MODIFY_FINISHED() { return invoke<BOOL>(0x299EF3C576773506); } // 0x299EF3C576773506 0x611E0BE2 b323
 	NATIVE_DECL Any _0x793FF272D5B365F4() { return invoke<Any>(0x793FF272D5B365F4); } // 0x793FF272D5B365F4 0xF0211AC1 b323
@@ -3496,9 +3496,9 @@ namespace NETWORK
 	NATIVE_DECL BOOL _FACEBOOK_IS_SENDING_DATA() { return invoke<BOOL>(0x62B9FEC9A11F10EF); } // 0x62B9FEC9A11F10EF 0x37A28C26 b323
 	NATIVE_DECL BOOL _FACEBOOK_DO_UNK_CHECK() { return invoke<BOOL>(0xA75E2B6733DA5142); } // 0xA75E2B6733DA5142 0x11E8B5CD b323
 	NATIVE_DECL BOOL _FACEBOOK_IS_AVAILABLE() { return invoke<BOOL>(0x43865688AE10F0D7); } // 0x43865688AE10F0D7 0x429AEAB3 b323
-	NATIVE_DECL int TEXTURE_DOWNLOAD_REQUEST(int* PlayerHandle, const char* FilePath, const char* Name, BOOL p3) { return invoke<int>(0x16160DA74A8E74A2, PlayerHandle, FilePath, Name, p3); } // 0x16160DA74A8E74A2 0xAD546CC3 b323
-	NATIVE_DECL int TITLE_TEXTURE_DOWNLOAD_REQUEST(const char* FilePath, const char* Name, BOOL p2) { return invoke<int>(0x0B203B4AFDE53A4F, FilePath, Name, p2); } // 0x0B203B4AFDE53A4F 0x1856D008 b323
-	NATIVE_DECL Any UGC_TEXTURE_DOWNLOAD_REQUEST(Any* p0, Any p1, Any p2, Any p3, Any* p4, BOOL p5) { return invoke<Any>(0x308F96458B7087CC, p0, p1, p2, p3, p4, p5); } // 0x308F96458B7087CC 0x68C9AF69 b323
+	NATIVE_DECL int TEXTURE_DOWNLOAD_REQUEST(Any* gamerHandle, const char* filePath, const char* name, BOOL p3) { return invoke<int>(0x16160DA74A8E74A2, gamerHandle, filePath, name, p3); } // 0x16160DA74A8E74A2 0xAD546CC3 b323
+	NATIVE_DECL int TITLE_TEXTURE_DOWNLOAD_REQUEST(const char* filePath, const char* name, BOOL p2) { return invoke<int>(0x0B203B4AFDE53A4F, filePath, name, p2); } // 0x0B203B4AFDE53A4F 0x1856D008 b323
+	NATIVE_DECL Any UGC_TEXTURE_DOWNLOAD_REQUEST(const char* p0, int p1, int p2, int p3, const char* p4, BOOL p5) { return invoke<Any>(0x308F96458B7087CC, p0, p1, p2, p3, p4, p5); } // 0x308F96458B7087CC 0x68C9AF69 b323
 	NATIVE_DECL void TEXTURE_DOWNLOAD_RELEASE(int p0) { invoke<Void>(0x487EB90B98E9FB19, p0); } // 0x487EB90B98E9FB19 0xEE8D9E70 b323
 	NATIVE_DECL BOOL TEXTURE_DOWNLOAD_HAS_FAILED(int p0) { return invoke<BOOL>(0x5776ED562C134687, p0); } // 0x5776ED562C134687 0xE4547765 b323
 	NATIVE_DECL const char* TEXTURE_DOWNLOAD_GET_NAME(int p0) { return invoke<const char*>(0x3448505B6E35262D, p0); } // 0x3448505B6E35262D 0xA40EF65A b323
@@ -3538,13 +3538,13 @@ namespace NETWORK
 	NATIVE_DECL void _NETWORK_REPORT_MYSELF() { invoke<Void>(0x5626D9D6810730D5); } // 0x5626D9D6810730D5 b350
 	NATIVE_DECL Vector3 _0x64D779659BC37B19(Entity entity) { return invoke<Vector3>(0x64D779659BC37B19, entity); } // 0x64D779659BC37B19 b393
 	NATIVE_DECL Vector3 _NETWORK_GET_PLAYER_COORDS(Player player) { return invoke<Vector3>(0x125E6D638B8605D4, player); } // 0x125E6D638B8605D4 b393
-	NATIVE_DECL Vector3 _0x33DE49EDF4DDE77A(Entity entity) { return invoke<Vector3>(0x33DE49EDF4DDE77A, entity); } // 0x33DE49EDF4DDE77A b1103
+	NATIVE_DECL Vector3 _NETWORK_GET_LAST_VELOCITY_RECEIVED(Entity entity) { return invoke<Vector3>(0x33DE49EDF4DDE77A, entity); } // 0x33DE49EDF4DDE77A b1103
 	NATIVE_DECL Vector3 _0xAA5FAFCD2C5F5E47(Entity entity) { return invoke<Vector3>(0xAA5FAFCD2C5F5E47, entity); } // 0xAA5FAFCD2C5F5E47 b1103
 	NATIVE_DECL Any _0xAEDF1BC1C133D6E3() { return invoke<Any>(0xAEDF1BC1C133D6E3); } // 0xAEDF1BC1C133D6E3 b323
 	NATIVE_DECL Any _0x2555CF7DA5473794() { return invoke<Any>(0x2555CF7DA5473794); } // 0x2555CF7DA5473794 b323
 	NATIVE_DECL Any _0x6FD992C4A1C1B986() { return invoke<Any>(0x6FD992C4A1C1B986); } // 0x6FD992C4A1C1B986 b323
 	NATIVE_DECL int _0xDB663CC9FF3407A9(Player player) { return invoke<int>(0xDB663CC9FF3407A9, player); } // 0xDB663CC9FF3407A9 b1734
-	NATIVE_DECL void _0xC1447451DDB512F0(Any p0, Any p1) { invoke<Void>(0xC1447451DDB512F0, p0, p1); } // 0xC1447451DDB512F0 b2372
+	NATIVE_DECL void _NETWORK_UGC_NAV(Any p0, Any p1) { invoke<Void>(0xC1447451DDB512F0, p0, p1); } // 0xC1447451DDB512F0 b2372
 }
 
 namespace OBJECT
@@ -3557,7 +3557,7 @@ namespace OBJECT
 	NATIVE_DECL BOOL _0xAFE24E4D29249E4A(Object object, float p1, float p2, BOOL p3) { return invoke<BOOL>(0xAFE24E4D29249E4A, object, p1, p2, p3); } // 0xAFE24E4D29249E4A b1734
 	NATIVE_DECL BOOL SLIDE_OBJECT(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return invoke<BOOL>(0x2FDFF4107B8C1147, object, toX, toY, toZ, speedX, speedY, speedZ, collision); } // 0x2FDFF4107B8C1147 0x63BFA7A0 b323
 	NATIVE_DECL void SET_OBJECT_TARGETTABLE(Object object, BOOL targettable) { invoke<Void>(0x8A7391690F5AFD81, object, targettable); } // 0x8A7391690F5AFD81 0x3F88CD86 b323
-	NATIVE_DECL void _SET_OBJECT_SOMETHING(Object object, BOOL p1) { invoke<Void>(0x77F33F2CCF64B3AA, object, p1); } // 0x77F33F2CCF64B3AA 0x483C5C88 b323
+	NATIVE_DECL void SET_OBJECT_FORCE_VEHICLES_TO_AVOID(Object object, BOOL toggle) { invoke<Void>(0x77F33F2CCF64B3AA, object, toggle); } // 0x77F33F2CCF64B3AA 0x483C5C88 b323
 	NATIVE_DECL Object GET_CLOSEST_OBJECT_OF_TYPE(float x, float y, float z, float radius, Hash modelHash, BOOL isMission, BOOL p6, BOOL p7) { return invoke<Object>(0xE143FA2249364369, x, y, z, radius, modelHash, isMission, p6, p7); } // 0xE143FA2249364369 0x45619B33 b323
 	NATIVE_DECL BOOL HAS_OBJECT_BEEN_BROKEN(Object object, Any p1) { return invoke<BOOL>(0x8ABFB70C49CC43E2, object, p1); } // 0x8ABFB70C49CC43E2 0xFE21F891 b323
 	NATIVE_DECL BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float p0, float p1, float p2, float p3, Hash modelHash, Any p5) { return invoke<BOOL>(0x761B0E69AC4D007E, p0, p1, p2, p3, modelHash, p5); } // 0x761B0E69AC4D007E 0x6FC0353D b323
@@ -3628,10 +3628,10 @@ namespace OBJECT
 	NATIVE_DECL void _0x394CD08E31313C28() { invoke<Void>(0x394CD08E31313C28); } // 0x394CD08E31313C28 b944
 	NATIVE_DECL void _0x826D1EE4D1CAFC78(Any p0, Any p1) { invoke<Void>(0x826D1EE4D1CAFC78, p0, p1); } // 0x826D1EE4D1CAFC78 b505
 	NATIVE_DECL Pickup CREATE_AMBIENT_PICKUP(Hash pickupHash, float posX, float posY, float posZ, int flags, int value, Hash modelHash, BOOL p7, BOOL p8) { return invoke<Pickup>(0x673966A0C0FD7171, pickupHash, posX, posY, posZ, flags, value, modelHash, p7, p8); } // 0x673966A0C0FD7171 0x17B99CE7 b323
-	NATIVE_DECL Any _0x9C93764223E29C50(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<Any>(0x9C93764223E29C50, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x9C93764223E29C50 b2372
+	NATIVE_DECL Pickup _CREATE_NON_NETWORKED_AMBIENT_PICKUP(Hash pickupHash, float posX, float posY, float posZ, int flags, int value, Hash modelHash, BOOL p7, BOOL p8) { return invoke<Pickup>(0x9C93764223E29C50, pickupHash, posX, posY, posZ, flags, value, modelHash, p7, p8); } // 0x9C93764223E29C50 b2372
 	NATIVE_DECL void _0x1E3F1B1B891A2AAA(Any p0, Any p1) { invoke<Void>(0x1E3F1B1B891A2AAA, p0, p1); } // 0x1E3F1B1B891A2AAA b573
 	NATIVE_DECL Object CREATE_PORTABLE_PICKUP(Hash pickupHash, float x, float y, float z, BOOL placeOnGround, Hash modelHash) { return invoke<Object>(0x2EAF1FDB2FB55698, pickupHash, x, y, z, placeOnGround, modelHash); } // 0x2EAF1FDB2FB55698 0x8C886BE5 b323
-	NATIVE_DECL Object _CREATE_PORTABLE_PICKUP_2(Hash pickupHash, float x, float y, float z, BOOL placeOnGround, Hash modelHash) { return invoke<Object>(0x125494B98A21AAF7, pickupHash, x, y, z, placeOnGround, modelHash); } // 0x125494B98A21AAF7 0x56A02502 b323
+	NATIVE_DECL Object CREATE_NON_NETWORKED_PORTABLE_PICKUP(Hash pickupHash, float x, float y, float z, BOOL placeOnGround, Hash modelHash) { return invoke<Object>(0x125494B98A21AAF7, pickupHash, x, y, z, placeOnGround, modelHash); } // 0x125494B98A21AAF7 0x56A02502 b323
 	NATIVE_DECL void ATTACH_PORTABLE_PICKUP_TO_PED(Object pickupObject, Ped ped) { invoke<Void>(0x8DC39368BDD57755, pickupObject, ped); } // 0x8DC39368BDD57755 0x184F6AB3 b323
 	NATIVE_DECL void DETACH_PORTABLE_PICKUP_FROM_PED(Object pickupObject) { invoke<Void>(0xCF463D1E9A0AECB1, pickupObject); } // 0xCF463D1E9A0AECB1 0x1D094562 b323
 	NATIVE_DECL void _HIDE_PICKUP(Object pickupObject, BOOL toggle) { invoke<Void>(0x867458251D47CCB2, pickupObject, toggle); } // 0x867458251D47CCB2 b463
@@ -3744,7 +3744,7 @@ namespace PAD
 	NATIVE_DECL void SET_PAD_SHAKE(int padIndex, int duration, int frequency) { invoke<Void>(0x48B3886C1358D0D5, padIndex, duration, frequency); } // 0x48B3886C1358D0D5 0x5D38BD2F b323
 	NATIVE_DECL void _0x14D29BB12D47F68C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x14D29BB12D47F68C, p0, p1, p2, p3, p4); } // 0x14D29BB12D47F68C b323
 	NATIVE_DECL void STOP_PAD_SHAKE(int padIndex) { invoke<Void>(0x38C16A305E8CDC8D, padIndex); } // 0x38C16A305E8CDC8D 0x8F75657E b323
-	NATIVE_DECL void _0xF239400E16C23E08(Any p0, Any p1) { invoke<Void>(0xF239400E16C23E08, p0, p1); } // 0xF239400E16C23E08 0x7D65EB6E b323
+	NATIVE_DECL void SET_PAD_SHAKE_SUPPRESSED_ID(int padIndex, Any p1) { invoke<Void>(0xF239400E16C23E08, padIndex, p1); } // 0xF239400E16C23E08 0x7D65EB6E b323
 	NATIVE_DECL void _0xA0CEFCEA390AAB9B(Any p0) { invoke<Void>(0xA0CEFCEA390AAB9B, p0); } // 0xA0CEFCEA390AAB9B b323
 	NATIVE_DECL BOOL IS_LOOK_INVERTED() { return invoke<BOOL>(0x77B612531280010D); } // 0x77B612531280010D 0x313434B2 b323
 	NATIVE_DECL BOOL _0xE1615EC03B3BB4FD() { return invoke<BOOL>(0xE1615EC03B3BB4FD); } // 0xE1615EC03B3BB4FD b323
@@ -3855,6 +3855,7 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_STOPPED(Ped ped) { return invoke<BOOL>(0x530944F6F4B8A214, ped); } // 0x530944F6F4B8A214 0xA0DC0B87 b323
 	NATIVE_DECL BOOL IS_PED_SHOOTING_IN_AREA(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, BOOL p7, BOOL p8) { return invoke<BOOL>(0x7E9DFE24AC1E58EF, ped, x1, y1, z1, x2, y2, z2, p7, p8); } // 0x7E9DFE24AC1E58EF 0x741BF04F b323
 	NATIVE_DECL BOOL IS_ANY_PED_SHOOTING_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, BOOL p7) { return invoke<BOOL>(0xA0D3D71EA1086C55, x1, y1, z1, x2, y2, z2, p6, p7); } // 0xA0D3D71EA1086C55 0x91833867 b323
+	NATIVE_DECL BOOL IS_PED_SHOOTING(Ped ped) { return invoke<BOOL>(0x34616828CD07F1A1, ped); } // 0x34616828CD07F1A1 0xE7C3405E b323
 	NATIVE_DECL void SET_PED_ACCURACY(Ped ped, int accuracy) { invoke<Void>(0x7AEFB85C1D49DEB6, ped, accuracy); } // 0x7AEFB85C1D49DEB6 0x6C17122E b323
 	NATIVE_DECL int GET_PED_ACCURACY(Ped ped) { return invoke<int>(0x37F4AD56ECBC0CD6, ped); } // 0x37F4AD56ECBC0CD6 0x0A2A0AA0 b323
 	NATIVE_DECL void _0x87DDEB611B329A9C(float multiplier) { invoke<Void>(0x87DDEB611B329A9C, multiplier); } // 0x87DDEB611B329A9C b1103
@@ -3972,7 +3973,7 @@ namespace PED
 	NATIVE_DECL void SET_PED_MIN_GROUND_TIME_FOR_STUNGUN(Ped ped, int ms) { invoke<Void>(0xFA0675AB151073FA, ped, ms); } // 0xFA0675AB151073FA 0x2F0D0973 b323
 	NATIVE_DECL BOOL IS_PED_PRONE(Ped ped) { return invoke<BOOL>(0xD6A86331A537A7B9, ped); } // 0xD6A86331A537A7B9 0x02C2A6C3 b323
 	NATIVE_DECL BOOL IS_PED_IN_COMBAT(Ped ped, Ped target) { return invoke<BOOL>(0x4859F1FC66A6278E, ped, target); } // 0x4859F1FC66A6278E 0xFE027CB5 b323
-	NATIVE_DECL Any _0x32C27A11307B01CC(Any p0, Any p1) { return invoke<Any>(0x32C27A11307B01CC, p0, p1); } // 0x32C27A11307B01CC b2372
+	NATIVE_DECL Entity _GET_PED_TASK_COMBAT_TARGET(Ped ped, Any p1) { return invoke<Entity>(0x32C27A11307B01CC, ped, p1); } // 0x32C27A11307B01CC b2372
 	NATIVE_DECL BOOL CAN_PED_IN_COMBAT_SEE_TARGET(Ped ped, Ped target) { return invoke<BOOL>(0xEAD42DE3610D0721, ped, target); } // 0xEAD42DE3610D0721 0xCCD525E1 b323
 	NATIVE_DECL BOOL IS_PED_DOING_DRIVEBY(Ped ped) { return invoke<BOOL>(0xB2C086CC1BF8F2BF, ped); } // 0xB2C086CC1BF8F2BF 0xAC3CEB9C b323
 	NATIVE_DECL BOOL IS_PED_JACKING(Ped ped) { return invoke<BOOL>(0x4AE4FF911DFB61DA, ped); } // 0x4AE4FF911DFB61DA 0x3B321816 b323
@@ -4134,7 +4135,7 @@ namespace PED
 	NATIVE_DECL void SET_HEAD_BLEND_PALETTE_COLOR(Ped ped, int r, int g, int b, int id) { invoke<Void>(0xCC9682B8951C5229, ped, r, g, b, id); } // 0xCC9682B8951C5229 0x57E5B3F9 b323
 	NATIVE_DECL void DISABLE_HEAD_BLEND_PALETTE_COLOR(Ped ped) { invoke<Void>(0xA21C118553BBDF02, ped); } // 0xA21C118553BBDF02 0xC6F36292 b323
 	NATIVE_DECL int GET_PED_HEAD_BLEND_FIRST_INDEX(int type) { return invoke<int>(0x68D353AB88B97E0C, type); } // 0x68D353AB88B97E0C 0x211DEFEC b323
-	NATIVE_DECL int _GET_NUM_PARENT_PEDS_OF_TYPE(int type) { return invoke<int>(0x5EF37013A6539C9D, type); } // 0x5EF37013A6539C9D 0x095D3BD8 b323
+	NATIVE_DECL int GET_PED_HEAD_BLEND_NUM_HEADS(int type) { return invoke<int>(0x5EF37013A6539C9D, type); } // 0x5EF37013A6539C9D 0x095D3BD8 b323
 	NATIVE_DECL Any SET_PED_PRELOAD_VARIATION_DATA(Ped ped, int slot, int drawableId, int textureId) { return invoke<Any>(0x39D55A620FCB6A3A, ped, slot, drawableId, textureId); } // 0x39D55A620FCB6A3A 0x45F3BDFB b323
 	NATIVE_DECL BOOL HAS_PED_PRELOAD_VARIATION_DATA_FINISHED(Ped ped) { return invoke<BOOL>(0x66680A92700F43DF, ped); } // 0x66680A92700F43DF 0xC6517D52 b323
 	NATIVE_DECL void RELEASE_PED_PRELOAD_VARIATION_DATA(Ped ped) { invoke<Void>(0x5AAB586FFEC0FD96, ped); } // 0x5AAB586FFEC0FD96 0x6435F67F b323
@@ -4174,7 +4175,7 @@ namespace PED
 	NATIVE_DECL void SET_PED_CAN_RAGDOLL(Ped ped, BOOL toggle) { invoke<Void>(0xB128377056A54E2A, ped, toggle); } // 0xB128377056A54E2A 0xCF1384C4 b323
 	NATIVE_DECL BOOL IS_PED_RUNNING_MELEE_TASK(Ped ped) { return invoke<BOOL>(0xD1871251F3B5ACD7, ped); } // 0xD1871251F3B5ACD7 0xBD4236F6 b323
 	NATIVE_DECL BOOL IS_PED_RUNNING_MOBILE_PHONE_TASK(Ped ped) { return invoke<BOOL>(0x2AFE52F782F25775, ped); } // 0x2AFE52F782F25775 0xFB2AFED1 b323
-	NATIVE_DECL BOOL _0xA3F3564A5B3646C0(Ped ped) { return invoke<BOOL>(0xA3F3564A5B3646C0, ped); } // 0xA3F3564A5B3646C0 0x97353375 b323
+	NATIVE_DECL BOOL IS_MOBILE_PHONE_TO_PED_EAR(Ped ped) { return invoke<BOOL>(0xA3F3564A5B3646C0, ped); } // 0xA3F3564A5B3646C0 0x97353375 b323
 	NATIVE_DECL void SET_RAGDOLL_BLOCKING_FLAGS(Ped ped, int flags) { invoke<Void>(0x26695EC767728D84, ped, flags); } // 0x26695EC767728D84 0x9C8F830D b323
 	NATIVE_DECL void CLEAR_RAGDOLL_BLOCKING_FLAGS(Ped ped, int flags) { invoke<Void>(0xD86D101FCFD00A4B, ped, flags); } // 0xD86D101FCFD00A4B 0x77CBA290 b323
 	NATIVE_DECL void SET_PED_ANGLED_DEFENSIVE_AREA(Ped ped, float p1, float p2, float p3, float p4, float p5, float p6, float p7, BOOL p8, BOOL p9) { invoke<Void>(0xC7F76DF27A5045A1, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xC7F76DF27A5045A1 0x3EFBDD9B b323
@@ -4198,8 +4199,8 @@ namespace PED
 	NATIVE_DECL void RESET_PED_VISIBLE_DAMAGE(Ped ped) { invoke<Void>(0x3AC1F7B898F30C05, ped); } // 0x3AC1F7B898F30C05 0xC4BC4841 b323
 	NATIVE_DECL void APPLY_PED_BLOOD_DAMAGE_BY_ZONE(Ped ped, Any p1, float p2, float p3, Any p4) { invoke<Void>(0x816F6981C60BF53B, ped, p1, p2, p3, p4); } // 0x816F6981C60BF53B 0x1E54DB12 b323
 	NATIVE_DECL void APPLY_PED_BLOOD(Ped ped, int boneIndex, float xRot, float yRot, float zRot, const char* woundType) { invoke<Void>(0x83F7E01C7B769A26, ped, boneIndex, xRot, yRot, zRot, woundType); } // 0x83F7E01C7B769A26 0x376CE3C0 b323
-	NATIVE_DECL void APPLY_PED_BLOOD_BY_ZONE(Ped ped, Any p1, float p2, float p3, Any* p4) { invoke<Void>(0x3311E47B91EDCBBC, ped, p1, p2, p3, p4); } // 0x3311E47B91EDCBBC 0x8F3F3A9C b323
-	NATIVE_DECL void APPLY_PED_BLOOD_SPECIFIC(Ped ped, Any p1, float p2, float p3, float p4, float p5, Any p6, float p7, Any* p8) { invoke<Void>(0xEF0D582CBF2D9B0F, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xEF0D582CBF2D9B0F 0xFC13CE80 b323
+	NATIVE_DECL void APPLY_PED_BLOOD_BY_ZONE(Ped ped, int p1, float p2, float p3, const char* p4) { invoke<Void>(0x3311E47B91EDCBBC, ped, p1, p2, p3, p4); } // 0x3311E47B91EDCBBC 0x8F3F3A9C b323
+	NATIVE_DECL void APPLY_PED_BLOOD_SPECIFIC(Ped ped, int p1, float p2, float p3, float p4, float p5, int p6, float p7, const char* p8) { invoke<Void>(0xEF0D582CBF2D9B0F, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xEF0D582CBF2D9B0F 0xFC13CE80 b323
 	NATIVE_DECL void APPLY_PED_DAMAGE_DECAL(Ped ped, int damageZone, float xOffset, float yOffset, float heading, float scale, float alpha, int variation, BOOL fadeIn, const char* decalName) { invoke<Void>(0x397C38AA7B4A5F83, ped, damageZone, xOffset, yOffset, heading, scale, alpha, variation, fadeIn, decalName); } // 0x397C38AA7B4A5F83 0x8A13A41F b323
 	NATIVE_DECL void APPLY_PED_DAMAGE_PACK(Ped ped, const char* damagePack, float damage, float mult) { invoke<Void>(0x46DF918788CB093F, ped, damagePack, damage, mult); } // 0x46DF918788CB093F 0x208D0CB8 b323
 	NATIVE_DECL void CLEAR_PED_BLOOD_DAMAGE(Ped ped) { invoke<Void>(0x8FE22675A5A45817, ped); } // 0x8FE22675A5A45817 0xF7ADC960 b323
@@ -4305,10 +4306,10 @@ namespace PED
 	NATIVE_DECL void SET_SCRIPTED_ANIM_SEAT_OFFSET(Ped ped, float p1) { invoke<Void>(0x5917BBA32D06C230, ped, p1); } // 0x5917BBA32D06C230 0x7CEFFA45 b323
 	NATIVE_DECL void SET_PED_COMBAT_MOVEMENT(Ped ped, int combatMovement) { invoke<Void>(0x4D9CA1009AFBD057, ped, combatMovement); } // 0x4D9CA1009AFBD057 0x12E62F9E b323
 	NATIVE_DECL int GET_PED_COMBAT_MOVEMENT(Ped ped) { return invoke<int>(0xDEA92412FCAEB3F5, ped); } // 0xDEA92412FCAEB3F5 0xF3E7730E b323
-	NATIVE_DECL void SET_PED_COMBAT_ABILITY(Ped ped, int p1) { invoke<Void>(0xC7622C0D36B2FDA8, ped, p1); } // 0xC7622C0D36B2FDA8 0x6C23D329 b323
-	NATIVE_DECL void SET_PED_COMBAT_RANGE(Ped ped, int p1) { invoke<Void>(0x3C606747B23E497B, ped, p1); } // 0x3C606747B23E497B 0x8818A959 b323
+	NATIVE_DECL void SET_PED_COMBAT_ABILITY(Ped ped, int abilityLevel) { invoke<Void>(0xC7622C0D36B2FDA8, ped, abilityLevel); } // 0xC7622C0D36B2FDA8 0x6C23D329 b323
+	NATIVE_DECL void SET_PED_COMBAT_RANGE(Ped ped, int combatRange) { invoke<Void>(0x3C606747B23E497B, ped, combatRange); } // 0x3C606747B23E497B 0x8818A959 b323
 	NATIVE_DECL int GET_PED_COMBAT_RANGE(Ped ped) { return invoke<int>(0xF9D9F7F2DB8E2FA0, ped); } // 0xF9D9F7F2DB8E2FA0 0x9B9B7163 b323
-	NATIVE_DECL void SET_PED_COMBAT_ATTRIBUTES(Ped ped, int attributeIndex, BOOL enabled) { invoke<Void>(0x9F7794730795E019, ped, attributeIndex, enabled); } // 0x9F7794730795E019 0x81D64248 b323
+	NATIVE_DECL void SET_PED_COMBAT_ATTRIBUTES(Ped ped, int attributeId, BOOL enabled) { invoke<Void>(0x9F7794730795E019, ped, attributeId, enabled); } // 0x9F7794730795E019 0x81D64248 b323
 	NATIVE_DECL void SET_PED_TARGET_LOSS_RESPONSE(Ped ped, int responseType) { invoke<Void>(0x0703B9079823DA4A, ped, responseType); } // 0x0703B9079823DA4A 0xCFA613FF b323
 	NATIVE_DECL BOOL IS_PED_PERFORMING_MELEE_ACTION(Ped ped) { return invoke<BOOL>(0xDCCA191DF9980FD7, ped); } // 0xDCCA191DF9980FD7 0x139C0875 b323
 	NATIVE_DECL BOOL IS_PED_PERFORMING_STEALTH_KILL(Ped ped) { return invoke<BOOL>(0xFD4CCDBCC59941B7, ped); } // 0xFD4CCDBCC59941B7 0x9ADD7B21 b323
@@ -4407,7 +4408,7 @@ namespace PED
 	NATIVE_DECL BOOL SPAWNPOINTS_IS_SEARCH_FAILED() { return invoke<BOOL>(0xF445DE8DA80A1792); } // 0xF445DE8DA80A1792 0x6B83ABDF b323
 	NATIVE_DECL int SPAWNPOINTS_GET_NUM_SEARCH_RESULTS() { return invoke<int>(0xA635C11B8C44AFC2); } // 0xA635C11B8C44AFC2 0xF46B4DC8 b323
 	NATIVE_DECL void SPAWNPOINTS_GET_SEARCH_RESULT(int randomInt, float* x, float* y, float* z) { invoke<Void>(0x280C7E3AC7F56E90, randomInt, x, y, z); } // 0x280C7E3AC7F56E90 0x36A4AC65 b323
-	NATIVE_DECL void SPAWNPOINTS_GET_SEARCH_RESULT_FLAGS(Any p0, Any* p1) { invoke<Void>(0xB782F8238512BAD5, p0, p1); } // 0xB782F8238512BAD5 0xBA699DDF b323
+	NATIVE_DECL void SPAWNPOINTS_GET_SEARCH_RESULT_FLAGS(int p0, int* p1) { invoke<Void>(0xB782F8238512BAD5, p0, p1); } // 0xB782F8238512BAD5 0xBA699DDF b323
 	NATIVE_DECL void SET_IK_TARGET(Ped ped, int ikIndex, Entity entityLookAt, int boneLookAt, float offsetX, float offsetY, float offsetZ, Any p7, int blendInDuration, int blendOutDuration) { invoke<Void>(0xC32779C16FCEECD9, ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, p7, blendInDuration, blendOutDuration); } // 0xC32779C16FCEECD9 0x6FE5218C b323
 	NATIVE_DECL void _0xED3C76ADFA6D07C4(Ped ped) { invoke<Void>(0xED3C76ADFA6D07C4, ped); } // 0xED3C76ADFA6D07C4 0xFB4000DC b323
 	NATIVE_DECL void REQUEST_ACTION_MODE_ASSET(const char* asset) { invoke<Void>(0x290E2780BB7AA598, asset); } // 0x290E2780BB7AA598 0x572BA553 b323
@@ -4417,12 +4418,12 @@ namespace PED
 	NATIVE_DECL BOOL HAS_STEALTH_MODE_ASSET_LOADED(const char* asset) { return invoke<BOOL>(0xE977FC5B08AF3441, asset); } // 0xE977FC5B08AF3441 0x39245667 b323
 	NATIVE_DECL void REMOVE_STEALTH_MODE_ASSET(const char* asset) { invoke<Void>(0x9219857D21F0E842, asset); } // 0x9219857D21F0E842 0x8C0B243A b323
 	NATIVE_DECL void SET_PED_LOD_MULTIPLIER(Ped ped, float multiplier) { invoke<Void>(0xDC2C5C242AAC342B, ped, multiplier); } // 0xDC2C5C242AAC342B 0x1D2B5C70 b323
-	NATIVE_DECL void _0xE861D0B05C7662B8(Ped ped, BOOL p1, int p2) { invoke<Void>(0xE861D0B05C7662B8, ped, p1, p2); } // 0xE861D0B05C7662B8 0x2F9550C2 b323
+	NATIVE_DECL void SET_PED_CAN_LOSE_PROPS_ON_DAMAGE(Ped ped, BOOL toggle, int p2) { invoke<Void>(0xE861D0B05C7662B8, ped, toggle, p2); } // 0xE861D0B05C7662B8 0x2F9550C2 b323
 	NATIVE_DECL void SET_FORCE_FOOTSTEP_UPDATE(Ped ped, BOOL toggle) { invoke<Void>(0x129466ED55140F8D, ped, toggle); } // 0x129466ED55140F8D 0x37DBC2AD b323
 	NATIVE_DECL void SET_FORCE_STEP_TYPE(Ped ped, BOOL p1, int type, int p3) { invoke<Void>(0xCB968B53FC7F916D, ped, p1, type, p3); } // 0xCB968B53FC7F916D 0xC0F1BC91 b323
 	NATIVE_DECL BOOL IS_ANY_HOSTILE_PED_NEAR_POINT(Ped ped, float x, float y, float z, float radius) { return invoke<BOOL>(0x68772DB2B2526F9F, ped, x, y, z, radius); } // 0x68772DB2B2526F9F 0x1A464167 b323
-	NATIVE_DECL void _0x820E9892A77E97CD(Any p0, Any p1) { invoke<Void>(0x820E9892A77E97CD, p0, p1); } // 0x820E9892A77E97CD b877
-	NATIVE_DECL BOOL _0x06087579E7AA85A9(Any p0, Any p1, float p2, float p3, float p4, float p5) { return invoke<BOOL>(0x06087579E7AA85A9, p0, p1, p2, p3, p4, p5); } // 0x06087579E7AA85A9 0xD0567D41 b323
+	NATIVE_DECL void _SET_PED_CAN_PLAY_IN_CAR_IDLES(Ped ped, BOOL toggle) { invoke<Void>(0x820E9892A77E97CD, ped, toggle); } // 0x820E9892A77E97CD b877
+	NATIVE_DECL BOOL IS_TARGET_PED_IN_PERCEPTION_AREA(Ped ped, Ped targetPed, float p2, float p3, float p4, float p5) { return invoke<BOOL>(0x06087579E7AA85A9, ped, targetPed, p2, p3, p4, p5); } // 0x06087579E7AA85A9 0xD0567D41 b323
 	NATIVE_DECL void SET_POP_CONTROL_SPHERE_THIS_FRAME(float x, float y, float z, float min, float max) { invoke<Void>(0xD8C3BE3EE94CAF2D, x, y, z, min, max); } // 0xD8C3BE3EE94CAF2D 0x4BBE5E2C b323
 	NATIVE_DECL void _0xD33DAA36272177C4(Ped ped) { invoke<Void>(0xD33DAA36272177C4, ped); } // 0xD33DAA36272177C4 0xA89A53F2 b323
 	NATIVE_DECL void _0x711794453CFD692B(Any p0, Any p1) { invoke<Void>(0x711794453CFD692B, p0, p1); } // 0x711794453CFD692B b463
@@ -4491,6 +4492,7 @@ namespace PHYSICS
 
 namespace PLAYER
 {
+	NATIVE_DECL Ped GET_PLAYER_PED(Player player) { return invoke<Ped>(0x43A66C31C68491C0, player); } // 0x43A66C31C68491C0 0x6E31E993 b323
 	NATIVE_DECL Ped GET_PLAYER_PED_SCRIPT_INDEX(Player player) { return invoke<Ped>(0x50FAC3A3E030A6E1, player); } // 0x50FAC3A3E030A6E1 0x6AC64990 b323
 	NATIVE_DECL void SET_PLAYER_MODEL(Player player, Hash model) { invoke<Void>(0x00A1CADD00108836, player, model); } // 0x00A1CADD00108836 0x774A4C54 b323
 	NATIVE_DECL void CHANGE_PLAYER_PED(Player player, Ped ped, BOOL p2, BOOL resetDamage) { invoke<Void>(0x048189FAC643DEEE, player, ped, p2, resetDamage); } // 0x048189FAC643DEEE 0xBE515485 b323
@@ -4506,6 +4508,7 @@ namespace PLAYER
 	NATIVE_DECL int GET_WANTED_LEVEL_THRESHOLD(int wantedLevel) { return invoke<int>(0xFDD179EAF45B556C, wantedLevel); } // 0xFDD179EAF45B556C 0xD9783F6B b323
 	NATIVE_DECL void SET_PLAYER_WANTED_LEVEL(Player player, int wantedLevel, BOOL disableNoMission) { invoke<Void>(0x39FF19C64EF7DA5B, player, wantedLevel, disableNoMission); } // 0x39FF19C64EF7DA5B 0xB7A0914B b323
 	NATIVE_DECL void SET_PLAYER_WANTED_LEVEL_NO_DROP(Player player, int wantedLevel, BOOL p2) { invoke<Void>(0x340E61DE7F471565, player, wantedLevel, p2); } // 0x340E61DE7F471565 0xED6F44F5 b323
+	NATIVE_DECL void SET_PLAYER_WANTED_LEVEL_NOW(Player player, BOOL p1) { invoke<Void>(0xE0A7D1E497FFCD6F, player, p1); } // 0xE0A7D1E497FFCD6F 0xAF3AFD83 b323
 	NATIVE_DECL BOOL ARE_PLAYER_FLASHING_STARS_ABOUT_TO_DROP(Player player) { return invoke<BOOL>(0xAFAF86043E5874E9, player); } // 0xAFAF86043E5874E9 0xE13A71C7 b323
 	NATIVE_DECL BOOL ARE_PLAYER_STARS_GREYED_OUT(Player player) { return invoke<BOOL>(0x0A6EB355EE14A2DB, player); } // 0x0A6EB355EE14A2DB 0x5E72AB72 b323
 	NATIVE_DECL Any _0x7E07C78925D5FD96(Any p0) { return invoke<Any>(0x7E07C78925D5FD96, p0); } // 0x7E07C78925D5FD96 b372
@@ -4530,8 +4533,8 @@ namespace PLAYER
 	NATIVE_DECL void SET_WANTED_LEVEL_MULTIPLIER(float multiplier) { invoke<Void>(0x020E5F00CDA207BA, multiplier); } // 0x020E5F00CDA207BA 0x1359292F b323
 	NATIVE_DECL void SET_WANTED_LEVEL_DIFFICULTY(Player player, float difficulty) { invoke<Void>(0x9B0BB33B04405E7A, player, difficulty); } // 0x9B0BB33B04405E7A 0xB552626C b323
 	NATIVE_DECL void RESET_WANTED_LEVEL_DIFFICULTY(Player player) { invoke<Void>(0xB9D0DD990DC141DD, player); } // 0xB9D0DD990DC141DD 0xA64C378D b323
-	NATIVE_DECL Any _0xA72200F51875FEA4() { return invoke<Any>(0xA72200F51875FEA4); } // 0xA72200F51875FEA4 b2372
-	NATIVE_DECL void _0x49B856B1360C47C7(Any p0, Any p1, Any p2) { invoke<Void>(0x49B856B1360C47C7, p0, p1, p2); } // 0x49B856B1360C47C7 b2060
+	NATIVE_DECL int _GET_WANTED_LEVEL_PAROLE_DURATION() { return invoke<int>(0xA72200F51875FEA4); } // 0xA72200F51875FEA4 b2372
+	NATIVE_DECL void _SET_WANTED_LEVEL_HIDDEN_EVASION_TIME(Player player, int wantedLevel, int lossTime) { invoke<Void>(0x49B856B1360C47C7, player, wantedLevel, lossTime); } // 0x49B856B1360C47C7 b2060
 	NATIVE_DECL void _0x823EC8E82BA45986(Any p0) { invoke<Void>(0x823EC8E82BA45986, p0); } // 0x823EC8E82BA45986 b2060
 	NATIVE_DECL void START_FIRING_AMNESTY(int duration) { invoke<Void>(0xBF9BD71691857E48, duration); } // 0xBF9BD71691857E48 0x5F8A22A6 b323
 	NATIVE_DECL void REPORT_CRIME(Player player, int crimeType, int wantedLvlThresh) { invoke<Void>(0xE9B09589827545E7, player, crimeType, wantedLvlThresh); } // 0xE9B09589827545E7 0xD8EB3A44 b323
@@ -4548,6 +4551,8 @@ namespace PLAYER
 	NATIVE_DECL BOOL IS_PLAYER_READY_FOR_CUTSCENE(Player player) { return invoke<BOOL>(0x908CBECC2CAA3690, player); } // 0x908CBECC2CAA3690 0xBB77E9CD b323
 	NATIVE_DECL BOOL IS_PLAYER_TARGETTING_ENTITY(Player player, Entity entity) { return invoke<BOOL>(0x7912F7FC4F6264B6, player, entity); } // 0x7912F7FC4F6264B6 0xF3240B77 b323
 	NATIVE_DECL BOOL GET_PLAYER_TARGET_ENTITY(Player player, Entity* entity) { return invoke<BOOL>(0x13EDE1A5DBF797C9, player, entity); } // 0x13EDE1A5DBF797C9 0xF6AAA2D7 b323
+	NATIVE_DECL BOOL IS_PLAYER_FREE_AIMING(Player player) { return invoke<BOOL>(0x2E397FD2ECD37C87, player); } // 0x2E397FD2ECD37C87 0x1DEC67B7 b323
+	NATIVE_DECL BOOL IS_PLAYER_FREE_AIMING_AT_ENTITY(Player player, Entity entity) { return invoke<BOOL>(0x3C06B5C839B38F7B, player, entity); } // 0x3C06B5C839B38F7B 0x7D80EEAA b323
 	NATIVE_DECL BOOL GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(Player player, Entity* entity) { return invoke<BOOL>(0x2975C866E6713290, player, entity); } // 0x2975C866E6713290 0x8866D9D0 b323
 	NATIVE_DECL void SET_PLAYER_LOCKON_RANGE_OVERRIDE(Player player, float range) { invoke<Void>(0x29961D490E5814FD, player, range); } // 0x29961D490E5814FD 0x74D42C03 b323
 	NATIVE_DECL void SET_PLAYER_CAN_DO_DRIVE_BY(Player player, BOOL toggle) { invoke<Void>(0x6E8834B52EC20C77, player, toggle); } // 0x6E8834B52EC20C77 0xF4D99685 b323
@@ -4589,14 +4594,15 @@ namespace PLAYER
 	NATIVE_DECL int GET_CAUSE_OF_MOST_RECENT_FORCE_CLEANUP() { return invoke<int>(0x9A41CF4674A12272); } // 0x9A41CF4674A12272 0x39AA9FC8 b323
 	NATIVE_DECL void SET_PLAYER_MAY_ONLY_ENTER_THIS_VEHICLE(Player player, Vehicle vehicle) { invoke<Void>(0x8026FF78F208978A, player, vehicle); } // 0x8026FF78F208978A 0xA454DD29 b323
 	NATIVE_DECL void SET_PLAYER_MAY_NOT_ENTER_ANY_VEHICLE(Player player) { invoke<Void>(0x1DE37BBF9E9CC14A, player); } // 0x1DE37BBF9E9CC14A 0xAF7AFCC4 b323
-	NATIVE_DECL BOOL GIVE_ACHIEVEMENT_TO_PLAYER(int achievement) { return invoke<BOOL>(0xBEC7076D64130195, achievement); } // 0xBEC7076D64130195 0x822BC992 b323
-	NATIVE_DECL BOOL _SET_ACHIEVEMENT_PROGRESS(int achievement, int progress) { return invoke<BOOL>(0xC2AFFFDABBDC2C5C, achievement, progress); } // 0xC2AFFFDABBDC2C5C b323
-	NATIVE_DECL int _GET_ACHIEVEMENT_PROGRESS(int achievement) { return invoke<int>(0x1C186837D0619335, achievement); } // 0x1C186837D0619335 b323
-	NATIVE_DECL BOOL HAS_ACHIEVEMENT_BEEN_PASSED(int achievement) { return invoke<BOOL>(0x867365E111A3B6EB, achievement); } // 0x867365E111A3B6EB 0x136A5BE9 b323
+	NATIVE_DECL BOOL GIVE_ACHIEVEMENT_TO_PLAYER(int achievementId) { return invoke<BOOL>(0xBEC7076D64130195, achievementId); } // 0xBEC7076D64130195 0x822BC992 b323
+	NATIVE_DECL BOOL _SET_ACHIEVEMENT_PROGRESS(int achievementId, int progress) { return invoke<BOOL>(0xC2AFFFDABBDC2C5C, achievementId, progress); } // 0xC2AFFFDABBDC2C5C b323
+	NATIVE_DECL int _GET_ACHIEVEMENT_PROGRESS(int achievementId) { return invoke<int>(0x1C186837D0619335, achievementId); } // 0x1C186837D0619335 b323
+	NATIVE_DECL BOOL HAS_ACHIEVEMENT_BEEN_PASSED(int achievementId) { return invoke<BOOL>(0x867365E111A3B6EB, achievementId); } // 0x867365E111A3B6EB 0x136A5BE9 b323
 	NATIVE_DECL BOOL IS_PLAYER_ONLINE() { return invoke<BOOL>(0xF25D331DC2627BBC); } // 0xF25D331DC2627BBC 0x9FAB6729 b323
 	NATIVE_DECL BOOL IS_PLAYER_LOGGING_IN_NP() { return invoke<BOOL>(0x74556E1420867ECA); } // 0x74556E1420867ECA 0x8F72FAD0 b323
 	NATIVE_DECL void DISPLAY_SYSTEM_SIGNIN_UI(BOOL unk) { invoke<Void>(0x94DD7888C10A979E, unk); } // 0x94DD7888C10A979E 0x4264CED2 b323
 	NATIVE_DECL BOOL IS_SYSTEM_UI_BEING_DISPLAYED() { return invoke<BOOL>(0x5D511E3867C87139); } // 0x5D511E3867C87139 0xE495B6DA b323
+	NATIVE_DECL void SET_PLAYER_INVINCIBLE(Player player, BOOL toggle) { invoke<Void>(0x239528EACDC3E7DE, player, toggle); } // 0x239528EACDC3E7DE 0xDFB9A2A2 b323
 	NATIVE_DECL BOOL GET_PLAYER_INVINCIBLE(Player player) { return invoke<BOOL>(0xB721981B2B939E07, player); } // 0xB721981B2B939E07 0x680C90EE b323
 	NATIVE_DECL BOOL _0xDCC07526B8EC45AF(Player player) { return invoke<BOOL>(0xDCC07526B8EC45AF, player); } // 0xDCC07526B8EC45AF b1868
 	NATIVE_DECL void _SET_PLAYER_INVINCIBLE_KEEP_RAGDOLL_ENABLED(Player player, BOOL toggle) { invoke<Void>(0x6BC97F4F4BB3C04B, player, toggle); } // 0x6BC97F4F4BB3C04B b463
@@ -4626,9 +4632,9 @@ namespace PLAYER
 	NATIVE_DECL void _0xB885852C39CC265D() { invoke<Void>(0xB885852C39CC265D); } // 0xB885852C39CC265D 0x47D6004E b323
 	NATIVE_DECL void SET_DISABLE_AMBIENT_MELEE_MOVE(Player player, BOOL toggle) { invoke<Void>(0x2E8AABFA40A84F8C, player, toggle); } // 0x2E8AABFA40A84F8C 0xCCD937E7 b323
 	NATIVE_DECL void SET_PLAYER_MAX_ARMOUR(Player player, int value) { invoke<Void>(0x77DFCCF5948B8C71, player, value); } // 0x77DFCCF5948B8C71 0xC6C3C53B b323
-	NATIVE_DECL void _SPECIAL_ABILITY_ACTIVATE(Any p0, Any p1) { invoke<Void>(0x821FDC827D6F4090, p0, p1); } // 0x821FDC827D6F4090 b678
+	NATIVE_DECL void _SPECIAL_ABILITY_ACTIVATE(Player player, int p1) { invoke<Void>(0x821FDC827D6F4090, player, p1); } // 0x821FDC827D6F4090 b678
 	NATIVE_DECL void _SET_SPECIAL_ABILITY(Player player, int p1, Any p2) { invoke<Void>(0xB214D570EAD7F81A, player, p1, p2); } // 0xB214D570EAD7F81A b678
-	NATIVE_DECL void _SPECIAL_ABILITY_DEPLETE(Any p0, Any p1) { invoke<Void>(0x17F7471EACA78290, p0, p1); } // 0x17F7471EACA78290 b678
+	NATIVE_DECL void _SPECIAL_ABILITY_DEPLETE(Player player, int p1) { invoke<Void>(0x17F7471EACA78290, player, p1); } // 0x17F7471EACA78290 b678
 	NATIVE_DECL void SPECIAL_ABILITY_DEACTIVATE(Player player, Any p1) { invoke<Void>(0xD6A953C6D1492057, player, p1); } // 0xD6A953C6D1492057 0x80C2AB09 b323
 	NATIVE_DECL void SPECIAL_ABILITY_DEACTIVATE_FAST(Player player, Any p1) { invoke<Void>(0x9CB5CE07A3968D5A, player, p1); } // 0x9CB5CE07A3968D5A 0x0751908A b323
 	NATIVE_DECL void SPECIAL_ABILITY_RESET(Player player, Any p1) { invoke<Void>(0x375F0E738F861A94, player, p1); } // 0x375F0E738F861A94 0xA7D8BCD3 b323
@@ -4661,7 +4667,7 @@ namespace PLAYER
 	NATIVE_DECL void SET_PLAYER_HEALTH_RECHARGE_MULTIPLIER(Player player, float regenRate) { invoke<Void>(0x5DB660B38DD98A31, player, regenRate); } // 0x5DB660B38DD98A31 0x45514731 b323
 	NATIVE_DECL float _GET_PLAYER_HEALTH_RECHARGE_LIMIT(Player player) { return invoke<float>(0x8BC515BAE4AAF8FF, player); } // 0x8BC515BAE4AAF8FF b617
 	NATIVE_DECL void _SET_PLAYER_HEALTH_RECHARGE_LIMIT(Player player, float limit) { invoke<Void>(0xC388A0F065F5BC34, player, limit); } // 0xC388A0F065F5BC34 b573
-	NATIVE_DECL void _SET_PLAYER_FALL_DISTANCE(Any p0, Any p1) { invoke<Void>(0xEFD79FA81DFBA9CB, p0, p1); } // 0xEFD79FA81DFBA9CB b573
+	NATIVE_DECL void _SET_PLAYER_FALL_DISTANCE(Player player, float p1) { invoke<Void>(0xEFD79FA81DFBA9CB, player, p1); } // 0xEFD79FA81DFBA9CB b573
 	NATIVE_DECL void SET_PLAYER_WEAPON_DAMAGE_MODIFIER(Player player, float modifier) { invoke<Void>(0xCE07B9F7817AADA3, player, modifier); } // 0xCE07B9F7817AADA3 0xB02C2F39 b323
 	NATIVE_DECL void SET_PLAYER_WEAPON_DEFENSE_MODIFIER(Player player, float modifier) { invoke<Void>(0x2D83BC011CA14A3C, player, modifier); } // 0x2D83BC011CA14A3C 0xAE446344 b323
 	NATIVE_DECL void _SET_PLAYER_WEAPON_DEFENSE_MODIFIER_2(Player player, float modifier) { invoke<Void>(0xBCFDE9EDE4CF27DC, player, modifier); } // 0xBCFDE9EDE4CF27DC b944
@@ -4670,8 +4676,8 @@ namespace PLAYER
 	NATIVE_DECL void SET_PLAYER_VEHICLE_DAMAGE_MODIFIER(Player player, float modifier) { invoke<Void>(0xA50E117CDDF82F0C, player, modifier); } // 0xA50E117CDDF82F0C 0x823ECA63 b323
 	NATIVE_DECL void SET_PLAYER_VEHICLE_DEFENSE_MODIFIER(Player player, float modifier) { invoke<Void>(0x4C60E6EFDAFF2462, player, modifier); } // 0x4C60E6EFDAFF2462 0xA16626C7 b323
 	NATIVE_DECL void _0x8D768602ADEF2245(Player player, float p1) { invoke<Void>(0x8D768602ADEF2245, player, p1); } // 0x8D768602ADEF2245 b463
-	NATIVE_DECL void _0xD821056B9ACF8052(Any p0, Any p1) { invoke<Void>(0xD821056B9ACF8052, p0, p1); } // 0xD821056B9ACF8052 b1011
-	NATIVE_DECL void _0x31E90B8873A4CD3B(Any p0, Any p1) { invoke<Void>(0x31E90B8873A4CD3B, p0, p1); } // 0x31E90B8873A4CD3B b617
+	NATIVE_DECL void _0xD821056B9ACF8052(Player player, Any p1) { invoke<Void>(0xD821056B9ACF8052, player, p1); } // 0xD821056B9ACF8052 b1011
+	NATIVE_DECL void _0x31E90B8873A4CD3B(Player player, float p1) { invoke<Void>(0x31E90B8873A4CD3B, player, p1); } // 0x31E90B8873A4CD3B b617
 	NATIVE_DECL void SET_PLAYER_PARACHUTE_TINT_INDEX(Player player, int tintIndex) { invoke<Void>(0xA3D0E54541D9A5E5, player, tintIndex); } // 0xA3D0E54541D9A5E5 0x8EA12EDB b323
 	NATIVE_DECL void GET_PLAYER_PARACHUTE_TINT_INDEX(Player player, int* tintIndex) { invoke<Void>(0x75D3F7A1B0D9B145, player, tintIndex); } // 0x75D3F7A1B0D9B145 0x432B0509 b323
 	NATIVE_DECL void SET_PLAYER_RESERVE_PARACHUTE_TINT_INDEX(Player player, int index) { invoke<Void>(0xAF04C87F5DC1DF38, player, index); } // 0xAF04C87F5DC1DF38 0x70689638 b323
@@ -4798,6 +4804,7 @@ namespace SCRIPT
 	NATIVE_DECL BOOL GET_EVENT_EXISTS(int eventGroup, int eventIndex) { return invoke<BOOL>(0x936E6168A9BCEDB5, eventGroup, eventIndex); } // 0x936E6168A9BCEDB5 0xA1B447B5 b323
 	NATIVE_DECL int GET_EVENT_AT_INDEX(int eventGroup, int eventIndex) { return invoke<int>(0xD8F66A3A60C62153, eventGroup, eventIndex); } // 0xD8F66A3A60C62153 0xB49C1442 b323
 	NATIVE_DECL BOOL GET_EVENT_DATA(int eventGroup, int eventIndex, Any* eventData, int eventDataSize) { return invoke<BOOL>(0x2902843FCD2B2D79, eventGroup, eventIndex, eventData, eventDataSize); } // 0x2902843FCD2B2D79 0x4280F92F b323
+	NATIVE_DECL void TRIGGER_SCRIPT_EVENT(int eventGroup, Any* eventData, int eventDataSize, int playerBits) { invoke<Void>(0x5AE99C571D5BBE5D, eventGroup, eventData, eventDataSize, playerBits); } // 0x5AE99C571D5BBE5D 0x54763B35 b323
 	NATIVE_DECL void SHUTDOWN_LOADING_SCREEN() { invoke<Void>(0x078EBE9809CCD637); } // 0x078EBE9809CCD637 0xA2826D17 b323
 	NATIVE_DECL void SET_NO_LOADING_SCREEN(BOOL toggle) { invoke<Void>(0x5262CC1995D07E09, toggle); } // 0x5262CC1995D07E09 0xC8055034 b323
 	NATIVE_DECL BOOL GET_NO_LOADING_SCREEN() { return invoke<BOOL>(0x18C1270EA7F199BC); } // 0x18C1270EA7F199BC 0x27512BA0 b323
@@ -4811,6 +4818,7 @@ namespace SCRIPT
 	NATIVE_DECL BOOL _0x0F6F1EBBC4E1D5E6(int scriptIndex, const char* p1) { return invoke<BOOL>(0x0F6F1EBBC4E1D5E6, scriptIndex, p1); } // 0x0F6F1EBBC4E1D5E6 0xF8E5F73A b323
 	NATIVE_DECL int _0x22E21FBCFC88C149(int scriptIndex, const char* p1) { return invoke<int>(0x22E21FBCFC88C149, scriptIndex, p1); } // 0x22E21FBCFC88C149 0x682CB7E1 b323
 	NATIVE_DECL int _0x829CD22E043A2577(Hash p0) { return invoke<int>(0x829CD22E043A2577, p0); } // 0x829CD22E043A2577 0xC515E735 b323
+	NATIVE_DECL void _TRIGGER_SCRIPT_EVENT_2(int eventGroup, Any* eventData, int eventDataSize, int playerBits) { invoke<Void>(0xA40CC53DF8E50837, eventGroup, eventData, eventDataSize, playerBits); } // 0xA40CC53DF8E50837 b1103
 }
 
 namespace SHAPETEST
@@ -4839,9 +4847,9 @@ namespace SOCIALCLUB
 	NATIVE_DECL BOOL SC_INBOX_MESSAGE_GET_DATA_STRING(int p0, const char* context, char* out) { return invoke<BOOL>(0x7572EF42FC6A9B6D, p0, context, out); } // 0x7572EF42FC6A9B6D 0x15607620 b323
 	NATIVE_DECL BOOL SC_INBOX_MESSAGE_DO_APPLY(int p0) { return invoke<BOOL>(0x9A2C8064B6C1E41A, p0); } // 0x9A2C8064B6C1E41A 0xEBE420A4 b323
 	NATIVE_DECL const char* _SC_INBOX_MESSAGE_GET_STRING(int p0) { return invoke<const char*>(0xF3E31D16CBDCB304, p0); } // 0xF3E31D16CBDCB304 0x2C959AF9 b323
-	NATIVE_DECL void _SC_INBOX_MESSAGE_PUSH_GAMER_TO_EVENT_RECIP_LIST(int* networkHandle) { invoke<Void>(0xDA024BDBD600F44A, networkHandle); } // 0xDA024BDBD600F44A 0x0B9A3512 b323
+	NATIVE_DECL void _SC_INBOX_MESSAGE_PUSH_GAMER_TO_EVENT_RECIP_LIST(Any* gamerHandle) { invoke<Void>(0xDA024BDBD600F44A, gamerHandle); } // 0xDA024BDBD600F44A 0x0B9A3512 b323
 	NATIVE_DECL void _SC_INBOX_MESSAGE_SEND_UGC_STAT_UPDATE_EVENT(Any* data) { invoke<Void>(0xA68D3D229F4F3B06, data); } // 0xA68D3D229F4F3B06 0x75324674 b323
-	NATIVE_DECL BOOL SC_INBOX_MESSAGE_GET_UGCDATA(Any p0, Any* p1) { return invoke<BOOL>(0x69D82604A1A5A254, p0, p1); } // 0x69D82604A1A5A254 0x88CA3BFC b323
+	NATIVE_DECL BOOL SC_INBOX_MESSAGE_GET_UGCDATA(int p0, Any* p1) { return invoke<BOOL>(0x69D82604A1A5A254, p0, p1); } // 0x69D82604A1A5A254 0x88CA3BFC b323
 	NATIVE_DECL BOOL _SC_INBOX_MESSAGE_SEND_BOUNTY_PRESENCE_EVENT(Any* data) { return invoke<BOOL>(0x6AFD2CD753FEEF83, data); } // 0x6AFD2CD753FEEF83 0x628F489B b323
 	NATIVE_DECL BOOL _SC_INBOX_MESSAGE_GET_BOUNTY_DATA(int index, Any* outData) { return invoke<BOOL>(0x87E0052F08BD64E6, index, outData); } // 0x87E0052F08BD64E6 0xAB3346B5 b323
 	NATIVE_DECL void _SC_INBOX_GET_EMAILS(int offset, int limit) { invoke<Void>(0x040ADDCBAFA1018A, offset, limit); } // 0x040ADDCBAFA1018A b323
@@ -4849,7 +4857,7 @@ namespace SOCIALCLUB
 	NATIVE_DECL Any _0x7DB18CA8CAD5B098() { return invoke<Any>(0x7DB18CA8CAD5B098); } // 0x7DB18CA8CAD5B098 b505
 	NATIVE_DECL BOOL _0x4737980E8A283806(int p0, Any* p1) { return invoke<BOOL>(0x4737980E8A283806, p0, p1); } // 0x4737980E8A283806 b323
 	NATIVE_DECL void _0x44ACA259D67651DB(Any* p0, Any p1) { invoke<Void>(0x44ACA259D67651DB, p0, p1); } // 0x44ACA259D67651DB b323
-	NATIVE_DECL void SC_EMAIL_MESSAGE_PUSH_GAMER_TO_RECIP_LIST(int* networkHandle) { invoke<Void>(0x2330C12A7A605D16, networkHandle); } // 0x2330C12A7A605D16 0x9A703A2B b323
+	NATIVE_DECL void SC_EMAIL_MESSAGE_PUSH_GAMER_TO_RECIP_LIST(Any* gamerHandle) { invoke<Void>(0x2330C12A7A605D16, gamerHandle); } // 0x2330C12A7A605D16 0x9A703A2B b323
 	NATIVE_DECL void SC_EMAIL_MESSAGE_CLEAR_RECIP_LIST() { invoke<Void>(0x55DF6DB45179236E); } // 0x55DF6DB45179236E 0xD094F11A b323
 	NATIVE_DECL void _0x116FB94DC4B79F17(const char* p0) { invoke<Void>(0x116FB94DC4B79F17, p0); } // 0x116FB94DC4B79F17 0xAF3C081B b323
 	NATIVE_DECL Any _0x07DBD622D9533857(Any p0) { return invoke<Any>(0x07DBD622D9533857, p0); } // 0x07DBD622D9533857 b505
@@ -4877,13 +4885,13 @@ namespace SOCIALCLUB
 	NATIVE_DECL Any _0x700569DBA175A77C(Any p0) { return invoke<Any>(0x700569DBA175A77C, p0); } // 0x700569DBA175A77C b323
 	NATIVE_DECL Any _0x1D4446A62D35B0D0(Any p0, Any p1) { return invoke<Any>(0x1D4446A62D35B0D0, p0, p1); } // 0x1D4446A62D35B0D0 b323
 	NATIVE_DECL Any _0x2E89990DDFF670C3(Any p0, Any p1) { return invoke<Any>(0x2E89990DDFF670C3, p0, p1); } // 0x2E89990DDFF670C3 b323
-	NATIVE_DECL BOOL _0xD0EE05FE193646EA(Any* p0, Any* p1, Any* p2) { return invoke<BOOL>(0xD0EE05FE193646EA, p0, p1, p2); } // 0xD0EE05FE193646EA b323
-	NATIVE_DECL BOOL _0x1989C6E6F67E76A8(Any* p0, Any* p1, Any* p2) { return invoke<BOOL>(0x1989C6E6F67E76A8, p0, p1, p2); } // 0x1989C6E6F67E76A8 b323
+	NATIVE_DECL BOOL _0xD0EE05FE193646EA(const char* p0, const char* p1, Any* p2) { return invoke<BOOL>(0xD0EE05FE193646EA, p0, p1, p2); } // 0xD0EE05FE193646EA b323
+	NATIVE_DECL BOOL _0x1989C6E6F67E76A8(const char* p0, Any* p1, int* p2) { return invoke<BOOL>(0x1989C6E6F67E76A8, p0, p1, p2); } // 0x1989C6E6F67E76A8 b323
 	NATIVE_DECL Any _0x07C61676E5BB52CD(Any p0) { return invoke<Any>(0x07C61676E5BB52CD, p0); } // 0x07C61676E5BB52CD b323
 	NATIVE_DECL Any _0x8147FFF6A718E1AD(Any p0) { return invoke<Any>(0x8147FFF6A718E1AD, p0); } // 0x8147FFF6A718E1AD b323
-	NATIVE_DECL BOOL _0x0F73393BAC7E6730(Any* p0, int* p1) { return invoke<BOOL>(0x0F73393BAC7E6730, p0, p1); } // 0x0F73393BAC7E6730 b323
-	NATIVE_DECL Any _0xD302E99EDF0449CF(Any p0) { return invoke<Any>(0xD302E99EDF0449CF, p0); } // 0xD302E99EDF0449CF b323
-	NATIVE_DECL Any _0x5C4EBFFA98BDB41C(Any p0) { return invoke<Any>(0x5C4EBFFA98BDB41C, p0); } // 0x5C4EBFFA98BDB41C b323
+	NATIVE_DECL BOOL _0x0F73393BAC7E6730(const char* p0, int* p1) { return invoke<BOOL>(0x0F73393BAC7E6730, p0, p1); } // 0x0F73393BAC7E6730 b323
+	NATIVE_DECL int _0xD302E99EDF0449CF(int p0) { return invoke<int>(0xD302E99EDF0449CF, p0); } // 0xD302E99EDF0449CF b323
+	NATIVE_DECL int _0x5C4EBFFA98BDB41C(int p0) { return invoke<int>(0x5C4EBFFA98BDB41C, p0); } // 0x5C4EBFFA98BDB41C b323
 	NATIVE_DECL BOOL _0xFF8F3A92B75ED67A() { return invoke<BOOL>(0xFF8F3A92B75ED67A); } // 0xFF8F3A92B75ED67A 0xC96456BA b323
 	NATIVE_DECL int _0x4ED9C8D6DA297639() { return invoke<int>(0x4ED9C8D6DA297639); } // 0x4ED9C8D6DA297639 0xC5E08B66 b323
 	NATIVE_DECL BOOL _0x710BCDA8071EDED1(const char* p0, int* p1) { return invoke<BOOL>(0x710BCDA8071EDED1, p0, p1); } // 0x710BCDA8071EDED1 0x04EE74A3 b323
@@ -4912,14 +4920,14 @@ namespace SOCIALCLUB
 	NATIVE_DECL void _0xEA95C0853A27888E() { invoke<Void>(0xEA95C0853A27888E); } // 0xEA95C0853A27888E b1290
 	NATIVE_DECL const char* _SC_GET_NICKNAME() { return invoke<const char*>(0x198D161F458ECC7F); } // 0x198D161F458ECC7F b323
 	NATIVE_DECL BOOL _0x225798743970412B(int* p0) { return invoke<BOOL>(0x225798743970412B, p0); } // 0x225798743970412B b323
-	NATIVE_DECL BOOL _SC_GET_HAS_ACHIEVEMENT_BEEN_PASSED(int achievement) { return invoke<BOOL>(0x418DC16FAE452C1C, achievement); } // 0x418DC16FAE452C1C b323
+	NATIVE_DECL BOOL _SC_GET_HAS_ACHIEVEMENT_BEEN_PASSED(int achievementId) { return invoke<BOOL>(0x418DC16FAE452C1C, achievementId); } // 0x418DC16FAE452C1C b323
 }
 
 namespace STATS
 {
 	NATIVE_DECL Any STAT_CLEAR_SLOT_FOR_RELOAD(int statSlot) { return invoke<Any>(0xEB0A72181D4AA4AD, statSlot); } // 0xEB0A72181D4AA4AD 0x84BDD475 b323
 	NATIVE_DECL BOOL STAT_LOAD(int p0) { return invoke<BOOL>(0xA651443F437B1CE6, p0); } // 0xA651443F437B1CE6 0x9E5629F4 b323
-	NATIVE_DECL BOOL STAT_SAVE(int p0, BOOL p1, int p2) { return invoke<BOOL>(0xE07BCA305B82D2FD, p0, p1, p2); } // 0xE07BCA305B82D2FD 0xE10A7CA4 b323
+	NATIVE_DECL BOOL STAT_SAVE(int p0, BOOL p1, int p2, Any p3) { return invoke<BOOL>(0xE07BCA305B82D2FD, p0, p1, p2, p3); } // 0xE07BCA305B82D2FD 0xE10A7CA4 b323
 	NATIVE_DECL void _0x5688585E6D563CD8(int p0) { invoke<Void>(0x5688585E6D563CD8, p0); } // 0x5688585E6D563CD8 0xC62406A6 b323
 	NATIVE_DECL BOOL STAT_LOAD_PENDING(Any p0) { return invoke<BOOL>(0xA1750FFAFA181661, p0); } // 0xA1750FFAFA181661 0x4E9AC983 b323
 	NATIVE_DECL BOOL STAT_SAVE_PENDING() { return invoke<BOOL>(0x7D3A583856F2C5AC); } // 0x7D3A583856F2C5AC 0xC3FD3822 b323
@@ -4935,24 +4943,24 @@ namespace STATS
 	NATIVE_DECL BOOL _0xECB41AC6AB754401() { return invoke<BOOL>(0xECB41AC6AB754401); } // 0xECB41AC6AB754401 0xED7000C8 b323
 	NATIVE_DECL void _0x9B4BD21D69B1E609() { invoke<Void>(0x9B4BD21D69B1E609); } // 0x9B4BD21D69B1E609 b323
 	NATIVE_DECL Any _0xC0E0D686DDFC6EAE() { return invoke<Any>(0xC0E0D686DDFC6EAE); } // 0xC0E0D686DDFC6EAE 0x099FCC86 b323
-	NATIVE_DECL BOOL STAT_SET_INT(Hash statName, int64_t value, BOOL save) { return invoke<BOOL>(0xB3271D7AB655B441, statName, value, save); } // 0xB3271D7AB655B441 0xC9CC1C5C b323
+	NATIVE_DECL BOOL STAT_SET_INT(Hash statName, int value, BOOL save) { return invoke<BOOL>(0xB3271D7AB655B441, statName, value, save); } // 0xB3271D7AB655B441 0xC9CC1C5C b323
 	NATIVE_DECL BOOL STAT_SET_FLOAT(Hash statName, float value, BOOL save) { return invoke<BOOL>(0x4851997F37FE9B3C, statName, value, save); } // 0x4851997F37FE9B3C 0x6CEA96F2 b323
 	NATIVE_DECL BOOL STAT_SET_BOOL(Hash statName, BOOL value, BOOL save) { return invoke<BOOL>(0x4B33C4243DE0C432, statName, value, save); } // 0x4B33C4243DE0C432 0x55D79DFB b323
 	NATIVE_DECL BOOL STAT_SET_GXT_LABEL(Hash statName, const char* value, BOOL save) { return invoke<BOOL>(0x17695002FD8B2AE0, statName, value, save); } // 0x17695002FD8B2AE0 0xC1224AA7 b323
-	NATIVE_DECL BOOL STAT_SET_DATE(Hash statName, int64_t* value, int numFields, BOOL save) { return invoke<BOOL>(0x2C29BFB64F4FCBE4, statName, value, numFields, save); } // 0x2C29BFB64F4FCBE4 0x36BE807B b323
+	NATIVE_DECL BOOL STAT_SET_DATE(Hash statName, int* value, int numFields, BOOL save) { return invoke<BOOL>(0x2C29BFB64F4FCBE4, statName, value, numFields, save); } // 0x2C29BFB64F4FCBE4 0x36BE807B b323
 	NATIVE_DECL BOOL STAT_SET_STRING(Hash statName, const char* value, BOOL save) { return invoke<BOOL>(0xA87B2335D12531D7, statName, value, save); } // 0xA87B2335D12531D7 0xB1EF2E21 b323
 	NATIVE_DECL BOOL STAT_SET_POS(Hash statName, float x, float y, float z, BOOL save) { return invoke<BOOL>(0xDB283FDE680FE72E, statName, x, y, z, save); } // 0xDB283FDE680FE72E 0x1192C9A3 b323
-	NATIVE_DECL BOOL STAT_SET_MASKED_INT(Hash statName, Any p1, Any p2, int p3, BOOL save) { return invoke<BOOL>(0x7BBB1B54583ED410, statName, p1, p2, p3, save); } // 0x7BBB1B54583ED410 0x2CBAA739 b323
+	NATIVE_DECL BOOL STAT_SET_MASKED_INT(Hash statName, int p1, Any p2, int p3, BOOL save) { return invoke<BOOL>(0x7BBB1B54583ED410, statName, p1, p2, p3, save); } // 0x7BBB1B54583ED410 0x2CBAA739 b323
 	NATIVE_DECL BOOL STAT_SET_USER_ID(Hash statName, const char* value, BOOL save) { return invoke<BOOL>(0x8CDDF1E452BABE11, statName, value, save); } // 0x8CDDF1E452BABE11 0xDBE78ED7 b323
 	NATIVE_DECL BOOL STAT_SET_CURRENT_POSIX_TIME(Hash statName, BOOL p1) { return invoke<BOOL>(0xC2F84B7F9C4D0C61, statName, p1); } // 0xC2F84B7F9C4D0C61 0xA286F015 b323
-	NATIVE_DECL BOOL STAT_GET_INT(Hash statHash, int* outValue, int p2) { return invoke<BOOL>(0x767FBC2AC802EF3D, statHash, outValue, p2); } // 0x767FBC2AC802EF3D 0x1C6FE43E b323
+	NATIVE_DECL BOOL STAT_GET_INT(Hash statHash, int* outValue, BOOL save) { return invoke<BOOL>(0x767FBC2AC802EF3D, statHash, outValue, save); } // 0x767FBC2AC802EF3D 0x1C6FE43E b323
 	NATIVE_DECL BOOL STAT_GET_FLOAT(Hash statHash, float* outValue, Any p2) { return invoke<BOOL>(0xD7AE6C9C9C6AC54C, statHash, outValue, p2); } // 0xD7AE6C9C9C6AC54C 0xFCBDA612 b323
-	NATIVE_DECL BOOL STAT_GET_BOOL(Hash statHash, bool* outValue, Any p2) { return invoke<BOOL>(0x11B5E6D2AE73F48E, statHash, outValue, p2); } // 0x11B5E6D2AE73F48E 0x28A3DD2B b323
-	NATIVE_DECL BOOL STAT_GET_DATE(Hash statHash, int64_t* p1, Any p2, Any p3) { return invoke<BOOL>(0x8B0FACEFC36C824B, statHash, p1, p2, p3); } // 0x8B0FACEFC36C824B 0xD762D16C b323
+	NATIVE_DECL BOOL STAT_GET_BOOL(Hash statHash, BOOL* outValue, Any p2) { return invoke<BOOL>(0x11B5E6D2AE73F48E, statHash, outValue, p2); } // 0x11B5E6D2AE73F48E 0x28A3DD2B b323
+	NATIVE_DECL BOOL STAT_GET_DATE(Hash statHash, int* outValue, int p2, Any p3) { return invoke<BOOL>(0x8B0FACEFC36C824B, statHash, outValue, p2, p3); } // 0x8B0FACEFC36C824B 0xD762D16C b323
 	NATIVE_DECL const char* STAT_GET_STRING(Hash statHash, int p1) { return invoke<const char*>(0xE50384ACC2C3DB74, statHash, p1); } // 0xE50384ACC2C3DB74 0x10CE4BDE b323
 	NATIVE_DECL BOOL STAT_GET_POS(Any p0, Any* p1, Any* p2, Any* p3, Any p4) { return invoke<BOOL>(0x350F82CCB186AA1B, p0, p1, p2, p3, p4); } // 0x350F82CCB186AA1B 0xC846ECCE b323
-	NATIVE_DECL BOOL STAT_GET_MASKED_INT(Any p0, Any* p1, Any p2, Any p3, Any p4) { return invoke<BOOL>(0x655185A06D9EEAAB, p0, p1, p2, p3, p4); } // 0x655185A06D9EEAAB 0xE9D9B70F b323
-	NATIVE_DECL const char* STAT_GET_USER_ID(Any p0) { return invoke<const char*>(0x2365C388E393BBE2, p0); } // 0x2365C388E393BBE2 0xE2E8B6BA b323
+	NATIVE_DECL BOOL STAT_GET_MASKED_INT(Hash statHash, int* outValue, Any p2, Any p3, Any p4) { return invoke<BOOL>(0x655185A06D9EEAAB, statHash, outValue, p2, p3, p4); } // 0x655185A06D9EEAAB 0xE9D9B70F b323
+	NATIVE_DECL const char* STAT_GET_USER_ID(Hash statHash) { return invoke<const char*>(0x2365C388E393BBE2, statHash); } // 0x2365C388E393BBE2 0xE2E8B6BA b323
 	NATIVE_DECL const char* STAT_GET_LICENSE_PLATE(Hash statName) { return invoke<const char*>(0x5473D4195058B2E4, statName); } // 0x5473D4195058B2E4 0x1544B29F b323
 	NATIVE_DECL BOOL STAT_SET_LICENSE_PLATE(Hash statName, const char* str) { return invoke<BOOL>(0x69FF13266D7296DA, statName, str); } // 0x69FF13266D7296DA 0x3507D253 b323
 	NATIVE_DECL void STAT_INCREMENT(Hash statName, float value) { invoke<Void>(0x9B5A68C6489E9909, statName, value); } // 0x9B5A68C6489E9909 0xDFC5F71E b323
@@ -5218,12 +5226,12 @@ namespace STATS
 	NATIVE_DECL void _0x4DC416F246A41FC8(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x4DC416F246A41FC8, p0, p1, p2, p3, p4); } // 0x4DC416F246A41FC8 b2189
 	NATIVE_DECL void _0x2818FF6638CB09DE(Any p0) { invoke<Void>(0x2818FF6638CB09DE, p0); } // 0x2818FF6638CB09DE b2189
 	NATIVE_DECL void _0xD6CA58B3B53A0F22(Any p0) { invoke<Void>(0xD6CA58B3B53A0F22, p0); } // 0xD6CA58B3B53A0F22 b2189
-	NATIVE_DECL void _0x1A67DFBF1F5C3835(Any p0) { invoke<Void>(0x1A67DFBF1F5C3835, p0); } // 0x1A67DFBF1F5C3835 b2372
-	NATIVE_DECL void _0xBBA55BE9AAAABF44(Any p0) { invoke<Void>(0xBBA55BE9AAAABF44, p0); } // 0xBBA55BE9AAAABF44 b2372
-	NATIVE_DECL void _0xFA5B74BAB8A7EF99(Any p0) { invoke<Void>(0xFA5B74BAB8A7EF99, p0); } // 0xFA5B74BAB8A7EF99 b2372
-	NATIVE_DECL void _0xFF14D6FEEC507BBE(Any p0) { invoke<Void>(0xFF14D6FEEC507BBE, p0); } // 0xFF14D6FEEC507BBE b2372
-	NATIVE_DECL void _0x1187CB58D7F3BED7(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x1187CB58D7F3BED7, p0, p1, p2, p3); } // 0x1187CB58D7F3BED7 b2372
-	NATIVE_DECL void _0x69C922B677621428(Any p0, Any p1) { invoke<Void>(0x69C922B677621428, p0, p1); } // 0x69C922B677621428 b2372
+	NATIVE_DECL void _PLAYSTATS_ROBBERY_PREP(Any p0) { invoke<Void>(0x1A67DFBF1F5C3835, p0); } // 0x1A67DFBF1F5C3835 b2372
+	NATIVE_DECL void _PLAYSTATS_ROBBERY_FINALE(Any p0) { invoke<Void>(0xBBA55BE9AAAABF44, p0); } // 0xBBA55BE9AAAABF44 b2372
+	NATIVE_DECL void _PLAYSTATS_EXTRA_EVENT(Any p0) { invoke<Void>(0xFA5B74BAB8A7EF99, p0); } // 0xFA5B74BAB8A7EF99 b2372
+	NATIVE_DECL void _PLAYSTATS_CARCLUB_POINTS(Any p0) { invoke<Void>(0xFF14D6FEEC507BBE, p0); } // 0xFF14D6FEEC507BBE b2372
+	NATIVE_DECL void _PLAYSTATS_CARCLUB_CHALLENGE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x1187CB58D7F3BED7, p0, p1, p2, p3); } // 0x1187CB58D7F3BED7 b2372
+	NATIVE_DECL void _PLAYSTATS_CARCLUB_PRIZE(Any p0, Any p1) { invoke<Void>(0x69C922B677621428, p0, p1); } // 0x69C922B677621428 b2372
 }
 
 namespace STREAMING
@@ -5412,7 +5420,7 @@ namespace TASK
 	NATIVE_DECL void PLAY_ENTITY_SCRIPTED_ANIM(Any p0, Any* p1, Any* p2, Any* p3, float p4, float p5) { invoke<Void>(0x77A1EEC547E7FCF1, p0, p1, p2, p3, p4, p5); } // 0x77A1EEC547E7FCF1 0x02F72AE5 b323
 	NATIVE_DECL void STOP_ANIM_PLAYBACK(Ped ped, int p1, BOOL p2) { invoke<Void>(0xEE08C992D238C5D1, ped, p1, p2); } // 0xEE08C992D238C5D1 0xE5F16398 b323
 	NATIVE_DECL void SET_ANIM_WEIGHT(Any p0, float p1, Any p2, Any p3, BOOL p4) { invoke<Void>(0x207F1A47C0342F48, p0, p1, p2, p3, p4); } // 0x207F1A47C0342F48 0x17229D98 b323
-	NATIVE_DECL void _0xDDF3CB5A0A4C0B49(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xDDF3CB5A0A4C0B49, p0, p1, p2, p3); } // 0xDDF3CB5A0A4C0B49 b2372
+	NATIVE_DECL void _SET_ANIM_PLAYBACK_TIME(Entity entity, float p1, Any p2, BOOL p3) { invoke<Void>(0xDDF3CB5A0A4C0B49, entity, p1, p2, p3); } // 0xDDF3CB5A0A4C0B49 b2372
 	NATIVE_DECL void SET_ANIM_RATE(Any p0, float p1, Any p2, BOOL p3) { invoke<Void>(0x032D49C5E359C847, p0, p1, p2, p3); } // 0x032D49C5E359C847 0x6DB46584 b323
 	NATIVE_DECL void SET_ANIM_LOOPED(Any p0, BOOL p1, Any p2, BOOL p3) { invoke<Void>(0x70033C3CC29A1FF4, p0, p1, p2, p3); } // 0x70033C3CC29A1FF4 0x095D61A4 b323
 	NATIVE_DECL void TASK_PLAY_PHONE_GESTURE_ANIMATION(Ped ped, const char* animDict, const char* animation, const char* boneMaskType, float p4, float p5, BOOL p6, BOOL p7) { invoke<Void>(0x8FBB6758B3B3E9EC, ped, animDict, animation, boneMaskType, p4, p5, p6, p7); } // 0x8FBB6758B3B3E9EC 0x1582162C b323
@@ -5463,7 +5471,7 @@ namespace TASK
 	NATIVE_DECL void TASK_HELI_CHASE(Ped pilot, Entity entityToFollow, float x, float y, float z) { invoke<Void>(0xAC83B1DB38D0ADA0, pilot, entityToFollow, x, y, z); } // 0xAC83B1DB38D0ADA0 0xAC290A21 b323
 	NATIVE_DECL void TASK_PLANE_CHASE(Ped pilot, Entity entityToFollow, float x, float y, float z) { invoke<Void>(0x2D2386F273FF7A25, pilot, entityToFollow, x, y, z); } // 0x2D2386F273FF7A25 0x12FA1C28 b323
 	NATIVE_DECL void TASK_PLANE_LAND(Ped pilot, Vehicle plane, float runwayStartX, float runwayStartY, float runwayStartZ, float runwayEndX, float runwayEndY, float runwayEndZ) { invoke<Void>(0xBF19721FA34D32C0, pilot, plane, runwayStartX, runwayStartY, runwayStartZ, runwayEndX, runwayEndY, runwayEndZ); } // 0xBF19721FA34D32C0 0x5F7E23EA b323
-	NATIVE_DECL void _0x6100B3CEFD43452E(Any p0) { invoke<Void>(0x6100B3CEFD43452E, p0); } // 0x6100B3CEFD43452E b2189
+	NATIVE_DECL void _0x6100B3CEFD43452E(Ped p0) { invoke<Void>(0x6100B3CEFD43452E, p0); } // 0x6100B3CEFD43452E b2189
 	NATIVE_DECL void _CLEAR_VEHICLE_TASKS(Vehicle vehicle) { invoke<Void>(0xDBBC7A2432524127, vehicle); } // 0xDBBC7A2432524127 b1290
 	NATIVE_DECL void _0x53DDC75BC3AC0A90(Vehicle vehicle) { invoke<Void>(0x53DDC75BC3AC0A90, vehicle); } // 0x53DDC75BC3AC0A90 b1290
 	NATIVE_DECL void TASK_PLANE_GOTO_PRECISE_VTOL(Ped ped, Vehicle vehicle, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0xF7F9DCCA89E7505B, ped, vehicle, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xF7F9DCCA89E7505B b1290
@@ -5471,7 +5479,7 @@ namespace TASK
 	NATIVE_DECL void TASK_HELI_MISSION(Ped pilot, Vehicle aircraft, Vehicle targetVehicle, Ped targetPed, float destinationX, float destinationY, float destinationZ, int missionFlag, float maxSpeed, float radius, float targetHeading, int maxHeight, int minHeight, float unk3, int behaviorFlags) { invoke<Void>(0xDAD029E187A2BEB4, pilot, aircraft, targetVehicle, targetPed, destinationX, destinationY, destinationZ, missionFlag, maxSpeed, radius, targetHeading, maxHeight, minHeight, unk3, behaviorFlags); } // 0xDAD029E187A2BEB4 0x0C143E97 b323
 	NATIVE_DECL void TASK_HELI_ESCORT_HELI(Ped pilot, Vehicle heli1, Vehicle heli2, float p3, float p4, float p5) { invoke<Void>(0xB385523325077210, pilot, heli1, heli2, p3, p4, p5); } // 0xB385523325077210 b1290
 	NATIVE_DECL void TASK_PLANE_MISSION(Ped pilot, Vehicle aircraft, Vehicle targetVehicle, Ped targetPed, float destinationX, float destinationY, float destinationZ, int missionFlag, float angularDrag, float unk, float targetHeading, float maxZ, float minZ, Any p13) { invoke<Void>(0x23703CD154E83B88, pilot, aircraft, targetVehicle, targetPed, destinationX, destinationY, destinationZ, missionFlag, angularDrag, unk, targetHeading, maxZ, minZ, p13); } // 0x23703CD154E83B88 0x1D007E65 b323
-	NATIVE_DECL void TASK_PLANE_TAXI(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x92C360B5F15D2302, p0, p1, p2, p3, p4, p5, p6); } // 0x92C360B5F15D2302 b1103
+	NATIVE_DECL void TASK_PLANE_TAXI(Ped pilot, Vehicle aircraft, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x92C360B5F15D2302, pilot, aircraft, p2, p3, p4, p5, p6); } // 0x92C360B5F15D2302 b1103
 	NATIVE_DECL void TASK_BOAT_MISSION(Ped pedDriver, Vehicle boat, Any p2, Any p3, float x, float y, float z, Any p7, float maxSpeed, int drivingStyle, float p10, Any p11) { invoke<Void>(0x15C86013127CE63F, pedDriver, boat, p2, p3, x, y, z, p7, maxSpeed, drivingStyle, p10, p11); } // 0x15C86013127CE63F 0x5865B031 b323
 	NATIVE_DECL void TASK_DRIVE_BY(Ped driverPed, Ped targetPed, Vehicle targetVehicle, float targetX, float targetY, float targetZ, float distanceToShoot, int pedAccuracy, BOOL p8, Hash firingPattern) { invoke<Void>(0x2F8AF0E82773A171, driverPed, targetPed, targetVehicle, targetX, targetY, targetZ, distanceToShoot, pedAccuracy, p8, firingPattern); } // 0x2F8AF0E82773A171 0x2B84D1C4 b323
 	NATIVE_DECL void SET_DRIVEBY_TASK_TARGET(Ped shootingPed, Ped targetPed, Vehicle targetVehicle, float x, float y, float z) { invoke<Void>(0xE5B302114D8162EE, shootingPed, targetPed, targetVehicle, x, y, z); } // 0xE5B302114D8162EE 0xDA6A6FC1 b323
@@ -5659,7 +5667,7 @@ namespace TASK
 
 namespace VEHICLE
 {
-	NATIVE_DECL Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh) { return invoke<Vehicle>(0xAF35D0D2583051B0, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh); } // 0xAF35D0D2583051B0 0xDD75460A b323
+	NATIVE_DECL Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh, BOOL p7) { return invoke<Vehicle>(0xAF35D0D2583051B0, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh, p7); } // 0xAF35D0D2583051B0 0xDD75460A b323
 	NATIVE_DECL void DELETE_VEHICLE(Vehicle* vehicle) { invoke<Void>(0xEA386986E786A54F, vehicle); } // 0xEA386986E786A54F 0x9803AF60 b323
 	NATIVE_DECL void _0x7D6F9A3EF26136A0(Vehicle vehicle, BOOL toggle, BOOL p2) { invoke<Void>(0x7D6F9A3EF26136A0, vehicle, toggle, p2); } // 0x7D6F9A3EF26136A0 0xBB54ECCA b323
 	NATIVE_DECL void _SET_VEHICLE_CAN_BE_LOCKED_ON(Vehicle vehicle, BOOL canBeLockedOn, BOOL unk) { invoke<Void>(0x1DDA078D12879EEE, vehicle, canBeLockedOn, unk); } // 0x1DDA078D12879EEE b463
@@ -5677,7 +5685,7 @@ namespace VEHICLE
 	NATIVE_DECL void SET_ALL_LOW_PRIORITY_VEHICLE_GENERATORS_ACTIVE(BOOL active) { invoke<Void>(0x608207E7A8FB787C, active); } // 0x608207E7A8FB787C 0x87F767F2 b323
 	NATIVE_DECL void _0x9A75585FB2E54FAD(float x, float y, float z, float radius) { invoke<Void>(0x9A75585FB2E54FAD, x, y, z, radius); } // 0x9A75585FB2E54FAD 0x935A95DA b323
 	NATIVE_DECL void _0x0A436B8643716D14() { invoke<Void>(0x0A436B8643716D14); } // 0x0A436B8643716D14 0x6C73E45A b323
-	NATIVE_DECL BOOL SET_VEHICLE_ON_GROUND_PROPERLY(Vehicle vehicle) { return invoke<BOOL>(0x49733E92263139D1, vehicle); } // 0x49733E92263139D1 0xE14FDBA6 b323
+	NATIVE_DECL BOOL SET_VEHICLE_ON_GROUND_PROPERLY(Vehicle vehicle, float p1) { return invoke<BOOL>(0x49733E92263139D1, vehicle, p1); } // 0x49733E92263139D1 0xE14FDBA6 b323
 	NATIVE_DECL Any SET_VEHICLE_USE_CUTSCENE_WHEEL_COMPRESSION(Vehicle p0, BOOL p1, BOOL p2, BOOL p3) { return invoke<Any>(0xE023E8AC4EF7C117, p0, p1, p2, p3); } // 0xE023E8AC4EF7C117 0xA0909ADB b323
 	NATIVE_DECL BOOL IS_VEHICLE_STUCK_ON_ROOF(Vehicle vehicle) { return invoke<BOOL>(0xB497F06B288DCFDF, vehicle); } // 0xB497F06B288DCFDF 0x18D07C6C b323
 	NATIVE_DECL void ADD_VEHICLE_UPSIDEDOWN_CHECK(Vehicle vehicle) { invoke<Void>(0xB72E26D81006005B, vehicle); } // 0xB72E26D81006005B 0x3A13D384 b323
@@ -5697,7 +5705,7 @@ namespace VEHICLE
 	NATIVE_DECL void SET_FAR_DRAW_VEHICLES(BOOL toggle) { invoke<Void>(0x26324F33423F3CC3, toggle); } // 0x26324F33423F3CC3 0x9F019C49 b323
 	NATIVE_DECL void SET_NUMBER_OF_PARKED_VEHICLES(int value) { invoke<Void>(0xCAA15F13EBD417FF, value); } // 0xCAA15F13EBD417FF 0x206A58E8 b323
 	NATIVE_DECL void SET_VEHICLE_DOORS_LOCKED(Vehicle vehicle, int doorLockStatus) { invoke<Void>(0xB664292EAECF7FA6, vehicle, doorLockStatus); } // 0xB664292EAECF7FA6 0x4CDD35D0 b323
-	NATIVE_DECL void SET_VEHICLE_INDIVIDUAL_DOORS_LOCKED(Vehicle vehicle, int doorIndex, int destroyType) { invoke<Void>(0xBE70724027F85BCD, vehicle, doorIndex, destroyType); } // 0xBE70724027F85BCD 0xD61D182D b323
+	NATIVE_DECL void SET_VEHICLE_INDIVIDUAL_DOORS_LOCKED(Vehicle vehicle, int doorId, int doorLockStatus) { invoke<Void>(0xBE70724027F85BCD, vehicle, doorId, doorLockStatus); } // 0xBE70724027F85BCD 0xD61D182D b323
 	NATIVE_DECL void SET_VEHICLE_HAS_MUTED_SIRENS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xD8050E0EB60CF274, vehicle, toggle); } // 0xD8050E0EB60CF274 0xC54156A9 b323
 	NATIVE_DECL void SET_VEHICLE_DOORS_LOCKED_FOR_PLAYER(Vehicle vehicle, Player player, BOOL toggle) { invoke<Void>(0x517AAF684BB50CD1, vehicle, player, toggle); } // 0x517AAF684BB50CD1 0x49829236 b323
 	NATIVE_DECL BOOL GET_VEHICLE_DOORS_LOCKED_FOR_PLAYER(Vehicle vehicle, Player player) { return invoke<BOOL>(0xF6AF6CB341349015, vehicle, player); } // 0xF6AF6CB341349015 0x1DC50247 b323
@@ -5754,7 +5762,7 @@ namespace VEHICLE
 	NATIVE_DECL void REMOVE_VEHICLE_STUCK_CHECK(Vehicle vehicle) { invoke<Void>(0x8386BFB614D06749, vehicle); } // 0x8386BFB614D06749 0x81594917 b323
 	NATIVE_DECL void GET_VEHICLE_COLOURS(Vehicle vehicle, int* colorPrimary, int* colorSecondary) { invoke<Void>(0xA19435F193E081AC, vehicle, colorPrimary, colorSecondary); } // 0xA19435F193E081AC 0x40D82D88 b323
 	NATIVE_DECL BOOL IS_VEHICLE_SEAT_FREE(Vehicle vehicle, int seatIndex, BOOL isTaskRunning) { return invoke<BOOL>(0x22AC59A870E6A669, vehicle, seatIndex, isTaskRunning); } // 0x22AC59A870E6A669 0xDAF42B02 b323
-	NATIVE_DECL Ped GET_PED_IN_VEHICLE_SEAT(Vehicle vehicle, int seatIndex) { return invoke<Ped>(0xBB40DD2270B65366, vehicle, seatIndex); } // 0xBB40DD2270B65366 0x388FDE9A b323
+	NATIVE_DECL Ped GET_PED_IN_VEHICLE_SEAT(Vehicle vehicle, int seatIndex, BOOL p2) { return invoke<Ped>(0xBB40DD2270B65366, vehicle, seatIndex, p2); } // 0xBB40DD2270B65366 0x388FDE9A b323
 	NATIVE_DECL Ped GET_LAST_PED_IN_VEHICLE_SEAT(Vehicle vehicle, int seatIndex) { return invoke<Ped>(0x83F969AA1EE2A664, vehicle, seatIndex); } // 0x83F969AA1EE2A664 0xF7C6792D b323
 	NATIVE_DECL BOOL GET_VEHICLE_LIGHTS_STATE(Vehicle vehicle, BOOL* lightsOn, BOOL* highbeamsOn) { return invoke<BOOL>(0xB91B4C20085BD12F, vehicle, lightsOn, highbeamsOn); } // 0xB91B4C20085BD12F 0x7C278621 b323
 	NATIVE_DECL BOOL IS_VEHICLE_TYRE_BURST(Vehicle vehicle, int wheelID, BOOL completely) { return invoke<BOOL>(0xBA291848A0815CA9, vehicle, wheelID, completely); } // 0xBA291848A0815CA9 0x48C80210 b323
@@ -5784,8 +5792,8 @@ namespace VEHICLE
 	NATIVE_DECL void SET_VEHICLE_TYRES_CAN_BURST(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xEB9DC3C7D8596C46, vehicle, toggle); } // 0xEB9DC3C7D8596C46 0xA198DB54 b323
 	NATIVE_DECL BOOL GET_VEHICLE_TYRES_CAN_BURST(Vehicle vehicle) { return invoke<BOOL>(0x678B9BB8C3F58FEB, vehicle); } // 0x678B9BB8C3F58FEB 0x4D76CD2F b323
 	NATIVE_DECL void SET_VEHICLE_WHEELS_CAN_BREAK(Vehicle vehicle, BOOL enabled) { invoke<Void>(0x29B18B4FD460CA8F, vehicle, enabled); } // 0x29B18B4FD460CA8F 0x829ED654 b323
-	NATIVE_DECL void SET_VEHICLE_DOOR_OPEN(Vehicle vehicle, int doorIndex, BOOL loose, BOOL openInstantly) { invoke<Void>(0x7C65DAC73C35C862, vehicle, doorIndex, loose, openInstantly); } // 0x7C65DAC73C35C862 0xBB75D38B b323
-	NATIVE_DECL void _0x3B458DDB57038F08(Vehicle vehicle, int doorIndex, BOOL toggle) { invoke<Void>(0x3B458DDB57038F08, vehicle, doorIndex, toggle); } // 0x3B458DDB57038F08 b877
+	NATIVE_DECL void SET_VEHICLE_DOOR_OPEN(Vehicle vehicle, int doorId, BOOL loose, BOOL openInstantly) { invoke<Void>(0x7C65DAC73C35C862, vehicle, doorId, loose, openInstantly); } // 0x7C65DAC73C35C862 0xBB75D38B b323
+	NATIVE_DECL void _0x3B458DDB57038F08(Vehicle vehicle, int doorId, BOOL toggle) { invoke<Void>(0x3B458DDB57038F08, vehicle, doorId, toggle); } // 0x3B458DDB57038F08 b877
 	NATIVE_DECL void _0xA247F9EF01D8082E(Any p0) { invoke<Void>(0xA247F9EF01D8082E, p0); } // 0xA247F9EF01D8082E b1103
 	NATIVE_DECL void REMOVE_VEHICLE_WINDOW(Vehicle vehicle, int windowIndex) { invoke<Void>(0xA711568EEDB43069, vehicle, windowIndex); } // 0xA711568EEDB43069 0xBB8104A3 b323
 	NATIVE_DECL void ROLL_DOWN_WINDOWS(Vehicle vehicle) { invoke<Void>(0x85796B0549DDE156, vehicle); } // 0x85796B0549DDE156 0x51A16DC6 b323
@@ -5896,16 +5904,16 @@ namespace VEHICLE
 	NATIVE_DECL float GET_VEHICLE_DIRT_LEVEL(Vehicle vehicle) { return invoke<float>(0x8F17BC8BA08DA62B, vehicle); } // 0x8F17BC8BA08DA62B 0xFD15C065 b323
 	NATIVE_DECL void SET_VEHICLE_DIRT_LEVEL(Vehicle vehicle, float dirtLevel) { invoke<Void>(0x79D3B596FE44EE8B, vehicle, dirtLevel); } // 0x79D3B596FE44EE8B 0x2B39128B b323
 	NATIVE_DECL BOOL _IS_VEHICLE_DAMAGED(Vehicle vehicle) { return invoke<BOOL>(0xBCDC5017D3CE1E9E, vehicle); } // 0xBCDC5017D3CE1E9E 0xDAC523BC b323
-	NATIVE_DECL BOOL IS_VEHICLE_DOOR_FULLY_OPEN(Vehicle vehicle, int doorIndex) { return invoke<BOOL>(0x3E933CFF7B111C22, vehicle, doorIndex); } // 0x3E933CFF7B111C22 0xC2385B6F b323
+	NATIVE_DECL BOOL IS_VEHICLE_DOOR_FULLY_OPEN(Vehicle vehicle, int doorId) { return invoke<BOOL>(0x3E933CFF7B111C22, vehicle, doorId); } // 0x3E933CFF7B111C22 0xC2385B6F b323
 	NATIVE_DECL void SET_VEHICLE_ENGINE_ON(Vehicle vehicle, BOOL value, BOOL instantly, BOOL disableAutoStart) { invoke<Void>(0x2497C4717C8B881E, vehicle, value, instantly, disableAutoStart); } // 0x2497C4717C8B881E 0x7FBC86F1 b323
 	NATIVE_DECL void SET_VEHICLE_UNDRIVEABLE(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x8ABA6AF54B942B95, vehicle, toggle); } // 0x8ABA6AF54B942B95 0x48D02A4E b323
 	NATIVE_DECL void SET_VEHICLE_PROVIDES_COVER(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x5AFEEDD9BB2899D7, vehicle, toggle); } // 0x5AFEEDD9BB2899D7 0xEFC01CA9 b323
-	NATIVE_DECL void SET_VEHICLE_DOOR_CONTROL(Vehicle vehicle, int doorIndex, int speed, float angle) { invoke<Void>(0xF2BFA0430F0A0FCB, vehicle, doorIndex, speed, angle); } // 0xF2BFA0430F0A0FCB 0x572DD360 b323
-	NATIVE_DECL void SET_VEHICLE_DOOR_LATCHED(Vehicle vehicle, int doorIndex, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0xA5A9653A8D2CAF48, vehicle, doorIndex, p2, p3, p4); } // 0xA5A9653A8D2CAF48 0x4EB7BBFC b323
-	NATIVE_DECL float GET_VEHICLE_DOOR_ANGLE_RATIO(Vehicle vehicle, int door) { return invoke<float>(0xFE3F9C29F7B32BD5, vehicle, door); } // 0xFE3F9C29F7B32BD5 0x0E399C26 b323
-	NATIVE_DECL Ped GET_PED_USING_VEHICLE_DOOR(Vehicle vehicle, int doorIndex) { return invoke<Ped>(0x218297BF0CFD853B, vehicle, doorIndex); } // 0x218297BF0CFD853B 0x0630101F b323
-	NATIVE_DECL void SET_VEHICLE_DOOR_SHUT(Vehicle vehicle, int doorIndex, BOOL closeInstantly) { invoke<Void>(0x93D9BD300D7789E5, vehicle, doorIndex, closeInstantly); } // 0x93D9BD300D7789E5 0x142606BD b323
-	NATIVE_DECL void SET_VEHICLE_DOOR_BROKEN(Vehicle vehicle, int doorIndex, BOOL deleteDoor) { invoke<Void>(0xD4D4F6A4AB575A33, vehicle, doorIndex, deleteDoor); } // 0xD4D4F6A4AB575A33 0x8147FEA7 b323
+	NATIVE_DECL void SET_VEHICLE_DOOR_CONTROL(Vehicle vehicle, int doorId, int speed, float angle) { invoke<Void>(0xF2BFA0430F0A0FCB, vehicle, doorId, speed, angle); } // 0xF2BFA0430F0A0FCB 0x572DD360 b323
+	NATIVE_DECL void SET_VEHICLE_DOOR_LATCHED(Vehicle vehicle, int doorId, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0xA5A9653A8D2CAF48, vehicle, doorId, p2, p3, p4); } // 0xA5A9653A8D2CAF48 0x4EB7BBFC b323
+	NATIVE_DECL float GET_VEHICLE_DOOR_ANGLE_RATIO(Vehicle vehicle, int doorId) { return invoke<float>(0xFE3F9C29F7B32BD5, vehicle, doorId); } // 0xFE3F9C29F7B32BD5 0x0E399C26 b323
+	NATIVE_DECL Ped GET_PED_USING_VEHICLE_DOOR(Vehicle vehicle, int doord) { return invoke<Ped>(0x218297BF0CFD853B, vehicle, doord); } // 0x218297BF0CFD853B 0x0630101F b323
+	NATIVE_DECL void SET_VEHICLE_DOOR_SHUT(Vehicle vehicle, int doorId, BOOL closeInstantly) { invoke<Void>(0x93D9BD300D7789E5, vehicle, doorId, closeInstantly); } // 0x93D9BD300D7789E5 0x142606BD b323
+	NATIVE_DECL void SET_VEHICLE_DOOR_BROKEN(Vehicle vehicle, int doorId, BOOL deleteDoor) { invoke<Void>(0xD4D4F6A4AB575A33, vehicle, doorId, deleteDoor); } // 0xD4D4F6A4AB575A33 0x8147FEA7 b323
 	NATIVE_DECL void SET_VEHICLE_CAN_BREAK(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x59BF8C3D52C92F66, vehicle, toggle); } // 0x59BF8C3D52C92F66 0x90A810D1 b323
 	NATIVE_DECL BOOL DOES_VEHICLE_HAVE_ROOF(Vehicle vehicle) { return invoke<BOOL>(0x8AC862B0B32C5B80, vehicle); } // 0x8AC862B0B32C5B80 0xDB817403 b323
 	NATIVE_DECL void _0xC4B3347BD68BD609(Any p0) { invoke<Void>(0xC4B3347BD68BD609, p0); } // 0xC4B3347BD68BD609 b573
@@ -5924,9 +5932,9 @@ namespace VEHICLE
 	NATIVE_DECL void _0xE851E480B814D4BA(Vehicle vehicle, BOOL p1) { invoke<Void>(0xE851E480B814D4BA, vehicle, p1); } // 0xE851E480B814D4BA 0x2F98B4B7 b323
 	NATIVE_DECL void GET_RANDOM_VEHICLE_MODEL_IN_MEMORY(BOOL p0, Hash* modelHash, int* successIndicator) { invoke<Void>(0x055BF0AC0C34F4FD, p0, modelHash, successIndicator); } // 0x055BF0AC0C34F4FD 0xE2C45631 b323
 	NATIVE_DECL int GET_VEHICLE_DOOR_LOCK_STATUS(Vehicle vehicle) { return invoke<int>(0x25BC98A59C2EA962, vehicle); } // 0x25BC98A59C2EA962 0x0D72CEF2 b323
-	NATIVE_DECL int _GET_VEHICLE_DOOR_DESTROY_TYPE(Vehicle vehicle, int doorIndex) { return invoke<int>(0xCA4AC3EAAE46EC7B, vehicle, doorIndex); } // 0xCA4AC3EAAE46EC7B b1103
+	NATIVE_DECL int _GET_VEHICLE_DOOR_DESTROY_TYPE(Vehicle vehicle, int doorId) { return invoke<int>(0xCA4AC3EAAE46EC7B, vehicle, doorId); } // 0xCA4AC3EAAE46EC7B b1103
 	NATIVE_DECL BOOL IS_VEHICLE_DOOR_DAMAGED(Vehicle veh, int doorID) { return invoke<BOOL>(0xB8E181E559464527, veh, doorID); } // 0xB8E181E559464527 0x4999E3C3 b323
-	NATIVE_DECL void _SET_VEHICLE_DOOR_CAN_BREAK(Vehicle vehicle, int doorIndex, BOOL isBreakable) { invoke<Void>(0x2FA133A4A9D37ED8, vehicle, doorIndex, isBreakable); } // 0x2FA133A4A9D37ED8 0x065B92B3 b323
+	NATIVE_DECL void _SET_VEHICLE_DOOR_CAN_BREAK(Vehicle vehicle, int doorId, BOOL isBreakable) { invoke<Void>(0x2FA133A4A9D37ED8, vehicle, doorId, isBreakable); } // 0x2FA133A4A9D37ED8 0x065B92B3 b323
 	NATIVE_DECL BOOL IS_VEHICLE_BUMPER_BOUNCING(Vehicle vehicle, BOOL frontBumper) { return invoke<BOOL>(0x27B926779DEB502D, vehicle, frontBumper); } // 0x27B926779DEB502D 0xB3A2CC4F b323
 	NATIVE_DECL BOOL IS_VEHICLE_BUMPER_BROKEN_OFF(Vehicle vehicle, BOOL front) { return invoke<BOOL>(0x468056A6BB6F3846, vehicle, front); } // 0x468056A6BB6F3846 0xAF25C027 b323
 	NATIVE_DECL BOOL IS_COP_VEHICLE_IN_AREA_3D(float x1, float x2, float y1, float y2, float z1, float z2) { return invoke<BOOL>(0x7EEF65D5F153E26A, x1, x2, y1, y2, z1, z2); } // 0x7EEF65D5F153E26A 0xFB16C6D1 b323
@@ -6080,7 +6088,7 @@ namespace VEHICLE
 	NATIVE_DECL void SET_VEHICLE_SEARCHLIGHT(Vehicle heli, BOOL toggle, BOOL canBeUsedByAI) { invoke<Void>(0x14E85C5EE7A4D542, heli, toggle, canBeUsedByAI); } // 0x14E85C5EE7A4D542 0xE2C0DD8A b323
 	NATIVE_DECL BOOL _DOES_VEHICLE_HAVE_SEARCHLIGHT(Vehicle vehicle) { return invoke<BOOL>(0x99015ED7DBEA5113, vehicle); } // 0x99015ED7DBEA5113 b2189
 	NATIVE_DECL BOOL _IS_VEHICLE_SEAT_ACCESSIBLE(Ped ped, Vehicle vehicle, int seatIndex, BOOL side, BOOL onEnter) { return invoke<BOOL>(0x639431E895B9AA57, ped, vehicle, seatIndex, side, onEnter); } // 0x639431E895B9AA57 0xAB0E79EB b323
-	NATIVE_DECL Vector3 _GET_ENTRY_POSITION_OF_DOOR(Vehicle vehicle, int doorIndex) { return invoke<Vector3>(0xC0572928C0ABFDA3, vehicle, doorIndex); } // 0xC0572928C0ABFDA3 b944
+	NATIVE_DECL Vector3 _GET_ENTRY_POSITION_OF_DOOR(Vehicle vehicle, int doorId) { return invoke<Vector3>(0xC0572928C0ABFDA3, vehicle, doorId); } // 0xC0572928C0ABFDA3 b944
 	NATIVE_DECL BOOL CAN_SHUFFLE_SEAT(Vehicle vehicle, int seatIndex) { return invoke<BOOL>(0x30785D90C956BF35, vehicle, seatIndex); } // 0x30785D90C956BF35 0xB3EB01ED b323
 	NATIVE_DECL int GET_NUM_MOD_KITS(Vehicle vehicle) { return invoke<int>(0x33F2E3FE70EAAE1D, vehicle); } // 0x33F2E3FE70EAAE1D 0xE4903AA0 b323
 	NATIVE_DECL void SET_VEHICLE_MOD_KIT(Vehicle vehicle, int modKit) { invoke<Void>(0x1F2AA07F00B3217A, vehicle, modKit); } // 0x1F2AA07F00B3217A 0xB8132158 b323
@@ -6106,7 +6114,7 @@ namespace VEHICLE
 	NATIVE_DECL const char* GET_MOD_TEXT_LABEL(Vehicle vehicle, int modType, int modValue) { return invoke<const char*>(0x8935624F8C5592CC, vehicle, modType, modValue); } // 0x8935624F8C5592CC 0x0BA39CA7 b323
 	NATIVE_DECL const char* GET_MOD_SLOT_NAME(Vehicle vehicle, int modType) { return invoke<const char*>(0x51F0FEB9F6AE98C0, vehicle, modType); } // 0x51F0FEB9F6AE98C0 0x5E113483 b323
 	NATIVE_DECL const char* GET_LIVERY_NAME(Vehicle vehicle, int liveryIndex) { return invoke<const char*>(0xB4C7A93837C91A1F, vehicle, liveryIndex); } // 0xB4C7A93837C91A1F 0xED80B5BE b323
-	NATIVE_DECL float GET_VEHICLE_MOD_MODIFIER_VALUE(Vehicle vehicle, int modType, int modIndex) { return invoke<float>(0x90A38E9838E0A8C1, vehicle, modType, modIndex); } // 0x90A38E9838E0A8C1 0x73AE5505 b323
+	NATIVE_DECL int GET_VEHICLE_MOD_MODIFIER_VALUE(Vehicle vehicle, int modType, int modIndex) { return invoke<int>(0x90A38E9838E0A8C1, vehicle, modType, modIndex); } // 0x90A38E9838E0A8C1 0x73AE5505 b323
 	NATIVE_DECL Hash GET_VEHICLE_MOD_IDENTIFIER_HASH(Vehicle vehicle, int modType, int modIndex) { return invoke<Hash>(0x4593CF82AA179706, vehicle, modType, modIndex); } // 0x4593CF82AA179706 0x94850968 b323
 	NATIVE_DECL void PRELOAD_VEHICLE_MOD(Any p0, int modType, Any p2) { invoke<Void>(0x758F49C24925568A, p0, modType, p2); } // 0x758F49C24925568A 0x6EA5F4A8 b323
 	NATIVE_DECL BOOL HAS_PRELOAD_MODS_FINISHED(Any p0) { return invoke<BOOL>(0x06F43E5175EB6D96, p0); } // 0x06F43E5175EB6D96 0xA8A0D246 b323
@@ -6154,7 +6162,7 @@ namespace VEHICLE
 	NATIVE_DECL int _GET_VEHICLE_NUMBER_OF_BROKEN_OFF_BONES(Vehicle vehicle) { return invoke<int>(0x42A4BEB35D372407, vehicle); } // 0x42A4BEB35D372407 0x8CDB0C09 b323
 	NATIVE_DECL int _GET_VEHICLE_NUMBER_OF_BROKEN_BONES(Vehicle vehicle) { return invoke<int>(0x2C8CBFE1EA5FC631, vehicle); } // 0x2C8CBFE1EA5FC631 0xABC99E21 b323
 	NATIVE_DECL void _0x4D9D109F63FEE1D4(Any p0, BOOL p1) { invoke<Void>(0x4D9D109F63FEE1D4, p0, p1); } // 0x4D9D109F63FEE1D4 0x900C878C b323
-	NATIVE_DECL void _0x279D50DE5652D935(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x279D50DE5652D935, vehicle, toggle); } // 0x279D50DE5652D935 0xB3200F72 b323
+	NATIVE_DECL void SET_VEHICLE_GENERATES_ENGINE_SHOCKING_EVENTS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x279D50DE5652D935, vehicle, toggle); } // 0x279D50DE5652D935 0xB3200F72 b323
 	NATIVE_DECL void COPY_VEHICLE_DAMAGES(Vehicle sourceVehicle, Vehicle targetVehicle) { invoke<Void>(0xE44A982368A4AF23, sourceVehicle, targetVehicle); } // 0xE44A982368A4AF23 0xBAE491C7 b323
 	NATIVE_DECL void _0xF25E02CB9C5818F8() { invoke<Void>(0xF25E02CB9C5818F8); } // 0xF25E02CB9C5818F8 0xF0E59BC1 b323
 	NATIVE_DECL void SET_LIGHTS_CUTOFF_DISTANCE_TWEAK(float distance) { invoke<Void>(0xBC3CCA5844452B06, distance); } // 0xBC3CCA5844452B06 0x929801C6 b323
@@ -6243,7 +6251,7 @@ namespace VEHICLE
 	NATIVE_DECL void _0x41062318F23ED854(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x41062318F23ED854, vehicle, toggle); } // 0x41062318F23ED854 0xFF62D324 b323
 	NATIVE_DECL void SET_VEHICLE_EXCLUSIVE_DRIVER(Vehicle vehicle, Ped ped, int index) { invoke<Void>(0xB5C51B5502E85E83, vehicle, ped, index); } // 0xB5C51B5502E85E83 0xAA8BD440 b323
 	NATIVE_DECL BOOL _IS_PED_EXCLUSIVE_DRIVER_OF_VEHICLE(Ped ped, Vehicle vehicle, int* outIndex) { return invoke<BOOL>(0xB09D25E77C33EB3F, ped, vehicle, outIndex); } // 0xB09D25E77C33EB3F b463
-	NATIVE_DECL void _DISABLE_PLANE_PROPELLER(Vehicle vehicle, Any p1) { invoke<Void>(0x500873A45724C863, vehicle, p1); } // 0x500873A45724C863 0x004926A3 b323
+	NATIVE_DECL void DISABLE_INDIVIDUAL_PLANE_PROPELLER(Vehicle vehicle, int propeller) { invoke<Void>(0x500873A45724C863, vehicle, propeller); } // 0x500873A45724C863 0x004926A3 b323
 	NATIVE_DECL void SET_VEHICLE_FORCE_AFTERBURNER(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xB055A34527CB8FD7, vehicle, toggle); } // 0xB055A34527CB8FD7 0xC195803B b323
 	NATIVE_DECL void _SET_DISABLE_VEHICLE_WINDOW_COLLISIONS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1087BC8EC540DAEB, vehicle, toggle); } // 0x1087BC8EC540DAEB b1103
 	NATIVE_DECL void _0x4AD280EB48B2D8E6(Vehicle vehicle, BOOL togle) { invoke<Void>(0x4AD280EB48B2D8E6, vehicle, togle); } // 0x4AD280EB48B2D8E6 b1868
@@ -6297,7 +6305,7 @@ namespace VEHICLE
 	NATIVE_DECL BOOL _0xBA91D045575699AD(Vehicle vehicle) { return invoke<BOOL>(0xBA91D045575699AD, vehicle); } // 0xBA91D045575699AD b877
 	NATIVE_DECL void _0x80E3357FDEF45C21(Any p0, Any p1) { invoke<Void>(0x80E3357FDEF45C21, p0, p1); } // 0x80E3357FDEF45C21 b944
 	NATIVE_DECL void _SET_VEHICLE_RAMP_LAUNCH_MODIFIER(Any p0, Any p1) { invoke<Void>(0xEFC13B1CE30D755D, p0, p1); } // 0xEFC13B1CE30D755D b944
-	NATIVE_DECL BOOL _GET_IS_DOOR_VALID(Vehicle vehicle, int doorIndex) { return invoke<BOOL>(0x645F4B6E8499F632, vehicle, doorIndex); } // 0x645F4B6E8499F632 b944
+	NATIVE_DECL BOOL _GET_IS_DOOR_VALID(Vehicle vehicle, int doorId) { return invoke<BOOL>(0x645F4B6E8499F632, vehicle, doorId); } // 0x645F4B6E8499F632 b944
 	NATIVE_DECL void _SET_VEHICLE_ROCKET_BOOST_REFILL_TIME(Vehicle vehicle, float seconds) { invoke<Void>(0xE00F2AB100B76E89, vehicle, seconds); } // 0xE00F2AB100B76E89 b944
 	NATIVE_DECL BOOL _GET_HAS_ROCKET_BOOST(Vehicle vehicle) { return invoke<BOOL>(0x36D782F68B309BDA, vehicle); } // 0x36D782F68B309BDA b944
 	NATIVE_DECL BOOL _IS_VEHICLE_ROCKET_BOOST_ACTIVE(Vehicle vehicle) { return invoke<BOOL>(0x3D34E80EED4AE3BE, vehicle); } // 0x3D34E80EED4AE3BE b944
@@ -6322,7 +6330,7 @@ namespace VEHICLE
 	NATIVE_DECL void _SET_VEHICLE_WEAPONS_DISABLED(Any p0, Any p1) { invoke<Void>(0x86B4B6212CB8B627, p0, p1); } // 0x86B4B6212CB8B627 b1011
 	NATIVE_DECL void _0x41290B40FA63E6DA(Any p0) { invoke<Void>(0x41290B40FA63E6DA, p0); } // 0x41290B40FA63E6DA b1011
 	NATIVE_DECL void _SET_VEHICLE_PARACHUTE_MODEL(Vehicle vehicle, Hash modelHash) { invoke<Void>(0x4D610C6B56031351, vehicle, modelHash); } // 0x4D610C6B56031351 b1011
-	NATIVE_DECL void _SET_VEHICLE_PARACHUTE_TEXTURE_VARIATIION(Vehicle vehicle, int textureVariation) { invoke<Void>(0xA74AD2439468C883, vehicle, textureVariation); } // 0xA74AD2439468C883 b1011
+	NATIVE_DECL void _SET_VEHICLE_PARACHUTE_TEXTURE_VARIATION(Vehicle vehicle, int textureVariation) { invoke<Void>(0xA74AD2439468C883, vehicle, textureVariation); } // 0xA74AD2439468C883 b1011
 	NATIVE_DECL Any _0x0419B167EE128F33(Any p0, Any p1) { return invoke<Any>(0x0419B167EE128F33, p0, p1); } // 0x0419B167EE128F33 b1103
 	NATIVE_DECL Any _0xF3B0E0AED097A3F5(Any p0, Any p1) { return invoke<Any>(0xF3B0E0AED097A3F5, p0, p1); } // 0xF3B0E0AED097A3F5 b1103
 	NATIVE_DECL Any _0xD3E51C0AB8C26EEE(Any p0, Any p1) { return invoke<Any>(0xD3E51C0AB8C26EEE, p0, p1); } // 0xD3E51C0AB8C26EEE b1103
@@ -6390,7 +6398,7 @@ namespace VEHICLE
 	NATIVE_DECL void _SET_REDUCE_DRIFT_VEHICLE_SUSPENSION(Vehicle vehicle, BOOL enable) { invoke<Void>(0x3A375167F5782A65, vehicle, enable); } // 0x3A375167F5782A65 b2372
 	NATIVE_DECL void _SET_DRIFT_TYRES_ENABLED(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x5AC79C98C5C17F05, vehicle, toggle); } // 0x5AC79C98C5C17F05 b2372
 	NATIVE_DECL BOOL _GET_DRIFT_TYRES_ENABLED(Vehicle vehicle) { return invoke<BOOL>(0x2F5A72430E78C8D3, vehicle); } // 0x2F5A72430E78C8D3 b2372
-	NATIVE_DECL void _0xEC0C1D4922AF9754(Any p0, Any p1) { invoke<Void>(0xEC0C1D4922AF9754, p0, p1); } // 0xEC0C1D4922AF9754 b2372
+	NATIVE_DECL void _NETWORK_USE_HIGH_PRECISION_VEHICLE_BLENDING(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xEC0C1D4922AF9754, vehicle, toggle); } // 0xEC0C1D4922AF9754 b2372
 }
 
 namespace WATER
@@ -6401,7 +6409,7 @@ namespace WATER
 	NATIVE_DECL BOOL TEST_PROBE_AGAINST_ALL_WATER(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<BOOL>(0x8974647ED222EA5F, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x8974647ED222EA5F 0x4A962D55 b323
 	NATIVE_DECL BOOL TEST_VERTICAL_PROBE_AGAINST_ALL_WATER(float x, float y, float z, Any p3, float* height) { return invoke<BOOL>(0x2B3451FA1E3142E2, x, y, z, p3, height); } // 0x2B3451FA1E3142E2 0x4C71D143 b323
 	NATIVE_DECL void MODIFY_WATER(float x, float y, float radius, float height) { invoke<Void>(0xC443FD757C3BA637, x, y, radius, height); } // 0xC443FD757C3BA637 0xC49E005A b323
-	NATIVE_DECL int _ADD_CURRENT_RISE(float x, float y, float z, float radius, float unk) { return invoke<int>(0xFDBF4CDBC07E1706, x, y, z, radius, unk); } // 0xFDBF4CDBC07E1706 0x45268B6F b323
+	NATIVE_DECL int _ADD_CURRENT_RISE(float xLow, float yLow, float xHigh, float yHigh, float height) { return invoke<int>(0xFDBF4CDBC07E1706, xLow, yLow, xHigh, yHigh, height); } // 0xFDBF4CDBC07E1706 0x45268B6F b323
 	NATIVE_DECL void _REMOVE_CURRENT_RISE(int p0) { invoke<Void>(0xB1252E3E59A82AAF, p0); } // 0xB1252E3E59A82AAF 0x7DBCEF6F b323
 	NATIVE_DECL void SET_DEEP_OCEAN_SCALER(float intensity) { invoke<Void>(0xB96B00E976BE977F, intensity); } // 0xB96B00E976BE977F 0x53B694B1 b323
 	NATIVE_DECL float GET_DEEP_OCEAN_SCALER() { return invoke<float>(0x2B2A2CC86778B619); } // 0x2B2A2CC86778B619 0xBD0A67FB b323
@@ -6420,7 +6428,7 @@ namespace WEAPON
 	NATIVE_DECL Hash _GET_WEAPON_COMPONENT_VARIANT_EXTRA_COMPONENT_MODEL(Hash componentHash, int extraComponentIndex) { return invoke<Hash>(0x4D1CB8DC40208A17, componentHash, extraComponentIndex); } // 0x4D1CB8DC40208A17 b372
 	NATIVE_DECL void SET_CURRENT_PED_WEAPON(Ped ped, Hash weaponHash, BOOL bForceInHand) { invoke<Void>(0xADF692B254977C0C, ped, weaponHash, bForceInHand); } // 0xADF692B254977C0C 0xB8278882 b323
 	NATIVE_DECL BOOL GET_CURRENT_PED_WEAPON(Ped ped, Hash* weaponHash, BOOL p2) { return invoke<BOOL>(0x3A87E44BB9A01D54, ped, weaponHash, p2); } // 0x3A87E44BB9A01D54 0xB0237302 b323
-	NATIVE_DECL Entity GET_CURRENT_PED_WEAPON_ENTITY_INDEX(Ped ped) { return invoke<Entity>(0x3B390A939AF0B5FC, ped); } // 0x3B390A939AF0B5FC 0x5D73CD20 b323
+	NATIVE_DECL Entity GET_CURRENT_PED_WEAPON_ENTITY_INDEX(Ped ped, Any p1) { return invoke<Entity>(0x3B390A939AF0B5FC, ped, p1); } // 0x3B390A939AF0B5FC 0x5D73CD20 b323
 	NATIVE_DECL Hash GET_BEST_PED_WEAPON(Ped ped, BOOL p1) { return invoke<Hash>(0x8483E98E8B888AE2, ped, p1); } // 0x8483E98E8B888AE2 0xB998D444 b323
 	NATIVE_DECL BOOL SET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash weaponHash) { return invoke<BOOL>(0x75C55983C2C39DAA, ped, weaponHash); } // 0x75C55983C2C39DAA 0x8E6F2AF1 b323
 	NATIVE_DECL BOOL GET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash* weaponHash) { return invoke<BOOL>(0x1017582BCD3832DC, ped, weaponHash); } // 0x1017582BCD3832DC 0xF26C5D65 b323
@@ -6432,7 +6440,7 @@ namespace WEAPON
 	NATIVE_DECL Hash GET_PED_WEAPONTYPE_IN_SLOT(Ped ped, Hash weaponSlot) { return invoke<Hash>(0xEFFED78E9011134D, ped, weaponSlot); } // 0xEFFED78E9011134D 0x9BC64E16 b323
 	NATIVE_DECL int GET_AMMO_IN_PED_WEAPON(Ped ped, Hash weaponhash) { return invoke<int>(0x015A522136D7F951, ped, weaponhash); } // 0x015A522136D7F951 0x0C755733 b323
 	NATIVE_DECL void ADD_AMMO_TO_PED(Ped ped, Hash weaponHash, int ammo) { invoke<Void>(0x78F0424C34306220, ped, weaponHash, ammo); } // 0x78F0424C34306220 0x7F0580C7 b323
-	NATIVE_DECL void SET_PED_AMMO(Ped ped, Hash weaponHash, int ammo) { invoke<Void>(0x14E56BC5B5DB6A19, ped, weaponHash, ammo); } // 0x14E56BC5B5DB6A19 0xBF90DF1A b323
+	NATIVE_DECL void SET_PED_AMMO(Ped ped, Hash weaponHash, int ammo, BOOL p3) { invoke<Void>(0x14E56BC5B5DB6A19, ped, weaponHash, ammo, p3); } // 0x14E56BC5B5DB6A19 0xBF90DF1A b323
 	NATIVE_DECL void SET_PED_INFINITE_AMMO(Ped ped, BOOL toggle, Hash weaponHash) { invoke<Void>(0x3EDCB0505123623B, ped, toggle, weaponHash); } // 0x3EDCB0505123623B 0x9CB8D278 b323
 	NATIVE_DECL void SET_PED_INFINITE_AMMO_CLIP(Ped ped, BOOL toggle) { invoke<Void>(0x183DADC6AA953186, ped, toggle); } // 0x183DADC6AA953186 0x5A5E3B67 b323
 	NATIVE_DECL void _0x24C024BA8379A70A(Any p0, Any p1) { invoke<Void>(0x24C024BA8379A70A, p0, p1); } // 0x24C024BA8379A70A b1868

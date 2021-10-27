@@ -100,7 +100,8 @@ workspace "BigBaseV2"
     files
     {
       "vendor/%{prj.name}/include/**.h",
-      "vendor/%{prj.name}/src/**.cc"
+      "vendor/%{prj.name}/src/format.cc",
+      "vendor/%{prj.name}/src/os.cc"
     }
 
     includedirs
