@@ -4950,16 +4950,16 @@ namespace STATS
 	NATIVE_DECL BOOL STAT_SET_DATE(Hash statName, int* value, int numFields, BOOL save) { return invoke<BOOL>(0x2C29BFB64F4FCBE4, statName, value, numFields, save); } // 0x2C29BFB64F4FCBE4 0x36BE807B b323
 	NATIVE_DECL BOOL STAT_SET_STRING(Hash statName, const char* value, BOOL save) { return invoke<BOOL>(0xA87B2335D12531D7, statName, value, save); } // 0xA87B2335D12531D7 0xB1EF2E21 b323
 	NATIVE_DECL BOOL STAT_SET_POS(Hash statName, float x, float y, float z, BOOL save) { return invoke<BOOL>(0xDB283FDE680FE72E, statName, x, y, z, save); } // 0xDB283FDE680FE72E 0x1192C9A3 b323
-	NATIVE_DECL BOOL STAT_SET_MASKED_INT(Hash statName, int p1, Any p2, int p3, BOOL save) { return invoke<BOOL>(0x7BBB1B54583ED410, statName, p1, p2, p3, save); } // 0x7BBB1B54583ED410 0x2CBAA739 b323
+	NATIVE_DECL BOOL STAT_SET_MASKED_INT(Hash statName, int p1, int mask, int p3, BOOL save) { return invoke<BOOL>(0x7BBB1B54583ED410, statName, p1, mask, p3, save); } // 0x7BBB1B54583ED410 0x2CBAA739 b323
 	NATIVE_DECL BOOL STAT_SET_USER_ID(Hash statName, const char* value, BOOL save) { return invoke<BOOL>(0x8CDDF1E452BABE11, statName, value, save); } // 0x8CDDF1E452BABE11 0xDBE78ED7 b323
 	NATIVE_DECL BOOL STAT_SET_CURRENT_POSIX_TIME(Hash statName, BOOL p1) { return invoke<BOOL>(0xC2F84B7F9C4D0C61, statName, p1); } // 0xC2F84B7F9C4D0C61 0xA286F015 b323
 	NATIVE_DECL BOOL STAT_GET_INT(Hash statHash, int* outValue, BOOL save) { return invoke<BOOL>(0x767FBC2AC802EF3D, statHash, outValue, save); } // 0x767FBC2AC802EF3D 0x1C6FE43E b323
-	NATIVE_DECL BOOL STAT_GET_FLOAT(Hash statHash, float* outValue, Any p2) { return invoke<BOOL>(0xD7AE6C9C9C6AC54C, statHash, outValue, p2); } // 0xD7AE6C9C9C6AC54C 0xFCBDA612 b323
-	NATIVE_DECL BOOL STAT_GET_BOOL(Hash statHash, BOOL* outValue, Any p2) { return invoke<BOOL>(0x11B5E6D2AE73F48E, statHash, outValue, p2); } // 0x11B5E6D2AE73F48E 0x28A3DD2B b323
-	NATIVE_DECL BOOL STAT_GET_DATE(Hash statHash, int* outValue, int p2, Any p3) { return invoke<BOOL>(0x8B0FACEFC36C824B, statHash, outValue, p2, p3); } // 0x8B0FACEFC36C824B 0xD762D16C b323
-	NATIVE_DECL const char* STAT_GET_STRING(Hash statHash, int p1) { return invoke<const char*>(0xE50384ACC2C3DB74, statHash, p1); } // 0xE50384ACC2C3DB74 0x10CE4BDE b323
-	NATIVE_DECL BOOL STAT_GET_POS(Any p0, Any* p1, Any* p2, Any* p3, Any p4) { return invoke<BOOL>(0x350F82CCB186AA1B, p0, p1, p2, p3, p4); } // 0x350F82CCB186AA1B 0xC846ECCE b323
-	NATIVE_DECL BOOL STAT_GET_MASKED_INT(Hash statHash, int* outValue, Any p2, Any p3, Any p4) { return invoke<BOOL>(0x655185A06D9EEAAB, statHash, outValue, p2, p3, p4); } // 0x655185A06D9EEAAB 0xE9D9B70F b323
+	NATIVE_DECL BOOL STAT_GET_FLOAT(Hash statHash, float* outValue, BOOL save) { return invoke<BOOL>(0xD7AE6C9C9C6AC54C, statHash, outValue, save); } // 0xD7AE6C9C9C6AC54C 0xFCBDA612 b323
+	NATIVE_DECL BOOL STAT_GET_BOOL(Hash statHash, BOOL* outValue, BOOL save) { return invoke<BOOL>(0x11B5E6D2AE73F48E, statHash, outValue, save); } // 0x11B5E6D2AE73F48E 0x28A3DD2B b323
+	NATIVE_DECL BOOL STAT_GET_DATE(Hash statHash, int* outValue, int numFields, BOOL save) { return invoke<BOOL>(0x8B0FACEFC36C824B, statHash, outValue, numFields, save); } // 0x8B0FACEFC36C824B 0xD762D16C b323
+	NATIVE_DECL const char* STAT_GET_STRING(Hash statHash, BOOL save) { return invoke<const char*>(0xE50384ACC2C3DB74, statHash, save); } // 0xE50384ACC2C3DB74 0x10CE4BDE b323
+	NATIVE_DECL BOOL STAT_GET_POS(Hash statName, float* x, float* y, float* z, BOOL save) { return invoke<BOOL>(0x350F82CCB186AA1B, statName, x, y, z, save); } // 0x350F82CCB186AA1B 0xC846ECCE b323
+	NATIVE_DECL BOOL STAT_GET_MASKED_INT(Hash statHash, int* outValue, int mask, int p3, BOOL save) { return invoke<BOOL>(0x655185A06D9EEAAB, statHash, outValue, mask, p3, save); } // 0x655185A06D9EEAAB 0xE9D9B70F b323
 	NATIVE_DECL const char* STAT_GET_USER_ID(Hash statHash) { return invoke<const char*>(0x2365C388E393BBE2, statHash); } // 0x2365C388E393BBE2 0xE2E8B6BA b323
 	NATIVE_DECL const char* STAT_GET_LICENSE_PLATE(Hash statName) { return invoke<const char*>(0x5473D4195058B2E4, statName); } // 0x5473D4195058B2E4 0x1544B29F b323
 	NATIVE_DECL BOOL STAT_SET_LICENSE_PLATE(Hash statName, const char* str) { return invoke<BOOL>(0x69FF13266D7296DA, statName, str); } // 0x69FF13266D7296DA 0x3507D253 b323
