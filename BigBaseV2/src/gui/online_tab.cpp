@@ -47,7 +47,7 @@ namespace big
 			{
 				QUEUE_JOB_BEGIN_CLAUSE()
 				{
-					*script_global(2409299).at(8).as<int*>() = 1;
+					*script_global(2671444).at(8).as<int*>() = 1;
 				} QUEUE_JOB_END_CLAUSE
 			}
 			ImGui::Separator();
@@ -585,7 +585,7 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue; // tuneables_processing
+						*script_global(262145).at(20082).as<int*>() = ballisticarmorvalue; // tuneables_processing
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
