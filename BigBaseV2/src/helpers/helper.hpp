@@ -371,7 +371,7 @@ namespace helper
 
 	static int get_rp_value(int value)
 	{
-		return *script_global(293361).at((value + 1)).as<int*>();
+		return *script_global(294328).at((value + 1)).as<int*>();
 	}
 
 	static void bool_unlocks()
