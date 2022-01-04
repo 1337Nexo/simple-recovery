@@ -112,7 +112,6 @@ namespace big
 					//LOG_INFO("stat_name {}", stat_name);
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
-					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPx)"), character_index);
 					//LOG_INFO("stat_name_after_regex {}", stat_name);
 					const auto hash = rage::joaat(stat_name);
 					//LOG_INFO("hash {}\n", hash);
@@ -345,18 +344,18 @@ namespace big
 				if (type == 0)
 				{
 					ImGui::PushItemWidth(150.0f);
-					ImGui::InputScalar(u8"设置INT数值###SetIntValue", ImGuiDataType_S32, &SetIntValue);
+					ImGui::InputScalar(u8"Set Int value###SetIntValue", ImGuiDataType_S32, &SetIntValue);
 					ImGui::BeginDisabled();//禁止交互
-					ImGui::InputScalar(u8"当前INT数值###GetIntValue", ImGuiDataType_S32, &GetIntValue);
+					ImGui::InputScalar(u8"Int value###GetIntValue", ImGuiDataType_S32, &GetIntValue);
 					ImGui::EndDisabled();//允许交互
 					ImGui::PopItemWidth();
 				}
 				else if (type == 1)
 				{
 					ImGui::PushItemWidth(150.0f);
-					ImGui::InputScalar(u8"设置FLOAT数值###SetFloatValue", ImGuiDataType_Float, &SetFloatValue);
+					ImGui::InputScalar(u8"Set Float Value###SetFloatValue", ImGuiDataType_Float, &SetFloatValue);
 					ImGui::BeginDisabled();//禁止交互
-					ImGui::InputFloat(u8"当前FLOAT数值###GetFloatValue", &GetFloatValue, 0.00f, 0.00f, "%.6f");
+					ImGui::InputFloat(u8"Float Value###GetFloatValue", &GetFloatValue, 0.00f, 0.00f, "%.6f");
 					ImGui::EndDisabled();//允许交互
 					ImGui::PopItemWidth();
 				}

@@ -9,56 +9,11 @@ using namespace big;
 
 namespace helper
 {
-	/*0-92
-	192-384
-	513-705
-	705-1281
-	2919-3111
-	3111-3879
-	4335-4399 _NGPSTAT_BOOL
-	4207-4335 _NGPSTAT_BOOL
-	6029-6413 _NGTATPSTAT_BOOL
-	7321-7385 _NGDLCPSTAT_BOOL
-	7385-7641 _NGDLCPSTAT_BOOL
-	9361-9553 _DLCBIKEPSTAT_BOOL
-	15369-15561 _DLCGUNPSTAT_BOOL
-	15562-15946 _GUNTATPSTAT_BOOL
-	15946-16010 _DLCSMUGCHARPSTAT_BOOL
-	18098-18162 _GANGOPSPSTAT_BOOL
-	22066-22194 _BUSINESSBATPSTAT_BOOL
-	24962-25538 _ARENAWARSPSTAT_BOOL
-	26810-27258 _CASINOPSTAT_BOOL
-	28098-28354 _CASINOHSTPSTAT_BOOL
-	28355-28483 _HEIST3TATTOOSTAT_BOOL
-	30227-30355 _SU20PSTAT_BOOL
-	30355-30483 _SU20TATTOOSTAT_BOOL
-	30515-30707 _HISLANDPSTAT_BOOL
-	31707-32283 _TUNERPSTAT_BOOL
-	32283-32411 _FIXERPSTAT_BOOL
-	32411-32475 _FIXERTATTOOSTAT_BOOL*/
-
-	//void func_20801(int iParam0, bool bParam1, int iParam2)
-	//{
-	//	if (iParam2 == -1)
-	//	{
-	//		iParam2 = func_596();
-	//	}
-	//	unk_0xDB8A58AEAA67CD07(iParam0, bParam1, iParam2);
-	//}
 	static void set_packed_bool(int index, bool bvalue)
 	{
 		STATS::_SET_PACKED_STAT_BOOL(index, bvalue, g_local_player.character_index);
 	}
-	//获取Packed Bool
-	//Get Packed Bool
-	/*bool func_679(int iParam0, int iParam1)
-	{
-		if (iParam1 == -1)
-		{
-			iParam1 = func_596();
-		}
-		return unk_0xDA7EBFC49AE3F1B0(iParam0, iParam1);
-	}*/
+	
 	static bool get_packed_bool(int index)
 	{
 		bool outvalue = false;
@@ -97,7 +52,7 @@ namespace helper
 	{
 		int outvalue;
 		outvalue = STATS::_GET_PACKED_STAT_INT(index, g_local_player.character_index);
-		LOG_INFO(u8" Get Packed Int值： 数值: {} | 索引:{}", outvalue, index);
+		LOG_INFO(u8" Get Packed Int：Value: {} | Index:{}", outvalue, index);
 		return outvalue;
 	}
 

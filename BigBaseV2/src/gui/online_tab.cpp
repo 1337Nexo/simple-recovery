@@ -332,9 +332,9 @@ namespace big
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
 							helper::STAT_SET_INT("MPX_H3_COMPLETEDPOSIX", 0);
-							helper::STAT_SET_INT("MPX_CAS_HEIST_FLOW", -1);
-							helper::STAT_SET_INT("MPX_H3OPT_ACCESSPOINTS", -1);
-							helper::STAT_SET_INT("MPX_H3OPT_POI", -1);
+							//helper::STAT_SET_INT("MPX_CAS_HEIST_FLOW", -1);
+							helper::STAT_SET_INT("MPX_H3OPT_ACCESSPOINTS", 2047);
+							helper::STAT_SET_INT("MPX_H3OPT_POI", 2047);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
