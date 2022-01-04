@@ -69,35 +69,21 @@ namespace big
 				else if (stat_type == 4)
 				{
 					ImGui::PushItemWidth(50.0f);
-					ImGui::InputScalar("###year", ImGuiDataType_U32, &date_value[0]); ImGui::SameLine();
-					ImGui::Text("Year"); ImGui::SameLine();
-					ImGui::InputScalar("###month", ImGuiDataType_U32, &date_value[1]); ImGui::SameLine();
-					ImGui::Text("Mon"); ImGui::SameLine();
-					ImGui::InputScalar("###day", ImGuiDataType_U32, &date_value[2]); ImGui::SameLine();
-					ImGui::Text("Day"); ImGui::SameLine();
-					ImGui::InputScalar("###hour", ImGuiDataType_U32, &date_value[3]); ImGui::SameLine();
-					ImGui::Text("Hour"); ImGui::SameLine();
-					ImGui::InputScalar("###minute", ImGuiDataType_U32, &date_value[4]); ImGui::SameLine();
-					ImGui::Text("Min"); ImGui::SameLine();
-					ImGui::InputScalar("###second", ImGuiDataType_U32, &date_value[5]); ImGui::SameLine();
-					ImGui::Text("Sec"); ImGui::SameLine();
-					ImGui::InputScalar("###millisecond", ImGuiDataType_U32, &date_value[6]); ImGui::SameLine();
-					ImGui::Text("Ms");
+					ImGui::InputScalar("Year###year", ImGuiDataType_U32, &date_value[0]); ImGui::SameLine();
+					ImGui::InputScalar("Mon###month", ImGuiDataType_U32, &date_value[1]); ImGui::SameLine();
+					ImGui::InputScalar("Day###day", ImGuiDataType_U32, &date_value[2]); ImGui::SameLine();
+					ImGui::InputScalar("Hour###hour", ImGuiDataType_U32, &date_value[3]); ImGui::SameLine();
+					ImGui::InputScalar("Min###minute", ImGuiDataType_U32, &date_value[4]); ImGui::SameLine();
+					ImGui::InputScalar("Sec###second", ImGuiDataType_U32, &date_value[5]); ImGui::SameLine();
+					ImGui::InputScalar("Ms###millisecond", ImGuiDataType_U32, &date_value[6]); ImGui::SameLine();
 					ImGui::BeginDisabled();
-					ImGui::InputScalar("###read_year", ImGuiDataType_U32, &read_date_value[0]); ImGui::SameLine();
-					ImGui::Text("Year"); ImGui::SameLine();
-					ImGui::InputScalar("###read_month", ImGuiDataType_U32, &read_date_value[1]); ImGui::SameLine();
-					ImGui::Text("Mon"); ImGui::SameLine();
-					ImGui::InputScalar("###read_day", ImGuiDataType_U32, &read_date_value[2]); ImGui::SameLine();
-					ImGui::Text("Day"); ImGui::SameLine();
-					ImGui::InputScalar("###read_hour", ImGuiDataType_U32, &read_date_value[3]); ImGui::SameLine();
-					ImGui::Text("Hour"); ImGui::SameLine();
-					ImGui::InputScalar("###read_minute", ImGuiDataType_U32, &read_date_value[4]); ImGui::SameLine();
-					ImGui::Text("Min"); ImGui::SameLine();
-					ImGui::InputScalar("###read_second", ImGuiDataType_U32, &read_date_value[5]); ImGui::SameLine();
-					ImGui::Text("Sec"); ImGui::SameLine();
-					ImGui::InputScalar("###read_millisecond", ImGuiDataType_U32, &read_date_value[6]); ImGui::SameLine();
-					ImGui::Text("Ms");
+					ImGui::InputScalar("Year###read_year", ImGuiDataType_U32, &read_date_value[0]); ImGui::SameLine();
+					ImGui::InputScalar("Mon###read_month", ImGuiDataType_U32, &read_date_value[1]); ImGui::SameLine();
+					ImGui::InputScalar("Day###read_day", ImGuiDataType_U32, &read_date_value[2]); ImGui::SameLine();
+					ImGui::InputScalar("Hour###read_hour", ImGuiDataType_U32, &read_date_value[3]); ImGui::SameLine();
+					ImGui::InputScalar("Min###read_minute", ImGuiDataType_U32, &read_date_value[4]); ImGui::SameLine();
+					ImGui::InputScalar("Sec###read_second", ImGuiDataType_U32, &read_date_value[5]); ImGui::SameLine();
+					ImGui::InputScalar("Ms###read_millisecond", ImGuiDataType_U32, &read_date_value[6]); ImGui::SameLine();
 					ImGui::EndDisabled();
 					ImGui::PopItemWidth();
 					ImGui::TextColored(ImVec4(1, 0, 0, 1), fmt::format(Error_value).c_str());
@@ -213,7 +199,6 @@ namespace big
 					//LOG_INFO("stat_name {}", stat_name);
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
-					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPx)"), character_index);
 					//LOG_INFO("stat_name_after_regex {}", stat_name);
 					const auto hash = rage::joaat(stat_name);
 					//LOG_INFO("hash {}\n", hash);
@@ -311,7 +296,7 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						helper::get_packed_int(i_index, &pie_value);
+						pie_value = helper::get_packed_int(i_index);
 						//LOG_INFO(fmt::format("Get Int Done. {}, {}", i_index, pie_value));
 					} QUEUE_JOB_END_CLAUSE
 				}

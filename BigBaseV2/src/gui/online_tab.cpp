@@ -47,7 +47,7 @@ namespace big
 			{
 				QUEUE_JOB_BEGIN_CLAUSE()
 				{
-					*script_global(2409299).at(8).as<int*>() = 1;
+					*script_global(2671444).at(39).as<int*>() = 1;
 				} QUEUE_JOB_END_CLAUSE
 			}
 			ImGui::Separator();
@@ -74,7 +74,7 @@ namespace big
 			ImGui::Text("Packed Bools");
 			static int packed_bool{};
 			static bool packed_bool_value = true;
-			const char* const packed_bools[]{ "_NGPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_GANGOPSPSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_TUNERPSTAT_BOOL" };
+			const char* const packed_bools[]{ "_NGPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_GANGOPSPSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_TUNERPSTAT_BOOL""_FIXERPSTAT_BOOL","_FIXERTATTOOSTAT_BOOL" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
 			ImGui::PopItemWidth();
@@ -222,6 +222,22 @@ namespace big
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
 						helper::set_mass_packed_bool(packed_bool_value, 31707, 32283);
+					} QUEUE_JOB_END_CLAUSE
+						break;
+				}
+				case 17:
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 32283, 32411);
+					} QUEUE_JOB_END_CLAUSE
+						break;
+				}
+				case 18:
+				{
+					QUEUE_JOB_BEGIN_CLAUSE()
+					{
+						helper::set_mass_packed_bool(packed_bool_value, 32411, 32475);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
@@ -402,100 +418,104 @@ namespace big
 					//int func_2723(int iParam0)
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						helper::set_packed_bool(7387, 0);
-						helper::set_packed_bool(7388, 0);
-						helper::set_packed_bool(7389, 0);
-						helper::set_packed_bool(7390, 0);
-						helper::set_packed_bool(7391, 0);
-						helper::set_packed_bool(7392, 0);
-						helper::set_packed_bool(7393, 0);
-						helper::set_packed_bool(7394, 0);
-						helper::set_packed_bool(7395, 0);
-						helper::set_packed_bool(7396, 0);
-						helper::set_packed_bool(7397, 0);
-						helper::set_packed_bool(7398, 0);
-						helper::set_packed_bool(7399, 0);
-						helper::set_packed_bool(7400, 0);
-						helper::set_packed_bool(7401, 0);
-						helper::set_packed_bool(7402, 0);
-						helper::set_packed_bool(7403, 0);
-						helper::set_packed_bool(7404, 0);
-						helper::set_packed_bool(7405, 0);
-						helper::set_packed_bool(7406, 0);
-						helper::set_packed_bool(7407, 0);
-						helper::set_packed_bool(7408, 0);
-						helper::set_packed_bool(7409, 0);
-						helper::set_packed_bool(7410, 0);
-						helper::set_packed_bool(7411, 0);
-						helper::set_packed_bool(7412, 0);
-						helper::set_packed_bool(7413, 0);
-						helper::set_packed_bool(7414, 0);
-						helper::set_packed_bool(7415, 0);
-						helper::set_packed_bool(7416, 0);
-						helper::set_packed_bool(7417, 0);
-						helper::set_packed_bool(7418, 0);
-						helper::set_packed_bool(7419, 0);
-						helper::set_packed_bool(7420, 0);
-						helper::set_packed_bool(7421, 0);
-						helper::set_packed_bool(7422, 0);
-						helper::set_packed_bool(7423, 0);
-						helper::set_packed_bool(7424, 0);
-						helper::set_packed_bool(7425, 0);
-						helper::set_packed_bool(7426, 0);
-						helper::set_packed_bool(7427, 0);
-						helper::set_packed_bool(7428, 0);
-						helper::set_packed_bool(7429, 0);
-						helper::set_packed_bool(7430, 0);
-						helper::set_packed_bool(7431, 0);
-						helper::set_packed_bool(7432, 0);
-						helper::set_packed_bool(7433, 0);
-						helper::set_packed_bool(7434, 0);
-						helper::set_packed_bool(7435, 0);
-						helper::set_packed_bool(7436, 0);
-						helper::set_packed_bool(7437, 0);
-						helper::set_packed_bool(7438, 0);
-						helper::set_packed_bool(7439, 0);
-						helper::set_packed_bool(7440, 0);
-						helper::set_packed_bool(7441, 0);
-						helper::set_packed_bool(7442, 0);
-						helper::set_packed_bool(7443, 0);
-						helper::set_packed_bool(7444, 0);
-						helper::set_packed_bool(7445, 0);
-						helper::set_packed_bool(7446, 0);
-						helper::set_packed_bool(7447, 0);
-						helper::set_packed_bool(7448, 0);
-						helper::set_packed_bool(7449, 0);
-						helper::set_packed_bool(7466, 0);
-						helper::set_packed_bool(7621, 0);
-						helper::set_packed_bool(7622, 0);
-						helper::set_packed_bool(7623, 0);
-						helper::set_packed_bool(7624, 0);
-						helper::set_packed_bool(7625, 0);
-						helper::set_packed_bool(7626, 0);
-						helper::set_packed_bool(7627, 0);
-						helper::set_packed_bool(15441, 0);
-						helper::set_packed_bool(15442, 0);
-						helper::set_packed_bool(15443, 0);
-						helper::set_packed_bool(15444, 0);
-						helper::set_packed_bool(15445, 0);
-						helper::set_packed_bool(15446, 0);
-						helper::set_packed_bool(18100, 0);
-						helper::set_packed_bool(18101, 0);
-						helper::set_packed_bool(18102, 0);
-						helper::set_packed_bool(18103, 0);
-						helper::set_packed_bool(18104, 0);
-						helper::set_packed_bool(18105, 0);
-						helper::set_packed_bool(15995, 0);
-						helper::set_packed_bool(15548, 0);
-						helper::set_packed_bool(25241, 0);
-						helper::set_packed_bool(25242, 0);
-						helper::set_packed_bool(25243, 0);
-						helper::set_packed_bool(25518, 0);
-						helper::set_packed_bool(25519, 0);
-						helper::set_packed_bool(30321, 0);
-						helper::set_packed_bool(30322, 0);
-						helper::set_packed_bool(30323, 0);
-						helper::set_packed_bool(7386, 0);
+						//int func_6717(int iParam0)
+						helper::set_packed_bool(7387, false);
+						helper::set_packed_bool(7388, false);
+						helper::set_packed_bool(7389, false);
+						helper::set_packed_bool(7390, false);
+						helper::set_packed_bool(7391, false);
+						helper::set_packed_bool(7392, false);
+						helper::set_packed_bool(7393, false);
+						helper::set_packed_bool(7394, false);
+						helper::set_packed_bool(7395, false);
+						helper::set_packed_bool(7396, false);
+						helper::set_packed_bool(7397, false);
+						helper::set_packed_bool(7398, false);
+						helper::set_packed_bool(7399, false);
+						helper::set_packed_bool(7400, false);
+						helper::set_packed_bool(7401, false);
+						helper::set_packed_bool(7402, false);
+						helper::set_packed_bool(7403, false);
+						helper::set_packed_bool(7404, false);
+						helper::set_packed_bool(7405, false);
+						helper::set_packed_bool(7406, false);
+						helper::set_packed_bool(7407, false);
+						helper::set_packed_bool(7408, false);
+						helper::set_packed_bool(7409, false);
+						helper::set_packed_bool(7410, false);
+						helper::set_packed_bool(7411, false);
+						helper::set_packed_bool(7412, false);
+						helper::set_packed_bool(7413, false);
+						helper::set_packed_bool(7414, false);
+						helper::set_packed_bool(7415, false);
+						helper::set_packed_bool(7416, false);
+						helper::set_packed_bool(7417, false);
+						helper::set_packed_bool(7418, false);
+						helper::set_packed_bool(7419, false);
+						helper::set_packed_bool(7420, false);
+						helper::set_packed_bool(7421, false);
+						helper::set_packed_bool(7422, false);
+						helper::set_packed_bool(7423, false);
+						helper::set_packed_bool(7424, false);
+						helper::set_packed_bool(7425, false);
+						helper::set_packed_bool(7426, false);
+						helper::set_packed_bool(7427, false);
+						helper::set_packed_bool(7428, false);
+						helper::set_packed_bool(7429, false);
+						helper::set_packed_bool(7430, false);
+						helper::set_packed_bool(7431, false);
+						helper::set_packed_bool(7432, false);
+						helper::set_packed_bool(7433, false);
+						helper::set_packed_bool(7434, false);
+						helper::set_packed_bool(7435, false);
+						helper::set_packed_bool(7436, false);
+						helper::set_packed_bool(7437, false);
+						helper::set_packed_bool(7438, false);
+						helper::set_packed_bool(7439, false);
+						helper::set_packed_bool(7440, false);
+						helper::set_packed_bool(7441, false);
+						helper::set_packed_bool(7442, false);
+						helper::set_packed_bool(7443, false);
+						helper::set_packed_bool(7444, false);
+						helper::set_packed_bool(7445, false);
+						helper::set_packed_bool(7446, false);
+						helper::set_packed_bool(7447, false);
+						helper::set_packed_bool(7448, false);
+						helper::set_packed_bool(7449, false);
+						helper::set_packed_bool(7466, false);
+						helper::set_packed_bool(7621, false);
+						helper::set_packed_bool(7622, false);
+						helper::set_packed_bool(7623, false);
+						helper::set_packed_bool(7624, false);
+						helper::set_packed_bool(7625, false);
+						helper::set_packed_bool(7626, false);
+						helper::set_packed_bool(7627, false);
+						helper::set_packed_bool(15441, false);
+						helper::set_packed_bool(15442, false);
+						helper::set_packed_bool(15443, false);
+						helper::set_packed_bool(15444, false);
+						helper::set_packed_bool(15445, false);
+						helper::set_packed_bool(15446, false);
+						helper::set_packed_bool(18100, false);
+						helper::set_packed_bool(18101, false);
+						helper::set_packed_bool(18102, false);
+						helper::set_packed_bool(18103, false);
+						helper::set_packed_bool(18104, false);
+						helper::set_packed_bool(18105, false);
+						helper::set_packed_bool(15995, false);
+						helper::set_packed_bool(15548, false);
+						helper::set_packed_bool(25241, false);
+						helper::set_packed_bool(25242, false);
+						helper::set_packed_bool(25243, false);
+						helper::set_packed_bool(25518, false);
+						helper::set_packed_bool(25519, false);
+						helper::set_packed_bool(30321, false);
+						helper::set_packed_bool(30322, false);
+						helper::set_packed_bool(30323, false);
+						helper::set_packed_bool(28259, false);
+						helper::set_packed_bool(28260, false);
+						helper::set_packed_bool(28261, false);
+						helper::set_packed_bool(7386, false);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}
@@ -513,7 +533,7 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						*script_global(262145).at(19995).as<int*>() = ballisticarmorvalue; // tuneables_processing
+						*script_global(262145).at(20082).as<int*>() = ballisticarmorvalue; // tuneables_processing -156036296
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
