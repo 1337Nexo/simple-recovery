@@ -249,9 +249,10 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
 			static int unlock{};
-			const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Diamond Casino Heist", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
+			const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Diamond Casino Heist(Hidden Gunner)", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
+			ImGui::PopItemWidth();
 			ImGui::SameLine();
 			if (ImGui::Button("Unlock"))
 			{
@@ -333,6 +334,7 @@ namespace big
 					{
 							helper::STAT_SET_INT("MPX_H3_COMPLETEDPOSIX", 0);
 							//helper::STAT_SET_INT("MPX_CAS_HEIST_FLOW", -1);
+							helper::Set_Stat_Bit("MPX_CAS_HEIST_FLOW",9); //Hidden Gunner
 							helper::STAT_SET_INT("MPX_H3OPT_ACCESSPOINTS", 2047);
 							helper::STAT_SET_INT("MPX_H3OPT_POI", 2047);
 					} QUEUE_JOB_END_CLAUSE
@@ -521,7 +523,7 @@ namespace big
 				}
 				}
 			}
-			ImGui::PopItemWidth();
+			
 
 			if (ImGui::CollapsingHeader("Ballistic Equipment Value"))
 			{
