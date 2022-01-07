@@ -1268,6 +1268,33 @@ namespace helper
 		} QUEUE_JOB_END_CLAUSE
 	}
 
+	static void Vehicles_Wholesale_Price()
+	{
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			set_packed_int(22063, 20);//冲冲猴旅行家
+			STAT_SET_INT("MPX_CHAR_FM_VEHICLE_1_UNLCK", 8388576);//公寓载具批发价
+			STAT_SET_INT("MPX_CRDEADLINE", 5);//正太郎
+			STAT_SET_INT("MPX_AT_FLOW_VEHICLE_BS", 255);//进出口大亨载具
+			STAT_SET_INT("MPX_WVM_FLOW_VEHICLE_BS", 255);//军火走私载具
+			STAT_SET_INT("MPX_GANGOPS_FLOW_BITSET_MISS0", 65535);//末日抢劫载具
+			STAT_SET_INT("MPX_H3_VEHICLESUSED", 8388607);//钻石赌场抢劫载具
+			STAT_SET_INT("MPX_LFETIME_HANGAR_BUY_UNDETAK", 48);//机库载具
+			STAT_SET_INT("MPX_HANGAR_BUY_COMPLET", 48);//机库载具
+			set_packed_int(22050, 5);//夜总会 恐霸批发价
+			STAT_SET_INT("MPX_HUB_SALES_COMPLETED", 10);//夜总会 跑德改装版 猛骡改装版
+			STAT_SET_INT("MPx_NIGHTCLUB_JOBS_DONE", 10);//夜总会 具象爱国者 飞船 音乐巴士
+			//佩里克岛抢劫
+			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_VETIR", true);
+			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_LONGFIN", true);
+			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_ANNIH", true);
+			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_ALKONOS", true);
+			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_PATROLB", true);
+			STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS", 127);
+		} QUEUE_JOB_END_CLAUSE
+	}
+
+
 	static void Arcade()
 	{
 		QUEUE_JOB_BEGIN_CLAUSE()
@@ -1320,6 +1347,9 @@ namespace helper
 			STAT_SET_BOOL("MPX_AWD_DIRECTOR", true);
 			STAT_SET_INT("MPX_AWD_ROBBERY_CONTRACT", 132);
 			STAT_SET_INT("MPX_AWD_FACES_OF_DEATH", 47);
+
+			*script_global(262145 + 11785).as<int64_t*>() = 1; // "turn_on_halloween_event"
+			*script_global(262145 + 30622).as<int64_t*>() = 1;// Game console "headhunting" needs testing
 		} QUEUE_JOB_END_CLAUSE
 	}
 

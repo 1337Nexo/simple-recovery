@@ -83,7 +83,7 @@ namespace big
 					ImGui::InputScalar("Hour###read_hour", ImGuiDataType_U32, &read_date_value[3]); ImGui::SameLine();
 					ImGui::InputScalar("Min###read_minute", ImGuiDataType_U32, &read_date_value[4]); ImGui::SameLine();
 					ImGui::InputScalar("Sec###read_second", ImGuiDataType_U32, &read_date_value[5]); ImGui::SameLine();
-					ImGui::InputScalar("Ms###read_millisecond", ImGuiDataType_U32, &read_date_value[6]); ImGui::SameLine();
+					ImGui::InputScalar("Ms###read_millisecond", ImGuiDataType_U32, &read_date_value[6]);
 					ImGui::EndDisabled();
 					ImGui::PopItemWidth();
 					ImGui::TextColored(ImVec4(1, 0, 0, 1), fmt::format(Error_value).c_str());
