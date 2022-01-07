@@ -249,7 +249,7 @@ namespace big
 			ImGui::Separator();
 			ImGui::Text("Unlocks");
 			static int unlock{};
-			const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Diamond Casino Heist(Hidden Gunner)", "Bunker Research", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
+			const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Diamond Casino Heist(Hidden Gunner)", "Bunker", "Reset Mental State", "Gold Business Battle Trophy", "Unhide Gunlocker Weapons" };
 			ImGui::PushItemWidth(300.f);
 			ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
 			ImGui::PopItemWidth();
@@ -395,6 +395,17 @@ namespace big
 						helper::set_packed_bool(15497, 1);
 						helper::set_packed_bool(15498, 1);
 						helper::set_packed_bool(15499, 1);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_1", 910);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_2", 2500);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_3", 3440);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_4", 3340);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_5", 4150);
+						helper::STAT_SET_INT("MPX_SR_HIGHSCORE_6", 560);
+						helper::STAT_SET_INT("MPX_SR_TARGETS_HIT", 270);
+						helper::STAT_SET_INT("MPX_SR_WEAPON_BIT_SET", 262143);
+						helper::STAT_SET_BOOL("MPX_SR_TIER_1_REWARD", true);
+						helper::STAT_SET_BOOL("MPX_SR_INCREASE_THROW_CAP", true);
+						helper::STAT_SET_BOOL("MPX_SR_TIER_3_REWARD", true);
 					} QUEUE_JOB_END_CLAUSE
 						break;
 				}

@@ -423,14 +423,6 @@ namespace helper
 		STAT_SET_INT("MPPLY_RACES_LOST", 25);
 		STAT_SET_INT("MPX_RACES_WON", 50);
 		STAT_SET_INT("MPX_RACES_LOST", 25);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_1", 910);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_2", 2500);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_3", 3440);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_4", 3340);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_5", 4150);
-		STAT_SET_INT("MPX_SR_HIGHSCORE_6", 560);
-		STAT_SET_INT("MPX_SR_TARGETS_HIT", 270);
-		STAT_SET_INT("MPX_SR_WEAPON_BIT_SET", -1);
 		STAT_SET_INT("MPX_YACHT_MISSION_PROG", 0);
 		STAT_SET_INT("MPX_YACHT_MISSION_FLOW", 21845);
 		STAT_SET_INT("MPX_CASINO_DECORATION_GIFT_1", -1);
@@ -1273,6 +1265,22 @@ namespace helper
 			*script_global(262145 + 31449).as<int64_t*>() = 1; //DJ T - shirts
 			*script_global(262145 + 31450).as<int64_t*>() = 1;// DJ T - shirts
 			*script_global(262145 + 31451).as<int64_t*>() = 1; //DJ T - shirts
+		} QUEUE_JOB_END_CLAUSE
+	}
+
+	
+
+	
+
+	static void facility()
+	{
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+				set_packed_int(18982, 3);//TM02
+				set_packed_int(18983, 3);//
+				set_packed_int(18984, 3);//
+				set_packed_int(18985, 3);//
+				set_packed_int(18986, 3);//
 		} QUEUE_JOB_END_CLAUSE
 	}
 
