@@ -75,7 +75,7 @@ namespace big
 					ImGui::InputScalar("Hour###hour", ImGuiDataType_U32, &date_value[3]); ImGui::SameLine();
 					ImGui::InputScalar("Min###minute", ImGuiDataType_U32, &date_value[4]); ImGui::SameLine();
 					ImGui::InputScalar("Sec###second", ImGuiDataType_U32, &date_value[5]); ImGui::SameLine();
-					ImGui::InputScalar("Ms###millisecond", ImGuiDataType_U32, &date_value[6]); ImGui::SameLine();
+					ImGui::InputScalar("Ms###millisecond", ImGuiDataType_U32, &date_value[6]);
 					ImGui::BeginDisabled();
 					ImGui::InputScalar("Year###read_year", ImGuiDataType_U32, &read_date_value[0]); ImGui::SameLine();
 					ImGui::InputScalar("Mon###read_month", ImGuiDataType_U32, &read_date_value[1]); ImGui::SameLine();

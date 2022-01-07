@@ -1347,6 +1347,9 @@ namespace helper
 			STAT_SET_BOOL("MPX_AWD_DIRECTOR", true);
 			STAT_SET_INT("MPX_AWD_ROBBERY_CONTRACT", 132);
 			STAT_SET_INT("MPX_AWD_FACES_OF_DEATH", 47);
+
+			*script_global(262145 + 11785).as<int64_t*>() = 1; // "turn_on_halloween_event"
+			*script_global(262145 + 30622).as<int64_t*>() = 1;// Game console "headhunting" needs testing
 		} QUEUE_JOB_END_CLAUSE
 	}
 
