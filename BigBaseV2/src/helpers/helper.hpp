@@ -1268,7 +1268,77 @@ namespace helper
 		} QUEUE_JOB_END_CLAUSE
 	}
 
-	
+	static void Arcade()
+	{
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			//CASINO Hidden Gunner
+			Set_Stat_Bit("MPX_CAS_HEIST_FLOW", 9);
+			STAT_SET_BOOL("MPX_AWD_DEADEYE", true); //奖章：死神之眼
+			STAT_SET_BOOL("MPX_AWD_PISTOLSATDAWN", true);//奖章：枪战对决
+			STAT_SET_BOOL("MPX_AWD_TRAFFICAVOI", true);//奖章：无视交通
+			STAT_SET_BOOL("MPX_AWD_CANTCATCHBRA", true); //奖章：全速前进
+			STAT_SET_BOOL("MPX_AWD_WIZHARD", true);//奖章：醉生梦死
+			STAT_SET_BOOL("MPX_AWD_APEESCAPE", true);//奖章：逃生猿
+			STAT_SET_BOOL("MPX_AWD_MONKEYKIND", true);//奖章：心猿
+			STAT_SET_BOOL("MPX_AWD_AQUAAPE", true);//奖章：潜水猿
+			STAT_SET_BOOL("MPX_AWD_KEEPFAITH", true);// 奖章：坚持信念
+			STAT_SET_BOOL("MPX_AWD_TRUELOVE", true);//奖章：真爱
+			STAT_SET_BOOL("MPX_AWD_NEMESIS", true); //奖章：克星
+			STAT_SET_BOOL("MPX_AWD_FRIENDZONED", true); //奖章：好人卡
+			STAT_SET_BOOL("MPX_IAP_CHALLENGE_0", true);
+			STAT_SET_BOOL("MPX_IAP_CHALLENGE_1", true);
+			STAT_SET_BOOL("MPX_IAP_CHALLENGE_2", true);
+			STAT_SET_BOOL("MPX_IAP_CHALLENGE_3", true);
+			STAT_SET_BOOL("MPX_IAP_CHALLENGE_4", true);
+			STAT_SET_BOOL("MPX_IAP_GOLD_TANK", true);//黄金坦克
+			STAT_SET_BOOL("MPX_SCGW_WON_NO_DEATHS", true);
+			STAT_SET_BOOL("MPX_AWD_KINGOFQUB3D", true);//章：Qub3d 之王
+			STAT_SET_BOOL("MPX_AWD_QUBISM", true);//奖章：立体派
+			STAT_SET_BOOL("MPX_AWD_QUIBITS", true);//奖章：Q位元
+			STAT_SET_BOOL("MPX_AWD_GODOFQUB3D", true); //奖章：Qub3d 之神
+			STAT_SET_BOOL("MPX_AWD_GOFOR11TH", true);//奖章：最佳之最
+			STAT_SET_BOOL("MPX_AWD_ELEVENELEVEN", true);//奖章：11 11
+			//Int values
+			STAT_SET_INT("MPX_CH_ARC_CAB_CLAW_TROPHY", -1);// 展柜奖杯：肉球（Humpty）
+			STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1); //展柜奖杯：月老
+			STAT_SET_INT("MPX_AWD_SHARPSHOOTER", 44);//奖章：神枪手
+			STAT_SET_INT("MPX_AWD_RACECHAMP", 54);//奖章：竞速冠军
+			STAT_SET_INT("MPX_AWD_BATSWORD", 1000300);// 奖章：铂金剑
+			STAT_SET_INT("MPX_AWD_COINPURSE", 950011);//奖章：零钱包
+			STAT_SET_INT("MPX_AWD_ASTROCHIMP", 3340000);//奖章：太空猿
+			STAT_SET_INT("MPX_AWD_MASTERFUL", 42200);//奖章：精通
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_0", 51);//喷漆罐
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_1", 62);//喷漆罐
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_2", 56);//喷漆罐
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_3", 71);//喷漆罐
+			STAT_SET_INT("MPX_IAP_MAX_MOON_DIST", 3474);
+			//office New Add
+			STAT_SET_BOOL("MPX_AWD_STRAIGHT_TO_VIDEO", true);
+			STAT_SET_BOOL("MPX_AWD_MONKEY_C_MONKEY_DO", true);
+			STAT_SET_BOOL("MPX_AWD_TRAINED_TO_KILL", true);
+			STAT_SET_BOOL("MPX_AWD_DIRECTOR", true);
+			STAT_SET_INT("MPX_AWD_ROBBERY_CONTRACT", 132);
+			STAT_SET_INT("MPX_AWD_FACES_OF_DEATH", 47);
+		} QUEUE_JOB_END_CLAUSE
+	}
+
+	static void night_clubs()
+	{
+		QUEUE_JOB_BEGIN_CLAUSE()
+		{
+			set_packed_int(22051, 50);//box
+			set_packed_int(22052, 100);//Bullet tin box 
+			set_packed_int(22053, 20);//Methamphetamine 
+			set_packed_int(22054, 80);//marijuana 
+			set_packed_int(22055, 60);//perjury 
+			set_packed_int(22056, 40);//Counterfeit bills 
+			set_packed_int(22057, 10);//cocaine 
+			set_packed_int(22058, 20);//Gold Business Battle Trophy
+			//Golden dancer
+			STAT_SET_INT("MPx_AWD_DANCE_TO_SOLOMUN", 360);
+		} QUEUE_JOB_END_CLAUSE
+	}
 
 	
 
