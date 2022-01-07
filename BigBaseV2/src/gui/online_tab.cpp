@@ -77,10 +77,9 @@ namespace big
 				static bool packed_bool_value = true;
 				const char* const packed_bools[]{ "_NGPSTAT_BOOL", "_NGTATPSTAT_BOOL", "_NGDLCPSTAT_BOOL", "_DLCBIKEPSTAT_BOOL", "_DLCGUNPSTAT_BOOL", "_GUNTATPSTAT_BOOL", "_DLCSMUGCHARPSTAT_BOOL", "_GANGOPSPSTAT_BOOL", "_BUSINESSBATPSTAT_BOOL", "_ARENAWARSPSTAT_BOOL", "_CASINOPSTAT_BOOL", "_CASINOHSTPSTAT_BOOL", "_HEIST3TATTOOSTAT_BOOL", "_SU20PSTAT_BOOL", "_SU20TATTOOSTAT_BOOL", "_HISLANDPSTAT_BOOL", "_TUNERPSTAT_BOOL""_FIXERPSTAT_BOOL","_FIXERTATTOOSTAT_BOOL" };
 				ImGui::PushItemWidth(300.f);
-				ImGui::Combo("Packed Bools", &packed_bool, packed_bools, (int)(sizeof(packed_bools) / sizeof(*packed_bools)));
+				ImGui::Combo("###Packed_Bools", &packed_bool, packed_bools, IM_ARRAYSIZE(packed_bools));
 				ImGui::PopItemWidth();
-				ImGui::SameLine();
-				ImGui::Checkbox("Packed Bool Value", &packed_bool_value);
+				ImGui::Checkbox("Unlock/Lock", &packed_bool_value);
 				ImGui::SameLine();
 				if (ImGui::Button("Apply Packed Bool"))
 				{
@@ -244,9 +243,8 @@ namespace big
 					}
 					}
 				}
+				ImGui::Text("_SU20PSTAT_BOOL -> Summer Update.\n_CASINOPSTAT_BOOL -> Casino DLC.\n_CASINOHSTPSTAT_BOOL -> Casino Heist DLC (arcade stuff etc.).\n_DLCGUNPSTAT_BOOL -> Gun Running DLC (bunker research).\n_ARENAWARSPSTAT_BOOL -> Arena Wars DLC.\n_HISLANDPSTAT_BOOL -> Cayo Perico Heist DLC (golden gun etc.).\n_DLCBIKEPSTAT_BOOL -> Bikers DLC.\n_TUNERPSTAT_BOOL -> Tuners DLC.");
 			}
-			ImGui::Text("_SU20PSTAT_BOOL -> Summer Update.\n_CASINOPSTAT_BOOL -> Casino DLC.\n_CASINOHSTPSTAT_BOOL -> Casino Heist DLC (arcade stuff etc.).\n_DLCGUNPSTAT_BOOL -> Gun Running DLC (bunker research).\n_ARENAWARSPSTAT_BOOL -> Arena Wars DLC.\n_HISLANDPSTAT_BOOL -> Cayo Perico Heist DLC (golden gun etc.).\n_DLCBIKEPSTAT_BOOL -> Bikers DLC.\n_TUNERPSTAT_BOOL -> Tuners DLC.");
-
 			ImGui::Separator();
 			if (ImGui::CollapsingHeader("other Unlocks"))
 			{
@@ -254,7 +252,7 @@ namespace big
 				static int unlock{};
 				const char* const unlocks[]{ "Magic", "Bools", "Ints", "Modded Run", "Cayo Perico Heist", "Arcade", "Bunker", "Reset Mental State", "Night Clubs Decorations", "Vehicles Wholesale Price","Facility Decorations(Maintenance Area)","Holiday and Other","Unhide Gunlocker Weapons" };
 				ImGui::PushItemWidth(300.f);
-				ImGui::Combo("Unlocks", &unlock, unlocks, (int)(sizeof(unlocks) / sizeof(*unlocks)));
+				ImGui::Combo("Unlocks", &unlock, unlocks, IM_ARRAYSIZE(unlocks));
 				ImGui::PopItemWidth();
 				ImGui::SameLine();
 				if (ImGui::Button("Unlock"))
@@ -559,7 +557,7 @@ namespace big
 					}
 				}
 			}
-
+			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Ballistic Equipment Value"))
 			{
 				ImGui::Text("Ballistic Equipment");
@@ -574,7 +572,7 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
-
+			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Diamond Casino Heist"))
 			{
 				diamond_casino_heist::do_presentation_layer();
