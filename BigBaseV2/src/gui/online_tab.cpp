@@ -333,8 +333,8 @@ namespace big
 					{
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
-							helper::Set_Stat_Bit("MPX_CAS_HEIST_FLOW", 9); //Hidden Gunner
-							helper::Arcade();
+							helper::set_stat_bit("MPX_CAS_HEIST_FLOW", 9); //Hidden Gunner
+							helper::arcade();
 						} QUEUE_JOB_END_CLAUSE
 							break;
 					}
@@ -428,7 +428,7 @@ namespace big
 					{
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
-							helper::Vehicles_Wholesale_Price();
+							helper::vehicles_wholesale_price();
 						} QUEUE_JOB_END_CLAUSE
 							break;
 					}
@@ -444,16 +444,14 @@ namespace big
 					{
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
-							helper::Other();
+							helper::other();
 						} QUEUE_JOB_END_CLAUSE
 							break;
 					}
 					case 12:
 					{
-						//int func_2723(int iParam0)
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
-							//int func_6717(int iParam0)
 							helper::set_packed_bool(7387, false);
 							helper::set_packed_bool(7388, false);
 							helper::set_packed_bool(7389, false);

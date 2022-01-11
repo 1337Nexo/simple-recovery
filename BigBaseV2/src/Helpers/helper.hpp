@@ -1,5 +1,4 @@
 ﻿#include "common.hpp"
-//#include "natives.hpp"
 #include "script.hpp"
 #include "local_player.hpp"
 #include "gta/enums.hpp"
@@ -18,7 +17,7 @@ namespace helper
 	{
 		bool outvalue = false;
 		outvalue = STATS::_GET_PACKED_STAT_BOOL(index, g_local_player.character_index);
-		LOG_INFO(u8"Get Packed Bool: Value: {} | Index:{}", outvalue, index);
+		LOG_INFO("Get Packed Bool: Value: {} | Index:{}", outvalue, index);
 		return outvalue;
 	}
 
@@ -52,11 +51,10 @@ namespace helper
 	{
 		int outvalue;
 		outvalue = STATS::_GET_PACKED_STAT_INT(index, g_local_player.character_index);
-		LOG_INFO(u8" Get Packed Int：Value: {} | Index:{}", outvalue, index);
+		LOG_INFO(" Get Packed Int：Value: {} | Index:{}", outvalue, index);
 		return outvalue;
 	}
 
-	//批量获取Packed Int
 	static void get_mass_packed_int(int min_i, int max_i)
 	{
 		for (auto index = min_i; index <= max_i; index++)
@@ -65,16 +63,13 @@ namespace helper
 		}
 	}
 
-
-	//Set Bit
-	static void Set_Stat_Bit(const std::string String_value, int bit)
+	static void set_stat_bit(const std::string String_value, int bit)
 	{
 		int value = 0;
 		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
 		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
 		const auto stat = rage::joaat(String_value_Complete.c_str());
 		STATS::STAT_GET_INT(stat, &value, true);
-		//MISC::SET_BIT(&value, bit);
 		value |= (1 << bit);
 		g_fiber_pool->queue_job([stat, value]
 			{
@@ -82,15 +77,13 @@ namespace helper
 			});
 	}
 
-	//Clear Bit
-	static void Clear_Stat_Bit(const std::string String_value, int bit)
+	static void clear_stat_bit(const std::string String_value, int bit)
 	{
 		int value = 0;
 		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
 		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
 		const auto stat = rage::joaat(String_value_Complete.c_str());
 		STATS::STAT_GET_INT(stat, &value, true);
-		//MISC::CLEAR_BIT(&value, bit);
 		value &= ~(1 << bit);
 		g_fiber_pool->queue_job([stat, value]
 			{
@@ -531,8 +524,8 @@ namespace helper
 		STAT_SET_INT("MPX_CHAR_FM_CARMOD_3_UNLCK", -1);
 		STAT_SET_INT("MPX_CHAR_FM_CARMOD_2_UNLCK", -1);
 		STAT_SET_INT("MPX_CHAR_FM_CARMOD_1_UNLCK", -1);
-		//STAT_SET_INT("MPX_USJS_FOUND", 50);
-		//STAT_SET_INT("MPX_USJS_COMPLETED", 50);
+		STAT_SET_INT("MPX_USJS_FOUND", 50);
+		STAT_SET_INT("MPX_USJS_COMPLETED", 50);
 		STAT_SET_INT("MPX_AWD_CONTROL_CROWDS", 25);
 		STAT_SET_INT("MPX_AWD_TRADE_IN_YOUR_PROPERTY", 25);
 		STAT_SET_INT("MPX_AWD_MENTALSTATE_TO_NORMAL", 25);
@@ -566,10 +559,10 @@ namespace helper
 		STAT_SET_INT("MPX_AWD_COINPURSE", 950000);
 		STAT_SET_INT("MPX_CH_ARC_CAB_CLAW_TROPHY", -1);
 		STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1);
-		//STAT_SET_INT("MPX_H3_COMPLETEDPOSIX", 0);
-		//STAT_SET_INT("MPX_CAS_HEIST_FLOW", -1);
-		//STAT_SET_INT("MPX_H3OPT_ACCESSPOINTS", -1);
-		//STAT_SET_INT("MPX_H3OPT_POI", -1);
+		STAT_SET_INT("MPX_H3_COMPLETEDPOSIX", 0);
+		STAT_SET_INT("MPX_CAS_HEIST_FLOW", -1);
+		STAT_SET_INT("MPX_H3OPT_ACCESSPOINTS", -1);
+		STAT_SET_INT("MPX_H3OPT_POI", -1);
 		STAT_SET_INT("MPX_AWD_LOSTANDFOUND", 500000);
 		STAT_SET_INT("MPX_AWD_SUNSET", 1800000);
 		STAT_SET_INT("MPX_AWD_TREASURE_HUNTER", 1000000);
@@ -580,8 +573,8 @@ namespace helper
 		STAT_SET_INT("MPX_AWD_FILL_YOUR_BAGS", 10000000);
 		STAT_SET_INT("MPX_AWD_WELL_PREPARED", 50);
 		STAT_SET_INT("MPX_H4_PLAYTHROUGH_STATUS", 3);
-		STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS", 127);
-		//STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS_CD", -1);
+		STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS", -1);
+		STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS_CD", -1);
 		STAT_SET_INT("MPX_AWD_ODD_JOBS", 52);
 		STAT_SET_INT("MPX_VCM_FLOW_PROGRESS", 1839072);
 		STAT_SET_INT("MPX_VCM_STORY_PROGRESS", 0);
@@ -599,181 +592,107 @@ namespace helper
 		STAT_SET_INT("MPX_CHAR_FM_CARMOD_7_UNLCK", 0xFFFFFFFF);
 		STAT_SET_INT("MPX_CHAR_FM_VEHICLE_1_UNLCK", 0xFFFFFFFF);
 		STAT_SET_INT("MPX_CHAR_FM_VEHICLE_2_UNLCK", 0xFFFFFFFF);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_1_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_2_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_3_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_4_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_5_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_6_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_7_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_8_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_9_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_10_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_11_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_12_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_13_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_14_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_15_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_16_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_17_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_18_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_19_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED2", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED3", -1);
-		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED4", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_1_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_2_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_3_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_4_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_5_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_6_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_7_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_8_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_9_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_10_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_11_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_12_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_13_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_14_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_15_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_16_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_17_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_18_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_19_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_20_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_21_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_22_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_23_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_24_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_25_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_26_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_27_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_28_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_29_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_30_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_31_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_32_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_33_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_34_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_35_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_36_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_37_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_38_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_39_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_40_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_41_FM_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE2", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE3", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE4", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE5", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE6", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE7", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE8", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE9", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE10", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE11", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE12", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE13", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE14", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE15", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE16", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE17", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE18", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE19", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE20", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE21", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE22", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE23", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE24", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE25", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE26", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE27", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE28", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE29", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE30", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE31", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE32", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE33", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE34", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE35", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE36", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE37", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE38", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE39", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE40", -1);
-		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE41", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_0", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_1", -1);
-		//STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_2", -1);//R星认证
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_3", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_4", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_5", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_6", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_7", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_8", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_9", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_10", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_11", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_12", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_13", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_14", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_15", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_16", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_17", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_18", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_19", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_20", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_21", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_22", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_23", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_24", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_25", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_26", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_27", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_28", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_29", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_30", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_31", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_32", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_33", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_34", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_35", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_36", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_37", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_38", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_39", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_40", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_41", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_42", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_43", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_44", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_45", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_46", -1);
-		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_47", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_1_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_2_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_3_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_4_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_5_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_6_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_7_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_8_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_9_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_10_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_11_UNLCK", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_1_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_2_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_3_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_4_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_5_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_6_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_7_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_8_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_9_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_10_OWNED", -1);
-		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_11_OWNED", -1);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_1_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_2_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_3_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_4_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_ADDON_5_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_WEAP_UNLOCKED2", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_10_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_11_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_12_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_1_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_2_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_3_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_4_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_5_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_6_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_7_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_8_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_9_FM_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE10", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE11", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE12", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE2", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE3", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE4", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE5", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE6", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE7", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE8", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_KIT_FM_PURCHASE9", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_0", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_1", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_2", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_3", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_4", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_5", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_6", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_7", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_8", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_9", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_10", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_11", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_12", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_13", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_14", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_15", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_16", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_17", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_18", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_19", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_20", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_21", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_22", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_23", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_24", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_25", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_26", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_27", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_28", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_29", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_30", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_31", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_32", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_33", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_34", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_35", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_36", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_37", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_38", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_39", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_40", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_41", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_42", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_43", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_44", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_45", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_46", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_TATTOO_FM_UNLOCKS_47", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_1_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_2_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_3_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_4_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_5_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_6_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_7_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_8_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_9_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_10_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_11_UNLCK", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_1_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_2_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_3_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_4_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_5_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_6_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_7_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_8_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_9_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_10_OWNED", 0xFFFFFFFF);
+		STAT_SET_INT("MPX_CHAR_FM_CLOTHES_11_OWNED", 0xFFFFFFFF);
 		STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_0", 50);
 		STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_1", 50);
 		STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_2", 50);
@@ -784,7 +703,7 @@ namespace helper
 		STAT_SET_INT("MPX_CRDEADLINE", 5);
 	}
 
-	static void Other()
+	static void other()
 	{
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
@@ -792,7 +711,8 @@ namespace helper
 			*script_global(262145 + 7980).as<int64_t*>() = 1; //UNLOCKBITCHNDOGFOODTSHIRTEVENT
 			*script_global(262145 + 7981).as<int64_t*>() = 1; //UNLOCKVINYLCOUNTDOWNTSHIRTEVENT
 			*script_global(262145 + 7982).as<int64_t*>() = 1; //UNLOCKHOMIESSHARPTSHIRTEVENT
-			//Valentine Unlocks 1.58:情人节
+
+			//Valentine Unlocks 1.58:
 			*script_global(262145 + 6856).as<int64_t*>() = 1; //TURN_ON_VALENTINES_EVENT
 			*script_global(262145 + 11819).as<int64_t*>() = 1; //TURN_ON_VALENTINE_WEAPON"
 			*script_global(262145 + 11820).as<int64_t*>() = 1;//TURN_ON_VALENTINE_VEHICLE
@@ -802,7 +722,7 @@ namespace helper
 			*script_global(262145 + 13185).as<int64_t*>() = 1; //TURN_ON_VALENTINE_2016_CLOTHING"
 			*script_global(262145 + 13186).as<int64_t*>() = 1; //TURN_ON_VALENTINE_2016_VEHICLE"
 
-			//Independance Day Unlocks 1.58: 独立日
+			//Independance Day Unlocks 1.58:
 			*script_global(262145 + 8051).as<int64_t*>() = 1; //toggle_activate_independence_pack"
 			*script_global(262145 + 8056).as<int64_t*>() = 1; //INDEPENDENCE_DAY_FIREWORKS_TYPE_1"
 			*script_global(262145 + 8057).as<int64_t*>() = 1; //INDEPENDENCE_DAY_FIREWORKS_TYPE_2"
@@ -837,7 +757,6 @@ namespace helper
 			*script_global(262145 + 8094).as<int64_t*>() = 1; //Supa Wet" Beer Hat
 			*script_global(262145 + 8095).as<int64_t*>() = 1; //Statue of Happiness T-shirt"
 
-			//万圣节
 			*script_global(262145 + 12352).as<int64_t*>() = 1; //HALLOWEEN_2015_BRUNETTE_CORPSE_BRIDE_BOBBLEHEAD"
 			*script_global(262145 + 12353).as<int64_t*>() = 1; //HALLOWEEN_2015_WHITE_CORPSE_BRIDE_BOBBLEHEAD"
 			*script_global(262145 + 12354).as<int64_t*>() = 1; //HALLOWEEN_2015_PINK_CORPSE_BRIDE_BOBBLEHEAD"
@@ -860,6 +779,7 @@ namespace helper
 			*script_global(262145 + 12371).as<int64_t*>() = 1; //HALLOWEEN_2015_DARK_WEREWOLF_BOBBLEHEAD"
 			*script_global(262145 + 12372).as<int64_t*>() = 1; //HALLOWEEN_2015_GREY_WEREWOLF_BOBBLEHEAD"
 			*script_global(262145 + 12373).as<int64_t*>() = 1; //HALLOWEEN_2015_FLESHY_VAMPIRE_BOBBLEHEAD"
+
 			//Halloween Unlocks 1.58:
 			*script_global(262145 + 11785).as<int64_t*>() = 1; //turn_on_halloween_event"
 			*script_global(262145 + 11825).as<int64_t*>() = 1; //enable_heist_masks_halloween"
@@ -873,7 +793,7 @@ namespace helper
 			*script_global(262145 + 11848).as<int64_t*>() = 1; //TURN_ON_HALLOWEEN_ANIMS"
 			*script_global(262145 + 12491).as<int64_t*>() = 1; //TURN_ON_HALLOWEEN_SOUNDS"
 			*script_global(262145 + 17287).as<int64_t*>() = 1; //enable_biker_sanctus"
-			//圣诞节
+
 			//X - Mas 201x - 2021 Unlocks 1.58:
 			//*script_global(262145 + 4723).as<int64_t*>() = 1; //Turn On Snow
 			*script_global(262145 + 4734).as<int64_t*>() = 1; //Toggle xmas content
@@ -935,16 +855,19 @@ namespace helper
 			*script_global(262145 + 9237).as<int64_t*>() = 1; // "TATTOOS_XMAS14_FUCK_LUCK_COLOR
 			*script_global(262145 + 9238).as<int64_t*>() = 1; // "TATTOOS_XMAS14_EXECUTIONER
 			*script_global(262145 + 9239).as<int64_t*>() = 1; // "TATTOOS_XMAS14_BEAUTIFUL_DEATH
+
 			//Bodysuits:
 			*script_global(262145 + 23175).as<int64_t*>() = 1; //Bodysuit Green
 			*script_global(262145 + 23176).as<int64_t*>() = 1; //Bodysuit Orange
 			*script_global(262145 + 23177).as<int64_t*>() = 1; //Bodysuit Blue
 			*script_global(262145 + 23178).as<int64_t*>() = 1; //Bodysuit Pink
 			*script_global(262145 + 23179).as<int64_t*>() = 1; //Bodysuit Yellow
+
 			//Free items :
 			*script_global(262145 + 25482).as<int64_t*>() = 1; //Free Vapid Clique with Merry Cliquemas
 			*script_global(262145 + 25483).as<int64_t*>() = 1; //Free Nagasaki Buzzard Attack Chopper
 			*script_global(262145 + 25484).as<int64_t*>() = 1; //Free HVY Insurgent Pick - Up
+
 			//Other gifts, items:
 			*script_global(262145 + 8977).as<int64_t*>() = 1; // 2014_christmas_day_gift: exclusive stocking mask, firework launcher, etc.
 			*script_global(262145 + 9240).as<int64_t*>() = 1; // 2014_christmas_eve_gift: firework launcher + 5 fireworks
@@ -956,41 +879,51 @@ namespace helper
 			*script_global(262145 + 23182).as<int64_t*>() = 1; //full snacks(holiday)
 			*script_global(262145 + 23183).as<int64_t*>() = 1; //full ammo(holiday)
 			*script_global(262145 + 23971).as<int64_t*>() = 1; //Free RC Tank or idk what is this (-1029230616 hash from tuneables processing.c)
+
 			//Christmas clothing :
 			*script_global(262145 + 12500).as<int64_t*>() = 1; //Festive masks(2015)
 			*script_global(262145 + 12502).as<int64_t*>() = 1; //Festive Pajamas(2015)
 			*script_global(262145 + 19050).as<int64_t*>() = 1; // "christmas2016_clothing"
 			*script_global(262145 + 22824).as<int64_t*>() = 1; // "christmas2017_clothing"
+
 			//2015:
 			*script_global(262145 + 12605).as<int64_t*>() = 1; // 2015_christmas_eve_gift: fireworks launcher, fireworks
 			*script_global(262145 + 12606).as<int64_t*>() = 1; // 2015_new_years_eve_gift: fireworks launcher, fireworks
 			*script_global(262145 + 12607).as<int64_t*>() = 1; // 2015_new_years_day_gift: fireworks launcher, fireworks
 			*script_global(262145 + 12608).as<int64_t*>() = 1; // 2015_christmas_day_gift: abominable snowman mask, set of pajamas, naughty cap, etc.
+
 			//2016 :
 			*script_global(262145 + 18909).as<int64_t*>() = 1; // 2016_christmas_eve_gift
 			*script_global(262145 + 18910).as<int64_t*>() = 1; // 2016_new_years_eve_gift
 			*script_global(262145 + 18911).as<int64_t*>() = 1; // 2016_new_years_day_gift
 			*script_global(262145 + 18912).as<int64_t*>() = 1; // 2016_christmas_day_gift
+
 			//2017:
 			*script_global(262145 + 23202).as<int64_t*>() = 1; // 2017 christmas eve gift : odious krampus mask, black ammu - nation hoodie, etc.
 			*script_global(262145 + 23203).as<int64_t*>() = 1; // 2017_new_years_eve_gift: hideous krampus mask, vivisection t - shirt, etc.
 			*script_global(262145 + 23204).as<int64_t*>() = 1; // 2017_new_years_day_gift: fearsome krampus mask, fake dix white t - shirt, etc.
 			*script_global(262145 + 23205).as<int64_t*>() = 1; // 2017_christmas_day_gift: heinous krampus mask, one free albany hermes, etc.
+
 			//2018:
 			*script_global(262145 + 25486).as<int64_t*>() = 1; // 2018_christmas_eve_gift: black & white bones festive sweater, firework launcher, etc.
 			*script_global(262145 + 25487).as<int64_t*>() = 1; // 2018_new_years_eve_gift: black & red bones festive sweater, one free hvy insurgent pick - up, etc.
 			*script_global(262145 + 25488).as<int64_t*>() = 1; // 2018_new_years_day_gift: red bones festive sweater, firework launcher, etc.
 			*script_global(262145 + 25489).as<int64_t*>() = 1; // 2018_christmas_day_gift: slasher festive sweater, one free vapid clique, up - n - atomizer, etc.
+
 			//2019:
 			*script_global(262145 + 28338).as<int64_t*>() = 1; // 2019_christmas_eve_gift: green reindeer lights bodysuit, firework launcher, etc.
 			*script_global(262145 + 28339).as<int64_t*>() = 1; // 2019_new_years_eve_gift: yellow reindeer lights bodysuit, firework launcher, etc.
 			*script_global(262145 + 28340).as<int64_t*>() = 1; // 2019_new_years_day_gift: neon festive lights bodysuit, firework launcher, etc.
 			*script_global(262145 + 28341).as<int64_t*>() = 1; // 2019_christmas_day_gift: minigun sweater, festive lights bodysuit, firework launcher, etc.
+
 			//2020:
+
 			*script_global(262145 + 30536).as<int64_t*>() = 1; // 2020_christmas_eve_gift: vibrant stitch emissive mask, firework launcher, etc.
+
 			//2021:
 			*script_global(262145 + 31382).as<int64_t*>() = 1; // 2021_chrtismas_day_gift
 			*script_global(262145 + 31383).as<int64_t*>() = 1; // 2021_new_years_gift
+
 			//Unlock Caps :
 			*script_global(262145 + 20902).as<int64_t*>() = 1; //BLACK_AMMUNATION_CAP
 			*script_global(262145 + 20905).as<int64_t*>() = 1; //BLACK_COIL_CAP
@@ -1000,6 +933,7 @@ namespace helper
 			*script_global(262145 + 20922).as<int64_t*>() = 1; //WHITE_SHREWSBURY_CAP
 			*script_global(262145 + 20925).as<int64_t*>() = 1; //WHITE_VOM_FEUER_CAP
 			*script_global(262145 + 20927).as<int64_t*>() = 1; //WINE_COIL_CAP
+
 			//Unlock Hats :
 			*script_global(262145 + 12380).as<int64_t*>() = 1; // "Magnetics Script Hat"
 			*script_global(262145 + 12381).as<int64_t*>() = 1; // "Magnetics Block Hat"
@@ -1011,6 +945,7 @@ namespace helper
 			*script_global(262145 + 12387).as<int64_t*>() = 1; // "Strawberry Hat"
 			*script_global(262145 + 12388).as<int64_t*>() = 1; // "S.A. Hat"
 			*script_global(262145 + 12389).as<int64_t*>() = 1; // "Davis Hat"
+
 			//Brands Shirts :
 			*script_global(262145 + 14971).as<int64_t*>() = 1; // "Accountant Shirt"
 			*script_global(262145 + 14972).as<int64_t*>() = 1; // "Bahamamamas Shirt"
@@ -1034,6 +969,7 @@ namespace helper
 			*script_global(262145 + 23983).as<int64_t*>() = 1; // "Victory Fist T-Shirt"
 			*script_global(262145 + 23986).as<int64_t*>() = 1; // "Homie Sharp T-Shirt"
 			*script_global(262145 + 8095).as<int64_t*>() = 1; // "Statue of Happiness T-shirt"
+
 			//Knock Offs T - shirts:
 			*script_global(262145 + 23989).as<int64_t*>() = 1; // "Fake Perseus T-Shirt"
 			*script_global(262145 + 23990).as<int64_t*>() = 1; // "Fake Santo Capra T-Shirt"
@@ -1045,6 +981,7 @@ namespace helper
 			*script_global(262145 + 23996).as<int64_t*>() = 1; // "Fake Seesanta Nove T-Shirt"
 			*script_global(262145 + 23997).as<int64_t*>() = 1; // "Fake Didier Sachs T-Shirt"
 			*script_global(262145 + 23998).as<int64_t*>() = 1; // "Fake Vapid T-Shirt"
+
 			//Manufactures:
 			*script_global(262145 + 14975).as<int64_t*>() = 1; // "Grotti Shirt"
 			*script_global(262145 + 17331).as<int64_t*>() = 1; // "Western Brand White Tee"
@@ -1069,6 +1006,7 @@ namespace helper
 			*script_global(262145 + 17350).as<int64_t*>() = 1; // "Nagasaki Black Hoodie"
 			*script_global(262145 + 17351).as<int64_t*>() = 1; // "Purple Helmets Black Hoodie"
 			*script_global(262145 + 17352).as<int64_t*>() = 1; // "Principe Hoodie Black"
+
 			//Movie shirts :
 			*script_global(262145 + 11744).as<int64_t*>() = 1; // "MELTDOWN"
 			*script_global(262145 + 11745).as<int64_t*>() = 1; // "VINEWOOD_ZOMBIE"
@@ -1094,6 +1032,7 @@ namespace helper
 			*script_global(262145 + 12401).as<int64_t*>() = 1; // "Psycho Swingers Shirt"
 			*script_global(262145 + 12402).as<int64_t*>() = 1; // "Vampires On The Beach Shirt"
 			*script_global(262145 + 14978).as<int64_t*>() = 1; // "Meltdown Shirt
+
 			//Radio Station T - shirts:
 			*script_global(262145 + 23972).as<int64_t*>() = 1; // "Emotion 98.3 Radio T-Shirt"
 			*script_global(262145 + 23977).as<int64_t*>() = 1; // "KJAH Radio T-Shirt"
@@ -1122,6 +1061,7 @@ namespace helper
 			*script_global(262145 + 24514).as<int64_t*>() = 1; // "Soulwax FM T-Shirt"
 			*script_global(262145 + 24515).as<int64_t*>() = 1; // "Blue Ark T-Shirt"
 			*script_global(262145 + 24516).as<int64_t*>() = 1; // "Blaine County Radio T-Shirt"
+
 			//Clubs T - shirts:'
 			*script_global(262145 + 24457).as<int64_t*>() = 1; // "Maisonette Los Santos T-Shirt"
 			*script_global(262145 + 24458).as<int64_t*>() = 1; // "Studio Los Santos T-Shirt"
@@ -1132,6 +1072,7 @@ namespace helper
 			*script_global(262145 + 24463).as<int64_t*>() = 1; // "Paradise T-Shirt"
 			*script_global(262145 + 24464).as<int64_t*>() = 1; // "The Palace T-Shirt"
 			*script_global(262145 + 24465).as<int64_t*>() = 1; // "Tony's Fun House T-Shirt"
+
 			//DJ T - shirts:
 			*script_global(262145 + 24672).as<int64_t*>() = 1; // "White Solomun Logo Tee"
 			*script_global(262145 + 24673).as<int64_t*>() = 1; // "White Solomun Pocket Logo Tee"
@@ -1157,6 +1098,7 @@ namespace helper
 			*script_global(262145 + 24693).as<int64_t*>() = 1; // "White The Black Madonna Init. Tee"
 			*script_global(262145 + 24694).as<int64_t*>() = 1; // "Black The Black Madonna Init. Tee"
 			*script_global(262145 + 24695).as<int64_t*>() = 1; // "The Black Madonna We Believe Tee"
+
 			//Unlock Hoodies :
 			*script_global(262145 + 20903).as<int64_t*>() = 1; // "BLACK_AMMUNATION_HOODIE"
 			*script_global(262145 + 20907).as<int64_t*>() = 1; // "BLACK_HAWK_AND_LITTLE_HODDIE"
@@ -1166,6 +1108,7 @@ namespace helper
 			*script_global(262145 + 20919).as<int64_t*>() = 1; // "WHITE_HAWK_AND_LITTLE_HOODIE"
 			*script_global(262145 + 20923).as<int64_t*>() = 1; // "WHITE_SHREWSBURY_HOODIE"
 			*script_global(262145 + 20926).as<int64_t*>() = 1; // "WHITE_VOM_FEUER_HOODIE
+
 			//Unlock Shirts :
 			*script_global(262145 + 20904).as<int64_t*>() = 1; // "BLACK_AMMUNATION_TEE"
 			*script_global(262145 + 20906).as<int64_t*>() = 1; // "BLACK_COIL_TEE"
@@ -1191,12 +1134,14 @@ namespace helper
 			*script_global(262145 + 20939).as<int64_t*>() = 1; // "ROCKSTAR_LOGO_BLACKED_OUT_TEE"
 			*script_global(262145 + 20940).as<int64_t*>() = 1; // "ROCKSTAR_LOGO_WHITE_OUT_TEE"
 			*script_global(262145 + 25377).as<int64_t*>() = 1; // "Kifflom Tee"
+
 			//Wireframe Bodysuits :
 			*script_global(262145 + 23175).as<int64_t*>() = 1; // "Green Wireframe Bodysuit"
 			*script_global(262145 + 23176).as<int64_t*>() = 1; // "Orange Wireframe Bodysuit"
 			*script_global(262145 + 23177).as<int64_t*>() = 1; // "Blue Wireframe Bodysuit"
 			*script_global(262145 + 23178).as<int64_t*>() = 1; // "Pink Wireframe Bodysuit"
 			*script_global(262145 + 23179).as<int64_t*>() = 1; // "Yellow Wireframe Bodysuit"
+
 			//Stunt Suits :
 			*script_global(262145 + 16590).as<int64_t*>() = 1; // "White Jock Cranley Suit"
 			*script_global(262145 + 16591).as<int64_t*>() = 1; // "Blue Jock Cranley Suit"
@@ -1276,6 +1221,7 @@ namespace helper
 			*script_global(262145 + 25555).as<int64_t*>() = 1; // "Coil Raiden Tee"
 			*script_global(262145 + 25556).as<int64_t*>() = 1; // "Declasse Logo Tee"
 			*script_global(262145 + 25557).as<int64_t*>() = 1; // "Declasse Girl Tee"
+
 			//Festive Sweaters :
 			*script_global(262145 + 25558).as<int64_t*>() = 1; // "Burger Shot Festive Sweater"
 			*script_global(262145 + 25559).as<int64_t*>() = 1; // "Red Bleeder Festive Sweater"
@@ -1292,11 +1238,11 @@ namespace helper
 			// dont's work
 			*script_global(262145 + 27530).as<int64_t*>() = 1;//Lucky 7s -- (197291252)
 			*script_global(262145 + 27537).as<int64_t*>() = 1;//Royals-- (-437644925)
-
 			*script_global(262145 + 27178).as<int64_t*>() = 1; //Ace Mask
 			*script_global(262145 + 27179).as<int64_t*>() = 1;//Ace Mask
 			*script_global(262145 + 27180).as<int64_t*>() = 1;//Ace Mask
 			*script_global(262145 + 27181).as<int64_t*>() = 1;//Ace Mask
+
 			//Paintings:
 			*script_global(262145 + 27593).as<int64_t*>() = 18200;// Howler
 			*script_global(262145 + 27659).as<int64_t*>() = 22500;// Stay Connected
@@ -1306,10 +1252,11 @@ namespace helper
 			*script_global(262145 + 27851).as<int64_t*>() = 22500;// (chips)Skull
 			*script_global(262145 + 27852).as<int64_t*>() = 22500;// (chips)Skull
 			*script_global(262145 + 27853).as<int64_t*>() = 22500;// (chips)Skull
+
 			//- Returning player bonus content offline / online:
 			*script_global(151754).as<int64_t*>() = 2;
-			/*OG T - Shirts: Free(there are 4)
 
+			/*OG T - Shirts: Free(there are 4)
 			Bravado Sprunk Buffalo Free
 			Duke O'Death Free
 			Declasse Burger Shot Stallion Free
@@ -1320,9 +1267,11 @@ namespace helper
 			Dodo Free
 			Kraken Free
 			Cheval Marshall Free*/
+
 			//Raygun:
 			* script_global(102764).as<int64_t*>() = 90;
 			*script_global(102765).as<int64_t*>() = 1;
+
 			//-1.58 -
 			*script_global(262145 + 31437).as<int64_t*>() = 1;//Mask
 			*script_global(262145 + 31438).as<int64_t*>() = 1; //- Mask
@@ -1335,6 +1284,7 @@ namespace helper
 			*script_global(262145 + 31446).as<int64_t*>() = 1;// - Mask
 			*script_global(262145 + 31447).as<int64_t*>() = 1;// - Mask
 			*script_global(262145 + 31448).as<int64_t*>() = 1; //- Mask
+
 			/*Clothes*/
 			*script_global(262145 + 31449).as<int64_t*>() = 1; //DJ T - shirts
 			*script_global(262145 + 31450).as<int64_t*>() = 1;// DJ T - shirts
@@ -1342,23 +1292,22 @@ namespace helper
 		} QUEUE_JOB_END_CLAUSE
 	}
 
-	static void Vehicles_Wholesale_Price()
+	static void vehicles_wholesale_price()
 	{
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
-			set_packed_int(22063, 20);//冲冲猴旅行家
-			STAT_SET_INT("MPX_CHAR_FM_VEHICLE_1_UNLCK", 8388576);//公寓载具批发价
-			STAT_SET_INT("MPX_CRDEADLINE", 5);//正太郎
-			STAT_SET_INT("MPX_AT_FLOW_VEHICLE_BS", 255);//进出口大亨载具
-			STAT_SET_INT("MPX_WVM_FLOW_VEHICLE_BS", 255);//军火走私载具
-			STAT_SET_INT("MPX_GANGOPS_FLOW_BITSET_MISS0", 65535);//末日抢劫载具
-			STAT_SET_INT("MPX_H3_VEHICLESUSED", 8388607);//钻石赌场抢劫载具
-			STAT_SET_INT("MPX_LFETIME_HANGAR_BUY_UNDETAK", 48);//机库载具
-			STAT_SET_INT("MPX_HANGAR_BUY_COMPLET", 48);//机库载具
-			set_packed_int(22050, 5);//夜总会 恐霸批发价
-			STAT_SET_INT("MPX_HUB_SALES_COMPLETED", 10);//夜总会 跑德改装版 猛骡改装版
-			STAT_SET_INT("MPx_NIGHTCLUB_JOBS_DONE", 10);//夜总会 具象爱国者 飞船 音乐巴士
-			//佩里克岛抢劫
+			set_packed_int(22063, 20);
+			STAT_SET_INT("MPX_CHAR_FM_VEHICLE_1_UNLCK", 8388576);
+			STAT_SET_INT("MPX_CRDEADLINE", 5);
+			STAT_SET_INT("MPX_AT_FLOW_VEHICLE_BS", 255);
+			STAT_SET_INT("MPX_WVM_FLOW_VEHICLE_BS", 255);
+			STAT_SET_INT("MPX_GANGOPS_FLOW_BITSET_MISS0", 65535);
+			STAT_SET_INT("MPX_H3_VEHICLESUSED", 8388607);
+			STAT_SET_INT("MPX_LFETIME_HANGAR_BUY_UNDETAK", 48);
+			STAT_SET_INT("MPX_HANGAR_BUY_COMPLET", 48);
+			set_packed_int(22050, 5);
+			STAT_SET_INT("MPX_HUB_SALES_COMPLETED", 10);
+			STAT_SET_INT("MPx_NIGHTCLUB_JOBS_DONE", 10);
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_VETIR", true);
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_LONGFIN", true);
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_ANNIH", true);
@@ -1369,51 +1318,53 @@ namespace helper
 	}
 
 
-	static void Arcade()
+	static void arcade()
 	{
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
 			//CASINO Hidden Gunner
-			Set_Stat_Bit("MPX_CAS_HEIST_FLOW", 9);
-			STAT_SET_BOOL("MPX_AWD_DEADEYE", true); //奖章：死神之眼
-			STAT_SET_BOOL("MPX_AWD_PISTOLSATDAWN", true);//奖章：枪战对决
-			STAT_SET_BOOL("MPX_AWD_TRAFFICAVOI", true);//奖章：无视交通
-			STAT_SET_BOOL("MPX_AWD_CANTCATCHBRA", true); //奖章：全速前进
-			STAT_SET_BOOL("MPX_AWD_WIZHARD", true);//奖章：醉生梦死
-			STAT_SET_BOOL("MPX_AWD_APEESCAPE", true);//奖章：逃生猿
-			STAT_SET_BOOL("MPX_AWD_MONKEYKIND", true);//奖章：心猿
-			STAT_SET_BOOL("MPX_AWD_AQUAAPE", true);//奖章：潜水猿
-			STAT_SET_BOOL("MPX_AWD_KEEPFAITH", true);// 奖章：坚持信念
-			STAT_SET_BOOL("MPX_AWD_TRUELOVE", true);//奖章：真爱
-			STAT_SET_BOOL("MPX_AWD_NEMESIS", true); //奖章：克星
-			STAT_SET_BOOL("MPX_AWD_FRIENDZONED", true); //奖章：好人卡
+			set_stat_bit("MPX_CAS_HEIST_FLOW", 9);
+			STAT_SET_BOOL("MPX_AWD_DEADEYE", true);
+			STAT_SET_BOOL("MPX_AWD_PISTOLSATDAWN", true);
+			STAT_SET_BOOL("MPX_AWD_TRAFFICAVOI", true);
+			STAT_SET_BOOL("MPX_AWD_CANTCATCHBRA", true);
+			STAT_SET_BOOL("MPX_AWD_WIZHARD", true);
+			STAT_SET_BOOL("MPX_AWD_APEESCAPE", true);
+			STAT_SET_BOOL("MPX_AWD_MONKEYKIND", true);
+			STAT_SET_BOOL("MPX_AWD_AQUAAPE", true);
+			STAT_SET_BOOL("MPX_AWD_KEEPFAITH", true);
+			STAT_SET_BOOL("MPX_AWD_TRUELOVE", true);
+			STAT_SET_BOOL("MPX_AWD_NEMESIS", true);
+			STAT_SET_BOOL("MPX_AWD_FRIENDZONED", true);
 			STAT_SET_BOOL("MPX_IAP_CHALLENGE_0", true);
 			STAT_SET_BOOL("MPX_IAP_CHALLENGE_1", true);
 			STAT_SET_BOOL("MPX_IAP_CHALLENGE_2", true);
 			STAT_SET_BOOL("MPX_IAP_CHALLENGE_3", true);
 			STAT_SET_BOOL("MPX_IAP_CHALLENGE_4", true);
-			STAT_SET_BOOL("MPX_IAP_GOLD_TANK", true);//黄金坦克
+			STAT_SET_BOOL("MPX_IAP_GOLD_TANK", true);
 			STAT_SET_BOOL("MPX_SCGW_WON_NO_DEATHS", true);
-			STAT_SET_BOOL("MPX_AWD_KINGOFQUB3D", true);//章：Qub3d 之王
-			STAT_SET_BOOL("MPX_AWD_QUBISM", true);//奖章：立体派
-			STAT_SET_BOOL("MPX_AWD_QUIBITS", true);//奖章：Q位元
-			STAT_SET_BOOL("MPX_AWD_GODOFQUB3D", true); //奖章：Qub3d 之神
-			STAT_SET_BOOL("MPX_AWD_GOFOR11TH", true);//奖章：最佳之最
-			STAT_SET_BOOL("MPX_AWD_ELEVENELEVEN", true);//奖章：11 11
+			STAT_SET_BOOL("MPX_AWD_KINGOFQUB3D", true);
+			STAT_SET_BOOL("MPX_AWD_QUBISM", true);
+			STAT_SET_BOOL("MPX_AWD_QUIBITS", true);
+			STAT_SET_BOOL("MPX_AWD_GODOFQUB3D", true);
+			STAT_SET_BOOL("MPX_AWD_GOFOR11TH", true);
+			STAT_SET_BOOL("MPX_AWD_ELEVENELEVEN", true);
+
 			//Int values
-			STAT_SET_INT("MPX_CH_ARC_CAB_CLAW_TROPHY", -1);// 展柜奖杯：肉球（Humpty）
-			STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1); //展柜奖杯：月老
-			STAT_SET_INT("MPX_AWD_SHARPSHOOTER", 44);//奖章：神枪手
-			STAT_SET_INT("MPX_AWD_RACECHAMP", 54);//奖章：竞速冠军
-			STAT_SET_INT("MPX_AWD_BATSWORD", 1000300);// 奖章：铂金剑
-			STAT_SET_INT("MPX_AWD_COINPURSE", 950011);//奖章：零钱包
-			STAT_SET_INT("MPX_AWD_ASTROCHIMP", 3340000);//奖章：太空猿
-			STAT_SET_INT("MPX_AWD_MASTERFUL", 42200);//奖章：精通
-			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_0", 51);//喷漆罐
-			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_1", 62);//喷漆罐
-			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_2", 56);//喷漆罐
-			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_3", 71);//喷漆罐
+			STAT_SET_INT("MPX_CH_ARC_CAB_CLAW_TROPHY", -1);
+			STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1); 
+			STAT_SET_INT("MPX_AWD_SHARPSHOOTER", 44);
+			STAT_SET_INT("MPX_AWD_RACECHAMP", 54);
+			STAT_SET_INT("MPX_AWD_BATSWORD", 1000300);
+			STAT_SET_INT("MPX_AWD_COINPURSE", 950011);
+			STAT_SET_INT("MPX_AWD_ASTROCHIMP", 3340000);
+			STAT_SET_INT("MPX_AWD_MASTERFUL", 42200);
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_0", 51);
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_1", 62);
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_2", 56);
+			STAT_SET_INT("MPX_SCGW_NUM_WINS_GANG_3", 71);
 			STAT_SET_INT("MPX_IAP_MAX_MOON_DIST", 3474);
+
 			//office New Add
 			STAT_SET_BOOL("MPX_AWD_STRAIGHT_TO_VIDEO", true);
 			STAT_SET_BOOL("MPX_AWD_MONKEY_C_MONKEY_DO", true);

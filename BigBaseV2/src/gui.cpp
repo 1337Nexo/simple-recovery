@@ -17,7 +17,6 @@
 #include "gui/stat_editor.h"
 #include "gui/stat_loader.h"
 #include "gui/settings_tab.h"
-//#include "gui/diamond_casino_heist.h"
 
 namespace big
 {
@@ -43,7 +42,6 @@ namespace big
 		ImGui::GetStyle().Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.00, 1.00, 1.00, 0.27);
 	}
 
-
 	void gui::dx_on_tick()
 	{
 		TRY_CLAUSE
@@ -56,7 +54,6 @@ namespace big
 				stat_editor::render();
 				stat_loader::render();
 				settings_tab::render();
-				//diamond_casino_heist::do_presentation_layer();
 				ImGui::EndTabBar();
 			}
 			ImGui::End();

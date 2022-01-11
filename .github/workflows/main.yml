@@ -4,7 +4,9 @@ on:
   push: 
     branches: 
       - main
-      - no-g3log
+  pull_request: 
+    branches: 
+      - main
       
 jobs:
   build:
