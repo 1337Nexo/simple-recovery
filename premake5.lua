@@ -19,7 +19,7 @@ workspace "BigBaseV2"
   IncludeDir["ImGuiImpl"] = "vendor/ImGui/examples"
   
   CppVersion = "C++17"
-  MsvcToolset = "v142"
+  MsvcToolset = "v143"
   WindowsSdkVersion = "10.0"
   
   function DeclareMSVCOptions()

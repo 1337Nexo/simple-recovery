@@ -10,16 +10,15 @@ on:
       
 jobs:
   build:
-    runs-on: windows-2019
-    env:
-      VS_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\
-      MSBUILD_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\
+    runs-on: windows-2022
   
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Checkout submodules
-      run: git submodule update --init --recursive
+      with:
+        submodules: recursive
+
+    - name: Setup msbuild
+      uses: microsoft/setup-msbuild@v1.1
     
     - name: Setup premake
       uses: abel0b/setup-premake@v1
@@ -27,14 +26,14 @@ jobs:
     - name: Generate project files using Premake  
       run: |
         ls .premake
-        premake5 vs2019
+        premake5 vs2022
         
     - name: Build BigBaseV2
       shell: cmd
-      run: '"%MSBUILD_PATH%\MSBuild.exe" BigBaseV2/BigBaseV2.vcxproj /p:Platform=x64 /p:Configuration=Dist'
+      run: 'msbuild BigBaseV2/BigBaseV2.vcxproj /p:Platform=x64 /p:Configuration=Release'
       
     - name: Upload binaries to GitHub
       uses: actions/upload-artifact@v2
       with:
         name: BigBaseV2
-        path: bin/Dist/BigBaseV2.dll
+        path: bin/Release/BigBaseV2.dll
