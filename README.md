@@ -1,8 +1,10 @@
 <h1 align="center">simple-recovery</h1>
 <p align="center">
-  <a href="https://github.com/1337Nexo/offset-dumper/blob/master/LICENSE">
+  <a href="https://github.com/1337Nexo/simple-recovery/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/1337Nexo/simple-recovery.svg?style=flat-square"/>
-    <img src="https://img.shields.io/github/workflow/status/1337Nexo/simple-recovery/CI/main?style=flat-square"/>
+   </a>
+  <a href="https://github.com/1337Nexo/simple-recovery/actions">
+      <img src="https://img.shields.io/github/workflow/status/1337Nexo/simple-recovery/CI/main?style=flat-square"/>
    </a>
   <br>
   A simple recovery mod menu for Grand Theft Auto Online.
