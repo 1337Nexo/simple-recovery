@@ -15,3 +15,6 @@
 	url = https://github.com/ocornut/imgui
 	branch = master
 	ignore = dirty
+[submodule "vendor/spdlog"]
+	path = vendor/spdlog
+	url = https://github.com/gabime/spdlog

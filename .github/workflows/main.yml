@@ -32,10 +32,14 @@ jobs:
         
     - name: Build simple-recovery
       shell: cmd
-      run: 'msbuild simple-recovery/simple-recovery.vcxproj /p:Platform=x64 /p:Configuration=Release'
+      run: |
+        'msbuild simple-recovery/simple-recovery.vcxproj /p:Platform=x64 /p:Configuration=Release'
+        'msbuild simple-recovery-injector/simple-recovery-injector.vcxproj /p:Platform=x64 /p:Configuration=Release'
       
     - name: Upload binaries to GitHub
       uses: actions/upload-artifact@v2
       with:
         name: simple-recovery
-        path: bin/Release/simple-recovery.dll
+        path: |
+          bin/Release/simple-recovery.dll
+          bin/Release/simple-recovery-injector.exe
