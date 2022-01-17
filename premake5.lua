@@ -17,6 +17,7 @@ workspace "simple-recovery"
   IncludeDir["MinHook"] = "vendor/MinHook/include"
   IncludeDir["ImGui"] = "vendor/ImGui"
   IncludeDir["ImGuiImpl"] = "vendor/ImGui/examples"
+  IncludeDir["spdlog"] = "vendor/spdlog/include"
   
   CppVersion = "C++17"
   MsvcToolset = "v143"
@@ -197,3 +198,48 @@ workspace "simple-recovery"
       flags { "LinkTimeOptimization", "FatalWarnings", "NoManifest", "MultiProcessorCompile" }
       defines { "BIGBASEV2_DIST" }
       optimize "speed"
+
+  project "simple-recovery-injector"
+      kind "ConsoleApp"
+      language "C++"
+      location "simple-recovery-injector"
+
+      characterset ("MBCS")
+
+      targetdir ("bin/%{cfg.buildcfg}")
+      objdir ("bin/obj/%{cfg.buildcfg}/%{prj.name}")
+   
+      PrecompiledHeaderInclude = "common.hpp"
+      PrecompiledHeaderSource = "%{prj.name}/src/common.cpp"
+      
+      includedirs
+      {
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.ImGuiImpl}",
+        "%{IncludeDir.ImGuiCpp}",
+        "%{IncludeDir.spdlog}",
+        "%{prj.name}/src"
+      }
+   
+      links
+      {
+        "ImGui"
+      }
+   
+      files
+      {
+        "%{prj.name}/src/**.hpp",
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.cpp"
+      }
+      
+      filter "configurations:Debug"
+         defines { "DEBUG" }
+         symbols "On"
+   
+      filter "configurations:Release"
+         defines { "NDEBUG" }
+         optimize "On"
+
+    DeclareMSVCOptions()
+    DeclareDebugOptions()
