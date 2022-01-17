@@ -18,7 +18,6 @@ namespace big
 	{
 		if (ImGui::BeginTabItem("Editor"))
 		{
-			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Stat Editor"))
 			{
 				ImGui::PushItemWidth(350.0f);
@@ -225,7 +224,6 @@ namespace big
 					});
 				}
 			}
-			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Packed Bool Editor"))
 			{
 				static int b_index = 31736;
@@ -250,7 +248,6 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
-			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Packed Int Editor"))
 			{
 				ImGui::TextColored(ImVec4(1, 1, 0, 1), "22050>=5 TERBYTE Wholesale price\n22058>=20 Gold Business Battle Trophy \n22063=20 Monkey car");
@@ -275,7 +272,6 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
-			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Get Packed Values In Batch"))
 			{
 				ImGui::TextColored(ImVec4(1, 1, 0, 1), "Value %%appdata%%\\simple-recovery\\simple-recovery.txt generate");
@@ -300,7 +296,6 @@ namespace big
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
-			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Global Editor"))
 			{
 				static int type;
@@ -372,7 +367,6 @@ namespace big
 					}
 				}
 			}
-			ImGui::Separator();
 			ImGui::EndTabItem();
 		}
 	}
