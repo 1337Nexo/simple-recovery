@@ -12,13 +12,10 @@ namespace helper
 	{
 		STATS::_SET_PACKED_STAT_BOOL(index, bvalue, g_local_player.character_index);
 	}
-	
+
 	static bool get_packed_bool(int index)
 	{
-		bool outvalue = false;
-		outvalue = STATS::_GET_PACKED_STAT_BOOL(index, g_local_player.character_index);
-		LOG_INFO("Get Packed Bool: Value: {} | Index:{}", outvalue, index);
-		return outvalue;
+		return STATS::_GET_PACKED_STAT_BOOL(index, g_local_player.character_index);
 	}
 
 	static void set_mass_packed_bool(BOOL value, int min_i, int max_i)
@@ -40,19 +37,12 @@ namespace helper
 
 	static void set_packed_int(int index, int value)
 	{
-		if (value < 0)
-		{
-			value = 255;
-		}
-		STATS::_SET_PACKED_STAT_INT(index, value, g_local_player.character_index);
+		STATS::_SET_PACKED_STAT_INT(index, (value < 0 ? 255 : value), g_local_player.character_index);
 	}
 
 	static int get_packed_int(int index)
 	{
-		int outvalue;
-		outvalue = STATS::_GET_PACKED_STAT_INT(index, g_local_player.character_index);
-		LOG_INFO(" Get Packed Int：Value: {} | Index:{}", outvalue, index);
-		return outvalue;
+		return STATS::_GET_PACKED_STAT_INT(index, g_local_player.character_index);
 	}
 
 	static void get_mass_packed_int(int min_i, int max_i)
@@ -63,61 +53,55 @@ namespace helper
 		}
 	}
 
-	static void set_stat_bit(const std::string String_value, int bit)
+	static void set_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		const auto stat = rage::joaat(String_value_Complete.c_str());
-		STATS::STAT_GET_INT(stat, &value, true);
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		const auto hash = rage::joaat(stat.c_str());
+		STATS::STAT_GET_INT(hash, &value, true);
 		value |= (1 << bit);
-		g_fiber_pool->queue_job([stat, value]
-			{
-				STATS::STAT_SET_INT(stat, value, true);
-			});
+		g_fiber_pool->queue_job([hash, value]
+		{
+			STATS::STAT_SET_INT(hash, value, true);
+		});
 	}
 
-	static void clear_stat_bit(const std::string String_value, int bit)
+	static void clear_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		const auto stat = rage::joaat(String_value_Complete.c_str());
-		STATS::STAT_GET_INT(stat, &value, true);
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		const auto hash = rage::joaat(stat.c_str());
+		STATS::STAT_GET_INT(hash, &value, true);
 		value &= ~(1 << bit);
-		g_fiber_pool->queue_job([stat, value]
-			{
-				STATS::STAT_SET_INT(stat, value, true);
-			});
+		g_fiber_pool->queue_job([hash, value]
+		{
+			STATS::STAT_SET_INT(hash, value, true);
+		});
 	}
 
-	static void STAT_GET_INT(const std::string String_value, int* value)
+	static void STAT_GET_INT(const std::string stat_, int* value)
 	{
-		int& outValue = *value;
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		STATS::STAT_GET_INT(rage::joaat(String_value_Complete.c_str()), &outValue, true);
+		int& out_value = *value;
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		STATS::STAT_GET_INT(rage::joaat(stat.c_str()), &out_value, true);
 	}
 
-	static void STAT_SET_INT(const std::string String_value, int value)
+	static void STAT_SET_INT(const std::string stat_, int value)
 	{
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		STATS::STAT_SET_INT(rage::joaat(String_value_Complete.c_str()), value, true);
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		STATS::STAT_SET_INT(rage::joaat(stat.c_str()), value, true);
 	}
 
-	static void STAT_SET_BOOL(const std::string String_value, bool value)
+	static void STAT_SET_BOOL(const std::string stat_, bool value)
 	{
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		STATS::STAT_SET_BOOL(rage::joaat(String_value_Complete.c_str()), value, true);
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		STATS::STAT_SET_BOOL(rage::joaat(stat.c_str()), value, true);
 	}
 
-	static void STAT_SET_FLOAT(const std::string String_value, float value)
+	static void STAT_SET_FLOAT(const std::string stat_, float value)
 	{
-		std::string character_index = "MP" + std::to_string(g_local_player.character_index);
-		std::string String_value_Complete = std::regex_replace(String_value, std::regex(R"(\MPX)"), character_index);
-		STATS::STAT_SET_FLOAT(rage::joaat(String_value_Complete.c_str()), value, true);
+		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		STATS::STAT_SET_FLOAT(rage::joaat(stat.c_str()), value, true);
 	}
 
 	static int get_rp_value(int64_t value)
@@ -1352,7 +1336,7 @@ namespace helper
 
 			//Int values
 			STAT_SET_INT("MPX_CH_ARC_CAB_CLAW_TROPHY", -1);
-			STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1); 
+			STAT_SET_INT("MPX_CH_ARC_CAB_LOVE_TROPHY", -1);
 			STAT_SET_INT("MPX_AWD_SHARPSHOOTER", 44);
 			STAT_SET_INT("MPX_AWD_RACECHAMP", 54);
 			STAT_SET_INT("MPX_AWD_BATSWORD", 1000300);
@@ -1395,17 +1379,17 @@ namespace helper
 		} QUEUE_JOB_END_CLAUSE
 	}
 
-	
+
 
 	static void facility()
 	{
 		QUEUE_JOB_BEGIN_CLAUSE()
 		{
-				set_packed_int(18982, 3);//TM02
-				set_packed_int(18983, 3);//
-				set_packed_int(18984, 3);//
-				set_packed_int(18985, 3);//
-				set_packed_int(18986, 3);//
+			set_packed_int(18982, 3);//TM02
+			set_packed_int(18983, 3);//
+			set_packed_int(18984, 3);//
+			set_packed_int(18985, 3);//
+			set_packed_int(18986, 3);//
 		} QUEUE_JOB_END_CLAUSE
 	}
 
