@@ -168,7 +168,7 @@ namespace big
 	std::filesystem::path stat_loader::get_stats_config()
 	{
 		auto file_path = std::filesystem::path(std::getenv("appdata"));
-		file_path /= "BigBaseV2";
+		file_path /= "simple-recovery";
 
 		if (!std::filesystem::exists(file_path))
 		{

@@ -278,7 +278,7 @@ namespace big
 			ImGui::Separator();
 			if (ImGui::CollapsingHeader("Get Packed Values In Batch"))
 			{
-				ImGui::TextColored(ImVec4(1, 1, 0, 1), "Value %%appdata%%\\BigBaseV2\\BigBaseV2.txt generate");
+				ImGui::TextColored(ImVec4(1, 1, 0, 1), "Value %%appdata%%\\simple-recovery\\simple-recovery.txt generate");
 				static int MinIndex, MaxIndex;
 				ImGui::PushItemWidth(100.0f);
 				ImGui::InputScalar("Min Value", ImGuiDataType_S32, &MinIndex);

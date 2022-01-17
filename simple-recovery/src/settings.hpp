@@ -4,8 +4,7 @@
 
 namespace big
 {
-	class settings
-	{
+	class settings {
 	public:
 		explicit settings() = default;
 		~settings() = default;
@@ -22,7 +21,7 @@ namespace big
 		bool save()
 		{
 			std::string settings_file = std::getenv("appdata");
-			settings_file += "\\BigBaseV2\\settings.json";
+			settings_file += "\\simple-recovery\\settings.json";
 
 			std::ofstream file(settings_file, std::ios::out | std::ios::trunc);
 			file << options.dump(4);
@@ -33,7 +32,7 @@ namespace big
 		bool load()
 		{
 			std::string settings_file = std::getenv("appdata");
-			settings_file += "\\BigBaseV2\\settings.json";
+			settings_file += "\\simple-recovery\\settings.json";
 
 			std::ifstream file(settings_file);
 
@@ -69,7 +68,7 @@ namespace big
 		bool write_default_config()
 		{
 			std::string settings_file = std::getenv("appdata");
-			settings_file += "\\BigBaseV2\\settings.json";
+			settings_file += "\\simple-recovery\\settings.json";
 
 			std::ofstream file(settings_file, std::ios::out);
 			file << default_options.dump(4);

@@ -1,6 +1,6 @@
-workspace "BigBaseV2"
+workspace "simple-recovery"
   architecture "x64"
-  startproject "BigBaseV2"
+  startproject "simple-recovery"
 
   configurations
   {
@@ -130,8 +130,8 @@ workspace "BigBaseV2"
     DeclareMSVCOptions()
     DeclareDebugOptions()
 
-  project "BigBaseV2"
-    location "BigBaseV2"
+  project "simple-recovery"
+    location "simple-recovery"
     kind "SharedLib"
     language "C++"
 

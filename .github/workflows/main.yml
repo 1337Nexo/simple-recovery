@@ -30,12 +30,12 @@ jobs:
         ls .premake
         premake5 vs2022
         
-    - name: Build BigBaseV2
+    - name: Build simple-recovery
       shell: cmd
-      run: 'msbuild BigBaseV2/BigBaseV2.vcxproj /p:Platform=x64 /p:Configuration=Release'
+      run: 'msbuild simple-recovery/simple-recovery.vcxproj /p:Platform=x64 /p:Configuration=Release'
       
     - name: Upload binaries to GitHub
       uses: actions/upload-artifact@v2
       with:
-        name: BigBaseV2
-        path: bin/Release/BigBaseV2.dll
+        name: simple-recovery
+        path: bin/Release/simple-recovery.dll
