@@ -246,7 +246,7 @@ namespace big
 				ImGui::Text("_SU20PSTAT_BOOL -> Summer Update.\n_CASINOPSTAT_BOOL -> Casino DLC.\n_CASINOHSTPSTAT_BOOL -> Casino Heist DLC (arcade stuff etc.).\n_DLCGUNPSTAT_BOOL -> Gun Running DLC (bunker research).\n_ARENAWARSPSTAT_BOOL -> Arena Wars DLC.\n_HISLANDPSTAT_BOOL -> Cayo Perico Heist DLC (golden gun etc.).\n_DLCBIKEPSTAT_BOOL -> Bikers DLC.\n_TUNERPSTAT_BOOL -> Tuners DLC.");
 			}
 			ImGui::Separator();
-			if (ImGui::CollapsingHeader("other Unlocks"))
+			if (ImGui::CollapsingHeader("Other Unlocks"))
 			{
 				ImGui::Text("Unlocks");
 				static int unlock{};
@@ -566,7 +566,7 @@ namespace big
 				{
 					QUEUE_JOB_BEGIN_CLAUSE()
 					{
-						*script_global(262145).at(20082).as<int*>() = ballisticarmorvalue; // tuneables_processing -156036296
+						*script_global(262145).at(20082).as<int*>() = ballisticarmorvalue; // func_8\(iParam0, iParam1, -156036296, &\(Global_.*\.f_.*\), 1\);
 					} QUEUE_JOB_END_CLAUSE
 				}
 			}
