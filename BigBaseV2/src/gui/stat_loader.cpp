@@ -88,6 +88,29 @@ namespace big
 					});
 				}
 			}
+			ImGui::SameLine();
+			if (ImGui::Button("Get Stats"))
+			{
+				for (int i = 0; i < stat_obj.stats; i++)
+				{
+					const auto hash = rage::joaat(stat_obj.stat_name[i]);
+					g_fiber_pool->queue_job([i, hash]
+					{
+						if (stat_obj.stat_type[i] == 0)
+						{
+							STATS::STAT_GET_INT(hash, &stat_obj.stat_int_value[i], true);
+						}
+						else if (stat_obj.stat_type[i] == 1)
+						{
+							STATS::STAT_GET_BOOL(hash, &stat_obj.stat_bool_value[i], true);
+						}
+						else if (stat_obj.stat_type[i] == 2)
+						{
+							STATS::STAT_GET_FLOAT(hash, &stat_obj.stat_float_value[i], true);
+						}
+					});
+				}
+			}
 			ImGui::Separator();
 			auto stats = list_stats();
 			static std::string selected_stat;

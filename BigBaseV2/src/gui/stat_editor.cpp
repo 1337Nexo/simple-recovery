@@ -19,14 +19,14 @@ namespace big
 		if (ImGui::BeginTabItem("Editor"))
 		{
 			ImGui::Separator();
-			if (ImGui::CollapsingHeader("Stat Edit"))
+			if (ImGui::CollapsingHeader("Stat Editor"))
 			{
 				ImGui::PushItemWidth(350.0f);
 				static int stat_type, int_value, read_int_value;
 				static BOOL bool_value, read_bool_value;
 				static int64_t date_value[7], read_date_value[7];
 				static float float_value, read_float_value, increment_value, read_increment_value;
-				static std::string stat_name{ "MPPLY_KILLS_PLAYERS" }, userid_value{}, read_userid_value{}, string_value{}, read_string_value{}, Error_value{};
+				static std::string stat_name{ "MPPLY_KILLS_PLAYERS" }, userid_value{}, read_userid_value{}, string_value{}, read_string_value{}, error_message{ "Error messages will appear here." };
 				ImGui::InputText("###stat", &stat_name, ImGuiInputTextFlags_CharsUppercase);
 				ImGui::RadioButton("INT", &stat_type, 0); ImGui::SameLine();
 				ImGui::RadioButton("BOOL", &stat_type, 1); ImGui::SameLine();
@@ -92,7 +92,7 @@ namespace big
 					ImGui::InputScalar("Ms###read_millisecond", ImGuiDataType_U32, &read_date_value[6]);
 					ImGui::PopItemFlag(); ImGui::PopStyleVar();
 					ImGui::PopItemWidth();
-					ImGui::TextColored(ImVec4(1, 0, 0, 1), fmt::format(Error_value).c_str());
+					ImGui::TextColored(ImVec4(1, 0, 0, 1), fmt::format(error_message).c_str());
 				}
 				else if (stat_type == 5)
 				{
@@ -119,71 +119,71 @@ namespace big
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
 					const auto hash = rage::joaat(stat_name);
 					g_fiber_pool->queue_job([hash]
+					{
+						if (stat_type == 0)
 						{
-							if (stat_type == 0)
-							{
-								STATS::STAT_SET_INT(hash, int_value, true);
-								STATS::STAT_GET_INT(hash, &read_int_value, true);
+							STATS::STAT_SET_INT(hash, int_value, true);
+							STATS::STAT_GET_INT(hash, &read_int_value, true);
 
-							}
-							else if (stat_type == 1)
+						}
+						else if (stat_type == 1)
+						{
+							STATS::STAT_SET_BOOL(hash, bool_value, true);
+							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+						}
+						else if (stat_type == 2)
+						{
+							STATS::STAT_SET_FLOAT(hash, float_value, true);
+							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+						}
+						else if (stat_type == 3)
+						{
+							STATS::STAT_INCREMENT(hash, increment_value);
+							STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
+						}
+						else if (stat_type == 4)
+						{
+							int time[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+							int64_t year = date_value[0], Mon = date_value[1], day = date_value[2], Hour = date_value[3], Minute = date_value[4], Second = date_value[5], Mil = date_value[6];
+							if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
 							{
-								STATS::STAT_SET_BOOL(hash, bool_value, true);
-								STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
-							}
-							else if (stat_type == 2)
-							{
-								STATS::STAT_SET_FLOAT(hash, float_value, true);
-								STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
-							}
-							else if (stat_type == 3)
-							{
-								STATS::STAT_INCREMENT(hash, increment_value);
-								STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
-							}
-							else if (stat_type == 4)
-							{
-								int time[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-								int64_t year = date_value[0], Mon = date_value[1], day = date_value[2], Hour = date_value[3], Minute = date_value[4], Second = date_value[5], Mil = date_value[6];
-								if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+								time[1] = 29;
+								if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && Mon <= 12 && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
 								{
-									time[1] = 29;
-									if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && Mon <= 12 && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
-									{
-										STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
-										STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-										Error_value = {};
-									}
-									else
-									{
-										Error_value = { "Date or time input is illegal, recheck input data." };
-									}
+									STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
+									STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+									error_message = { "Everything went fine." };
 								}
 								else
 								{
-									if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && 12 >= Mon && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
-									{
-										STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
-										STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-										Error_value = {};
-									}
-									else
-									{
-										Error_value = { "Date or time input is illegal, recheck input data." };
-									}
+									error_message = { "Date or time input is illegal, recheck input data." };
 								}
 							}
-							else if (stat_type == 5)
+							else
 							{
-								STATS::STAT_SET_USER_ID(hash, userid_value.c_str(), true);
-								read_userid_value = STATS::STAT_GET_USER_ID(hash);
+								if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && 12 >= Mon && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
+								{
+									STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
+									STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+									error_message = { "Everything went fine." };
+								}
+								else
+								{
+									error_message = { "Date or time input is illegal, recheck input data." };
+								}
 							}
-							else if (stat_type == 6)
-							{
-								STATS::STAT_SET_STRING(hash, string_value.c_str(), true);
-								read_string_value = STATS::STAT_GET_STRING(hash, true);
-							}
-						});
+						}
+						else if (stat_type == 5)
+						{
+							STATS::STAT_SET_USER_ID(hash, userid_value.c_str(), true);
+							read_userid_value = STATS::STAT_GET_USER_ID(hash);
+						}
+						else if (stat_type == 6)
+						{
+							STATS::STAT_SET_STRING(hash, string_value.c_str(), true);
+							read_string_value = STATS::STAT_GET_STRING(hash, true);
+						}
+					});
 				}
 				ImGui::SameLine();
 				if (ImGui::Button("Read Value"))
@@ -193,36 +193,36 @@ namespace big
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
 					const auto hash = rage::joaat(stat_name);
 					g_fiber_pool->queue_job([hash]
+					{
+						if (stat_type == 0)
 						{
-							if (stat_type == 0)
-							{
-								STATS::STAT_GET_INT(hash, &read_int_value, true);
-							}
-							else if (stat_type == 1)
-							{
-								STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
-							}
-							else if (stat_type == 2)
-							{
-								STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
-							}
-							else if (stat_type == 3)
-							{
-								STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
-							}
-							else if (stat_type == 4)
-							{
-								STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-							}
-							else if (stat_type == 5)
-							{
-								read_userid_value = STATS::STAT_GET_USER_ID(hash);
-							}
-							else if (stat_type == 6)
-							{
-								read_string_value = STATS::STAT_GET_STRING(hash, true);
-							}
-						});
+							STATS::STAT_GET_INT(hash, &read_int_value, true);
+						}
+						else if (stat_type == 1)
+						{
+							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+						}
+						else if (stat_type == 2)
+						{
+							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+						}
+						else if (stat_type == 3)
+						{
+							STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
+						}
+						else if (stat_type == 4)
+						{
+							STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+						}
+						else if (stat_type == 5)
+						{
+							read_userid_value = STATS::STAT_GET_USER_ID(hash);
+						}
+						else if (stat_type == 6)
+						{
+							read_string_value = STATS::STAT_GET_STRING(hash, true);
+						}
+					});
 				}
 			}
 			ImGui::Separator();
@@ -251,7 +251,7 @@ namespace big
 				}
 			}
 			ImGui::Separator();
-			if (ImGui::CollapsingHeader("Packed Int Edit"))
+			if (ImGui::CollapsingHeader("Packed Int Editor"))
 			{
 				ImGui::TextColored(ImVec4(1, 1, 0, 1), "22050>=5 TERBYTE Wholesale price\n22058>=20 Gold Business Battle Trophy \n22063=20 Monkey car");
 				static int i_index = 22058, pie_value = 20;
@@ -276,7 +276,7 @@ namespace big
 				}
 			}
 			ImGui::Separator();
-			if (ImGui::CollapsingHeader("Get packed values in batch"))
+			if (ImGui::CollapsingHeader("Get Packed Values In Batch"))
 			{
 				ImGui::TextColored(ImVec4(1, 1, 0, 1), "Value %%appdata%%\\BigBaseV2\\BigBaseV2.txt generate");
 				static int MinIndex, MaxIndex;
@@ -301,27 +301,27 @@ namespace big
 				}
 			}
 			ImGui::Separator();
-			if (ImGui::CollapsingHeader("Global Edit"))
+			if (ImGui::CollapsingHeader("Global Editor"))
 			{
 				static int type;
 				static int64_t global = 262145, index[5], set_int_value, get_int_value;
 				static float set_float_value, get_float_value;
 				ImGui::PushItemWidth(150.0f);
 				ImGui::InputScalar("Global", ImGuiDataType_S32, &global);
-				ImGui::InputScalar("Index###f0_index", ImGuiDataType_S32, &index[0]);
-				ImGui::InputScalar("Index###f1_index", ImGuiDataType_S32, &index[1]);
-				ImGui::InputScalar("Index###f2_index", ImGuiDataType_S32, &index[2]);
-				ImGui::InputScalar("Index###f3_index", ImGuiDataType_S32, &index[3]);
-				ImGui::InputScalar("Index###f4_index", ImGuiDataType_S32, &index[4]);
+				ImGui::InputScalar("Index #0", ImGuiDataType_S32, &index[0]);
+				ImGui::InputScalar("Index #1 ", ImGuiDataType_S32, &index[1]);
+				ImGui::InputScalar("Index #2", ImGuiDataType_S32, &index[2]);
+				ImGui::InputScalar("Index #3", ImGuiDataType_S32, &index[3]);
+				ImGui::InputScalar("Index #4", ImGuiDataType_S32, &index[4]);
 				ImGui::PopItemWidth();
 				ImGui::RadioButton("INT###GINT", &type, 0); ImGui::SameLine();
 				ImGui::RadioButton("FLOAT###GFLOAT", &type, 1);
 				if (type == 0)
 				{
 					ImGui::PushItemWidth(150.0f);
-					ImGui::InputScalar("Set Int value###SetIntValue", ImGuiDataType_S32, &set_int_value);
+					ImGui::InputScalar("Set Int Value###SetIntValue", ImGuiDataType_S32, &set_int_value);
 					ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true); ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
-					ImGui::InputScalar("Int value###GetIntValue", ImGuiDataType_S32, &get_int_value);
+					ImGui::InputScalar("Get Int Value###GetIntValue", ImGuiDataType_S32, &get_int_value);
 					ImGui::PopItemFlag(); ImGui::PopStyleVar();
 					ImGui::PopItemWidth();
 				}

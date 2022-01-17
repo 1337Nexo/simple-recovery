@@ -16,7 +16,7 @@ namespace big
 	renderer::renderer() :
 		m_dxgi_swapchain(*g_pointers->m_swapchain)
 	{
-		void *d3d_device{};
+		void* d3d_device{};
 		if (SUCCEEDED(m_dxgi_swapchain->GetDevice(__uuidof(ID3D11Device), &d3d_device)))
 		{
 			m_d3d_device.Attach(static_cast<ID3D11Device*>(d3d_device));
@@ -40,7 +40,7 @@ namespace big
 			std::filesystem::create_directory(file_path);
 		}
 		file_path /= "imgui.ini";
-		
+
 		ImGuiContext* ctx = ImGui::CreateContext();
 
 		static std::string path = file_path.make_preferred().string();
@@ -107,7 +107,7 @@ namespace big
 
 	void renderer::wndproc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	{
-		if (msg == WM_KEYUP && wparam == VK_INSERT)
+		if (msg == WM_KEYUP && wparam == VK_INSERT || msg == WM_KEYUP && wparam == VK_DELETE)
 		{
 			//Persist and restore the cursor position between menu instances.
 			static POINT cursor_coords{};
@@ -122,7 +122,7 @@ namespace big
 
 			g_gui.m_opened ^= true;
 		}
-			
+
 
 		if (g_gui.m_opened)
 		{

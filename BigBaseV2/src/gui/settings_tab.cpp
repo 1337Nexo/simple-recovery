@@ -14,7 +14,7 @@ namespace big
 			ImGui::Text(fmt::format("character_index: {}", g_local_player.character_index).c_str());
 			ImGui::Separator();
 			ImGui::Text("thanks to:");
-			ImGui::Text("pocakking (bigbasev2)\nspankerincrease (bigbasev2-fix, diamond casino heist)\ngir489 (is the second personality of spankerincrease, lol)\ndatlimabean04 (bigbasev2-fix)\nsub1to (could not remember)\njonaaa (increment stat)\npolivilas (for the inspiration)\nShirabrixx82 (get rp value, rig slot machines, get into personal vehicle)\nfangshun2004");
+			ImGui::Text("pocakking (bigbasev2)\nspankerincrease (bigbasev2-fix, diamond casino heist)\ngir489 (second personality of spankerincrease, lol)\ndatlimabean04 (bigbasev2-fix)\njonaaa (increment stat)\npolivilas (for the inspiration)\nShirabrixx82 (get rp value, rig slot machines, get into personal vehicle)\nfangshun2004 (date, userid and string stat editor, global editor, and a lot of unlocks)\nYimura (gtav-classes)");
 			ImGui::Separator();
 			if (ImGui::Button("Unload"))
 			{

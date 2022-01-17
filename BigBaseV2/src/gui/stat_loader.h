@@ -7,16 +7,16 @@ namespace big
 {
 	namespace stats_json
 	{
-		struct stats_json
-		{
+		struct stats_json {
 			int stats = 1;
 			std::vector<int> stat_type{};
 			std::vector<std::string> stat_name{};
 			std::vector<int> stat_int_value{};
-			std::vector<bool> stat_bool_value{};
+			std::vector<BOOL> stat_bool_value{};
 			std::vector<float> stat_float_value{};
 		};
-		static void to_json(nlohmann::json& j, const stats_json& attachment) {
+		static void to_json(nlohmann::json& j, const stats_json& attachment)
+		{
 			j = nlohmann::json{ {"stats", attachment.stats},
 								{"stat_type", attachment.stat_type},
 								{"stat_name", attachment.stat_name},
@@ -25,7 +25,8 @@ namespace big
 								{ "stat_float_value", attachment.stat_float_value },
 			};
 		}
-		static void from_json(const nlohmann::json& j, stats_json& attachment) {
+		static void from_json(const nlohmann::json& j, stats_json& attachment)
+		{
 			j.at("stats").get_to(attachment.stats);
 			j.at("stat_type").get_to(attachment.stat_type);
 			j.at("stat_name").get_to(attachment.stat_name);
@@ -36,8 +37,7 @@ namespace big
 
 	};
 
-	class stat_loader
-	{
+	class stat_loader {
 	public:
 		static void render();
 	private:
