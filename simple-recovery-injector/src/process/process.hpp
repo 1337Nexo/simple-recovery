@@ -7,8 +7,6 @@ namespace process
 	inline std::uint32_t pid{};
 	inline std::string name{ "GTA5.exe" };
 
-	typedef DWORD(WINAPI* pRtlCreateUserThread)(IN HANDLE ProcessHandle, IN PSECURITY_DESCRIPTOR SecurityDescriptor, IN BOOL CreateSuspended, IN ULONG StackZeroBits, IN OUT PULONG StackReserved, IN OUT PULONG StackCommit, IN LPVOID StartAddress, IN LPVOID StartParameter, OUT HANDLE ThreadHandle, OUT LPVOID ClientID);
-
 	static bool is_process_running()
 	{
 		auto snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
