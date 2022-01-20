@@ -34,11 +34,11 @@ int main()
 			if (process::create_remote_thread("simple-recovery.dll"))
 				spdlog::info("DLL Injection done.\n");
 			else
-				spdlog::error("Could not inject the DLL.");
+				spdlog::error("Could not inject the DLL.\n");
 
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-			spdlog::info("Closing in 10 seconds");
+			spdlog::info("Closing in 10 seconds.");
 
 			std::this_thread::sleep_for(std::chrono::milliseconds(10000));
 
