@@ -1,7 +1,5 @@
 #include "common.hpp"
 
-#include "util/util.hpp"
-
 namespace process
 {
 	inline std::uint32_t pid{};
@@ -55,45 +53,75 @@ namespace process
 		return 0;
 	}
 
-	static bool create_remote_thread(std::string file_name, std::uint32_t pid)
+	static bool create_remote_thread(std::string file_name)
 	{
-		if (!util::does_file_exist(std::filesystem::absolute(file_name).string()))
+		HANDLE m_handle{ NULL };
+		HANDLE m_create_remote_thread{ NULL };
+		LPVOID m_virtual_alloc{ NULL };
+
+		auto cleanup = [m_handle, m_create_remote_thread, m_virtual_alloc]() -> void
+		{
+			VirtualFreeEx(m_handle, m_virtual_alloc, NULL, MEM_RELEASE);
+			CloseHandle(m_handle);
+			CloseHandle(m_create_remote_thread);
+		};
+
+		if (!std::filesystem::exists(file_name))
 		{
 			spdlog::error("{} file doesn't exist.", file_name);
 			return false;
 		}
 
-		HANDLE m_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+		if (pid == NULL)
+		{
+			spdlog::error("{} is not open.", name);
+			return false;
+		}
+
+		m_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 		if (m_handle == NULL)
 		{
-			spdlog::error("Failed to OpenProcess().");
+			spdlog::error("Failed to OpenProcess(). {}", GetLastError());
+			cleanup();
 			return false;
 		}
 
-		LPVOID m_virtual_alloc = VirtualAllocEx(m_handle, NULL, static_cast<long>(std::filesystem::absolute(file_name).string().length() + 1), MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+		m_virtual_alloc = VirtualAllocEx(m_handle, NULL, static_cast<long>(std::filesystem::absolute(file_name).string().size() * 2), MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 		if (m_virtual_alloc == NULL)
 		{
-			spdlog::error("Failed to VirtualAllocEx().");
+			spdlog::error("Failed to VirtualAllocEx(). {}", GetLastError());
+			cleanup();
 			return false;
 		}
 
-		int m_write_process_memory = WriteProcessMemory(m_handle, m_virtual_alloc, std::filesystem::absolute(file_name).string().c_str(), static_cast<long>(std::filesystem::absolute(file_name).string().length() + 1), NULL);
-		if (m_write_process_memory == ERROR_INVALID_HANDLE) {
-
-			spdlog::error("Failed to WriteProcessMemory().");
+		auto m_write_process_memory = WriteProcessMemory(m_handle, m_virtual_alloc, std::filesystem::absolute(file_name).string().c_str(), static_cast<long>(std::filesystem::absolute(file_name).string().length() + 1), NULL);
+		if (m_write_process_memory == NULL)
+		{
+			spdlog::error("Failed to WriteProcessMemory(). {}", GetLastError());
+			cleanup();
 			return false;
 		}
 
-		HANDLE m_create_remote_thread = CreateRemoteThread(m_handle, NULL, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(GetProcAddress(LoadLibraryA("kernel32"), "LoadLibraryA")), m_virtual_alloc, NULL, NULL);
+		auto m_loadlibrary_address = reinterpret_cast<LPTHREAD_START_ROUTINE>(GetProcAddress(GetModuleHandleA("kernel32.dll"), ("LoadLibraryA")));
+		if (m_loadlibrary_address == NULL)
+		{
+			spdlog::error("Failed to GetProcAddress(). {}", GetLastError());
+			cleanup();
+			return false;
+		}
+
+		spdlog::info("[m_loadlibrary_address]: 0x{:X}", reinterpret_cast<DWORD64>(m_loadlibrary_address));
+
+		m_create_remote_thread = CreateRemoteThread(m_handle, NULL, NULL, m_loadlibrary_address, m_virtual_alloc, NULL, NULL);
 		if (m_create_remote_thread == NULL)
 		{
-			spdlog::error("Failed to CreateRemoteThread().");
+			spdlog::error("Failed to CreateRemoteThread(). {}", GetLastError());
+			cleanup();
 			return false;
 		}
 
-		if (m_handle != NULL && m_virtual_alloc != NULL && m_write_process_memory != ERROR_INVALID_HANDLE && m_create_remote_thread != NULL)
-			return true;
+		cleanup();
 
-		return false;
+		return true;
 	}
 }
