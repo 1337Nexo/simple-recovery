@@ -1253,8 +1253,8 @@ namespace helper
 			Cheval Marshall Free*/
 
 			//Raygun:
-			* script_global(102764).as<int64_t*>() = 90;
-			*script_global(102765).as<int64_t*>() = 1;
+			* script_global(102905).as<int64_t*>() = 90;//Up-n-Atomizer
+			*script_global(102906).as<int64_t*>() = 1;//Festive tint
 
 			//-1.58 -
 			*script_global(262145 + 31437).as<int64_t*>() = 1;//Mask
