@@ -115,113 +115,113 @@ namespace big
 				{
 					std::string character_index = "MP" + std::to_string(g_local_player.character_index);
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
-					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
+					stat_name = std::regex_replace(stat_name, std::regex("^MPX"), character_index);
 					const auto hash = rage::joaat(stat_name);
 					g_fiber_pool->queue_job([hash]
-					{
-						if (stat_type == 0)
 						{
-							STATS::STAT_SET_INT(hash, int_value, true);
-							STATS::STAT_GET_INT(hash, &read_int_value, true);
+							if (stat_type == 0)
+							{
+								STATS::STAT_SET_INT(hash, int_value, true);
+								STATS::STAT_GET_INT(hash, &read_int_value, true);
 
-						}
-						else if (stat_type == 1)
-						{
-							STATS::STAT_SET_BOOL(hash, bool_value, true);
-							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
-						}
-						else if (stat_type == 2)
-						{
-							STATS::STAT_SET_FLOAT(hash, float_value, true);
-							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
-						}
-						else if (stat_type == 3)
-						{
-							STATS::STAT_INCREMENT(hash, increment_value);
-							STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
-						}
-						else if (stat_type == 4)
-						{
-							int time[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-							int64_t year = date_value[0], Mon = date_value[1], day = date_value[2], Hour = date_value[3], Minute = date_value[4], Second = date_value[5], Mil = date_value[6];
-							if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+							}
+							else if (stat_type == 1)
 							{
-								time[1] = 29;
-								if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && Mon <= 12 && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
+								STATS::STAT_SET_BOOL(hash, bool_value, true);
+								STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+							}
+							else if (stat_type == 2)
+							{
+								STATS::STAT_SET_FLOAT(hash, float_value, true);
+								STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+							}
+							else if (stat_type == 3)
+							{
+								STATS::STAT_INCREMENT(hash, increment_value);
+								STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
+							}
+							else if (stat_type == 4)
+							{
+								int time[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+								int64_t year = date_value[0], Mon = date_value[1], day = date_value[2], Hour = date_value[3], Minute = date_value[4], Second = date_value[5], Mil = date_value[6];
+								if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
 								{
-									STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
-									STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-									error_message = { "Everything went fine." };
+									time[1] = 29;
+									if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && Mon <= 12 && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
+									{
+										STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
+										STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+										error_message = { "Everything went fine." };
+									}
+									else
+									{
+										error_message = { "Date or time input is illegal, recheck input data." };
+									}
 								}
 								else
 								{
-									error_message = { "Date or time input is illegal, recheck input data." };
+									if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && 12 >= Mon && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
+									{
+										STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
+										STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+										error_message = { "Everything went fine." };
+									}
+									else
+									{
+										error_message = { "Date or time input is illegal, recheck input data." };
+									}
 								}
 							}
-							else
+							else if (stat_type == 5)
 							{
-								if (0 <= day && day <= time[Mon - 1] && 0 <= Mon && 12 >= Mon && 0 <= Hour && Hour < 24 && 0 <= Minute && Minute < 60 && 0 <= Second && Second < 60 && 0 <= Mil && Mil < 1000)
-								{
-									STATS::STAT_SET_DATE(hash, (int*)&date_value[0], 7, true);
-									STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-									error_message = { "Everything went fine." };
-								}
-								else
-								{
-									error_message = { "Date or time input is illegal, recheck input data." };
-								}
+								STATS::STAT_SET_USER_ID(hash, userid_value.c_str(), true);
+								read_userid_value = STATS::STAT_GET_USER_ID(hash);
 							}
-						}
-						else if (stat_type == 5)
-						{
-							STATS::STAT_SET_USER_ID(hash, userid_value.c_str(), true);
-							read_userid_value = STATS::STAT_GET_USER_ID(hash);
-						}
-						else if (stat_type == 6)
-						{
-							STATS::STAT_SET_STRING(hash, string_value.c_str(), true);
-							read_string_value = STATS::STAT_GET_STRING(hash, true);
-						}
-					});
+							else if (stat_type == 6)
+							{
+								STATS::STAT_SET_STRING(hash, string_value.c_str(), true);
+								read_string_value = STATS::STAT_GET_STRING(hash, true);
+							}
+						});
 				}
 				ImGui::SameLine();
 				if (ImGui::Button("Read Value"))
 				{
 					std::string character_index = "MP" + std::to_string(g_local_player.character_index);
 					stat_name = std::regex_replace(stat_name, std::regex(R"(\$)"), "");
-					stat_name = std::regex_replace(stat_name, std::regex(R"(\MPX)"), character_index);
+					stat_name = std::regex_replace(stat_name, std::regex("^MPX"), character_index);
 					const auto hash = rage::joaat(stat_name);
 					g_fiber_pool->queue_job([hash]
-					{
-						if (stat_type == 0)
 						{
-							STATS::STAT_GET_INT(hash, &read_int_value, true);
-						}
-						else if (stat_type == 1)
-						{
-							STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
-						}
-						else if (stat_type == 2)
-						{
-							STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
-						}
-						else if (stat_type == 3)
-						{
-							STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
-						}
-						else if (stat_type == 4)
-						{
-							STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
-						}
-						else if (stat_type == 5)
-						{
-							read_userid_value = STATS::STAT_GET_USER_ID(hash);
-						}
-						else if (stat_type == 6)
-						{
-							read_string_value = STATS::STAT_GET_STRING(hash, true);
-						}
-					});
+							if (stat_type == 0)
+							{
+								STATS::STAT_GET_INT(hash, &read_int_value, true);
+							}
+							else if (stat_type == 1)
+							{
+								STATS::STAT_GET_BOOL(hash, &read_bool_value, true);
+							}
+							else if (stat_type == 2)
+							{
+								STATS::STAT_GET_FLOAT(hash, &read_float_value, true);
+							}
+							else if (stat_type == 3)
+							{
+								STATS::STAT_GET_FLOAT(hash, &read_increment_value, true);
+							}
+							else if (stat_type == 4)
+							{
+								STATS::STAT_GET_DATE(hash, (int*)&read_date_value[0], 7, true);
+							}
+							else if (stat_type == 5)
+							{
+								read_userid_value = STATS::STAT_GET_USER_ID(hash);
+							}
+							else if (stat_type == 6)
+							{
+								read_string_value = STATS::STAT_GET_STRING(hash, true);
+							}
+						});
 				}
 			}
 			if (ImGui::CollapsingHeader("Packed Bool Editor"))

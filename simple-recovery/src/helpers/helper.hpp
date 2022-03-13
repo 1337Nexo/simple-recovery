@@ -56,7 +56,7 @@ namespace helper
 	static void set_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		const auto hash = rage::joaat(stat.c_str());
 		STATS::STAT_GET_INT(hash, &value, true);
 		value |= (1 << bit);
@@ -69,7 +69,7 @@ namespace helper
 	static void clear_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		const auto hash = rage::joaat(stat.c_str());
 		STATS::STAT_GET_INT(hash, &value, true);
 		value &= ~(1 << bit);
@@ -82,25 +82,25 @@ namespace helper
 	static void STAT_GET_INT(const std::string stat_, int* value)
 	{
 		int& out_value = *value;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_GET_INT(rage::joaat(stat.c_str()), &out_value, true);
 	}
 
 	static void STAT_SET_INT(const std::string stat_, int value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_INT(rage::joaat(stat.c_str()), value, true);
 	}
 
 	static void STAT_SET_BOOL(const std::string stat_, bool value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_BOOL(rage::joaat(stat.c_str()), value, true);
 	}
 
 	static void STAT_SET_FLOAT(const std::string stat_, float value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_FLOAT(rage::joaat(stat.c_str()), value, true);
 	}
 
