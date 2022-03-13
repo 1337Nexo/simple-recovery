@@ -81,7 +81,7 @@ namespace process
 		m_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 		if (m_handle == NULL)
 		{
-			spdlog::error("Failed to OpenProcess(). {}", GetLastError());
+			spdlog::error("Failed to OpenProcess(). 0x{:X}", GetLastError());
 			cleanup();
 			return false;
 		}
@@ -89,7 +89,7 @@ namespace process
 		m_virtual_alloc = VirtualAllocEx(m_handle, NULL, static_cast<long>(std::filesystem::absolute(file_name).string().size() * 2), MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 		if (m_virtual_alloc == NULL)
 		{
-			spdlog::error("Failed to VirtualAllocEx(). {}", GetLastError());
+			spdlog::error("Failed to VirtualAllocEx(). 0x{:X}", GetLastError());
 			cleanup();
 			return false;
 		}
@@ -97,7 +97,7 @@ namespace process
 		auto m_write_process_memory = WriteProcessMemory(m_handle, m_virtual_alloc, std::filesystem::absolute(file_name).string().c_str(), static_cast<long>(std::filesystem::absolute(file_name).string().length() + 1), NULL);
 		if (m_write_process_memory == NULL)
 		{
-			spdlog::error("Failed to WriteProcessMemory(). {}", GetLastError());
+			spdlog::error("Failed to WriteProcessMemory(). 0x{:X}", GetLastError());
 			cleanup();
 			return false;
 		}
@@ -105,7 +105,7 @@ namespace process
 		auto m_loadlibrary_address = reinterpret_cast<LPTHREAD_START_ROUTINE>(GetProcAddress(GetModuleHandleA("kernel32.dll"), ("LoadLibraryA")));
 		if (m_loadlibrary_address == NULL)
 		{
-			spdlog::error("Failed to GetProcAddress(). {}", GetLastError());
+			spdlog::error("Failed to GetProcAddress(). 0x{:X}", GetLastError());
 			cleanup();
 			return false;
 		}
@@ -115,7 +115,7 @@ namespace process
 		m_create_remote_thread = CreateRemoteThread(m_handle, NULL, NULL, m_loadlibrary_address, m_virtual_alloc, NULL, NULL);
 		if (m_create_remote_thread == NULL)
 		{
-			spdlog::error("Failed to CreateRemoteThread(). {}", GetLastError());
+			spdlog::error("Failed to CreateRemoteThread(). 0x{:X}", GetLastError());
 			cleanup();
 			return false;
 		}
