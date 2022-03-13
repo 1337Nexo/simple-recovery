@@ -61,9 +61,9 @@ namespace helper
 		STATS::STAT_GET_INT(hash, &value, true);
 		value |= (1 << bit);
 		g_fiber_pool->queue_job([hash, value]
-		{
-			STATS::STAT_SET_INT(hash, value, true);
-		});
+			{
+				STATS::STAT_SET_INT(hash, value, true);
+			});
 	}
 
 	static void clear_stat_bit(const std::string stat_, int bit)
@@ -74,9 +74,9 @@ namespace helper
 		STATS::STAT_GET_INT(hash, &value, true);
 		value &= ~(1 << bit);
 		g_fiber_pool->queue_job([hash, value]
-		{
-			STATS::STAT_SET_INT(hash, value, true);
-		});
+			{
+				STATS::STAT_SET_INT(hash, value, true);
+			});
 	}
 
 	static void STAT_GET_INT(const std::string stat_, int* value)
@@ -1298,6 +1298,7 @@ namespace helper
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_ALKONOS", true);
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_PATROLB", true);
 			STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS", 127);
+			set_packed_bool(158, false);//free weevil
 		} QUEUE_JOB_END_CLAUSE
 	}
 
