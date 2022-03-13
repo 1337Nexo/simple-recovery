@@ -56,51 +56,51 @@ namespace helper
 	static void set_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		const auto hash = rage::joaat(stat.c_str());
 		STATS::STAT_GET_INT(hash, &value, true);
 		value |= (1 << bit);
 		g_fiber_pool->queue_job([hash, value]
-		{
-			STATS::STAT_SET_INT(hash, value, true);
-		});
+			{
+				STATS::STAT_SET_INT(hash, value, true);
+			});
 	}
 
 	static void clear_stat_bit(const std::string stat_, int bit)
 	{
 		int value = 0;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		const auto hash = rage::joaat(stat.c_str());
 		STATS::STAT_GET_INT(hash, &value, true);
 		value &= ~(1 << bit);
 		g_fiber_pool->queue_job([hash, value]
-		{
-			STATS::STAT_SET_INT(hash, value, true);
-		});
+			{
+				STATS::STAT_SET_INT(hash, value, true);
+			});
 	}
 
 	static void STAT_GET_INT(const std::string stat_, int* value)
 	{
 		int& out_value = *value;
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_GET_INT(rage::joaat(stat.c_str()), &out_value, true);
 	}
 
 	static void STAT_SET_INT(const std::string stat_, int value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_INT(rage::joaat(stat.c_str()), value, true);
 	}
 
 	static void STAT_SET_BOOL(const std::string stat_, bool value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_BOOL(rage::joaat(stat.c_str()), value, true);
 	}
 
 	static void STAT_SET_FLOAT(const std::string stat_, float value)
 	{
-		std::string stat = std::regex_replace(stat_, std::regex(R"(\MPX)"), ("MP" + std::to_string(g_local_player.character_index)));
+		std::string stat = std::regex_replace(stat_, std::regex("^MPX"), ("MP" + std::to_string(g_local_player.character_index)));
 		STATS::STAT_SET_FLOAT(rage::joaat(stat.c_str()), value, true);
 	}
 
@@ -1253,8 +1253,8 @@ namespace helper
 			Cheval Marshall Free*/
 
 			//Raygun:
-			* script_global(102764).as<int64_t*>() = 90;
-			*script_global(102765).as<int64_t*>() = 1;
+			* script_global(102905).as<int64_t*>() = 90;//Up-n-Atomizer
+			*script_global(102906).as<int64_t*>() = 1;//Festive tint
 
 			//-1.58 -
 			*script_global(262145 + 31437).as<int64_t*>() = 1;//Mask
@@ -1298,6 +1298,7 @@ namespace helper
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_ALKONOS", true);
 			STAT_SET_BOOL("MPX_COMPLETE_H4_F_USING_PATROLB", true);
 			STAT_SET_INT("MPX_H4_H4_DJ_MISSIONS", 127);
+			set_packed_bool(158, false);//free weevil
 		} QUEUE_JOB_END_CLAUSE
 	}
 

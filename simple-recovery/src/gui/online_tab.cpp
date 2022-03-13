@@ -395,6 +395,7 @@ namespace big
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
 							helper::set_mass_packed_bool(packed_bool_value, 0, 192);
+							helper::set_packed_bool(158, false);//free weevil
 							helper::set_mass_packed_bool(packed_bool_value, 513, 705);
 							helper::set_mass_packed_bool(packed_bool_value, 2919, 3111);
 							helper::set_mass_packed_bool(packed_bool_value, 3111, 3879);
@@ -447,6 +448,7 @@ namespace big
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
 							helper::set_mass_packed_bool(packed_bool_value, 15946, 16010);
+							helper::set_packed_bool(15994, false);//"cuban800" included in the hangar
 						} QUEUE_JOB_END_CLAUSE
 							break;
 					}
@@ -463,6 +465,7 @@ namespace big
 						QUEUE_JOB_BEGIN_CLAUSE()
 						{
 							helper::set_mass_packed_bool(packed_bool_value, 22066, 22194);
+							helper::set_packed_bool(22069, false);//"speedo4" included in the nightclub
 						} QUEUE_JOB_END_CLAUSE
 							break;
 					}
